@@ -49,6 +49,44 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Materials/attitude_screen.tres"
 }
+},
+"nodes": {
+"PATH:Cube": {
+"mesh_instance/layers": 2
+},
+"PATH:Cube_001": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_001": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane_001": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane_002": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane_003": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane_004": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane_005": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane_006": {
+"mesh_instance/layers": 2
+},
+"PATH:Sphere": {
+"mesh_instance/layers": 2
+}
 }
 }
 blender/nodes/visible=0

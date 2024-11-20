@@ -33,10 +33,11 @@ environment = SubResource("Environment_si5j6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.338787, 0.940863, 0, -0.940863, 0.338787, 0, 16.7386, 0)
+light_color = Color(0.972898, 0.943445, 0.900644, 1)
 light_cull_mask = 4294967293
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(40, 0, 0, 0, 0.24, 0, 0, 0, 40, 0, -0.2, 0)
+transform = Transform3D(40, 0, 0, 0, 0.24, 0, 0, 0, 40, 0, -0.308492, 0)
 use_collision = true
 material = ExtResource("2_ennkp")
 
@@ -55,5 +56,16 @@ radius = 1.0
 material = ExtResource("4_qvud4")
 
 [node name="HeatZone" parent="." instance=ExtResource("5_b75ev")]
-transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, 0, 0.999458, -14.7763)
+transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, -13.5791, 3.63407, -27.5634)
+
+[node name="HeatZone2" parent="." instance=ExtResource("5_b75ev")]
+transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, -4.69401, 3.63407, -27.5634)
+heat_level = 0
+
+[node name="HeatZone3" parent="." instance=ExtResource("5_b75ev")]
+transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, 4.75805, 3.63407, -27.5634)
 heat_level = 1
+
+[node name="HeatZone4" parent="." instance=ExtResource("5_b75ev")]
+transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, 14.1116, 3.63407, -27.5634)
+heat_level = 2

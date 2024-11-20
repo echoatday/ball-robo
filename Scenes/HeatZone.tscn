@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgusnhk3ph8f0"]
+[gd_scene load_steps=4 format=3 uid="uid://cgusnhk3ph8f0"]
 
 [sub_resource type="GDScript" id="GDScript_t22so"]
 script/source = "extends Area3D
@@ -13,6 +13,10 @@ func _on_body_entered(body: Node3D) -> void:
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6uhxt"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frwvv"]
+transparency = 1
+albedo_color = Color(1, 0.286275, 0.282353, 0.627451)
+
 [node name="Area3D" type="Area3D"]
 collision_layer = 4
 collision_mask = 2
@@ -20,5 +24,8 @@ script = SubResource("GDScript_t22so")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6uhxt")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material = SubResource("StandardMaterial3D_frwvv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

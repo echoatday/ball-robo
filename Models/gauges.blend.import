@@ -45,6 +45,56 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Materials/black_back.tres"
 }
+},
+"nodes": {
+"PATH:Cube": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_001": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_002": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_003": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_004": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_005": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_006": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_007": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_008": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_009": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_010": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_011": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_012": {
+"mesh_instance/layers": 2
+},
+"PATH:Sphere": {
+"mesh_instance/layers": 2
+},
+"PATH:Sphere_001": {
+"mesh_instance/layers": 2
+}
 }
 }
 blender/nodes/visible=0

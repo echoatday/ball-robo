@@ -27,7 +27,7 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7s8xn"]
 points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -6, -6, 30, 6, -6, 30, -6, 6, 30, 6, 6, 30)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "cockpit", "collider", "sphere", "walk_sphere", "ball_sphere", "reticle", "box_display", "grapple_cable", "grapple_cast", "pilot_rig", "seat")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "cockpit", "collider", "sphere", "walk_sphere", "ball_sphere", "reticle", "box_display", "grapple_cable", "grapple_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
@@ -45,15 +45,21 @@ grapple_cable = NodePath("Cockpit/Sphere/walk_sphere/cable_controller")
 grapple_cast = NodePath("Cockpit/UI/Reticle/TargetCast")
 pilot_rig = NodePath("Cockpit/Seat/pilot_rig")
 seat = NodePath("Cockpit/Seat")
+cockpit_light = NodePath("Cockpit/CockpitLight")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_v0m4j")
 
 [node name="Cockpit" type="Node3D" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00385129, 0.000704832, -0.014688)
+[node name="CockpitLight" type="OmniLight3D" parent="Cockpit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00385129, 0.0390975, 0.0379313)
+layers = 2
+light_color = Color(1.63645e-06, 0.31172, 0.835339, 1)
+light_energy = 0.2
 light_cull_mask = 4294966274
+omni_range = 0.228
+omni_attenuation = 1.373
 
 [node name="Seat" type="Node3D" parent="Cockpit"]
 
@@ -76,11 +82,13 @@ gauge_text = NodePath("energy_text")
 
 [node name="energy_needle" type="CSGCylinder3D" parent="Cockpit/Seat/pilot_rig/gauges/energy_gauge"]
 transform = Transform3D(0.999999, 2.98023e-08, -4.47035e-08, 0, 1, -2.98023e-08, -3.72529e-08, 8.9407e-08, 0.999999, -2.65599e-09, 0.47963, 0.2)
+layers = 2
 height = 0.3
 material = ExtResource("5_3wou3")
 
 [node name="needle" type="CSGBox3D" parent="Cockpit/Seat/pilot_rig/gauges/energy_gauge/energy_needle"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -1)
+layers = 2
 size = Vector3(1, 1, 16)
 material = ExtResource("5_nrjpl")
 
@@ -106,11 +114,13 @@ gauge_text = NodePath("heat_text")
 
 [node name="heat_needle" type="CSGCylinder3D" parent="Cockpit/Seat/pilot_rig/gauges/heat_gauge"]
 transform = Transform3D(0.999999, 2.98023e-08, -4.47035e-08, 0, 1, -2.98023e-08, -3.72529e-08, 8.9407e-08, 0.999999, 0, 0.6, 0.2)
+layers = 2
 height = 0.3
 material = ExtResource("5_3wou3")
 
 [node name="needle" type="CSGBox3D" parent="Cockpit/Seat/pilot_rig/gauges/heat_gauge/heat_needle"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -1)
+layers = 2
 size = Vector3(1, 1, 16)
 material = ExtResource("5_nrjpl")
 

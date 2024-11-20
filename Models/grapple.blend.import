@@ -35,7 +35,21 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/path": "res://Textures/gun.tres"
+"use_external/path": "res://Materials/gun.tres"
+}
+},
+"nodes": {
+"PATH:Cylinder": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_004": {
+"mesh_instance/layers": 2
+},
+"PATH:Cylinder_012": {
+"mesh_instance/layers": 2
+},
+"PATH:Plane": {
+"mesh_instance/layers": 2
 }
 }
 }

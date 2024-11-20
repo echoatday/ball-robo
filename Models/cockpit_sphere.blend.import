@@ -35,11 +35,19 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/path": "res://Textures/window_metal.tres"
+"use_external/path": "res://Materials/window_metal.tres"
 },
 "Material.001": {
 "use_external/enabled": true,
-"use_external/path": "res://Textures/window_metal.tres"
+"use_external/path": "res://Materials/window_metal.tres"
+}
+},
+"nodes": {
+"PATH:Icosphere": {
+"mesh_instance/layers": 2
+},
+"PATH:Icosphere_001": {
+"mesh_instance/layers": 2
 }
 }
 }

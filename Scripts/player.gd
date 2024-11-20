@@ -16,6 +16,7 @@ extends CharacterBody3D
 @export_category("Instruments")
 @export var pilot_rig: Node3D
 @export var seat: Node3D
+@export var cockpit_light: Light3D
 
 const SPEED = 6.6
 const ACCEL = 1.1
@@ -36,7 +37,7 @@ var energy_recharge := 1
 var energy := max_energy
 var max_heat := 1000
 var heat := 0
-var heat_level := -1
+var heat_level := -1 # range should be -1 to 2. -1 is fine, 0 is hot, 1 is dangerous, 2 is lethal
 
 var energy_cost := {
 	"small": 50,
@@ -150,6 +151,8 @@ func _physics_process(delta: float) -> void:
 	# Stat management
 	energy -= energy_checkout
 	energy_checkout = 0
+	
+	cockpit_light.light_color = Color(heat*0.001,0.1,1-(heat*0.001))
 	
 	if heat > max_heat:
 		print_debug("YOU'RE DEAD")
