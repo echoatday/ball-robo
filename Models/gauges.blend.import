@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bjhwsokytak6y"
-path="res://.godot/imported/gauges.blend-8fa78cd09adf9bba93d55580521794b8.scn"
+path="res://.godot/imported/gauges.blend-11548be43c015ddffcd794c2199c598d.scn"
 
 [deps]
 
-source_file="res://Models/gauges.blend"
-dest_files=["res://.godot/imported/gauges.blend-8fa78cd09adf9bba93d55580521794b8.scn"]
+source_file="res://models/gauges.blend"
+dest_files=["res://.godot/imported/gauges.blend-11548be43c015ddffcd794c2199c598d.scn"]
 
 [params]
 

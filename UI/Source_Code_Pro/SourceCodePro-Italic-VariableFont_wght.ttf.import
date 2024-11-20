@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cha44ix55fgeh"
-path="res://.godot/imported/SourceCodePro-Italic-VariableFont_wght.ttf-83e8cd6a5851a9e0e093f0844a91a5dd.fontdata"
+path="res://.godot/imported/SourceCodePro-Italic-VariableFont_wght.ttf-205687fbd63e58c198fa1e0cfd70f4a8.fontdata"
 
 [deps]
 
-source_file="res://UI/Source_Code_Pro/SourceCodePro-Italic-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/SourceCodePro-Italic-VariableFont_wght.ttf-83e8cd6a5851a9e0e093f0844a91a5dd.fontdata"]
+source_file="res://ui/Source_Code_Pro/SourceCodePro-Italic-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/SourceCodePro-Italic-VariableFont_wght.ttf-205687fbd63e58c198fa1e0cfd70f4a8.fontdata"]
 
 [params]
 

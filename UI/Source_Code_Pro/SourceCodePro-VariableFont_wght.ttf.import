@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://170tcx2nt3e5"
-path="res://.godot/imported/SourceCodePro-VariableFont_wght.ttf-9a270fee026f277a3d3a25d7f8cecb2f.fontdata"
+path="res://.godot/imported/SourceCodePro-VariableFont_wght.ttf-faaf50bb5de78a5f8b28da3f465a4295.fontdata"
 
 [deps]
 
-source_file="res://UI/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/SourceCodePro-VariableFont_wght.ttf-9a270fee026f277a3d3a25d7f8cecb2f.fontdata"]
+source_file="res://ui/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/SourceCodePro-VariableFont_wght.ttf-faaf50bb5de78a5f8b28da3f465a4295.fontdata"]
 
 [params]
 

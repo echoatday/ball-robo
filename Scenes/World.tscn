@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://3ilansp4ikci"]
 
-[ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://Scenes/Player.tscn" id="1_dow2d"]
-[ext_resource type="Material" uid="uid://krnqgmlcobrr" path="res://Materials/env_basic.tres" id="2_ennkp"]
-[ext_resource type="Material" uid="uid://b5lw0gv0vlpop" path="res://Materials/env_grass.tres" id="3_qry1w"]
-[ext_resource type="Material" uid="uid://bjbvtm7r3owe2" path="res://Materials/grapple_target.tres" id="4_qvud4"]
-[ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://Scenes/HeatZone.tscn" id="5_b75ev"]
+[ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://scenes/Player.tscn" id="1_dow2d"]
+[ext_resource type="Material" uid="uid://krnqgmlcobrr" path="res://materials/env_basic.tres" id="2_ennkp"]
+[ext_resource type="Material" uid="uid://b5lw0gv0vlpop" path="res://materials/env_grass.tres" id="3_qry1w"]
+[ext_resource type="Material" uid="uid://bjbvtm7r3owe2" path="res://materials/grapple_target.tres" id="4_qvud4"]
+[ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="5_b75ev"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ilktl"]
 sky_top_color = Color(0.414684, 0.561706, 0.731669, 1)
@@ -37,7 +37,7 @@ light_color = Color(0.972898, 0.943445, 0.900644, 1)
 light_cull_mask = 4294967293
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(40, 0, 0, 0, 0.24, 0, 0, 0, 40, 0, -0.308492, 0)
+transform = Transform3D(40, 0, 0, 0, 0.24, 0, 0, 0, 40, 0, -0.291301, 0)
 use_collision = true
 material = ExtResource("2_ennkp")
 

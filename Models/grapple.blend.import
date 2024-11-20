@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b4837xdfht2o0"
-path="res://.godot/imported/grapple.blend-728ad5f77cfd0b6884172d0ad338dff6.scn"
+path="res://.godot/imported/grapple.blend-f8b622fa9e1d12ceb1f27d4d212a6b2c.scn"
 
 [deps]
 
-source_file="res://Models/grapple.blend"
-dest_files=["res://.godot/imported/grapple.blend-728ad5f77cfd0b6884172d0ad338dff6.scn"]
+source_file="res://models/grapple.blend"
+dest_files=["res://.godot/imported/grapple.blend-f8b622fa9e1d12ceb1f27d4d212a6b2c.scn"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://6ufyqqecj6o1"
-path="res://.godot/imported/ShareTechMono-Regular.ttf-c3c66a8b6f3f0a29124c557d9ddc1dcc.fontdata"
+path="res://.godot/imported/ShareTechMono-Regular.ttf-584d944a6458f3e37aefc3cb85f5c0f1.fontdata"
 
 [deps]
 
-source_file="res://UI/Share_Tech_Mono/ShareTechMono-Regular.ttf"
-dest_files=["res://.godot/imported/ShareTechMono-Regular.ttf-c3c66a8b6f3f0a29124c557d9ddc1dcc.fontdata"]
+source_file="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf"
+dest_files=["res://.godot/imported/ShareTechMono-Regular.ttf-584d944a6458f3e37aefc3cb85f5c0f1.fontdata"]
 
 [params]
 

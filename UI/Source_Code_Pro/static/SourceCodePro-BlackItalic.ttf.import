@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dl4saiwll8p0"
-path="res://.godot/imported/SourceCodePro-BlackItalic.ttf-572cd6e3c086a9093c765731ffad9ae7.fontdata"
+path="res://.godot/imported/SourceCodePro-BlackItalic.ttf-333fb61825330e306d4f3e3908cbd966.fontdata"
 
 [deps]
 
-source_file="res://UI/Source_Code_Pro/static/SourceCodePro-BlackItalic.ttf"
-dest_files=["res://.godot/imported/SourceCodePro-BlackItalic.ttf-572cd6e3c086a9093c765731ffad9ae7.fontdata"]
+source_file="res://ui/Source_Code_Pro/static/SourceCodePro-BlackItalic.ttf"
+dest_files=["res://.godot/imported/SourceCodePro-BlackItalic.ttf-333fb61825330e306d4f3e3908cbd966.fontdata"]
 
 [params]
 

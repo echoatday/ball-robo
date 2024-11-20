@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dal07cxjc7dfx"
-path="res://.godot/imported/SourceCodePro-LightItalic.ttf-22cf57c51210022f13a435595ed604b4.fontdata"
+path="res://.godot/imported/SourceCodePro-LightItalic.ttf-78f0ee9a25b8443cd50b3ac331751e55.fontdata"
 
 [deps]
 
-source_file="res://UI/Source_Code_Pro/static/SourceCodePro-LightItalic.ttf"
-dest_files=["res://.godot/imported/SourceCodePro-LightItalic.ttf-22cf57c51210022f13a435595ed604b4.fontdata"]
+source_file="res://ui/Source_Code_Pro/static/SourceCodePro-LightItalic.ttf"
+dest_files=["res://.godot/imported/SourceCodePro-LightItalic.ttf-78f0ee9a25b8443cd50b3ac331751e55.fontdata"]
 
 [params]
 
