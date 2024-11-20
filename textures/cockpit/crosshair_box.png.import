@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bieubrjs7s7po"
-path="res://.godot/imported/crosshair_ball.png-12039591f2db2d296d2f9a64071c5742.ctex"
+uid="uid://mj7p2kfr8ygy"
+path.s3tc="res://.godot/imported/crosshair_box.png-2d204e640108a614e4bdabb21e0643e4.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://materials/textures/crosshair_ball.png"
-dest_files=["res://.godot/imported/crosshair_ball.png-12039591f2db2d296d2f9a64071c5742.ctex"]
+source_file="res://textures/cockpit/crosshair_box.png"
+dest_files=["res://.godot/imported/crosshair_box.png-2d204e640108a614e4bdabb21e0643e4.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dehlubwc5lcpe"
-path="res://.godot/imported/crosshair_box_yellow.png-55a3d62ee4f064dd08449b61c7d6abf2.ctex"
+uid="uid://dhmu0toe1itnr"
+path="res://.godot/imported/clip.png-b88af128d9765ee842c60c6e4c027bc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://materials/textures/crosshair_box_yellow.png"
-dest_files=["res://.godot/imported/crosshair_box_yellow.png-55a3d62ee4f064dd08449b61c7d6abf2.ctex"]
+source_file="res://textures/special/clip.png"
+dest_files=["res://.godot/imported/clip.png-b88af128d9765ee842c60c6e4c027bc0.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

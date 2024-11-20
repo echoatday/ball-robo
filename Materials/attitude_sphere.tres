@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://by3jlsreis8rn"]
 
-[ext_resource type="Texture2D" uid="uid://dl2uih6n7ft2c" path="res://materials/textures/navball.png" id="1_54q0o"]
+[ext_resource type="Texture2D" uid="uid://dl2uih6n7ft2c" path="res://textures/cockpit/navball.png" id="1_54q0o"]
 
 [resource]
 albedo_color = Color(0.864675, 0.864675, 0.864675, 1)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://3ilansp4ikci"]
+[gd_scene load_steps=10 format=3 uid="uid://3ilansp4ikci"]
 
 [ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://scenes/Player.tscn" id="1_dow2d"]
 [ext_resource type="Material" uid="uid://krnqgmlcobrr" path="res://materials/env_basic.tres" id="2_ennkp"]
 [ext_resource type="Material" uid="uid://b5lw0gv0vlpop" path="res://materials/env_grass.tres" id="3_qry1w"]
 [ext_resource type="Material" uid="uid://bjbvtm7r3owe2" path="res://materials/grapple_target.tres" id="4_qvud4"]
 [ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="5_b75ev"]
+[ext_resource type="PackedScene" uid="uid://pbmaoa7ihmyt" path="res://scenes/TestRoom.tscn" id="6_gxpgx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ilktl"]
 sky_top_color = Color(0.414684, 0.561706, 0.731669, 1)
@@ -69,3 +70,6 @@ heat_level = 1
 [node name="HeatZone4" parent="." instance=ExtResource("5_b75ev")]
 transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, 14.1116, 3.63407, -27.5634)
 heat_level = 2
+
+[node name="TestRoom" parent="." instance=ExtResource("6_gxpgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8872, 0.291972, 0)

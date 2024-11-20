@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mj7p2kfr8ygy"
-path.s3tc="res://.godot/imported/crosshair_box.png-3be4c6ff2b7b89bbc805b90f81f29f1b.s3tc.ctex"
+uid="uid://dl2uih6n7ft2c"
+path.s3tc="res://.godot/imported/navball.png-8a9a02772a6e530b79f700c7153c273a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materials/textures/crosshair_box.png"
-dest_files=["res://.godot/imported/crosshair_box.png-3be4c6ff2b7b89bbc805b90f81f29f1b.s3tc.ctex"]
+source_file="res://textures/cockpit/navball.png"
+dest_files=["res://.godot/imported/navball.png-8a9a02772a6e530b79f700c7153c273a.s3tc.ctex"]
 
 [params]
 
