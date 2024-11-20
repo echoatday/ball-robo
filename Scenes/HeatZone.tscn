@@ -1,13 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgusnhk3ph8f0"]
 
-[ext_resource type="Script" path="res://Scripts/heat_zone.gd" id="1_koqw0"]
+[sub_resource type="GDScript" id="GDScript_t22so"]
+script/source = "extends Area3D
+
+@export var heat_level := -1
+@onready var world = get_node(\"../\")
+
+func _on_body_entered(body: Node3D) -> void:
+	world.environment.fog_density = heat_level * 0.02
+	body.heat_level = heat_level
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6uhxt"]
 
 [node name="Area3D" type="Area3D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_koqw0")
+script = SubResource("GDScript_t22so")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6uhxt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

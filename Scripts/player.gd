@@ -36,6 +36,7 @@ var energy_recharge := 1
 var energy := max_energy
 var max_heat := 1000
 var heat := 0
+var heat_level := -1
 
 var energy_cost := {
 	"small": 50,
@@ -157,12 +158,8 @@ func _physics_process(delta: float) -> void:
 		heat += -energy*4
 	elif energy < max_energy and !state_grappling:
 		energy += energy_recharge
-		
-	# Heat testing (remove this when damage is implemented)
-	if Input.is_action_pressed("interact"):
-		heat += 3
-	elif heat > 0:
-		heat -= 1
+
+	heat += heat_level
 	
 	heat = clamp(heat, 0, max_heat)
 	energy = clamp(energy, 0, max_energy)
