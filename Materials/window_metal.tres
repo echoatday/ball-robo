@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cmtsqrhbc5xq0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tjy01"]
+noise_type = 2
+frequency = 0.05
+fractal_gain = 1.0
+cellular_jitter = 7.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uay6n"]
+width = 2048
+height = 2048
+generate_mipmaps = false
+seamless_blend_skirt = 0.995
+normalize = false
+noise = SubResource("FastNoiseLite_tjy01")
+
+[resource]
+cull_mode = 1
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.133196, 0.133196, 0.133196, 1)
+albedo_texture = SubResource("NoiseTexture2D_uay6n")
+metallic_specular = 0.0

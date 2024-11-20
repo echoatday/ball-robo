@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://c82iey1rryacy"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_mm6ix"]
+[ext_resource type="Material" uid="uid://dl2prsr523g2r" path="res://digital_ui.tres" id="2_j4hq5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
+
+[node name="Player" type="CharacterBody3D"]
+floor_constant_speed = true
+script = ExtResource("1_mm6ix")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_v0m4j")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Reticle" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.001, 0.1, -0.203)
+material_override = ExtResource("2_j4hq5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Reticle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Reticle"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.05, 0, 0, 0)
+operation = 2
+
+[node name="Cannon" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Cannon"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -0.2, 0, -0.6)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Cannon"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0.2, 0, -0.6)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Cannon"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0.2, -0.6)
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Cannon"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, -0.2, -0.6)
