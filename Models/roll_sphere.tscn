@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d25w2m7pvefjp"]
-
-[ext_resource type="PackedScene" uid="uid://cbp6n7n25vpvp" path="res://models/cockpit_sphere.blend" id="1_4csia"]
-
-[node name="cockpit_sphere" instance=ExtResource("1_4csia")]
-
-[node name="Icosphere" parent="." index="0"]
-visible = false
