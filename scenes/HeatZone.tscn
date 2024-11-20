@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgusnhk3ph8f0"]
+
+[sub_resource type="GDScript" id="GDScript_t22so"]
+script/source = "extends Area3D
+
+@export var heat_level := -1
+@export var color_box: Node3D
+@onready var world = get_node(\"../\")
+
+func _ready() -> void:
+	var heat_color = heat_level*0.3
+	color_box.material.albedo_color = Color(0.2+heat_color, 0.2, -heat_color, 0.1+(heat_color/3))
+
+func _on_body_entered(body: Node3D) -> void:
+	#world.environment.fog_density = heat_level * 0.02
+	body.heat_level = heat_level
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6uhxt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xudmt"]
+noise_type = 3
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4xsqe"]
+in_3d_space = true
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 1.0
+normalize = false
+noise = SubResource("FastNoiseLite_xudmt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frwvv"]
+resource_local_to_scene = true
+transparency = 1
+blend_mode = 4
+shading_mode = 0
+albedo_color = Color(1, 0.27451, 0.27451, 0.627451)
+albedo_texture = SubResource("NoiseTexture2D_4xsqe")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+disable_receive_shadows = true
+
+[node name="Area3D" type="Area3D" node_paths=PackedStringArray("color_box")]
+collision_layer = 4
+collision_mask = 2
+script = SubResource("GDScript_t22so")
+color_box = NodePath("ColorBox")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6uhxt")
+
+[node name="ColorBox" type="CSGBox3D" parent="."]
+material = SubResource("StandardMaterial3D_frwvv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
