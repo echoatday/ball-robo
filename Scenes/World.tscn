@@ -72,4 +72,4 @@ transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, 14.1116, 3.63407,
 heat_level = 2
 
 [node name="TestRoom" parent="." instance=ExtResource("6_gxpgx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8872, 0.291972, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22.3945, 0.223698, 69.9631)

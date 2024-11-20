@@ -1,4 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-materials/textures/photoshops
+textures/cockpit/photoshops

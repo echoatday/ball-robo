@@ -20,7 +20,7 @@ extends CharacterBody3D
 
 const SPEED = 6.6
 const ACCEL = 1.1
-const BOOST_SPEED = 10
+const BOOST_SPEED = 6
 const JUMP_VELOCITY = 6
 const LOOK_SPEED = 0.0002
 const MARGIN = 160
@@ -33,11 +33,11 @@ var state_grappling := false
 var current_speed = SPEED
 var current_accel = ACCEL
 var max_energy := 300
+var energy := 0
 var energy_recharge := 1
-var energy := max_energy
 var max_heat := 1000
 var heat := 0
-var heat_level := -1 # range should be -1 to 2. -1 is fine, 0 is hot, 1 is dangerous, 2 is lethal
+var heat_level := -1 # range should be -1 to 1. -1 is fine, 0 is hot, 1 is dangerous
 
 var energy_cost := {
 	"small": 50,
@@ -136,13 +136,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			ball_sphere.global_rotate(Vector3(velocity.z, 0, -velocity.x).normalized(), 0.005*velocity.length())
 		box_display.texture = box_texture[0]
-		collider.shape.radius = 1
+		collider.shape.radius = 0.4
 		current_speed = SPEED * 2
 		current_accel = ACCEL / 4
 		walk_sphere.visible = false
 		ball_sphere.visible = true
 	else:
-		collider.shape.radius = 2
+		collider.shape.radius = 0.9
 		current_speed = SPEED
 		current_accel = ACCEL
 		walk_sphere.visible = true
@@ -152,7 +152,7 @@ func _physics_process(delta: float) -> void:
 	energy -= energy_checkout
 	energy_checkout = 0
 	
-	cockpit_light.light_color = Color(heat*0.001,0.1,1-(heat*0.001))
+	cockpit_light.light_color = Color(heat*0.001,0.1,0.5-(heat*0.001))
 	
 	if heat > max_heat:
 		print_debug("YOU'RE DEAD")
