@@ -9,10 +9,10 @@ extends CharacterBody3D
 @export_category("UI")
 @export var reticle: Node3D
 @export var box_display: Node3D
-@export var box_texture: Array[Texture]
 @export_category("Grappling")
 @export var grapple_cable: Node3D
 @export var grapple_cast: Node3D
+@export var spin_cast: Node3D
 @export_category("Instruments")
 @export var pilot_rig: Node3D
 @export var seat: Node3D
@@ -33,9 +33,11 @@ var state_grappling := false
 var state_spinning := false
 var can_boost := true
 var can_jump := true
+var can_grapple := true
 var current_speed = SPEED
 var current_accel = ACCEL
 var spin_velocity := Vector3.ZERO
+var spin_speed = 0
 
 var max_energy := 300
 var energy := 0
@@ -49,6 +51,8 @@ var energy_cost := {
 	"large": 100,
 }
 var energy_checkout := 0
+
+var spin_strength = energy_cost.large/6
 
 var grapple_hook_position := Vector3.ZERO
 var grapple_ready := false
@@ -76,40 +80,48 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.z = move_toward(velocity.z, direction.z * current_speed, ACCEL/10)
 	
-	if !direction.x and is_on_floor():
+	if not direction.x and is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, current_accel)
-	if !direction.z and is_on_floor():
+	if not direction.z and is_on_floor():
 		velocity.z = move_toward(velocity.z, 0, current_accel)
 	
-	# --- SPINNING ---
-	if state_spinning:
-		velocity.x = move_toward(velocity.x, 0, ACCEL)
-		velocity.z = move_toward(velocity.z, 0, ACCEL)
-		ball_sphere.global_rotate(Vector3(spin_velocity.z, 0, -spin_velocity.x).normalized(), 0.01*spin_velocity.length())
-		spin_velocity.x = move_toward(spin_velocity.x,direction.x*(energy_cost.large/4),1)
-		spin_velocity.z = move_toward(spin_velocity.z,direction.z*(energy_cost.large/4),1)
+	# --- ROLLING ---
+	if state_rolling:
+		state_grappling = false
+		if is_on_floor():
+			ball_sphere.global_rotate(Vector3(velocity.z, 0, -velocity.x).normalized(), 0.01*velocity.length())
+		else:
+			ball_sphere.global_rotate(Vector3(velocity.z, 0, -velocity.x).normalized(), 0.005*velocity.length())
+		collider.shape.radius = 0.4
+		current_speed = SPEED * 2
+		current_accel = ACCEL / 4
+		walk_sphere.visible = false
+		ball_sphere.visible = true
 	else:
+		state_spinning = false
+		collider.shape.radius = 0.9
+		current_speed = SPEED
+		current_accel = ACCEL
+		walk_sphere.visible = true
+		ball_sphere.visible = false
+	
+	# --- SPINNING ---
+	var spin_direction = (spin_cast.global_position - global_position).normalized()
+	if state_spinning:
+		current_speed = SPEED * 0.5
+		spin_speed = move_toward(spin_speed, spin_strength, 0.2)
+		spin_velocity = spin_direction*spin_speed
+	else:
+		spin_speed = 0
 		spin_velocity = Vector3.ZERO
 	
 	
 	# --- GRAPPLING ---
 	
-	# Grapple UI display
-	var grapple_cast_hit = grapple_cast.get_collider(0)
-	if !grapple_ready and !state_grappling:
-		box_display.set_modulate(Color(0.4,1,0.4))
-		box_display.texture = box_texture[1]
-	elif !state_grappling:
-		box_display.set_modulate(Color(1,1,0.4))
-		box_display.texture = box_texture[2]
-	else:
-		box_display.set_modulate(Color(1,0.2,0.2))
-		box_display.texture = box_texture[3]
-	
 	# Hold grapple
 	var grapple_direction = (grapple_hook_position - position).normalized()
-	var grapple_idle_direction = (grapple_cast.get_collision_point(0) - position).normalized()
-	if Input.is_action_pressed("grapple") and state_grappling:
+	var grapple_idle_direction = (spin_cast.global_position - position).normalized()
+	if Input.is_action_pressed("fire") and state_grappling:
 		var grapple_target_speed = grapple_direction * GRAPPLE_SPEED
 		velocity += grapple_target_speed
 	else:
@@ -124,16 +136,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		cable_material.set_albedo(Color(0.2,0.2,0.2))
 
-	if !state_grappling and grapple_cast_hit:
+	if not state_grappling and grapple_cast.is_colliding():
 		if abs(grapple_idle_direction.x + cockpit.global_transform.basis.z.x) > GRAPPLE_LIMIT or abs(grapple_idle_direction.z + cockpit.global_transform.basis.z.z) > GRAPPLE_LIMIT or abs(grapple_idle_direction.y + cockpit.global_transform.basis.x.y) > GRAPPLE_LIMIT+0.05:
 			grapple_ready = false
-			box_display.set_modulate(Color(0.2,0.2,0.2))
+			can_grapple = false
 		else:
 			grapple_ready = true
-	elif !grapple_cast_hit:
+			can_grapple = true
+	elif not grapple_cast.is_colliding():
 		grapple_ready = false
 	else:
 		grapple_ready = true
+		can_grapple = true
 	
 	# Grapple cable
 	if state_grappling:
@@ -142,27 +156,6 @@ func _physics_process(delta: float) -> void:
 		grapple_cable.scale.z = (grapple_hook_position - grapple_cable.transform.origin).length()*2
 	else:
 		grapple_cable.visible = false
-	
-	# --- ROLLING ---
-	if state_rolling:
-		state_grappling = false
-		if is_on_floor():
-			ball_sphere.global_rotate(Vector3(velocity.z, 0, -velocity.x).normalized(), 0.01*velocity.length())
-		else:
-			ball_sphere.global_rotate(Vector3(velocity.z, 0, -velocity.x).normalized(), 0.005*velocity.length())
-		box_display.texture = box_texture[0]
-		collider.shape.radius = 0.4
-		current_speed = SPEED * 2
-		current_accel = ACCEL / 4
-		walk_sphere.visible = false
-		ball_sphere.visible = true
-	else:
-		state_spinning = false
-		collider.shape.radius = 0.9
-		current_speed = SPEED
-		current_accel = ACCEL
-		walk_sphere.visible = true
-		ball_sphere.visible = false
 	
 	# Stat management
 	energy -= energy_checkout
@@ -175,7 +168,7 @@ func _physics_process(delta: float) -> void:
 	
 	if energy < 0:
 		heat += -energy*4
-	elif energy < max_energy and !state_grappling and !state_spinning:
+	elif energy < max_energy and not state_grappling and not state_spinning:
 		energy += energy_recharge
 
 	heat += heat_level
@@ -184,10 +177,13 @@ func _physics_process(delta: float) -> void:
 	energy = clamp(energy, 0, max_energy)
 	
 	# --- ACTIONS ---
-	if is_on_floor() or state_grappling:
+	if state_spinning:
+		can_jump = false
+		can_boost = false
+	elif is_on_floor() or state_grappling:
 		can_boost = true
 		can_jump = true
-	elif is_on_wall():
+	elif is_on_wall() and not state_rolling:
 		can_jump = true
 	else:
 		can_jump = false
@@ -196,9 +192,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and can_jump:
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
-		if !is_on_floor():
-			velocity.x += get_wall_normal().x * BOOST_SPEED*1.7
-			velocity.z += get_wall_normal().z * BOOST_SPEED*1.7
+		if not is_on_floor():
+			velocity.x += get_wall_normal().x * BOOST_SPEED*1.4
+			velocity.z += get_wall_normal().z * BOOST_SPEED*1.4
 			state_grappling = false
 		can_jump = false
 		
@@ -207,27 +203,26 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY/3
 			state_grappling = false
 		ball_sphere.set_global_rotation(walk_sphere.get_global_rotation())
-		state_rolling = !state_rolling
+		state_rolling = not state_rolling
 		
-	if !state_rolling:
+	if not state_rolling:
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
 			velocity.y = JUMP_VELOCITY/3
 			velocity += direction * BOOST_SPEED
 			energy_checkout += energy_cost.large
 			can_boost = false
 			state_grappling = false
-			state_rolling = false
 		
-		if Input.is_action_just_pressed("grapple") and grapple_ready:
+		if Input.is_action_just_pressed("fire") and grapple_ready:
 			grapple_hook_position = grapple_cast.get_collision_point(0)
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
-		if Input.is_action_just_pressed("boost"):
+		if Input.is_action_just_pressed("fire") and can_boost:
 			state_spinning = true
-		if Input.is_action_just_released("boost"):
+		if Input.is_action_just_released("fire"):
 			energy_checkout += spin_velocity.length()*4
-			velocity += spin_velocity
+			velocity = spin_velocity
 			state_spinning = false
 
 	aim()
@@ -243,17 +238,14 @@ func aim() -> void:
 	
 	# Mouse turning control
 	if Input.is_action_just_pressed("look"):
-		state_looking = !state_looking
+		state_looking = not state_looking
 	if state_looking:
 		var cursor_distance_from_center_x = screen_center_hori - cursor_location.x
 		var cursor_distance_from_center_y = screen_center_verti - cursor_location.y
 		rotate_y(cursor_distance_from_center_x * LOOK_SPEED)
 		seat.rotate_x(cursor_distance_from_center_y * LOOK_SPEED)
 		
-		if !state_rolling:
-			seat.rotation.x = clamp(seat.rotation.x, -0.6, 0.6)
-		else:
-			seat.rotation.x = clamp(seat.rotation.x, -0.99, 0.99)
+		seat.rotation.x = clamp(seat.rotation.x, -0.6, 0.6)
 	
 	pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.26),10))
 	

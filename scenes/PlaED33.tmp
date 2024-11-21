@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c82iey1rryacy"]
+[gd_scene load_steps=26 format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
@@ -19,11 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://mj7p2kfr8ygy" path="res://textures/cockpit/crosshair_box.png" id="12_go2wy"]
 [ext_resource type="Script" path="res://scripts/cockpit_sphere.gd" id="14_y10qh"]
 [ext_resource type="PackedScene" uid="uid://s5wkwid0pcn2" path="res://models/interface.blend" id="15_w2gm3"]
-[ext_resource type="Texture2D" uid="uid://qrcfyp2nqb7i" path="res://textures/cockpit/crosshair_ball_yellow.png" id="16_dpgmg"]
 [ext_resource type="FontFile" uid="uid://b28nn2pbt11jk" path="res://ui/Digital_Display/digital-display.ttf" id="16_h7tg4"]
 [ext_resource type="Script" path="res://scripts/ring_control.gd" id="16_i4nk8"]
 [ext_resource type="Script" path="res://scripts/box_control.gd" id="17_isqgh"]
-[ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
 [ext_resource type="Script" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
@@ -221,7 +219,7 @@ double_sided = false
 alpha_cut = 1
 texture = ExtResource("12_go2wy")
 script = ExtResource("17_isqgh")
-box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("16_dpgmg"), ExtResource("17_tu6o0"), ExtResource("12_go2wy"), ExtResource("4_gtmj1"), ExtResource("5_8qmgo")])
+box_texture = Array[Texture]([ExtResource("3_7tb5x"), null, null, ExtResource("12_go2wy"), ExtResource("4_gtmj1"), ExtResource("5_8qmgo")])
 
 [node name="crosshair" type="Label3D" parent="Cockpit/UI/Reticle"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
