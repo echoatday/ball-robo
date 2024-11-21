@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 			set_modulate(Color(1,0.2,0.2))
 			texture = box_texture[5]
 	else:
-		if not owner.can_boost and not owner.state_spinning:
+		if not owner.can_spin and not owner.state_spinning:
 			set_modulate(Color(0.2,0.2,0.2))
 			texture = box_texture[0]
 		elif owner.spin_speed == 0:

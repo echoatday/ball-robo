@@ -34,6 +34,7 @@ var state_spinning := false
 var can_boost := true
 var can_jump := true
 var can_grapple := true
+var can_spin := true
 var current_speed = SPEED
 var current_accel = ACCEL
 var spin_velocity := Vector3.ZERO
@@ -183,6 +184,7 @@ func _physics_process(delta: float) -> void:
 	elif is_on_floor() or state_grappling:
 		can_boost = true
 		can_jump = true
+		can_spin = true
 	elif is_on_wall() and not state_rolling:
 		can_jump = true
 	else:
@@ -218,12 +220,13 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
-		if Input.is_action_just_pressed("fire") and can_boost:
+		if Input.is_action_just_pressed("fire") and can_spin:
 			state_spinning = true
-		if Input.is_action_just_released("fire"):
+		if Input.is_action_just_released("fire") and can_spin:
 			energy_checkout += spin_velocity.length()*4
 			velocity = spin_velocity
 			state_spinning = false
+			can_spin = false
 
 	aim()
 	move_and_slide()
