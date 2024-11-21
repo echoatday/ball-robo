@@ -20,7 +20,7 @@ extends CharacterBody3D
 
 const SPEED = 6.6
 const ACCEL = 1.1
-const BOOST_SPEED = 6
+const BOOST_SPEED = 8
 const JUMP_VELOCITY = 6
 const LOOK_SPEED = 0.0002
 const MARGIN = 160
@@ -30,8 +30,13 @@ const GRAPPLE_LIMIT = 0.85
 var state_looking := false
 var state_rolling := false
 var state_grappling := false
+var state_spinning := false
+var can_boost := true
+var can_jump := true
 var current_speed = SPEED
 var current_accel = ACCEL
+var spin_velocity := Vector3.ZERO
+
 var max_energy := 300
 var energy := 0
 var energy_recharge := 1
@@ -75,6 +80,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, current_accel)
 	if !direction.z and is_on_floor():
 		velocity.z = move_toward(velocity.z, 0, current_accel)
+	
+	# --- SPINNING ---
+	if state_spinning:
+		velocity.x = move_toward(velocity.x, 0, ACCEL)
+		velocity.z = move_toward(velocity.z, 0, ACCEL)
+		ball_sphere.global_rotate(Vector3(spin_velocity.z, 0, -spin_velocity.x).normalized(), 0.01*spin_velocity.length())
+		spin_velocity.x = move_toward(spin_velocity.x,direction.x*(energy_cost.large/4),1)
+		spin_velocity.z = move_toward(spin_velocity.z,direction.z*(energy_cost.large/4),1)
+	else:
+		spin_velocity = Vector3.ZERO
+	
 	
 	# --- GRAPPLING ---
 	
@@ -128,7 +144,6 @@ func _physics_process(delta: float) -> void:
 		grapple_cable.visible = false
 	
 	# --- ROLLING ---
-	
 	if state_rolling:
 		state_grappling = false
 		if is_on_floor():
@@ -142,6 +157,7 @@ func _physics_process(delta: float) -> void:
 		walk_sphere.visible = false
 		ball_sphere.visible = true
 	else:
+		state_spinning = false
 		collider.shape.radius = 0.9
 		current_speed = SPEED
 		current_accel = ACCEL
@@ -159,7 +175,7 @@ func _physics_process(delta: float) -> void:
 	
 	if energy < 0:
 		heat += -energy*4
-	elif energy < max_energy and !state_grappling:
+	elif energy < max_energy and !state_grappling and !state_spinning:
 		energy += energy_recharge
 
 	heat += heat_level
@@ -168,13 +184,23 @@ func _physics_process(delta: float) -> void:
 	energy = clamp(energy, 0, max_energy)
 	
 	# --- ACTIONS ---
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
-			energy_checkout += energy_cost.small
-			velocity.y = JUMP_VELOCITY
-		elif state_grappling:
-			energy_checkout += energy_cost.large
+	if is_on_floor() or state_grappling:
+		can_boost = true
+		can_jump = true
+	elif is_on_wall():
+		can_jump = true
+	else:
+		can_jump = false
+		
+	
+	if Input.is_action_just_pressed("jump") and can_jump:
+		energy_checkout += energy_cost.small
+		velocity.y = JUMP_VELOCITY
+		if !is_on_floor():
+			velocity.x += get_wall_normal().x * BOOST_SPEED*1.7
+			velocity.z += get_wall_normal().z * BOOST_SPEED*1.7
 			state_grappling = false
+		can_jump = false
 		
 	if Input.is_action_just_pressed("roll"):
 		if is_on_floor() or state_grappling:
@@ -182,16 +208,13 @@ func _physics_process(delta: float) -> void:
 			state_grappling = false
 		ball_sphere.set_global_rotation(walk_sphere.get_global_rotation())
 		state_rolling = !state_rolling
-	
-	
 		
 	if !state_rolling:
-		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO:
-			if is_on_floor():
-				velocity.y = JUMP_VELOCITY/3
-			velocity.x += direction.x * BOOST_SPEED
-			velocity.z += direction.z * BOOST_SPEED
+		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
+			velocity.y = JUMP_VELOCITY/3
+			velocity += direction * BOOST_SPEED
 			energy_checkout += energy_cost.large
+			can_boost = false
 			state_grappling = false
 			state_rolling = false
 		
@@ -199,6 +222,13 @@ func _physics_process(delta: float) -> void:
 			grapple_hook_position = grapple_cast.get_collision_point(0)
 			energy_checkout += energy_cost.small
 			state_grappling = true
+	else:
+		if Input.is_action_just_pressed("boost"):
+			state_spinning = true
+		if Input.is_action_just_released("boost"):
+			energy_checkout += spin_velocity.length()*4
+			velocity += spin_velocity
+			state_spinning = false
 
 	aim()
 	move_and_slide()

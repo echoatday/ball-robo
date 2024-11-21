@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
+radius = 0.9
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7s8xn"]
 points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -6, -6, 30, 6, -6, 30, -6, 6, 30, 6, 6, 30)
@@ -35,10 +36,10 @@ floor_max_angle = 0.523599
 script = ExtResource("1_mm6ix")
 camera = NodePath("Cockpit/Seat/Camera3D")
 cockpit = NodePath("Cockpit")
-collider = NodePath("CollisionShape3D")
+collider = NodePath("PlayerCollision3D")
 sphere = NodePath("Cockpit/Sphere")
 walk_sphere = NodePath("Cockpit/Sphere/walk_sphere")
-ball_sphere = NodePath("Cockpit/Sphere/ball_sphere")
+ball_sphere = NodePath("Cockpit/Sphere/roll_sphere")
 reticle = NodePath("Cockpit/UI/Reticle")
 box_display = NodePath("Cockpit/UI/Reticle/box")
 box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("12_go2wy"), ExtResource("4_gtmj1"), ExtResource("5_8qmgo")])
@@ -48,7 +49,7 @@ pilot_rig = NodePath("Cockpit/Seat/pilot_rig")
 seat = NodePath("Cockpit/Seat")
 cockpit_light = NodePath("Cockpit/CockpitLight")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="PlayerCollision3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_v0m4j")
 
 [node name="Cockpit" type="Node3D" parent="."]
@@ -219,9 +220,9 @@ height = 1.0
 sides = 4
 material = ExtResource("10_lnno2")
 
-[node name="ball_sphere" type="Node3D" parent="Cockpit/Sphere"]
+[node name="roll_sphere" type="Node3D" parent="Cockpit/Sphere"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 visible = false
 
-[node name="cockpit_sphere" parent="Cockpit/Sphere/ball_sphere" instance=ExtResource("7_ov2p3")]
+[node name="cockpit_sphere" parent="Cockpit/Sphere/roll_sphere" instance=ExtResource("7_ov2p3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
