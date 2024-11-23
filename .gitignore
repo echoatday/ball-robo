@@ -18,4 +18,5 @@ mono_crash.*.json
 # Project-specific ignores
 textures/cockpit/photoshops
 maps/autosave
+maps/objects/autosave
 /FuncGodot Manual

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://btiuicsk2cj0v"
+path="res://.godot/imported/grapple_target.map-d0b18ce2781767f868f27cac34d43692.tres"
+
+[deps]
+
+source_file="res://maps/objects/grapple_target.map"
+dest_files=["res://.godot/imported/grapple_target.map-d0b18ce2781767f868f27cac34d43692.tres"]
+
+[params]
+

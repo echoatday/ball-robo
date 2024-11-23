@@ -24,7 +24,7 @@ const BOOST_SPEED = 8
 const JUMP_VELOCITY = 6
 const LOOK_SPEED = 0.0002
 const MARGIN = 160
-const GRAPPLE_SPEED = 0.7
+const GRAPPLE_SPEED = 20
 const GRAPPLE_LIMIT = 0.85
 
 var state_looking := false
@@ -57,6 +57,9 @@ var spin_strength = energy_cost.large/6
 
 var grapple_hook_position := Vector3.ZERO
 var grapple_ready := false
+
+func _ready() -> void:
+	Globals.player = self
 
 func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()
@@ -122,28 +125,20 @@ func _physics_process(delta: float) -> void:
 	# Hold grapple
 	var grapple_direction = (grapple_hook_position - position).normalized()
 	var grapple_idle_direction = (spin_cast.global_position - position).normalized()
-	if Input.is_action_pressed("fire") and state_grappling:
-		var grapple_target_speed = grapple_direction * GRAPPLE_SPEED
-		velocity += grapple_target_speed
-	else:
-		state_grappling = false
-	
-	# Break cable if the angle is too sharp
 	var cable_material = grapple_cable.get_child(0).material
-	if abs(grapple_direction.x + cockpit.global_transform.basis.z.x) > GRAPPLE_LIMIT or abs(grapple_direction.z + cockpit.global_transform.basis.z.z) > GRAPPLE_LIMIT or abs(grapple_direction.y + cockpit.global_transform.basis.x.y) > GRAPPLE_LIMIT+0.05:
-		state_grappling = false
-	elif abs(grapple_direction.x + cockpit.global_transform.basis.z.x) > GRAPPLE_LIMIT-0.3 or abs(grapple_direction.z + cockpit.global_transform.basis.z.z) > GRAPPLE_LIMIT-0.3 or abs(grapple_direction.y + cockpit.global_transform.basis.x.y) > GRAPPLE_LIMIT+0.05-0.2:
-		cable_material.set_albedo(Color(0.6,0.2,0.2))
+	if Input.is_action_pressed("fire") and state_grappling:
+		var grapple_velocity = ((grapple_hook_position - position) - grapple_direction) * 2
+		velocity = velocity.move_toward(grapple_velocity, current_accel*1.5)
+		if grapple_velocity.length() < SPEED:
+			state_grappling = false
+		else:
+			cable_material.set_albedo(Color(0.8-(grapple_velocity.length()/30),0.2,0.2))
 	else:
-		cable_material.set_albedo(Color(0.2,0.2,0.2))
+		state_grappling = false
 
 	if not state_grappling and grapple_cast.is_colliding():
-		if abs(grapple_idle_direction.x + cockpit.global_transform.basis.z.x) > GRAPPLE_LIMIT or abs(grapple_idle_direction.z + cockpit.global_transform.basis.z.z) > GRAPPLE_LIMIT or abs(grapple_idle_direction.y + cockpit.global_transform.basis.x.y) > GRAPPLE_LIMIT+0.05:
-			grapple_ready = false
-			can_grapple = false
-		else:
-			grapple_ready = true
-			can_grapple = true
+		grapple_ready = true
+		can_grapple = true
 	elif not grapple_cast.is_colliding():
 		grapple_ready = false
 	else:
@@ -216,7 +211,7 @@ func _physics_process(delta: float) -> void:
 			state_grappling = false
 		
 		if Input.is_action_just_pressed("fire") and grapple_ready:
-			grapple_hook_position = grapple_cast.get_collision_point(0)
+			grapple_hook_position = grapple_cast.get_collider(0).global_position
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
@@ -227,6 +222,7 @@ func _physics_process(delta: float) -> void:
 			velocity = spin_velocity
 			state_spinning = false
 			can_spin = false
+			can_boost = true
 
 	aim()
 	move_and_slide()
@@ -239,10 +235,17 @@ func aim() -> void:
 	var screen_center_hori = get_viewport().size.x/2
 	var screen_center_verti = get_viewport().size.y/2
 	
+	var ui_edge_x = get_viewport().size.x/3.7
+	var ui_edge_y = get_viewport().size.y/5
+	cursor_location.x = clamp(cursor_location.x, screen_center_hori-ui_edge_x, screen_center_hori+ui_edge_x)
+	cursor_location.y = clamp(cursor_location.y, screen_center_verti-ui_edge_y, screen_center_verti+ui_edge_y)
+	#Input.warp_mouse(cursor_location)
+	
+	
 	# Mouse turning control
 	if Input.is_action_just_pressed("look"):
 		state_looking = not state_looking
-	if state_looking:
+	if state_looking and not state_grappling:
 		var cursor_distance_from_center_x = screen_center_hori - cursor_location.x
 		var cursor_distance_from_center_y = screen_center_verti - cursor_location.y
 		rotate_y(cursor_distance_from_center_x * LOOK_SPEED)
@@ -250,8 +253,8 @@ func aim() -> void:
 		
 		seat.rotation.x = clamp(seat.rotation.x, -0.6, 0.6)
 	
-	pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.26),10))
+	pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
 	
 	# Reticle handling
 	reticle.global_position = camera.project_position(cursor_location,0.2)
-	reticle.look_at(camera.global_transform.origin)
+	reticle.look_at(camera.global_position)
