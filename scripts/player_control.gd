@@ -31,6 +31,7 @@ var state_looking := false
 var state_rolling := false
 var state_grappling := false
 var state_spinning := false
+var state_sticking := false
 var can_boost := true
 var can_jump := true
 var can_grapple := true
@@ -65,8 +66,12 @@ func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()
 	
 	# Add the gravity.
-	if not is_on_floor():
+	if not state_sticking and not is_on_floor():
 		velocity += get_gravity() * delta
+	elif state_sticking:
+		velocity += -get_gravity() * delta
+		velocity.y = clamp(velocity.y, -current_speed*2, current_speed)
+		energy_checkout += energy_recharge+2
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
@@ -92,10 +97,6 @@ func _physics_process(delta: float) -> void:
 	# --- ROLLING ---
 	if state_rolling:
 		state_grappling = false
-		if is_on_floor():
-			ball_sphere.global_rotate(Vector3(velocity.z, 0, -velocity.x).normalized(), 0.01*velocity.length())
-		else:
-			ball_sphere.global_rotate(Vector3(velocity.z, 0, -velocity.x).normalized(), 0.005*velocity.length())
 		collider.shape.radius = 0.4
 		current_speed = SPEED * 2
 		current_accel = ACCEL / 4
@@ -180,6 +181,8 @@ func _physics_process(delta: float) -> void:
 		can_boost = true
 		can_jump = true
 		can_spin = true
+	elif is_on_wall() and state_sticking:
+		can_jump = true
 	elif is_on_wall() and not state_rolling:
 		can_jump = true
 	else:
@@ -203,6 +206,8 @@ func _physics_process(delta: float) -> void:
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
+		state_sticking = false
+		
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
 			velocity.y = JUMP_VELOCITY/3
 			velocity += direction * BOOST_SPEED
@@ -215,6 +220,11 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
+		if Input.is_action_pressed("boost") and is_on_wall():
+			state_sticking = true
+		else:
+			state_sticking = false
+		
 		if Input.is_action_just_pressed("fire") and can_spin:
 			state_spinning = true
 		if Input.is_action_just_released("fire") and can_spin:
