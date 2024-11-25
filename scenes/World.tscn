@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://scenes/Player.tscn" id="1_dow2d"]
 [ext_resource type="Material" uid="uid://krnqgmlcobrr" path="res://materials/env_basic.tres" id="2_ennkp"]
 [ext_resource type="Material" uid="uid://b5lw0gv0vlpop" path="res://materials/env_grass.tres" id="3_qry1w"]
-[ext_resource type="Material" uid="uid://bjbvtm7r3owe2" path="res://materials/grapple_target.tres" id="4_qvud4"]
-[ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="5_b75ev"]
-[ext_resource type="PackedScene" uid="uid://pbmaoa7ihmyt" path="res://scenes/TestRoom.tscn" id="6_gxpgx"]
+[ext_resource type="PackedScene" uid="uid://brbx0rv5wm6xp" path="res://scenes/rooms/Room12.tscn" id="6_7mxvw"]
+[ext_resource type="PackedScene" uid="uid://pbmaoa7ihmyt" path="res://scenes/rooms/TestRoom.tscn" id="6_gxpgx"]
+[ext_resource type="PackedScene" uid="uid://du7h3f7nnt4sy" path="res://scenes/rooms/Room11.tscn" id="7_sl0un"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ilktl"]
 sky_top_color = Color(0.414684, 0.561706, 0.731669, 1)
@@ -31,6 +31,7 @@ fog_density = 0.0
 environment = SubResource("Environment_si5j6")
 
 [node name="Player" parent="." instance=ExtResource("1_dow2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 0, -15)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.338787, 0.940863, 0, -0.940863, 0.338787, 0, 16.7386, 0)
@@ -47,29 +48,11 @@ transform = Transform3D(200, 0, 0, 0, 0.008, 0, 0, 0, 200, 0, -0.244325, 0)
 use_collision = true
 material = ExtResource("3_qry1w")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.8705, 0)
-material_override = ExtResource("4_qvud4")
-use_collision = true
-collision_layer = 256
-collision_mask = 256
-radius = 1.0
-material = ExtResource("4_qvud4")
-
-[node name="HeatZone" parent="." instance=ExtResource("5_b75ev")]
-transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, -13.5791, 3.63407, -27.5634)
-
-[node name="HeatZone2" parent="." instance=ExtResource("5_b75ev")]
-transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, -4.69401, 3.63407, -27.5634)
-heat_level = 0
-
-[node name="HeatZone3" parent="." instance=ExtResource("5_b75ev")]
-transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, 4.75805, 3.63407, -27.5634)
-heat_level = 1
-
-[node name="HeatZone4" parent="." instance=ExtResource("5_b75ev")]
-transform = Transform3D(7.665, 0, 0, 0, 7.665, 0, 0, 0, 7.665, 14.1116, 3.63407, -27.5634)
-heat_level = 2
-
 [node name="TestRoom" parent="." instance=ExtResource("6_gxpgx")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22.3945, 0.223698, 69.9631)
+
+[node name="Room11" parent="." instance=ExtResource("7_sl0un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 1, -15)
+
+[node name="Room12" parent="." instance=ExtResource("6_7mxvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -15)
