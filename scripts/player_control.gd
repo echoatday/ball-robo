@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	elif state_sticking:
 		velocity += -get_gravity() * delta
-		velocity.y = clamp(velocity.y, -current_speed*2, current_speed)
+		velocity.y = clamp(velocity.y, -current_speed*2, current_speed/2)
 		energy_checkout += energy_recharge+2
 
 	# Get the input direction and handle the movement/deceleration.
