@@ -52,6 +52,7 @@ color_box = NodePath("ColorBox")
 shape = SubResource("BoxShape3D_6uhxt")
 
 [node name="ColorBox" type="CSGBox3D" parent="."]
+visible = false
 material = SubResource("StandardMaterial3D_frwvv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
