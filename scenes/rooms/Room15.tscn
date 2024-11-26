@@ -764,3 +764,10 @@ shape = SubResource("ConvexPolygonShape3D_hm11h")
 [node name="Area3D" parent="." instance=ExtResource("5_vtmqp")]
 transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 16, 0)
 heat_level = 0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+light_color = Color(1, 0.816445, 0.778427, 1)
+light_energy = 2.0
+omni_range = 100.0
+omni_attenuation = 0.0
