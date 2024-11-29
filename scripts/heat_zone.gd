@@ -27,27 +27,32 @@ func _on_body_entered(body: Node3D) -> void:
 	for current in door:
 		if is_instance_valid(current):
 			var direction := Vector3.ZERO
+			var opposite_door := "Door"
 			match int(current.door_rotation):
 				NORTH:
 					current.spawn_room = this_room - 10
 					direction = Vector3(1,0,0)
+					opposite_door += "South"
 				SOUTH:
 					current.spawn_room = this_room + 10
 					direction = Vector3(-1,0,0)
+					opposite_door += "North"
 				WEST:
 					current.spawn_room = this_room - 1
 					direction = Vector3(0,0,-1)
+					opposite_door += "East"
 				EAST:
 					current.spawn_room = this_room + 1
 					direction = Vector3(0,0,1)
+					opposite_door += "West"
 			
 			if is_instance_valid(StationMap.rooms[current.spawn_room]):
 				var instance = StationMap.rooms[current.spawn_room].instantiate()
+				var entry_door = instance.find_child(opposite_door)
 				instance.get_child(1).this_room = current.spawn_room
 				
 				current.spawn_position = owner.global_position
-				current.spawn_position += direction * (owner.get_child(0).get_child(0).get_child(0).get_aabb().size.abs()/2)
-				current.spawn_position += direction * (instance.get_child(0).get_child(0).get_child(0).get_aabb().size.abs()/2)
+				current.spawn_position +=  current.position - entry_door.position
 				instance.global_position = current.spawn_position
 				world.add_child(instance)
 
