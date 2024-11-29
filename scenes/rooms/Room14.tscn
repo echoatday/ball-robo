@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=4 uid="uid://0ifu6wjh5o6v"]
+[gd_scene load_steps=50 format=4 uid="uid://0ifu6wjh5o6v"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_rmoio"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_srf80"]
 [ext_resource type="Material" uid="uid://cxf4w3sm6fww8" path="res://textures/value_0.tres" id="3_sielh"]
 [ext_resource type="Material" uid="uid://dpmntve512h46" path="res://textures/value_1.tres" id="4_08tvx"]
 [ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="5_1q1tj"]
+[ext_resource type="Script" path="res://scripts/door_control.gd" id="6_i14dn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_72c1g"]
 _surfaces = [{
@@ -299,6 +300,14 @@ shape = SubResource("ConvexPolygonShape3D_ovg83")
 [node name="entity_0_brush_40_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_uh24j")
 
-[node name="Area3D" parent="." instance=ExtResource("5_1q1tj")]
+[node name="HeatZone" parent="." instance=ExtResource("5_1q1tj")]
 transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 16, 0)
 heat_level = 1
+
+[node name="DoorNorth" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 4, -5.68434e-14)
+script = ExtResource("6_i14dn")
+
+[node name="DoorEast" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97237e-06, 4, 17)
+script = ExtResource("6_i14dn")

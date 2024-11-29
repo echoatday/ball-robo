@@ -1,10 +1,11 @@
-[gd_scene load_steps=64 format=4 uid="uid://du7h3f7nnt4sy"]
+[gd_scene load_steps=65 format=4 uid="uid://du7h3f7nnt4sy"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_0pxn7"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_qmo4a"]
 [ext_resource type="Material" uid="uid://cxf4w3sm6fww8" path="res://textures/value_0.tres" id="3_idn0a"]
 [ext_resource type="Material" uid="uid://dpmntve512h46" path="res://textures/value_1.tres" id="3_oeo4j"]
 [ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="4_15g81"]
+[ext_resource type="Script" path="res://scripts/door_control.gd" id="6_ckvj4"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3o14c"]
 _surfaces = [{
@@ -389,7 +390,7 @@ shape = SubResource("ConvexPolygonShape3D_mobgg")
 [node name="entity_0_brush_55_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_ebr0n")
 
-[node name="Area3D" parent="." instance=ExtResource("4_15g81")]
+[node name="HeatZone" parent="." instance=ExtResource("4_15g81")]
 transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 16, 0)
 heat_level = 0
 
@@ -399,3 +400,19 @@ light_color = Color(1, 0.816445, 0.778427, 1)
 light_energy = 2.0
 omni_range = 100.0
 omni_attenuation = 0.0
+
+[node name="DoorNorth" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 4, -5.68434e-14)
+script = ExtResource("6_ckvj4")
+
+[node name="DoorSouth" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, 4, -1.48619e-06)
+script = ExtResource("6_ckvj4")
+
+[node name="DoorWest" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 4, -17)
+script = ExtResource("6_ckvj4")
+
+[node name="DoorEast" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97237e-06, 4, 17)
+script = ExtResource("6_ckvj4")
