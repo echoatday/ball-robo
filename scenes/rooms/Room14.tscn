@@ -265,7 +265,7 @@ shape = SubResource("ConvexPolygonShape3D_aiuq4")
 shape = SubResource("ConvexPolygonShape3D_mx656")
 
 [node name="HeatZone" parent="." instance=ExtResource("5_1q1tj")]
-transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 16, 0)
+transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 32, 0, 8, 0)
 heat_level = 1
 
 [node name="DoorNorth" type="Node3D" parent="."]

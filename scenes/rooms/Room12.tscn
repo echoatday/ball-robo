@@ -761,7 +761,7 @@ transform = Transform3D(32, 0, 0, 0, 32, 0, 0, 0, 64, 0, 0, 0)
 heat_level = 0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -16)
 light_color = Color(1, 0.816445, 0.778427, 1)
 light_energy = 2.0
 omni_range = 100.0

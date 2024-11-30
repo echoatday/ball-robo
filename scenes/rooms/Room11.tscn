@@ -505,7 +505,7 @@ shape = SubResource("ConvexPolygonShape3D_e85fl")
 shape = SubResource("ConvexPolygonShape3D_jwves")
 
 [node name="HeatZone" parent="." instance=ExtResource("4_15g81")]
-transform = Transform3D(44, 0, 0, 0, 32, 0, 0, 0, 32, 0, 16, 0)
+transform = Transform3D(44, 0, 0, 0, 32, 0, 0, 0, 32, 0, 8, 0)
 heat_level = 0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
