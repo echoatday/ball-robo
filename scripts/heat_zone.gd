@@ -13,7 +13,7 @@ var this_room
 func _ready() -> void:
 	var heat_color = heat_level*0.3
 	if not this_room:
-		this_room = 75
+		this_room = 52
 
 func _on_body_entered(body: Node3D) -> void:
 	#world.environment.fog_density = heat_level * 0.02
