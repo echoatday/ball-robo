@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://btp4ub1kj4via"]
+[gd_scene load_steps=14 format=3 uid="uid://btp4ub1kj4via"]
 
 [ext_resource type="Script" path="res://scripts/station_map.gd" id="1_6qam4"]
 [ext_resource type="PackedScene" uid="uid://d28glu2jd8dqg" path="res://scenes/rooms/Room13.tscn" id="2_q6gko"]
+[ext_resource type="PackedScene" uid="uid://rhadm52yv6w6" path="res://scenes/rooms/Room31.tscn" id="2_seodd"]
 [ext_resource type="PackedScene" uid="uid://brbx0rv5wm6xp" path="res://scenes/rooms/Room12.tscn" id="3_5y4nl"]
 [ext_resource type="PackedScene" uid="uid://0ifu6wjh5o6v" path="res://scenes/rooms/Room14.tscn" id="4_6k8l3"]
 [ext_resource type="PackedScene" uid="uid://bsbqi44vin0ni" path="res://scenes/rooms/Room16.tscn" id="4_41ale"]
@@ -15,4 +16,4 @@
 
 [node name="StationMap" type="Node3D"]
 script = ExtResource("1_6qam4")
-rooms = Array[PackedScene]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource("2_q6gko"), ExtResource("3_5y4nl"), ExtResource("4_kcmnc"), null, ExtResource("5_bnava"), null, null, null, null, null, ExtResource("4_6k8l3"), ExtResource("5_6ld6x"), ExtResource("4_41ale"), ExtResource("8_rpnj8"), ExtResource("9_jurwh"), ExtResource("11_rhe17"), null, null, null, null, null, null, null, null, ExtResource("12_q1hb2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+rooms = Array[PackedScene]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource("2_seodd"), null, null, null, null, null, ExtResource("2_q6gko"), ExtResource("3_5y4nl"), ExtResource("4_kcmnc"), null, ExtResource("5_bnava"), null, null, null, null, null, ExtResource("4_6k8l3"), ExtResource("5_6ld6x"), ExtResource("4_41ale"), ExtResource("8_rpnj8"), ExtResource("9_jurwh"), ExtResource("11_rhe17"), null, null, null, null, null, null, null, null, ExtResource("12_q1hb2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
