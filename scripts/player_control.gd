@@ -19,7 +19,7 @@ extends CharacterBody3D
 @export var seat: Node3D
 @export var cockpit_light: Light3D
 
-const SPEED = 6.6
+const SPEED = 10
 const ACCEL = 1.1
 const BOOST_SPEED = 8
 const JUMP_VELOCITY = 6
@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 	if state_rolling:
 		state_grappling = false
 		collider.shape.radius = 0.4
-		current_speed = SPEED * 2
+		current_speed = SPEED * 1.5
 		current_accel = ACCEL / 4
 		walk_sphere.visible = false
 		ball_sphere.visible = true
