@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export_category("UI")
 @export var reticle: Node3D
 @export var box_display: Node3D
+@export var ui_sphere: Node3D
 @export_category("Grappling")
 @export var grapple_cable: Node3D
 @export var grapple_cast: Node3D
@@ -261,10 +262,11 @@ func aim() -> void:
 		rotate_y(cursor_distance_from_center_x * LOOK_SPEED)
 		seat.rotate_x(cursor_distance_from_center_y * LOOK_SPEED)
 		
-		seat.rotation.x = clamp(seat.rotation.x, -0.6, 0.6)
+		seat.rotation.x = clamp(seat.rotation.x, -0.9, 0.9)
 	
 	pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
 	
 	# Reticle handling
 	reticle.global_position = camera.project_position(cursor_location,0.2)
 	reticle.look_at(camera.global_position)
+	reticle.rotation.z = 0

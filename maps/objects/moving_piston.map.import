@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dg0loc1mjncwq"
+path="res://.godot/imported/moving_piston.map-2f76d375e992f34446b551fe15b08c26.tres"
+
+[deps]
+
+source_file="res://maps/objects/moving_piston.map"
+dest_files=["res://.godot/imported/moving_piston.map-2f76d375e992f34446b551fe15b08c26.tres"]
+
+[params]
+

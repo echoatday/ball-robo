@@ -1,6 +1,6 @@
 extends Path3D
 
-@export var speed = 2.0
+@export var speed = 4.0
 @export var start_pos = 0
 
 @onready var path = $PathFollow3D

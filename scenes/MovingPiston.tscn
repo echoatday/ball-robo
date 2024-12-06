@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=4 uid="uid://cnj0lrfm2cffb"]
+
+[ext_resource type="Curve3D" uid="uid://1p3wr1mffenr" path="res://paths/moving_platform.tres" id="1_np8sq"]
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="2_vcq7f"]
+[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_vjcdg"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_ce2l8"]
+[ext_resource type="Material" uid="uid://dpmntve512h46" path="res://textures/value_1.tres" id="6_tvtem"]
+
+[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_orkpw"]
+vertices = PackedVector3Array(-3, 3, -12, -3, -3, -12, 3, -3, -12, 3, 3, -12, -3, 3, -12, -3, 3, 12, -3, -3, 12, -3, -3, -12, 3, -3, -12, -3, -3, -12, -3, -3, 12, 3, -3, 12, 3, 3, -12, 3, 3, 12, -3, 3, 12, -3, 3, -12, 3, 3, -12, 3, -3, -12, 3, -3, 12, 3, 3, 12, -3, 3, 12, 3, 3, 12, 3, -3, 12, -3, -3, 12)
+indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uydrb"]
+_surfaces = [{
+"aabb": AABB(-3, -3, -12, 6, 6, 24),
+"attribute_data": PackedByteArray("AAAAQAAAwL8AAABAAADAPwAAgL8AAMA/AACAvwAAwL8AALDAAADAvwAA0EAAAMC/AADQQAAAwD8AALDAAADAPwAAsEAAAIC/AACwQAAAAEAAANDAAAAAQAAA0MAAAIC/AACwwAAAgL8AANBAAACAvwAA0EAAAABAAACwwAAAAEAAALBAAADAvwAAsEAAAMA/AADQwAAAwD8AANDAAADAvwAAAMAAAMC/AACAPwAAwL8AAIA/AADAPwAAAMAAAMA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": ExtResource("6_tvtem"),
+"name": "value_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AABAwAAAQEAAAEDBAABAwAAAQMAAAEDBAABAQAAAQMAAAEDBAABAQAAAQEAAAEDBAABAwAAAQEAAAEDBAABAwAAAQEAAAEBBAABAwAAAQMAAAEBBAABAwAAAQMAAAEDBAABAQAAAQMAAAEDBAABAwAAAQMAAAEDBAABAwAAAQMAAAEBBAABAQAAAQMAAAEBBAABAQAAAQEAAAEDBAABAQAAAQEAAAEBBAABAwAAAQEAAAEBBAABAwAAAQEAAAEDBAABAQAAAQEAAAEDBAABAQAAAQMAAAEDBAABAQAAAQMAAAEBBAABAQAAAQEAAAEBBAABAwAAAQEAAAEBBAABAQAAAQEAAAEBBAABAQAAAQMAAAEBBAABAwAAAQMAAAEBB/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6dvbx"]
+points = PackedVector3Array(-3, 3, -12, -3, -3, -12, 3, -3, -12, 3, 3, -12, -3, 3, 12, -3, -3, 12, 3, -3, 12, 3, 3, 12)
+
+[node name="MovingPiston" type="Path3D"]
+curve = ExtResource("1_np8sq")
+script = ExtResource("2_vcq7f")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D"]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+
+[node name="FuncGodotMap" type="Node3D" parent="AnimatableBody3D"]
+script = ExtResource("3_vjcdg")
+local_map_file = "res://maps/objects/moving_piston.map"
+map_settings = ExtResource("4_ce2l8")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap"]
+collision_mask = 0
+
+[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="AnimatableBody3D/FuncGodotMap/entity_0_worldspawn"]
+occluder = SubResource("ArrayOccluder3D_orkpw")
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="AnimatableBody3D"]
+mesh = SubResource("ArrayMesh_uydrb")
+skeleton = NodePath("../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="AnimatableBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6dvbx")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c82iey1rryacy"]
+[gd_scene load_steps=32 format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
 [ext_resource type="Script" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
 [ext_resource type="Texture2D" uid="uid://brewp7727q8wt" path="res://textures/cockpit/ui_border.png" id="21_hdyft"]
+[ext_resource type="ArrayMesh" uid="uid://c822lotye5kkq" path="res://models/icosphere.obj" id="27_t830s"]
+[ext_resource type="Shader" path="res://shaders/wireframe.gdshader" id="28_76cn8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
@@ -33,7 +35,16 @@ radius = 0.9
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7s8xn"]
 points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -6, -6, 30, 6, -6, 30, -6, 6, 30, 6, 6, 30)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "cockpit", "collider", "sphere", "walk_sphere", "ball_sphere", "reticle", "box_display", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ivcc"]
+render_priority = 0
+shader = ExtResource("28_76cn8")
+shader_parameter/modelColor = null
+shader_parameter/wireframeColor = null
+shader_parameter/width = 2.0
+shader_parameter/modelOpacity = 0.0
+shader_parameter/filtered = false
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "cockpit", "collider", "sphere", "walk_sphere", "ball_sphere", "reticle", "box_display", "ui_sphere", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
@@ -47,6 +58,7 @@ walk_sphere = NodePath("Cockpit/Sphere/walk_sphere")
 ball_sphere = NodePath("Cockpit/Sphere/roll_sphere")
 reticle = NodePath("Cockpit/Seat/UI/Reticle")
 box_display = NodePath("Cockpit/Seat/UI/Reticle/box")
+ui_sphere = NodePath("")
 grapple_cable = NodePath("Cockpit/Sphere/walk_sphere/cable_controller")
 grapple_cast = NodePath("Cockpit/Seat/UI/Reticle/GrappleCast")
 spin_cast = NodePath("Cockpit/Seat/UI/Reticle/SpinCast")
@@ -226,7 +238,6 @@ box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("16_dpgmg"), E
 
 [node name="crosshair" type="Label3D" parent="Cockpit/Seat/UI/Reticle"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-visible = false
 pixel_size = 0.0001
 texture_filter = 0
 outline_modulate = Color(0, 0, 0, 0)
@@ -247,6 +258,7 @@ script = ExtResource("14_y10qh")
 
 [node name="walk_sphere" type="Node3D" parent="Cockpit/Sphere"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+visible = false
 
 [node name="cockpit_sphere" parent="Cockpit/Sphere/walk_sphere" instance=ExtResource("6_swywl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -270,3 +282,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
 [node name="cockpit_sphere" parent="Cockpit/Sphere/roll_sphere" instance=ExtResource("7_ov2p3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere/roll_sphere"]
+mesh = ExtResource("27_t830s")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_4ivcc")
