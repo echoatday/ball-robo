@@ -4,6 +4,6 @@
 cull_mode = 2
 diffuse_mode = 3
 specular_mode = 2
-albedo_color = Color(0.273873, 0.273873, 0.273873, 1)
+albedo_color = Color(0.103744, 0.103744, 0.103743, 1)
 metallic_specular = 0.0
 uv1_triplanar = true

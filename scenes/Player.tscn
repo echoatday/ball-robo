@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://c82iey1rryacy"]
+[gd_scene load_steps=73 format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
 [ext_resource type="Script" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
 [ext_resource type="Texture2D" uid="uid://brewp7727q8wt" path="res://textures/cockpit/ui_border.png" id="21_hdyft"]
+[ext_resource type="FontFile" uid="uid://ls66kquife41" path="res://ui/Source_Code_Pro/static/SourceCodePro-Regular.ttf" id="25_3lssg"]
 [ext_resource type="ArrayMesh" uid="uid://cct3ioree00m8" path="res://models/ico_1.obj" id="27_kmu78"]
 [ext_resource type="ArrayMesh" uid="uid://c822lotye5kkq" path="res://models/icosphere.obj" id="27_t830s"]
 [ext_resource type="Shader" path="res://shaders/wireframe.gdshader" id="28_76cn8"]
@@ -85,7 +86,7 @@ shader_parameter/width = 1.0
 shader_parameter/modelOpacity = 0.0
 shader_parameter/filtered = false
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "box_display", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "box_display", "dead_text", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
@@ -99,6 +100,7 @@ sphere = NodePath("Cockpit/Sphere")
 reticle = NodePath("Cockpit/Sphere/UI/Reticle")
 reticle_pilot = NodePath("Cockpit/Seat/camera_gimbal/camera/reticle_pilot")
 box_display = NodePath("Cockpit/Sphere/UI/Reticle/box")
+dead_text = NodePath("Cockpit/Sphere/UI/DeadText")
 grapple_cable = NodePath("Cockpit/cable_controller")
 grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
 spin_cast = NodePath("Cockpit/Sphere/UI/Reticle/SpinCast")
@@ -301,6 +303,17 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 modulate = Color(0.4, 1, 0.4, 1)
 pixel_size = 0.0005
 texture = ExtResource("21_hdyft")
+
+[node name="DeadText" type="Label3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0182206, -0.09)
+visible = false
+layers = 2
+pixel_size = 0.0001
+modulate = Color(1, 0.5, 0, 1)
+text = "Offline"
+font = ExtResource("25_3lssg")
+font_size = 64
+outline_size = 0
 
 [node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere"]
 transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)

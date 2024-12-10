@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var reticle: Node3D
 @export var reticle_pilot: Node3D
 @export var box_display: Node3D
+@export var dead_text: Node3D
 @export_category("Grappling")
 @export var grapple_cable: Node3D
 @export var grapple_cast: Node3D
@@ -190,10 +191,13 @@ func _physics_process(delta: float) -> void:
 	if state_dead:
 		heat = 0
 		energy = 0
+		velocity = Vector3.ZERO
+		state_looking = false
 		can_jump = false
 		can_boost = false
 		can_spin = false
 		can_grapple = false
+		dead_text.visible = true
 		
 	
 	if Input.is_action_just_pressed("jump") and can_jump:
@@ -271,7 +275,7 @@ func aim() -> void:
 	
 	
 	# Mouse turning control
-	if Input.is_action_just_pressed("look"):
+	if Input.is_action_just_pressed("look") and not state_dead:
 		state_looking = not state_looking
 	if state_looking and not state_grappling:
 		var cursor_distance_from_center_x = screen_center_hori - cursor_location.x
