@@ -4,7 +4,7 @@ extends Node3D
 @onready var base_ico_transform := icosphere.transform
 @export var icosphere: Node3D
 @export var screen: Array[Node3D]
-var count := 40
+var count := 41
 
 func _physics_process(delta: float) -> void:
 	
@@ -15,19 +15,27 @@ func _physics_process(delta: float) -> void:
 		pass
 		
 	if owner.state_dead:
-		if count == 40:
+		if count == 41:
 			screen.shuffle()
+			count -= 1
+		elif count >= 0 and Engine.get_physics_frames() % 2 == 0:
 			screen[count-1].visible = true
 			count -= 1
-		if count >= 0 and Engine.get_physics_frames() % 8 == 0:
-			screen[count-1].visible = true
-			count -= 1
-		elif count >= 0 and Engine.get_physics_frames() % 4 == 0:
+		elif count >= 0 and Engine.get_physics_frames() % 2 != 0:
 			screen[40-count-1].visible = true
 			count -= 1
 	else:
-		count = 40
+		if count == -1:
+			screen.shuffle()
+			count += 1
+		elif count <= 40 and Engine.get_physics_frames() % 2 == 0:
+			screen[count-1].visible = false
+			count += 1
+		elif count <= 40 and Engine.get_physics_frames() % 2 != 0:
+			screen[40-count-1].visible = false
+			count += 1
 	
+	print_debug(count)
 	look_target = owner.camera.project_position((get_viewport().get_mouse_position()/9)+Vector2(get_viewport().size/2.25),10)
 	
 	transform.origin = owner.transform.origin

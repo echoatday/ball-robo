@@ -13,14 +13,16 @@ var this_room
 func _ready() -> void:
 	var heat_color = heat_level*0.3
 	if not this_room:
-		this_room = 55
+		this_room = 65
 
 func _on_body_entered(body: Node3D) -> void:
 	#world.environment.fog_density = heat_level * 0.02
 	body.heat_level = heat_level
+	body.spawn_position = body.global_position
 	
 	self.primary_room = true
 	for child in world.get_children():
+		print_debug(child)
 		if "primary_room" in child.get_child(1) and not child.get_child(1).primary_room:
 			world.remove_child(child)
 	

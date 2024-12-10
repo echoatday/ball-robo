@@ -61,6 +61,8 @@ var spin_strength = energy_cost.large/6
 var grapple_hook_position := Vector3.ZERO
 var grapple_ready := false
 
+var spawn_position: Vector3
+
 func _ready() -> void:
 	Globals.player = self
 
@@ -198,6 +200,11 @@ func _physics_process(delta: float) -> void:
 		can_spin = false
 		can_grapple = false
 		dead_text.visible = true
+		if Input.is_action_just_pressed("fire"):
+			state_dead = false
+			can_grapple = true
+			dead_text.visible = false
+			position = spawn_position
 		
 	
 	if Input.is_action_just_pressed("jump") and can_jump:
