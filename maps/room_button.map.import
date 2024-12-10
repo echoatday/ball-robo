@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cwugjh15sufnk"
+path="res://.godot/imported/room_button.map-144fd391af87c0f9245eddc320538873.tres"
+
+[deps]
+
+source_file="res://maps/room_button.map"
+dest_files=["res://.godot/imported/room_button.map-144fd391af87c0f9245eddc320538873.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bu8hso8mvwmxd"
+path="res://.godot/imported/room_quantumdrive.map-0b4845704674157379f174566019ee99.tres"
+
+[deps]
+
+source_file="res://maps/room_quantumdrive.map"
+dest_files=["res://.godot/imported/room_quantumdrive.map-0b4845704674157379f174566019ee99.tres"]
+
+[params]
+

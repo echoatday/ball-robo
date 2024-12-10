@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://csw0tq15wwdd1"
+path="res://.godot/imported/room_lever.map-87df844d99d047bff1421f4d939ab69b.tres"
+
+[deps]
+
+source_file="res://maps/room_lever.map"
+dest_files=["res://.godot/imported/room_lever.map-87df844d99d047bff1421f4d939ab69b.tres"]
+
+[params]
+

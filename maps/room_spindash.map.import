@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://s7smu1abpoi0"
+path="res://.godot/imported/room_spindash.map-61873ec24133f6ff8da397ebc15f09ce.tres"
+
+[deps]
+
+source_file="res://maps/room_spindash.map"
+dest_files=["res://.godot/imported/room_spindash.map-61873ec24133f6ff8da397ebc15f09ce.tres"]
+
+[params]
+

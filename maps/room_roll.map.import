@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://de7w074t86ps2"
+path="res://.godot/imported/room_roll.map-d46858a018169624fd9531758f1800ed.tres"
+
+[deps]
+
+source_file="res://maps/room_roll.map"
+dest_files=["res://.godot/imported/room_roll.map-d46858a018169624fd9531758f1800ed.tres"]
+
+[params]
+

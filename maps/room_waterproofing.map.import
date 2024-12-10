@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cyytlwa8x070i"
+path="res://.godot/imported/room_waterproofing.map-d06599b0a84b0a8b1d0c271699791d46.tres"
+
+[deps]
+
+source_file="res://maps/room_waterproofing.map"
+dest_files=["res://.godot/imported/room_waterproofing.map-d06599b0a84b0a8b1d0c271699791d46.tres"]
+
+[params]
+

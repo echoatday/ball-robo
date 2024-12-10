@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bvfqgmvm0uudx"
+path="res://.godot/imported/room_walljump.map-1180ab52e9a69f83b4afa4b7926e6021.tres"
+
+[deps]
+
+source_file="res://maps/room_walljump.map"
+dest_files=["res://.godot/imported/room_walljump.map-1180ab52e9a69f83b4afa4b7926e6021.tres"]
+
+[params]
+

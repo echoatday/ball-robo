@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://0qs4mlhnh067"
+path="res://.godot/imported/room_smallbattery.map-27a219fb7f15262bc4e5f62fa370df7a.tres"
+
+[deps]
+
+source_file="res://maps/room_smallbattery.map"
+dest_files=["res://.godot/imported/room_smallbattery.map-27a219fb7f15262bc4e5f62fa370df7a.tres"]
+
+[params]
+

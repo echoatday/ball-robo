@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bwm4h64lt5n3p"
+path="res://.godot/imported/room_data.map-43cadd6ad09bf44b09ab269019662c90.tres"
+
+[deps]
+
+source_file="res://maps/room_data.map"
+dest_files=["res://.godot/imported/room_data.map-43cadd6ad09bf44b09ab269019662c90.tres"]
+
+[params]
+

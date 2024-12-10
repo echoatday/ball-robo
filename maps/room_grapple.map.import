@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://f044o6k7bikg"
+path="res://.godot/imported/room_grapple.map-6c3a9886a92d703643f037372c7bc3c5.tres"
+
+[deps]
+
+source_file="res://maps/room_grapple.map"
+dest_files=["res://.godot/imported/room_grapple.map-6c3a9886a92d703643f037372c7bc3c5.tres"]
+
+[params]
+

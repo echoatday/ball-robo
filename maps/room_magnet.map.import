@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://btwantlauu5ac"
+path="res://.godot/imported/room_magnet.map-6480f6cd4909c2dcb063779c0be55451.tres"
+
+[deps]
+
+source_file="res://maps/room_magnet.map"
+dest_files=["res://.godot/imported/room_magnet.map-6480f6cd4909c2dcb063779c0be55451.tres"]
+
+[params]
+

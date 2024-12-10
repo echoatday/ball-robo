@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://gy3jd4vjsm2c"
+path="res://.godot/imported/room_authenticator.map-adbb5f3ebab1e3a54126eb1798e05593.tres"
+
+[deps]
+
+source_file="res://maps/room_authenticator.map"
+dest_files=["res://.godot/imported/room_authenticator.map-adbb5f3ebab1e3a54126eb1798e05593.tres"]
+
+[params]
+

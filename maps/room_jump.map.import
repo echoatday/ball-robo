@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ck70wdymikets"
+path="res://.godot/imported/room_jump.map-4586ffc67a33a35c4f1bbde6eeb090f9.tres"
+
+[deps]
+
+source_file="res://maps/room_jump.map"
+dest_files=["res://.godot/imported/room_jump.map-4586ffc67a33a35c4f1bbde6eeb090f9.tres"]
+
+[params]
+
