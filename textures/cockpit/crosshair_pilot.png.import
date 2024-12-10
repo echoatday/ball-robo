@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfnommn7pi1jp"
-path.s3tc="res://.godot/imported/shade_1.png-1d92b2f3148976074a62821b3b4e83b0.s3tc.ctex"
+uid="uid://sc86g302rh14"
+path.s3tc="res://.godot/imported/crosshair_pilot.png-2e070611c08f10601f042a7bebc46275.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/shade_1.png"
-dest_files=["res://.godot/imported/shade_1.png-1d92b2f3148976074a62821b3b4e83b0.s3tc.ctex"]
+source_file="res://textures/cockpit/crosshair_pilot.png"
+dest_files=["res://.godot/imported/crosshair_pilot.png-2e070611c08f10601f042a7bebc46275.s3tc.ctex"]
 
 [params]
 

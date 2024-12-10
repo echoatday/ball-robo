@@ -1,22 +1,20 @@
-[gd_scene load_steps=32 format=3 uid="uid://c82iey1rryacy"]
+[gd_scene load_steps=31 format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="1_mm6ix"]
+[ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
-[ext_resource type="FontFile" uid="uid://c0b73jparcb60" path="res://ui/Source_Code_Pro/static/SourceCodePro-Bold.ttf" id="3_tsdjv"]
 [ext_resource type="Texture2D" uid="uid://dehlubwc5lcpe" path="res://textures/cockpit/crosshair_box_yellow.png" id="4_gtmj1"]
 [ext_resource type="Material" uid="uid://ck00ajppk6fe8" path="res://materials/unit_metal.tres" id="5_3wou3"]
 [ext_resource type="Script" path="res://scripts/gauge_control.gd" id="5_4oxq5"]
 [ext_resource type="Texture2D" uid="uid://b8m73klewviwy" path="res://textures/cockpit/crosshair_box_red.png" id="5_8qmgo"]
 [ext_resource type="Material" uid="uid://dlcvg6timbtki" path="res://materials/needle.tres" id="5_nrjpl"]
-[ext_resource type="PackedScene" uid="uid://cbp6n7n25vpvp" path="res://models/cockpit_sphere.blend" id="6_swywl"]
-[ext_resource type="PackedScene" uid="uid://d25w2m7pvefjp" path="res://models/roll_sphere.tscn" id="7_ov2p3"]
-[ext_resource type="PackedScene" uid="uid://b4837xdfht2o0" path="res://models/grapple.blend" id="8_5mu7g"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_8bc5l"]
 [ext_resource type="Material" uid="uid://bpxi0l621ahdn" path="res://materials/cable.tres" id="10_lnno2"]
 [ext_resource type="PackedScene" uid="uid://bjhwsokytak6y" path="res://models/gauges.blend" id="11_l66bj"]
 [ext_resource type="Material" uid="uid://by3jlsreis8rn" path="res://materials/attitude_sphere.tres" id="12_5y86p"]
 [ext_resource type="Script" path="res://scripts/attitude_indicator.gd" id="12_6ek3y"]
 [ext_resource type="Texture2D" uid="uid://mj7p2kfr8ygy" path="res://textures/cockpit/crosshair_box.png" id="12_go2wy"]
+[ext_resource type="ArrayMesh" uid="uid://db3f7cupygb0q" path="res://models/gauge.obj" id="13_i7ojs"]
 [ext_resource type="Script" path="res://scripts/cockpit_sphere.gd" id="14_y10qh"]
 [ext_resource type="PackedScene" uid="uid://s5wkwid0pcn2" path="res://models/interface.blend" id="15_w2gm3"]
 [ext_resource type="Texture2D" uid="uid://qrcfyp2nqb7i" path="res://textures/cockpit/crosshair_ball_yellow.png" id="16_dpgmg"]
@@ -35,33 +33,34 @@ radius = 0.9
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7s8xn"]
 points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -6, -6, 30, 6, -6, 30, -6, 6, 30, 6, 6, 30)
 
+[sub_resource type="ImageTexture" id="ImageTexture_wlgdr"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ivcc"]
 render_priority = 0
 shader = ExtResource("28_76cn8")
 shader_parameter/modelColor = null
-shader_parameter/wireframeColor = null
-shader_parameter/width = 2.0
+shader_parameter/wireframeColor = Color(0, 0, 0, 1)
+shader_parameter/width = 1.0
 shader_parameter/modelOpacity = 0.0
 shader_parameter/filtered = false
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "cockpit", "collider", "sphere", "walk_sphere", "ball_sphere", "reticle", "box_display", "ui_sphere", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "box_display", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
 floor_max_angle = 0.523599
 script = ExtResource("1_mm6ix")
-camera = NodePath("Cockpit/Seat/Camera3D")
+camera = NodePath("Cockpit/Seat/camera_gimbal/camera")
+camera_gimbal = NodePath("Cockpit/Seat/camera_gimbal")
 cockpit = NodePath("Cockpit")
 collider = NodePath("PlayerCollision3D")
 sphere = NodePath("Cockpit/Sphere")
-walk_sphere = NodePath("Cockpit/Sphere/walk_sphere")
-ball_sphere = NodePath("Cockpit/Sphere/roll_sphere")
-reticle = NodePath("Cockpit/Seat/UI/Reticle")
-box_display = NodePath("Cockpit/Seat/UI/Reticle/box")
-ui_sphere = NodePath("")
-grapple_cable = NodePath("Cockpit/Sphere/walk_sphere/cable_controller")
-grapple_cast = NodePath("Cockpit/Seat/UI/Reticle/GrappleCast")
-spin_cast = NodePath("Cockpit/Seat/UI/Reticle/SpinCast")
+reticle = NodePath("Cockpit/Sphere/UI/Reticle")
+reticle_pilot = NodePath("Cockpit/Seat/camera_gimbal/camera/reticle_pilot")
+box_display = NodePath("Cockpit/Sphere/UI/Reticle/box")
+grapple_cable = NodePath("Cockpit/cable_controller")
+grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
+spin_cast = NodePath("Cockpit/Sphere/UI/Reticle/SpinCast")
 pilot_rig = NodePath("Cockpit/Seat/pilot_rig")
 seat = NodePath("Cockpit/Seat")
 cockpit_light = NodePath("Cockpit/CockpitLight")
@@ -82,15 +81,23 @@ omni_attenuation = 1.373
 
 [node name="Seat" type="Node3D" parent="Cockpit"]
 
-[node name="Camera3D" type="Camera3D" parent="Cockpit/Seat"]
+[node name="camera_gimbal" type="Node3D" parent="Cockpit/Seat"]
+
+[node name="camera" type="Camera3D" parent="Cockpit/Seat/camera_gimbal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 fov = 90.0
 near = 0.001
 
+[node name="reticle_pilot" type="Sprite3D" parent="Cockpit/Seat/camera_gimbal/camera"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.02)
+pixel_size = 0.0001
+texture = ExtResource("2_ax5xn")
+
 [node name="pilot_rig" type="Node3D" parent="Cockpit/Seat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.015)
 
 [node name="gauges" parent="Cockpit/Seat/pilot_rig" instance=ExtResource("11_l66bj")]
 transform = Transform3D(0.00418039, 0.00148552, -0.00896201, 0.0032619, 0.00896201, 0.00300706, 0.00847846, -0.00418039, 0.0032619, -0.041, -0.028, -0.018)
+visible = false
 
 [node name="energy_gauge" type="Node3D" parent="Cockpit/Seat/pilot_rig/gauges" node_paths=PackedStringArray("gauge_needle", "gauge_text")]
 transform = Transform3D(0.103528, 0.38637, -1.68888e-08, 0, -1.74846e-08, -0.4, -0.38637, 0.103528, -4.52534e-09, -0.226004, 0.946126, -2.26952)
@@ -158,6 +165,7 @@ horizontal_alignment = 2
 
 [node name="interface" parent="Cockpit/Seat/pilot_rig" instance=ExtResource("15_w2gm3")]
 transform = Transform3D(-0.00168232, 0, -0.00627852, 0, 0.0065, 0, 0.00627852, 0, -0.00168232, 0.023, -0.034, -0.032)
+visible = false
 
 [node name="attitude_sphere" type="CSGSphere3D" parent="Cockpit/Seat/pilot_rig/interface"]
 transform = Transform3D(20, 0, 1.54972e-07, 0, 20, 0, -1.54972e-07, 0, 20, -0.0251515, 1, 1.94889e-10)
@@ -182,110 +190,74 @@ outline_size = 0
 horizontal_alignment = 2
 script = ExtResource("17_vwp1p")
 
-[node name="Chair" type="CSGCombiner3D" parent="Cockpit/Seat/pilot_rig"]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0.015)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Cockpit/Seat/pilot_rig/Chair"]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 2)
-size = Vector3(4, 3, 1)
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Cockpit/Seat/pilot_rig/Chair/CSGBox3D"]
-transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.25, 0, 0.0868241, -0.492404)
-radius = 2.0
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Cockpit/Seat/pilot_rig/Chair"]
-transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, -4, 1.94)
-size = Vector3(4, 5, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Cockpit/Seat/pilot_rig/Chair"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
-size = Vector3(4, 1, 3)
-
 [node name="ring" type="CSGTorus3D" parent="Cockpit/Seat/pilot_rig"]
-transform = Transform3D(0.08, 0, 0, 0, -3.49691e-09, -0.08, 0, 0.08, -3.49691e-09, 0, -0.02, 0)
+transform = Transform3D(0.08, 0, 0, 0, 0.04, -0.069282, 0, 0.069282, 0.04, 0, 0, 0)
 layers = 2
+calculate_tangents = false
 inner_radius = 0.9
-sides = 12
+sides = 24
 ring_sides = 4
 smooth_faces = false
 material = ExtResource("5_3wou3")
 script = ExtResource("16_i4nk8")
 
-[node name="UI" type="Node3D" parent="Cockpit/Seat"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
+[node name="heat_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig"]
+transform = Transform3D(0.00282843, -0.00108239, 0.00261313, 0, 0.00369552, 0.00153073, -0.00282843, -0.00108239, 0.00261313, -0.046, -0.023, -0.03)
+mesh = ExtResource("13_i7ojs")
+surface_material_override/0 = ExtResource("5_3wou3")
 
-[node name="Reticle" type="Node3D" parent="Cockpit/Seat/UI"]
+[node name="energy_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig"]
+transform = Transform3D(0.00282843, 0.00108239, -0.00261313, 0, 0.00369552, 0.00153073, 0.00282843, -0.00108239, 0.00261313, 0.046, -0.023, -0.03)
+mesh = ExtResource("13_i7ojs")
+surface_material_override/0 = ExtResource("5_3wou3")
 
-[node name="SpinCast" type="RayCast3D" parent="Cockpit/Seat/UI/Reticle"]
-target_position = Vector3(0, 0, 30)
-collision_mask = 0
-
-[node name="GrappleCast" type="ShapeCast3D" parent="Cockpit/Seat/UI/Reticle"]
-shape = SubResource("ConvexPolygonShape3D_7s8xn")
-target_position = Vector3(0, 0, 0)
-margin = 0.04
-max_results = 1
-collision_mask = 256
-
-[node name="box" type="Sprite3D" parent="Cockpit/Seat/UI/Reticle"]
-transform = Transform3D(-2.6, 0, -2.27299e-07, 0, 2.6, 0, 2.27299e-07, 0, -2.6, 0, 0, 0)
-pixel_size = 0.0001
-double_sided = false
-alpha_cut = 1
-texture = ExtResource("12_go2wy")
-script = ExtResource("17_isqgh")
-box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("16_dpgmg"), ExtResource("17_tu6o0"), ExtResource("12_go2wy"), ExtResource("4_gtmj1"), ExtResource("5_8qmgo")])
-
-[node name="crosshair" type="Label3D" parent="Cockpit/Seat/UI/Reticle"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-pixel_size = 0.0001
-texture_filter = 0
-outline_modulate = Color(0, 0, 0, 0)
-text = "><"
-font = ExtResource("3_tsdjv")
-font_size = 100
-outline_size = 0
-
-[node name="HUDBorder" type="Sprite3D" parent="Cockpit/Seat/UI"]
-modulate = Color(0.4, 1, 0.4, 1)
-pixel_size = 0.0005
-texture = ExtResource("21_hdyft")
-
-[node name="Sphere" type="Node3D" parent="Cockpit"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.0147359)
-top_level = true
-script = ExtResource("14_y10qh")
-
-[node name="walk_sphere" type="Node3D" parent="Cockpit/Sphere"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+[node name="cable_controller" type="Node3D" parent="Cockpit"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.1, -0.164736)
 visible = false
 
-[node name="cockpit_sphere" parent="Cockpit/Sphere/walk_sphere" instance=ExtResource("6_swywl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-
-[node name="grapple" parent="Cockpit/Sphere/walk_sphere" instance=ExtResource("8_5mu7g")]
-transform = Transform3D(-5.68248e-09, 0, -0.13, 0, 0.13, 0, 0.13, 0, -5.68248e-09, 0, -0.615502, -0.267904)
-
-[node name="cable_controller" type="Node3D" parent="Cockpit/Sphere/walk_sphere"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, -1.5)
-visible = false
-
-[node name="grapple_cable" type="CSGCylinder3D" parent="Cockpit/Sphere/walk_sphere/cable_controller"]
+[node name="grapple_cable" type="CSGCylinder3D" parent="Cockpit/cable_controller"]
 transform = Transform3D(1.50475, 0, 0, 0, -4.38498e-08, -1.00317, 0, 1.00317, -4.38498e-08, -0.000695884, -0.00207834, -0.500199)
 radius = 0.05
 height = 1.0
 sides = 4
 material = ExtResource("10_lnno2")
 
-[node name="roll_sphere" type="Node3D" parent="Cockpit/Sphere"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+[node name="Sphere" type="Node3D" parent="Cockpit" node_paths=PackedStringArray("icosphere")]
+top_level = true
+script = ExtResource("14_y10qh")
+icosphere = NodePath("Icosphere")
 
-[node name="cockpit_sphere" parent="Cockpit/Sphere/roll_sphere" instance=ExtResource("7_ov2p3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-visible = false
+[node name="UI" type="Node3D" parent="Cockpit/Sphere"]
 
-[node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere/roll_sphere"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+[node name="Reticle" type="Node3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
+
+[node name="SpinCast" type="RayCast3D" parent="Cockpit/Sphere/UI/Reticle"]
+target_position = Vector3(0, 0, 30)
+collision_mask = 0
+
+[node name="GrappleCast" type="ShapeCast3D" parent="Cockpit/Sphere/UI/Reticle"]
+shape = SubResource("ConvexPolygonShape3D_7s8xn")
+target_position = Vector3(0, 0, 0)
+margin = 0.04
+max_results = 1
+collision_mask = 256
+
+[node name="box" type="Sprite3D" parent="Cockpit/Sphere/UI/Reticle"]
+transform = Transform3D(-2.6, 0, -3.92589e-07, 0, 2.6, 0, 3.92589e-07, 0, -2.6, 0, 0, 0)
+pixel_size = 0.0001
+double_sided = false
+texture = SubResource("ImageTexture_wlgdr")
+script = ExtResource("17_isqgh")
+box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("16_dpgmg"), ExtResource("17_tu6o0"), ExtResource("12_go2wy"), ExtResource("4_gtmj1"), ExtResource("5_8qmgo")])
+
+[node name="HUDBorder" type="Sprite3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
+modulate = Color(0.4, 1, 0.4, 1)
+pixel_size = 0.0005
+texture = ExtResource("21_hdyft")
+
+[node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere"]
+transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)
 mesh = ExtResource("27_t830s")
-skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_4ivcc")

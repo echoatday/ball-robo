@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://db3f7cupygb0q"
+path="res://.godot/imported/gauge.obj-750e204bbdb81f07184365a85921ac81.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gauge.obj-750e204bbdb81f07184365a85921ac81.mesh"]
+
+source_file="res://models/gauge.obj"
+dest_files=["res://.godot/imported/gauge.obj-750e204bbdb81f07184365a85921ac81.mesh", "res://.godot/imported/gauge.obj-750e204bbdb81f07184365a85921ac81.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

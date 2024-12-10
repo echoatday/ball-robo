@@ -1,15 +1,14 @@
 extends CharacterBody3D
 
 @export var camera: Node3D
+@export var camera_gimbal: Node3D
 @export var cockpit: Node3D
 @export var collider: Node3D
 @export var sphere: Node3D
-@export var walk_sphere: Node3D
-@export var ball_sphere: Node3D
 @export_category("UI")
 @export var reticle: Node3D
+@export var reticle_pilot: Node3D
 @export var box_display: Node3D
-@export var ui_sphere: Node3D
 @export_category("Grappling")
 @export var grapple_cable: Node3D
 @export var grapple_cast: Node3D
@@ -75,7 +74,9 @@ func _physics_process(delta: float) -> void:
 		energy_checkout += energy_recharge+2
 
 	# Get the input direction and handle the movement/deceleration.
-	var input_dir := Input.get_vector("left", "right", "forward", "back")
+	var input_dir: Vector2
+	if state_looking:
+		input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if abs(velocity.x) < abs(direction.x) * current_speed:
 		velocity.x += direction.x * current_accel
@@ -101,15 +102,11 @@ func _physics_process(delta: float) -> void:
 		collider.shape.radius = 0.4
 		current_speed = SPEED * 1.5
 		current_accel = ACCEL / 4
-		walk_sphere.visible = false
-		ball_sphere.visible = true
 	else:
 		state_spinning = false
 		collider.shape.radius = 0.9
 		current_speed = SPEED
 		current_accel = ACCEL
-		walk_sphere.visible = true
-		ball_sphere.visible = false
 	
 	# --- SPINNING ---
 	var spin_direction = (spin_cast.global_position - global_position).normalized()
@@ -194,8 +191,8 @@ func _physics_process(delta: float) -> void:
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
-			velocity.x += get_wall_normal().x * BOOST_SPEED*1.4
-			velocity.z += get_wall_normal().z * BOOST_SPEED*1.4
+			velocity.x += get_wall_normal().x * BOOST_SPEED*1.6
+			velocity.z += get_wall_normal().z * BOOST_SPEED*1.6
 			state_grappling = false
 		can_jump = false
 		
@@ -203,7 +200,6 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() or state_grappling:
 			velocity.y = JUMP_VELOCITY/3
 			state_grappling = false
-		ball_sphere.set_global_rotation(walk_sphere.get_global_rotation())
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
@@ -240,7 +236,6 @@ func _physics_process(delta: float) -> void:
 
 # Aiming system
 func aim() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	var cursor_location = get_viewport().get_mouse_position()
 	var screen_center_hori = get_viewport().size.x/2
@@ -248,9 +243,22 @@ func aim() -> void:
 	
 	var ui_edge_x = get_viewport().size.x/3.7
 	var ui_edge_y = get_viewport().size.y/5
-	cursor_location.x = clamp(cursor_location.x, screen_center_hori-ui_edge_x, screen_center_hori+ui_edge_x)
-	cursor_location.y = clamp(cursor_location.y, screen_center_verti-ui_edge_y, screen_center_verti+ui_edge_y)
-	#Input.warp_mouse(cursor_location)
+	
+	if state_looking:
+		reticle_pilot.visible = false
+		camera.rotation = Vector3.ZERO
+		camera_gimbal.rotation = Vector3.ZERO
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		cursor_location.x = clamp(cursor_location.x, screen_center_hori-ui_edge_x, screen_center_hori+ui_edge_x)
+		cursor_location.y = clamp(cursor_location.y, screen_center_verti-ui_edge_y, screen_center_verti+ui_edge_y)
+		pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
+		#reticle handling
+		reticle.global_position = camera.project_position(cursor_location,0.2)
+		reticle.look_at(camera.global_position)
+		reticle.rotation.z = 0
+	else:
+		reticle_pilot.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	
 	# Mouse turning control
@@ -263,10 +271,8 @@ func aim() -> void:
 		seat.rotate_x(cursor_distance_from_center_y * LOOK_SPEED)
 		
 		seat.rotation.x = clamp(seat.rotation.x, -0.9, 0.9)
-	
-	pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
-	
-	# Reticle handling
-	reticle.global_position = camera.project_position(cursor_location,0.2)
-	reticle.look_at(camera.global_position)
-	reticle.rotation.z = 0
+
+func _unhandled_input(event):
+	if event is InputEventMouseMotion and not state_looking:
+		camera_gimbal.rotate_y(-event.relative.x * 0.002)
+		camera.rotate_x(-event.relative.y * 0.002)
