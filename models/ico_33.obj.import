@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ufo0qxubvf81"
+path="res://.godot/imported/ico_33.obj-6599434577ba298f1b0ba1291cb962ef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ico_33.obj-6599434577ba298f1b0ba1291cb962ef.mesh"]
+
+source_file="res://models/ico_33.obj"
+dest_files=["res://.godot/imported/ico_33.obj-6599434577ba298f1b0ba1291cb962ef.mesh", "res://.godot/imported/ico_33.obj-6599434577ba298f1b0ba1291cb962ef.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

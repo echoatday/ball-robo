@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c82iey1rryacy"]
+[gd_scene load_steps=72 format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
@@ -24,8 +24,49 @@
 [ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
 [ext_resource type="Script" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
 [ext_resource type="Texture2D" uid="uid://brewp7727q8wt" path="res://textures/cockpit/ui_border.png" id="21_hdyft"]
+[ext_resource type="ArrayMesh" uid="uid://cct3ioree00m8" path="res://models/ico_1.obj" id="27_kmu78"]
 [ext_resource type="ArrayMesh" uid="uid://c822lotye5kkq" path="res://models/icosphere.obj" id="27_t830s"]
 [ext_resource type="Shader" path="res://shaders/wireframe.gdshader" id="28_76cn8"]
+[ext_resource type="Material" uid="uid://cmtsqrhbc5xq0" path="res://materials/window_frame.tres" id="28_yrgn6"]
+[ext_resource type="ArrayMesh" uid="uid://bpxkmhrul5vxt" path="res://models/ico_02.obj" id="29_mpjcu"]
+[ext_resource type="ArrayMesh" uid="uid://cirf0xta2g0n1" path="res://models/ico_03.obj" id="30_368kq"]
+[ext_resource type="ArrayMesh" uid="uid://g77ban81cjjj" path="res://models/ico_04.obj" id="31_ddaiu"]
+[ext_resource type="ArrayMesh" uid="uid://lloeoeoso4f8" path="res://models/ico_05.obj" id="32_k38qi"]
+[ext_resource type="ArrayMesh" uid="uid://b0yffqo6k2trx" path="res://models/ico_06.obj" id="33_3lkj1"]
+[ext_resource type="ArrayMesh" uid="uid://snej700yp3m6" path="res://models/ico_07.obj" id="34_sf6ny"]
+[ext_resource type="ArrayMesh" uid="uid://c3w5w752leg0l" path="res://models/ico_08.obj" id="35_5gykk"]
+[ext_resource type="ArrayMesh" uid="uid://drpou81brym0x" path="res://models/ico_09.obj" id="36_foa2w"]
+[ext_resource type="ArrayMesh" uid="uid://duuhgqe4ej87s" path="res://models/ico_10.obj" id="37_542c0"]
+[ext_resource type="ArrayMesh" uid="uid://datquewsw07gq" path="res://models/ico_11.obj" id="38_2oguq"]
+[ext_resource type="ArrayMesh" uid="uid://0isnifjy38vq" path="res://models/ico_12.obj" id="39_u1q3x"]
+[ext_resource type="ArrayMesh" uid="uid://vgrpw8cvt4x4" path="res://models/ico_13.obj" id="40_61fki"]
+[ext_resource type="ArrayMesh" uid="uid://dtjgtangvm0hd" path="res://models/ico_14.obj" id="41_k7hkt"]
+[ext_resource type="ArrayMesh" uid="uid://ct7q3jleq3s1e" path="res://models/ico_15.obj" id="42_7wbrw"]
+[ext_resource type="ArrayMesh" uid="uid://d0yeyon8ercec" path="res://models/ico_16.obj" id="43_mee5e"]
+[ext_resource type="ArrayMesh" uid="uid://dlw4tpucw2xhb" path="res://models/ico_17.obj" id="44_gaans"]
+[ext_resource type="ArrayMesh" uid="uid://dhfvin4fq5e34" path="res://models/ico_18.obj" id="45_epmrs"]
+[ext_resource type="ArrayMesh" uid="uid://b7ytxix288aiu" path="res://models/ico_19.obj" id="46_4xyod"]
+[ext_resource type="ArrayMesh" uid="uid://vi40051p833t" path="res://models/ico_20.obj" id="47_31g06"]
+[ext_resource type="ArrayMesh" uid="uid://dkyrsujrofd35" path="res://models/ico_21.obj" id="48_qicil"]
+[ext_resource type="ArrayMesh" uid="uid://coptjybngte86" path="res://models/ico_22.obj" id="49_vkfo6"]
+[ext_resource type="ArrayMesh" uid="uid://bvxtrcsatgre4" path="res://models/ico_23.obj" id="50_j5prq"]
+[ext_resource type="ArrayMesh" uid="uid://cpy382nakj0a" path="res://models/ico_24.obj" id="51_mah4s"]
+[ext_resource type="ArrayMesh" uid="uid://om815wrjkgfa" path="res://models/ico_25.obj" id="52_acem0"]
+[ext_resource type="ArrayMesh" uid="uid://dif4e8uvoythq" path="res://models/ico_26.obj" id="53_nuybu"]
+[ext_resource type="ArrayMesh" uid="uid://ckbbdoduwk4s7" path="res://models/ico_27.obj" id="54_lpg20"]
+[ext_resource type="ArrayMesh" uid="uid://cbys2qif2ylcv" path="res://models/ico_28.obj" id="55_o3ob6"]
+[ext_resource type="ArrayMesh" uid="uid://cmi665mpq8ml0" path="res://models/ico_29.obj" id="56_rkg80"]
+[ext_resource type="ArrayMesh" uid="uid://byfogeqi8tevt" path="res://models/ico_30.obj" id="57_6odom"]
+[ext_resource type="ArrayMesh" uid="uid://d13d15j3nhvk4" path="res://models/ico_31.obj" id="58_u18r6"]
+[ext_resource type="ArrayMesh" uid="uid://c1m65031fhn56" path="res://models/ico_32.obj" id="59_b2wya"]
+[ext_resource type="ArrayMesh" uid="uid://ufo0qxubvf81" path="res://models/ico_33.obj" id="60_wfakw"]
+[ext_resource type="ArrayMesh" uid="uid://drb17svi4ms2e" path="res://models/ico_34.obj" id="61_pb07y"]
+[ext_resource type="ArrayMesh" uid="uid://ywmi646dtvhc" path="res://models/ico_35.obj" id="62_pcr5s"]
+[ext_resource type="ArrayMesh" uid="uid://dnh487unohc8e" path="res://models/ico_36.obj" id="63_okyma"]
+[ext_resource type="ArrayMesh" uid="uid://clqr1td1k4wou" path="res://models/ico_37.obj" id="64_mw4ah"]
+[ext_resource type="ArrayMesh" uid="uid://bif2wpd82jhv7" path="res://models/ico_38.obj" id="65_a608u"]
+[ext_resource type="ArrayMesh" uid="uid://b14ciimm302bd" path="res://models/ico_39.obj" id="66_12t65"]
+[ext_resource type="ArrayMesh" uid="uid://qu2l2q86hofg" path="res://models/ico_40.obj" id="67_7riei"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
@@ -90,7 +131,10 @@ near = 0.001
 
 [node name="reticle_pilot" type="Sprite3D" parent="Cockpit/Seat/camera_gimbal/camera"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.02)
+layers = 2
+cast_shadow = 0
 pixel_size = 0.0001
+render_priority = 1
 texture = ExtResource("2_ax5xn")
 
 [node name="pilot_rig" type="Node3D" parent="Cockpit/Seat"]
@@ -222,10 +266,11 @@ height = 1.0
 sides = 4
 material = ExtResource("10_lnno2")
 
-[node name="Sphere" type="Node3D" parent="Cockpit" node_paths=PackedStringArray("icosphere")]
+[node name="Sphere" type="Node3D" parent="Cockpit" node_paths=PackedStringArray("icosphere", "screen")]
 top_level = true
 script = ExtResource("14_y10qh")
 icosphere = NodePath("Icosphere")
+screen = [NodePath("Icosphere/Screens/ico_1"), NodePath("Icosphere/Screens/ico_2"), NodePath("Icosphere/Screens/ico_3"), NodePath("Icosphere/Screens/ico_4"), NodePath("Icosphere/Screens/ico_5"), NodePath("Icosphere/Screens/ico_6"), NodePath("Icosphere/Screens/ico_7"), NodePath("Icosphere/Screens/ico_8"), NodePath("Icosphere/Screens/ico_9"), NodePath("Icosphere/Screens/ico_10"), NodePath("Icosphere/Screens/ico_11"), NodePath("Icosphere/Screens/ico_12"), NodePath("Icosphere/Screens/ico_13"), NodePath("Icosphere/Screens/ico_14"), NodePath("Icosphere/Screens/ico_15"), NodePath("Icosphere/Screens/ico_16"), NodePath("Icosphere/Screens/ico_17"), NodePath("Icosphere/Screens/ico_18"), NodePath("Icosphere/Screens/ico_19"), NodePath("Icosphere/Screens/ico_20"), NodePath("Icosphere/Screens/ico_21"), NodePath("Icosphere/Screens/ico_22"), NodePath("Icosphere/Screens/ico_23"), NodePath("Icosphere/Screens/ico_24"), NodePath("Icosphere/Screens/ico_25"), NodePath("Icosphere/Screens/ico_26"), NodePath("Icosphere/Screens/ico_27"), NodePath("Icosphere/Screens/ico_28"), NodePath("Icosphere/Screens/ico_29"), NodePath("Icosphere/Screens/ico_30"), NodePath("Icosphere/Screens/ico_31"), NodePath("Icosphere/Screens/ico_32"), NodePath("Icosphere/Screens/ico_33"), NodePath("Icosphere/Screens/ico_34"), NodePath("Icosphere/Screens/ico_35"), NodePath("Icosphere/Screens/ico_36"), NodePath("Icosphere/Screens/ico_37"), NodePath("Icosphere/Screens/ico_38"), NodePath("Icosphere/Screens/ico_39"), NodePath("Icosphere/Screens/ico_40")]
 
 [node name="UI" type="Node3D" parent="Cockpit/Sphere"]
 
@@ -261,3 +306,205 @@ texture = ExtResource("21_hdyft")
 transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)
 mesh = ExtResource("27_t830s")
 surface_material_override/0 = SubResource("ShaderMaterial_4ivcc")
+
+[node name="Screens" type="Node3D" parent="Cockpit/Sphere/Icosphere"]
+
+[node name="ico_1" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("27_kmu78")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_2" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("29_mpjcu")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_3" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("30_368kq")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_4" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("31_ddaiu")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_5" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("32_k38qi")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_6" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("33_3lkj1")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_7" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("34_sf6ny")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_8" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("35_5gykk")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_9" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("36_foa2w")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_10" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("37_542c0")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_11" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("38_2oguq")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_12" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("39_u1q3x")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_13" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("40_61fki")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_14" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("41_k7hkt")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_15" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("42_7wbrw")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_16" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("43_mee5e")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_17" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("44_gaans")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_18" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("45_epmrs")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_19" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("46_4xyod")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_20" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("47_31g06")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_21" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("48_qicil")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_22" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("49_vkfo6")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_23" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("50_j5prq")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_24" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("51_mah4s")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_25" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("52_acem0")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_26" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("53_nuybu")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_27" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("54_lpg20")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_28" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("55_o3ob6")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_29" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("56_rkg80")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_30" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("57_6odom")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_31" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("58_u18r6")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_32" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("59_b2wya")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_33" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("60_wfakw")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_34" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("61_pb07y")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_35" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("62_pcr5s")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_36" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("63_okyma")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_37" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("64_mw4ah")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_38" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("65_a608u")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_39" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("66_12t65")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_40" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+visible = false
+mesh = ExtResource("67_7riei")
+surface_material_override/0 = ExtResource("28_yrgn6")

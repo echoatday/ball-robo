@@ -32,6 +32,7 @@ var state_rolling := false
 var state_grappling := false
 var state_spinning := false
 var state_sticking := false
+var state_dead := false
 var can_boost := true
 var can_jump := true
 var can_grapple := true
@@ -75,7 +76,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2
-	if state_looking:
+	if state_looking and not state_dead:
 		input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if abs(velocity.x) < abs(direction.x) * current_speed:
@@ -159,7 +160,7 @@ func _physics_process(delta: float) -> void:
 	cockpit_light.light_color = Color(heat*0.001,0.1,0.5-(heat*0.001))
 	
 	if heat > max_heat:
-		print_debug("YOU'RE DEAD")
+		state_dead = true
 	
 	if energy < 0:
 		heat += -energy*4
@@ -168,7 +169,7 @@ func _physics_process(delta: float) -> void:
 
 	heat += heat_level
 	
-	heat = clamp(heat, 0, max_heat)
+	heat = clamp(heat, 0, max_heat+111)
 	energy = clamp(energy, 0, max_energy)
 	
 	# --- ACTIONS ---
@@ -185,6 +186,14 @@ func _physics_process(delta: float) -> void:
 		can_jump = true
 	else:
 		can_jump = false
+	
+	if state_dead:
+		heat = 0
+		energy = 0
+		can_jump = false
+		can_boost = false
+		can_spin = false
+		can_grapple = false
 		
 	
 	if Input.is_action_just_pressed("jump") and can_jump:
@@ -273,6 +282,6 @@ func aim() -> void:
 		seat.rotation.x = clamp(seat.rotation.x, -0.9, 0.9)
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion and not state_looking:
+	if not state_looking and event is InputEventMouseMotion:
 		camera_gimbal.rotate_y(-event.relative.x * 0.002)
 		camera.rotate_x(-event.relative.y * 0.002)
