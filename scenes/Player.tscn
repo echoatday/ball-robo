@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://c82iey1rryacy"]
+[gd_scene load_steps=75 format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/reticle_box_control.gd" id="17_isqgh"]
 [ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
 [ext_resource type="Script" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
+[ext_resource type="Texture2D" uid="uid://xn4oulwfuj6s" path="res://textures/cockpit/ui_corner.png" id="20_yhiff"]
 [ext_resource type="Texture2D" uid="uid://brewp7727q8wt" path="res://textures/cockpit/ui_border.png" id="21_hdyft"]
 [ext_resource type="FontFile" uid="uid://ls66kquife41" path="res://ui/Source_Code_Pro/static/SourceCodePro-Regular.ttf" id="25_3lssg"]
 [ext_resource type="ArrayMesh" uid="uid://cct3ioree00m8" path="res://models/ico_1.obj" id="27_kmu78"]
@@ -107,16 +108,14 @@ grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
 spin_cast = NodePath("Cockpit/Sphere/UI/Reticle/SpinCast")
 pilot_rig = NodePath("Cockpit/Seat/pilot_rig")
 seat = NodePath("Cockpit/Seat")
-cockpit_light = NodePath("Cockpit/Seat/CockpitLight")
+cockpit_light = NodePath("Cockpit/CockpitLight")
 
 [node name="PlayerCollision3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_v0m4j")
 
 [node name="Cockpit" type="Node3D" parent="."]
 
-[node name="Seat" type="Node3D" parent="Cockpit"]
-
-[node name="CockpitLight" type="OmniLight3D" parent="Cockpit/Seat"]
+[node name="CockpitLight" type="OmniLight3D" parent="Cockpit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.02)
 layers = 2
 light_color = Color(0.33564, 0.569493, 1, 1)
@@ -127,6 +126,8 @@ light_specular = 0.0
 light_cull_mask = 4293918722
 omni_range = 0.15
 omni_attenuation = 0.1
+
+[node name="Seat" type="Node3D" parent="Cockpit"]
 
 [node name="camera_gimbal" type="Node3D" parent="Cockpit/Seat"]
 
@@ -263,22 +264,47 @@ box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("16_dpgmg"), E
 
 [node name="HUDBorder" type="Sprite3D" parent="Cockpit/Sphere/UI"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
+visible = false
 modulate = Color(0.4, 1, 0.4, 1)
 pixel_size = 0.0005
 texture = ExtResource("21_hdyft")
 
-[node name="speedometer_text" type="Label3D" parent="Cockpit/Sphere/UI/HUDBorder"]
-transform = Transform3D(-0.005, 0, -7.54979e-10, 0, 0.005, 0, 7.54979e-10, 0, -0.005, -0.08, 0.05, -0.14)
-layers = 2
-pixel_size = 0.008
+[node name="HUDBorderNW" type="Sprite3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, 0.15, -0.2)
+modulate = Color(0.4, 1, 0.4, 1)
+pixel_size = 0.0005
+billboard = 1
+alpha_antialiasing_mode = 1
+texture_filter = 0
+texture = ExtResource("20_yhiff")
+
+[node name="HUDBorderNE" type="Sprite3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.15, -0.2)
+flip_h = true
+modulate = Color(0.4, 1, 0.4, 1)
+pixel_size = 0.0005
 billboard = 1
 texture_filter = 0
-modulate = Color(1, 1, 0.2, 1)
-text = "00.0"
-font = ExtResource("25_3lssg")
-font_size = 100
-outline_size = 0
-script = ExtResource("17_vwp1p")
+texture = ExtResource("20_yhiff")
+
+[node name="HUDBorderSW" type="Sprite3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, -0.15, -0.2)
+flip_v = true
+modulate = Color(0.4, 1, 0.4, 1)
+pixel_size = 0.0005
+billboard = 1
+texture_filter = 0
+texture = ExtResource("20_yhiff")
+
+[node name="HUDBorderSE" type="Sprite3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, -0.15, -0.2)
+flip_h = true
+flip_v = true
+modulate = Color(0.4, 1, 0.4, 1)
+pixel_size = 0.0005
+billboard = 1
+texture_filter = 0
+texture = ExtResource("20_yhiff")
 
 [node name="DeadText" type="Label3D" parent="Cockpit/Sphere/UI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0182206, -0.09)
@@ -289,6 +315,19 @@ text = "Offline"
 font = ExtResource("25_3lssg")
 font_size = 64
 outline_size = 0
+
+[node name="speedometer_text" type="Label3D" parent="Cockpit/Sphere/UI"]
+transform = Transform3D(0.01, 0, 2.38419e-09, 0, 0.01, 0, -2.38419e-09, 0, 0.01, 0.28, 0.185, -0.2)
+layers = 2
+pixel_size = 0.006
+billboard = 1
+texture_filter = 0
+modulate = Color(1, 1, 0.4, 1)
+text = "00.0"
+font = ExtResource("25_3lssg")
+font_size = 200
+outline_size = 0
+script = ExtResource("17_vwp1p")
 
 [node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere"]
 transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)

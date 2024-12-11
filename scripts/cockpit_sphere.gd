@@ -37,7 +37,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				walk_sphere.visible = false
 	
-	print_debug(count)
 	look_target = owner.camera.project_position((get_viewport().get_mouse_position()/9)+Vector2(get_viewport().size/2.25),10)
 	
 	transform.origin = owner.transform.origin
@@ -48,8 +47,3 @@ func _physics_process(delta: float) -> void:
 			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.01*owner.velocity.length())
 		else:
 			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.005*owner.velocity.length())
-
-func look_at_target_interpolated(weight:float) -> void:
-	var xform := transform
-	xform = xform.looking_at(look_target,Vector3.UP)
-	transform = transform.interpolate_with(xform,weight)
