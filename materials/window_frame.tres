@@ -2,7 +2,8 @@
 
 [resource]
 cull_mode = 1
-shading_mode = 0
-diffuse_mode = 3
 specular_mode = 2
+disable_ambient_light = true
 albedo_color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+metallic_specular = 0.0
+backlight = Color(0.637843, 0.637843, 0.637843, 1)

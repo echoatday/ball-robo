@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://c82iey1rryacy"]
+[gd_scene load_steps=74 format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
@@ -7,18 +7,15 @@
 [ext_resource type="Material" uid="uid://ck00ajppk6fe8" path="res://materials/unit_metal.tres" id="5_3wou3"]
 [ext_resource type="Script" path="res://scripts/gauge_control.gd" id="5_4oxq5"]
 [ext_resource type="Texture2D" uid="uid://b8m73klewviwy" path="res://textures/cockpit/crosshair_box_red.png" id="5_8qmgo"]
-[ext_resource type="Material" uid="uid://dlcvg6timbtki" path="res://materials/needle.tres" id="5_nrjpl"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_8bc5l"]
 [ext_resource type="Material" uid="uid://bpxi0l621ahdn" path="res://materials/cable.tres" id="10_lnno2"]
-[ext_resource type="PackedScene" uid="uid://bjhwsokytak6y" path="res://models/gauges.blend" id="11_l66bj"]
-[ext_resource type="Material" uid="uid://by3jlsreis8rn" path="res://materials/attitude_sphere.tres" id="12_5y86p"]
-[ext_resource type="Script" path="res://scripts/attitude_indicator.gd" id="12_6ek3y"]
 [ext_resource type="Texture2D" uid="uid://mj7p2kfr8ygy" path="res://textures/cockpit/crosshair_box.png" id="12_go2wy"]
 [ext_resource type="ArrayMesh" uid="uid://db3f7cupygb0q" path="res://models/gauge.obj" id="13_i7ojs"]
 [ext_resource type="Script" path="res://scripts/cockpit_sphere.gd" id="14_y10qh"]
-[ext_resource type="PackedScene" uid="uid://s5wkwid0pcn2" path="res://models/interface.blend" id="15_w2gm3"]
+[ext_resource type="Material" uid="uid://bhe8qkmrjyxtk" path="res://materials/unit_seat.tres" id="15_3lbgh"]
+[ext_resource type="Texture2D" uid="uid://dth4g58kg1juf" path="res://textures/cockpit/gauge.png" id="15_4yao8"]
+[ext_resource type="ArrayMesh" uid="uid://ceixtb58kkriv" path="res://models/seat.obj" id="16_7grwn"]
 [ext_resource type="Texture2D" uid="uid://qrcfyp2nqb7i" path="res://textures/cockpit/crosshair_ball_yellow.png" id="16_dpgmg"]
-[ext_resource type="FontFile" uid="uid://b28nn2pbt11jk" path="res://ui/Digital_Display/digital-display.ttf" id="16_h7tg4"]
 [ext_resource type="Script" path="res://scripts/ring_control.gd" id="16_i4nk8"]
 [ext_resource type="Script" path="res://scripts/reticle_box_control.gd" id="17_isqgh"]
 [ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
@@ -68,6 +65,10 @@
 [ext_resource type="ArrayMesh" uid="uid://bif2wpd82jhv7" path="res://models/ico_38.obj" id="65_a608u"]
 [ext_resource type="ArrayMesh" uid="uid://b14ciimm302bd" path="res://models/ico_39.obj" id="66_12t65"]
 [ext_resource type="ArrayMesh" uid="uid://qu2l2q86hofg" path="res://models/ico_40.obj" id="67_7riei"]
+[ext_resource type="ArrayMesh" uid="uid://cw6bmi6it7cni" path="res://models/ico_walking.obj" id="69_8inck"]
+[ext_resource type="Material" uid="uid://cxfyouko7xq08" path="res://materials/unit_outside.tres" id="69_qm4gb"]
+[ext_resource type="ArrayMesh" uid="uid://csfe6teri25h8" path="res://models/arm.obj" id="70_fjarb"]
+[ext_resource type="ArrayMesh" uid="uid://dautwm88l6rj5" path="res://models/gun.obj" id="71_be0uw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
@@ -101,33 +102,36 @@ reticle = NodePath("Cockpit/Sphere/UI/Reticle")
 reticle_pilot = NodePath("Cockpit/Seat/camera_gimbal/camera/reticle_pilot")
 box_display = NodePath("Cockpit/Sphere/UI/Reticle/box")
 dead_text = NodePath("Cockpit/Sphere/UI/DeadText")
-grapple_cable = NodePath("Cockpit/cable_controller")
+grapple_cable = NodePath("Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/cable_controller")
 grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
 spin_cast = NodePath("Cockpit/Sphere/UI/Reticle/SpinCast")
 pilot_rig = NodePath("Cockpit/Seat/pilot_rig")
 seat = NodePath("Cockpit/Seat")
-cockpit_light = NodePath("Cockpit/CockpitLight")
+cockpit_light = NodePath("Cockpit/Seat/CockpitLight")
 
 [node name="PlayerCollision3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_v0m4j")
 
 [node name="Cockpit" type="Node3D" parent="."]
 
-[node name="CockpitLight" type="OmniLight3D" parent="Cockpit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00385129, 0.0390975, 0.0379313)
-layers = 2
-light_color = Color(1.63645e-06, 0.31172, 0.835339, 1)
-light_energy = 0.2
-light_cull_mask = 4294966274
-omni_range = 0.228
-omni_attenuation = 1.373
-
 [node name="Seat" type="Node3D" parent="Cockpit"]
+
+[node name="CockpitLight" type="OmniLight3D" parent="Cockpit/Seat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.02)
+layers = 2
+light_color = Color(0.33564, 0.569493, 1, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 0.0
+light_size = 1.0
+light_specular = 0.0
+light_cull_mask = 4293918722
+omni_range = 0.15
+omni_attenuation = 0.1
 
 [node name="camera_gimbal" type="Node3D" parent="Cockpit/Seat"]
 
 [node name="camera" type="Camera3D" parent="Cockpit/Seat/camera_gimbal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.000104345)
 fov = 90.0
 near = 0.001
 
@@ -141,63 +145,39 @@ texture = ExtResource("2_ax5xn")
 
 [node name="pilot_rig" type="Node3D" parent="Cockpit/Seat"]
 
-[node name="gauges" parent="Cockpit/Seat/pilot_rig" instance=ExtResource("11_l66bj")]
-transform = Transform3D(0.00418039, 0.00148552, -0.00896201, 0.0032619, 0.00896201, 0.00300706, 0.00847846, -0.00418039, 0.0032619, -0.041, -0.028, -0.018)
-visible = false
-
-[node name="energy_gauge" type="Node3D" parent="Cockpit/Seat/pilot_rig/gauges" node_paths=PackedStringArray("gauge_needle", "gauge_text")]
-transform = Transform3D(0.103528, 0.38637, -1.68888e-08, 0, -1.74846e-08, -0.4, -0.38637, 0.103528, -4.52534e-09, -0.226004, 0.946126, -2.26952)
-script = ExtResource("5_4oxq5")
-type = 1
-gauge_needle = NodePath("energy_needle")
-gauge_text = NodePath("energy_text")
-
-[node name="energy_needle" type="CSGCylinder3D" parent="Cockpit/Seat/pilot_rig/gauges/energy_gauge"]
-transform = Transform3D(0.999999, 2.98023e-08, -4.47035e-08, 0, 1, -2.98023e-08, -3.72529e-08, 8.9407e-08, 0.999999, -2.65599e-09, 0.47963, 0.2)
+[node name="ring" type="CSGTorus3D" parent="Cockpit/Seat/pilot_rig"]
+transform = Transform3D(0.08, 0, 0, 0, -3.49691e-09, -0.08, 0, 0.08, -3.49691e-09, 0, -0.03, 0.0104344)
 layers = 2
-height = 0.3
+calculate_tangents = false
+inner_radius = 0.8
+outer_radius = 0.9
+sides = 12
+ring_sides = 4
+smooth_faces = false
 material = ExtResource("5_3wou3")
+script = ExtResource("16_i4nk8")
 
-[node name="needle" type="CSGBox3D" parent="Cockpit/Seat/pilot_rig/gauges/energy_gauge/energy_needle"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -1)
+[node name="heat_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" node_paths=PackedStringArray("gauge_needle", "gauge_text")]
+transform = Transform3D(0.0034641, -0.001, 0.00173205, 0, 0.0034641, 0.002, -0.002, -0.00173205, 0.003, -0.017, -0.019, -0.03)
 layers = 2
-size = Vector3(1, 1, 16)
-material = ExtResource("5_nrjpl")
-
-[node name="energy_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/gauges/energy_gauge"]
-transform = Transform3D(0.999307, -0.023733, 0.0224656, -0.0224755, -3.50808e-08, 0.999747, -0.0296587, -0.799648, -0.000666806, -0.699385, 0.47965, -0.138384)
-pixel_size = 0.008
-shaded = true
-texture_filter = 0
-modulate = Color(0.862745, 0.862745, 0.862745, 1)
-outline_modulate = Color(1, 1, 1, 1)
-text = "300"
-font = ExtResource("9_8bc5l")
-font_size = 80
-outline_size = 0
-horizontal_alignment = 2
-
-[node name="heat_gauge" type="Node3D" parent="Cockpit/Seat/pilot_rig/gauges" node_paths=PackedStringArray("gauge_needle", "gauge_text")]
-transform = Transform3D(-0.000121266, 0.4, -0.000100702, 0.00406702, -9.94653e-05, -0.399979, -0.399979, -0.000122294, -0.00406697, -0.286901, 0.12221, 0)
+mesh = ExtResource("13_i7ojs")
+surface_material_override/0 = ExtResource("5_3wou3")
 script = ExtResource("5_4oxq5")
 type = 2
 gauge_needle = NodePath("heat_needle")
 gauge_text = NodePath("heat_text")
 
-[node name="heat_needle" type="CSGCylinder3D" parent="Cockpit/Seat/pilot_rig/gauges/heat_gauge"]
-transform = Transform3D(0.999999, 2.98023e-08, -4.47035e-08, 0, 1, -2.98023e-08, -3.72529e-08, 8.9407e-08, 0.999999, 0, 0.6, 0.2)
+[node name="heat_needle" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -2.98023e-08, 0.946367)
 layers = 2
-height = 0.3
-material = ExtResource("5_3wou3")
+pixel_size = 0.0026
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("15_4yao8")
 
-[node name="needle" type="CSGBox3D" parent="Cockpit/Seat/pilot_rig/gauges/heat_gauge/heat_needle"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -1)
-layers = 2
-size = Vector3(1, 1, 16)
-material = ExtResource("5_nrjpl")
-
-[node name="heat_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/gauges/heat_gauge"]
-transform = Transform3D(1, -1.1921e-08, -6.51352e-16, 0, -3.49691e-08, 1, -1.49012e-08, -0.8, -4.37114e-08, -0.97356, 0.59, -0.199069)
+[node name="heat_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/heat_gauge"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.799999, 0, 0, 0, 1, 0, 0, 1.06)
 pixel_size = 0.008
 shaded = true
 texture_filter = 0
@@ -207,72 +187,55 @@ text = "99"
 font = ExtResource("9_8bc5l")
 font_size = 80
 outline_size = 0
-horizontal_alignment = 2
 
-[node name="interface" parent="Cockpit/Seat/pilot_rig" instance=ExtResource("15_w2gm3")]
-transform = Transform3D(-0.00168232, 0, -0.00627852, 0, 0.0065, 0, 0.00627852, 0, -0.00168232, 0.023, -0.034, -0.032)
-visible = false
-
-[node name="attitude_sphere" type="CSGSphere3D" parent="Cockpit/Seat/pilot_rig/interface"]
-transform = Transform3D(20, 0, 1.54972e-07, 0, 20, 0, -1.54972e-07, 0, 20, -0.0251515, 1, 1.94889e-10)
+[node name="energy_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" node_paths=PackedStringArray("gauge_needle", "gauge_text")]
+transform = Transform3D(0.0034641, 0.001, -0.00173205, 0, 0.0034641, 0.002, 0.002, -0.00173205, 0.003, 0.017, -0.019, -0.03)
 layers = 2
-radius = 0.05
-radial_segments = 16
-rings = 16
-material = ExtResource("12_5y86p")
-script = ExtResource("12_6ek3y")
+mesh = ExtResource("13_i7ojs")
+surface_material_override/0 = ExtResource("5_3wou3")
+script = ExtResource("5_4oxq5")
+type = 1
+gauge_needle = NodePath("energy_needle")
+gauge_text = NodePath("energy_text")
 
-[node name="speedometer_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/interface"]
-transform = Transform3D(-2.23517e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.23517e-08, 0.927625, 0.989926, -3.26419)
+[node name="energy_needle" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/energy_gauge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -2.98023e-08, 0.946367)
+layers = 2
+pixel_size = 0.0026
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("15_4yao8")
+
+[node name="energy_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/energy_gauge"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.8, 0, 0, 0, 0.999999, 0, 0, 1.06)
 pixel_size = 0.008
 shaded = true
 texture_filter = 0
-modulate = Color(0.0962049, 0.0962047, 0.0962049, 1)
+modulate = Color(0.862745, 0.862745, 0.862745, 1)
 outline_modulate = Color(1, 1, 1, 1)
-text = "00.0"
-font = ExtResource("16_h7tg4")
-font_size = 230
+text = "300"
+font = ExtResource("9_8bc5l")
+font_size = 80
 outline_size = 0
-horizontal_alignment = 2
-script = ExtResource("17_vwp1p")
 
-[node name="ring" type="CSGTorus3D" parent="Cockpit/Seat/pilot_rig"]
-transform = Transform3D(0.08, 0, 0, 0, 0.04, -0.069282, 0, 0.069282, 0.04, 0, 0, 0)
+[node name="seat_model" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig"]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, -0.028, -0.009)
 layers = 2
-calculate_tangents = false
-inner_radius = 0.9
-sides = 24
-ring_sides = 4
-smooth_faces = false
-material = ExtResource("5_3wou3")
-script = ExtResource("16_i4nk8")
-
-[node name="heat_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig"]
-transform = Transform3D(0.00282843, -0.00108239, 0.00261313, 0, 0.00369552, 0.00153073, -0.00282843, -0.00108239, 0.00261313, -0.046, -0.023, -0.03)
-mesh = ExtResource("13_i7ojs")
+mesh = ExtResource("16_7grwn")
 surface_material_override/0 = ExtResource("5_3wou3")
+surface_material_override/1 = ExtResource("15_3lbgh")
+surface_material_override/2 = ExtResource("5_3wou3")
+surface_material_override/3 = ExtResource("5_3wou3")
+surface_material_override/4 = ExtResource("15_3lbgh")
+surface_material_override/5 = ExtResource("5_3wou3")
 
-[node name="energy_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig"]
-transform = Transform3D(0.00282843, 0.00108239, -0.00261313, 0, 0.00369552, 0.00153073, 0.00282843, -0.00108239, 0.00261313, 0.046, -0.023, -0.03)
-mesh = ExtResource("13_i7ojs")
-surface_material_override/0 = ExtResource("5_3wou3")
-
-[node name="cable_controller" type="Node3D" parent="Cockpit"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.1, -0.164736)
-visible = false
-
-[node name="grapple_cable" type="CSGCylinder3D" parent="Cockpit/cable_controller"]
-transform = Transform3D(1.50475, 0, 0, 0, -4.38498e-08, -1.00317, 0, 1.00317, -4.38498e-08, -0.000695884, -0.00207834, -0.500199)
-radius = 0.05
-height = 1.0
-sides = 4
-material = ExtResource("10_lnno2")
-
-[node name="Sphere" type="Node3D" parent="Cockpit" node_paths=PackedStringArray("icosphere", "screen")]
+[node name="Sphere" type="Node3D" parent="Cockpit" node_paths=PackedStringArray("icosphere", "screen", "walk_sphere")]
 top_level = true
 script = ExtResource("14_y10qh")
 icosphere = NodePath("Icosphere")
 screen = [NodePath("Icosphere/Screens/ico_1"), NodePath("Icosphere/Screens/ico_2"), NodePath("Icosphere/Screens/ico_3"), NodePath("Icosphere/Screens/ico_4"), NodePath("Icosphere/Screens/ico_5"), NodePath("Icosphere/Screens/ico_6"), NodePath("Icosphere/Screens/ico_7"), NodePath("Icosphere/Screens/ico_8"), NodePath("Icosphere/Screens/ico_9"), NodePath("Icosphere/Screens/ico_10"), NodePath("Icosphere/Screens/ico_11"), NodePath("Icosphere/Screens/ico_12"), NodePath("Icosphere/Screens/ico_13"), NodePath("Icosphere/Screens/ico_14"), NodePath("Icosphere/Screens/ico_15"), NodePath("Icosphere/Screens/ico_16"), NodePath("Icosphere/Screens/ico_17"), NodePath("Icosphere/Screens/ico_18"), NodePath("Icosphere/Screens/ico_19"), NodePath("Icosphere/Screens/ico_20"), NodePath("Icosphere/Screens/ico_21"), NodePath("Icosphere/Screens/ico_22"), NodePath("Icosphere/Screens/ico_23"), NodePath("Icosphere/Screens/ico_24"), NodePath("Icosphere/Screens/ico_25"), NodePath("Icosphere/Screens/ico_26"), NodePath("Icosphere/Screens/ico_27"), NodePath("Icosphere/Screens/ico_28"), NodePath("Icosphere/Screens/ico_29"), NodePath("Icosphere/Screens/ico_30"), NodePath("Icosphere/Screens/ico_31"), NodePath("Icosphere/Screens/ico_32"), NodePath("Icosphere/Screens/ico_33"), NodePath("Icosphere/Screens/ico_34"), NodePath("Icosphere/Screens/ico_35"), NodePath("Icosphere/Screens/ico_36"), NodePath("Icosphere/Screens/ico_37"), NodePath("Icosphere/Screens/ico_38"), NodePath("Icosphere/Screens/ico_39"), NodePath("Icosphere/Screens/ico_40")]
+walk_sphere = NodePath("Icosphere/Screens/ico_walking")
 
 [node name="UI" type="Node3D" parent="Cockpit/Sphere"]
 
@@ -304,12 +267,24 @@ modulate = Color(0.4, 1, 0.4, 1)
 pixel_size = 0.0005
 texture = ExtResource("21_hdyft")
 
+[node name="speedometer_text" type="Label3D" parent="Cockpit/Sphere/UI/HUDBorder"]
+transform = Transform3D(-0.005, 0, -7.54979e-10, 0, 0.005, 0, 7.54979e-10, 0, -0.005, -0.08, 0.05, -0.14)
+layers = 2
+pixel_size = 0.008
+billboard = 1
+texture_filter = 0
+modulate = Color(1, 1, 0.2, 1)
+text = "00.0"
+font = ExtResource("25_3lssg")
+font_size = 100
+outline_size = 0
+script = ExtResource("17_vwp1p")
+
 [node name="DeadText" type="Label3D" parent="Cockpit/Sphere/UI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0182206, -0.09)
 visible = false
 layers = 2
 pixel_size = 0.0001
-modulate = Color(1, 0.5, 0, 1)
 text = "Offline"
 font = ExtResource("25_3lssg")
 font_size = 64
@@ -317,207 +292,278 @@ outline_size = 0
 
 [node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere"]
 transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)
+layers = 2
 mesh = ExtResource("27_t830s")
 surface_material_override/0 = SubResource("ShaderMaterial_4ivcc")
 
 [node name="Screens" type="Node3D" parent="Cockpit/Sphere/Icosphere"]
+transform = Transform3D(0.995, 0, 0, 0, 0.995, 0, 0, 0, 0.995, 0, 0, 0)
 
 [node name="ico_1" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("27_kmu78")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_2" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("29_mpjcu")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_3" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("30_368kq")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_4" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("31_ddaiu")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_5" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("32_k38qi")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_6" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("33_3lkj1")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_7" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("34_sf6ny")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_8" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("35_5gykk")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_9" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("36_foa2w")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_10" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("37_542c0")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_11" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("38_2oguq")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_12" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("39_u1q3x")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_13" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("40_61fki")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_14" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("41_k7hkt")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_15" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("42_7wbrw")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_16" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("43_mee5e")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_17" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("44_gaans")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_18" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("45_epmrs")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_19" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("46_4xyod")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_20" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("47_31g06")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_21" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("48_qicil")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_22" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("49_vkfo6")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_23" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("50_j5prq")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_24" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("51_mah4s")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_25" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("52_acem0")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_26" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("53_nuybu")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_27" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("54_lpg20")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_28" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("55_o3ob6")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_29" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("56_rkg80")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_30" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("57_6odom")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_31" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("58_u18r6")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_32" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("59_b2wya")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_33" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("60_wfakw")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_34" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("61_pb07y")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_35" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("62_pcr5s")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_36" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("63_okyma")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_37" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("64_mw4ah")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_38" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("65_a608u")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_39" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("66_12t65")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="ico_40" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
 visible = false
+layers = 2
 mesh = ExtResource("67_7riei")
 surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="ico_walking" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens"]
+layers = 2
+mesh = ExtResource("69_8inck")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="gun" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking"]
+transform = Transform3D(-6.55671e-09, 0, -0.15, -0.0388229, 0.144889, 1.697e-09, 0.144889, 0.0388229, -6.33329e-09, 1.4, -0.280257, -0.897775)
+mesh = ExtResource("71_be0uw")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("69_qm4gb")
+
+[node name="cable_controller" type="Node3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking/gun"]
+transform = Transform3D(-2.91409e-07, 0, 6.66667, 0, 6.66667, 0, -6.66667, 0, -2.91409e-07, -2.24985, -1.31843, -0.0249643)
+visible = false
+
+[node name="grapple_cable" type="CSGCylinder3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/cable_controller"]
+transform = Transform3D(1.50475, 0, 0, 0, -4.38498e-08, -1.00317, 0, 1.00317, -4.38498e-08, -0.000695884, -0.00207834, -0.500199)
+radius = 0.05
+height = 1.0
+sides = 4
+material = ExtResource("10_lnno2")
+
+[node name="arm" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking"]
+transform = Transform3D(0.1, 0, 0, 0, 0.0965926, -0.0258819, 0, 0.0258819, 0.0965926, 0, -0.138325, -0.140592)
+mesh = ExtResource("70_fjarb")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("69_qm4gb")
+surface_material_override/1 = ExtResource("69_qm4gb")

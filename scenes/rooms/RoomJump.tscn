@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://b1r631revkidw"]
+[gd_scene load_steps=109 format=4 uid="uid://b1r631revkidw"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_28xkr"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_xivs6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://c7gqrs13tnfpe" path="res://textures/value_2.tres" id="5_abi04"]
 [ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="5_ntx7t"]
 [ext_resource type="Script" path="res://scripts/door_control.gd" id="6_1m232"]
+[ext_resource type="PackedScene" uid="uid://7lt2mtpgunn3" path="res://scenes/GrappleTarget.tscn" id="8_0efov"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6dio3"]
 _surfaces = [{
@@ -681,3 +682,9 @@ script = ExtResource("6_1m232")
 [node name="DoorEast" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -4, 64)
 script = ExtResource("6_1m232")
+
+[node name="GrappleTarget" parent="." instance=ExtResource("8_0efov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, -20, 29)
+
+[node name="GrappleTarget2" parent="." instance=ExtResource("8_0efov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, -13, 29)

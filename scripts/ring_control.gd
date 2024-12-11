@@ -1,7 +1,7 @@
 extends CSGTorus3D
 
 var walk_transition := false
-var roll_rotation := -60
+var roll_rotation := -90
 
 func _physics_process(delta: float) -> void:
 	if owner.state_rolling:
@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 			rotate_x(-owner.spin_velocity.length() * 0.01)
 		else:
 			walk_transition = false
-			rotation_degrees.x = move_toward(rotation_degrees.x, roll_rotation, 2)
+			rotation_degrees.x = move_toward(rotation_degrees.x, 2, 2)
 	if Input.is_action_just_pressed("roll"):
 		walk_transition = true
 	

@@ -43,7 +43,7 @@ var current_accel = ACCEL
 var spin_velocity := Vector3.ZERO
 var spin_speed = 0
 
-var max_energy := 300
+var max_energy := 500
 var energy := 0
 var energy_recharge := 1
 var max_heat := 1000
@@ -191,7 +191,8 @@ func _physics_process(delta: float) -> void:
 		can_jump = false
 	
 	if state_dead:
-		heat = 0
+		state_rolling = false
+		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
 		state_looking = false
@@ -202,6 +203,7 @@ func _physics_process(delta: float) -> void:
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire"):
 			state_dead = false
+			heat = 0
 			can_grapple = true
 			dead_text.visible = false
 			position = spawn_position
