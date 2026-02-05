@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3ilansp4ikci"]
+[gd_scene format=3 uid="uid://3ilansp4ikci"]
 
 [ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://scenes/Player.tscn" id="1_dow2d"]
 [ext_resource type="Texture2D" uid="uid://8ldhuru2pd6s" path="res://textures/skybox.png" id="1_xewje"]
@@ -22,11 +22,11 @@ fog_light_color = Color(0.787717, 0.367609, 0.379549, 1)
 fog_light_energy = 0.69
 fog_density = 0.0
 
-[node name="WorldEnvironment" type="WorldEnvironment"]
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=1502763437]
 environment = SubResource("Environment_si5j6")
 
-[node name="Player" parent="." instance=ExtResource("1_dow2d")]
+[node name="Player" parent="." unique_id=1268744149 instance=ExtResource("1_dow2d")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -52, 1, -1.39151e-07)
 
-[node name="Room" parent="." instance=ExtResource("5_dcgyx")]
+[node name="Room" parent="." unique_id=2117626967 instance=ExtResource("5_dcgyx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 0)
