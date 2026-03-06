@@ -108,6 +108,8 @@ func _physics_process(delta: float) -> void:
 		current_speed = SPEED * 1.5
 		current_accel = ACCEL / 4
 	else:
+		state_bouncing = false
+		state_floating = false
 		state_spinning = false
 		collider.shape.radius = 0.9
 		current_speed = SPEED
@@ -116,6 +118,8 @@ func _physics_process(delta: float) -> void:
 	# --- SPINNING ---
 	var spin_direction = (spin_cast.global_position - global_position).normalized()
 	if state_spinning:
+		state_bouncing = false
+		state_floating = false
 		current_speed = SPEED * 0.5
 		spin_speed = move_toward(spin_speed, spin_strength, 0.2)
 		spin_velocity = spin_direction*spin_speed
@@ -177,9 +181,11 @@ func _physics_process(delta: float) -> void:
 	energy = clamp(energy, 0, max_energy)
 	
 	# --- ACTIONS ---
-	if state_spinning or state_rolling:
+	if state_rolling:
 		can_jump = false
 		can_boost = false
+		if is_on_floor():
+			can_spin = true
 	elif is_on_floor() or state_grappling:
 		can_boost = true
 		can_jump = true
@@ -224,8 +230,6 @@ func _physics_process(delta: float) -> void:
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
-		state_floating = false
-		state_bouncing = false
 		
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
 			velocity.y = JUMP_VELOCITY/3
@@ -256,10 +260,11 @@ func _physics_process(delta: float) -> void:
 			can_boost = true
 
 	aim()
-	if state_bouncing:
+	if state_bouncing and state_rolling:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
-			velocity = velocity.bounce(collision.get_normal())
+			can_spin = true
+			velocity = velocity.bounce(collision.get_normal()) * 0.99
 	else:
 		move_and_slide()
 
