@@ -74,8 +74,6 @@ func _physics_process(delta: float) -> void:
 	if not state_floating and not is_on_floor():
 		velocity += get_gravity() * delta
 	elif state_floating:
-		#velocity += -get_gravity() * delta
-		#velocity.y = clamp(velocity.y, -current_speed*2, current_speed/2)
 		energy_checkout += energy_recharge+2
 
 	# Get the input direction and handle the movement/deceleration.
@@ -88,13 +86,13 @@ func _physics_process(delta: float) -> void:
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel)
 	else:
-		velocity.x = move_toward(velocity.x, direction.x * current_speed, ACCEL/10)
+		velocity.x = move_toward(velocity.x, direction.x * current_speed, ACCEL/100)
 	if abs(velocity.z) < abs(direction.z) * current_speed:
 		velocity.z += direction.z * current_accel
 	elif is_on_floor():
 		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel)
 	else:
-		velocity.z = move_toward(velocity.z, direction.z * current_speed, ACCEL/10)
+		velocity.z = move_toward(velocity.z, direction.z * current_speed, ACCEL/100)
 	
 	if not direction.x and is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, current_accel)
@@ -118,9 +116,7 @@ func _physics_process(delta: float) -> void:
 	# --- SPINNING ---
 	var spin_direction = (spin_cast.global_position - global_position).normalized()
 	if state_spinning:
-		state_bouncing = false
-		state_floating = false
-		current_speed = SPEED * 0.5
+		current_speed = SPEED * 0.9
 		spin_speed = move_toward(spin_speed, spin_strength, 0.2)
 		spin_velocity = spin_direction*spin_speed
 	else:
