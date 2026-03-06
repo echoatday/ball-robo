@@ -355,24 +355,62 @@ points = PackedVector3Array(12, -33, -4, 12, -34, -4, 16, -34, -4, 16, -33, -4, 
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=741832541]
 
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=406854333]
+size = Vector3(31, 79, 31)
+material = SubResource("StandardMaterial3D_5vdg0")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=754605457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -39, 0)
+size = Vector3(127, 1, 127)
+material = SubResource("StandardMaterial3D_5vdg0")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=371335585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 0)
+size = Vector3(1, 79, 15)
+material = SubResource("StandardMaterial3D_5vdg0")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=116394040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0, 0)
+size = Vector3(1, 79, 95)
+material = SubResource("StandardMaterial3D_5vdg0")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=737628987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 0, 0)
+size = Vector3(1, 79, 95)
+material = SubResource("StandardMaterial3D_5vdg0")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1295422636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, -28, 0)
+operation = 2
 size = Vector3(9, 9, 9)
 material = SubResource("StandardMaterial3D_5vdg0")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=566319390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, -28, -12)
+operation = 2
 size = Vector3(9, 9, 9)
 material = SubResource("StandardMaterial3D_5vdg0")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1867307867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -60)
+operation = 2
 size = Vector3(9, 9, 9)
 material = SubResource("StandardMaterial3D_5vdg0")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1669659931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 60)
+operation = 2
 size = Vector3(9, 9, 9)
+material = SubResource("StandardMaterial3D_5vdg0")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1126612770]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.0544353e-06, 0, 47)
+size = Vector3(1, 79, 95)
+material = SubResource("StandardMaterial3D_5vdg0")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1738685271]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0544353e-06, 0, -47)
+size = Vector3(1, 79, 95)
 material = SubResource("StandardMaterial3D_5vdg0")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=952537802]
