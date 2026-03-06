@@ -22,7 +22,7 @@ extends CharacterBody3D
 const SPEED = 10
 const ACCEL = 1.1
 const BOOST_SPEED = 8
-const JUMP_VELOCITY = 6
+const JUMP_VELOCITY = 8
 const LOOK_SPEED = 0.0002
 const MARGIN = 160
 const GRAPPLE_SPEED = 20
@@ -267,7 +267,7 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			can_spin = true
-			velocity = velocity.bounce(collision.get_normal()) * 0.99
+			velocity = velocity.bounce(collision.get_normal()) * 0.95
 		elif velocity.y == 0:
 			velocity += get_gravity() * delta
 	else:
