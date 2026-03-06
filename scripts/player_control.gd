@@ -28,11 +28,12 @@ const MARGIN = 160
 const GRAPPLE_SPEED = 20
 const GRAPPLE_LIMIT = 0.85
 
-var state_looking := false
+var state_looking := true
 var state_rolling := false
 var state_grappling := false
 var state_spinning := false
-var state_sticking := false
+var state_floating := false
+var state_bouncing := false
 var state_dead := false
 var can_boost := true
 var can_jump := true
@@ -70,11 +71,11 @@ func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()
 	
 	# Add the gravity.
-	if not state_sticking and not is_on_floor():
+	if not state_floating and not is_on_floor():
 		velocity += get_gravity() * delta
-	elif state_sticking:
-		velocity += -get_gravity() * delta
-		velocity.y = clamp(velocity.y, -current_speed*2, current_speed/2)
+	elif state_floating:
+		#velocity += -get_gravity() * delta
+		#velocity.y = clamp(velocity.y, -current_speed*2, current_speed/2)
 		energy_checkout += energy_recharge+2
 
 	# Get the input direction and handle the movement/deceleration.
@@ -167,7 +168,7 @@ func _physics_process(delta: float) -> void:
 	
 	if energy < 0:
 		heat += -energy*4
-	elif energy < max_energy and not state_grappling and not state_spinning:
+	elif energy < max_energy and not state_grappling and not state_spinning and not state_bouncing:
 		energy += energy_recharge
 
 	heat += heat_level
@@ -176,15 +177,13 @@ func _physics_process(delta: float) -> void:
 	energy = clamp(energy, 0, max_energy)
 	
 	# --- ACTIONS ---
-	if state_spinning:
+	if state_spinning or state_rolling:
 		can_jump = false
 		can_boost = false
 	elif is_on_floor() or state_grappling:
 		can_boost = true
 		can_jump = true
 		can_spin = true
-	elif is_on_wall() and state_sticking:
-		can_jump = true
 	elif is_on_wall() and not state_rolling:
 		can_jump = true
 	else:
@@ -225,7 +224,8 @@ func _physics_process(delta: float) -> void:
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
-		state_sticking = false
+		state_floating = false
+		state_bouncing = false
 		
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
 			velocity.y = JUMP_VELOCITY/3
@@ -239,10 +239,12 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
-		if Input.is_action_pressed("boost") and is_on_wall():
-			state_sticking = true
+		if Input.is_action_pressed("boost"):
+			state_floating = true
 		else:
-			state_sticking = false
+			state_floating = false
+		if Input.is_action_just_pressed("jump"):
+			state_bouncing = !state_bouncing
 		
 		if Input.is_action_just_pressed("fire") and can_spin:
 			state_spinning = true
@@ -254,7 +256,12 @@ func _physics_process(delta: float) -> void:
 			can_boost = true
 
 	aim()
-	move_and_slide()
+	if state_bouncing:
+		var collision = move_and_collide(velocity * delta)
+		if collision:
+			velocity = velocity.bounce(collision.get_normal())
+	else:
+		move_and_slide()
 
 # Aiming system
 func aim() -> void:
