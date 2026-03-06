@@ -248,7 +248,7 @@ func _physics_process(delta: float) -> void:
 			state_floating = true
 		else:
 			state_floating = false
-		if Input.is_action_pressed("jump"):
+		if Input.is_action_pressed("jump") and not is_on_floor():
 			state_bouncing = true
 		else:
 			state_bouncing = false
@@ -267,8 +267,9 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			can_spin = true
-			print("RESET")
 			velocity = velocity.bounce(collision.get_normal()) * 0.99
+		elif velocity.y == 0:
+			velocity += get_gravity() * delta
 	else:
 		move_and_slide()
 
