@@ -73,12 +73,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not state_floating and not is_on_floor():
 		velocity += get_gravity() * delta
-	elif state_floating:
-		energy_checkout += energy_recharge+2
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2
-	if state_looking and not state_dead:
+	if not state_dead:
 		input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if abs(velocity.x) < abs(direction.x) * current_speed:
@@ -140,10 +138,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		state_grappling = false
 
-	if not state_grappling and grapple_cast.is_colliding():
-		grapple_ready = true
-		can_grapple = true
-	elif not grapple_cast.is_colliding():
+	if not grapple_cast.is_colliding():
 		grapple_ready = false
 	else:
 		grapple_ready = true
@@ -168,8 +163,17 @@ func _physics_process(delta: float) -> void:
 	
 	if energy < 0:
 		heat += -energy*4
-	elif energy < max_energy and not state_grappling and not state_spinning and not state_bouncing:
+	elif energy < max_energy:
 		energy += energy_recharge
+	
+	if state_grappling:
+		energy_checkout += 1
+	if state_spinning:
+		energy_checkout += 1
+	if state_bouncing:
+		energy_checkout += 2
+	if state_floating:
+		energy_checkout += 3
 
 	heat += heat_level
 	
@@ -223,6 +227,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() or state_grappling:
 			velocity.y = JUMP_VELOCITY/3
 			state_grappling = false
+		can_boost = true
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
@@ -243,8 +248,10 @@ func _physics_process(delta: float) -> void:
 			state_floating = true
 		else:
 			state_floating = false
-		if Input.is_action_just_pressed("jump"):
-			state_bouncing = !state_bouncing
+		if Input.is_action_pressed("jump"):
+			state_bouncing = true
+		else:
+			state_bouncing = false
 		
 		if Input.is_action_just_pressed("fire") and can_spin:
 			state_spinning = true
@@ -260,6 +267,7 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			can_spin = true
+			print("RESET")
 			velocity = velocity.bounce(collision.get_normal()) * 0.99
 	else:
 		move_and_slide()
@@ -288,6 +296,8 @@ func aim() -> void:
 		reticle.rotation.z = 0
 	else:
 		reticle_pilot.visible = true
+		state_grappling = false
+		state_spinning = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	
