@@ -83,14 +83,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x += direction.x * current_accel
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel)
+	elif direction.x * velocity.x < 0 and $Timer.is_stopped():
+		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel)
 	else:
-		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel/10)
+		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel/100)
 	if abs(velocity.z) < abs(direction.z) * current_speed:
 		velocity.z += direction.z * current_accel
 	elif is_on_floor():
 		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel)
+	elif direction.z * velocity.z < 0 and $Timer.is_stopped():
+		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel)
 	else:
-		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel/10)
+		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel/100)
 	
 	if not direction.x and is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, current_accel)
@@ -218,8 +222,10 @@ func _physics_process(delta: float) -> void:
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
-			velocity.x += get_wall_normal().x * BOOST_SPEED*1.6
-			velocity.z += get_wall_normal().z * BOOST_SPEED*1.6
+			if get_wall_normal():
+				$Timer.start()
+				velocity.x = get_wall_normal().x * BOOST_SPEED * 1.3
+				velocity.z = get_wall_normal().z * BOOST_SPEED * 1.3
 			state_grappling = false
 		can_jump = false
 		

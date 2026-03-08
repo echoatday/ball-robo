@@ -597,3 +597,8 @@ mesh = ExtResource("70_fjarb")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("69_qm4gb")
 surface_material_override/1 = ExtResource("69_qm4gb")
+
+[node name="Timer" type="Timer" parent="." unique_id=314712587]
+process_callback = 0
+wait_time = 0.3
+one_shot = true
