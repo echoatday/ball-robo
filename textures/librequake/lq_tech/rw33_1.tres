@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cqochfyi84tnt"]
+
+[ext_resource type="Texture2D" uid="uid://c1joue2pjmew0" path="res://textures/librequake/lq_tech/rw33_1.png" id="1_r4frj"]
+
+[resource]
+albedo_texture = ExtResource("1_r4frj")
+metallic_specular = 0.0
+texture_filter = 2

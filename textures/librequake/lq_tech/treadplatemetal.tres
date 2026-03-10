@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cwhlp2mdvk8wj"]
+
+[ext_resource type="Texture2D" uid="uid://c35ojteqcfbey" path="res://textures/librequake/lq_tech/treadplatemetal.png" id="1_8je8r"]
+
+[resource]
+albedo_texture = ExtResource("1_8je8r")
+metallic_specular = 0.0
+texture_filter = 2

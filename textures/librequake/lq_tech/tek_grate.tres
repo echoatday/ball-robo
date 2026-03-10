@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cwrolxcq0nxpv"]
+
+[ext_resource type="Texture2D" uid="uid://b3bk7r2cq3mux" path="res://textures/librequake/lq_tech/tek_grate.png" id="1_7cb5a"]
+
+[resource]
+albedo_texture = ExtResource("1_7cb5a")
+metallic_specular = 0.0
+texture_filter = 2
