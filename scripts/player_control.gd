@@ -19,7 +19,7 @@ extends CharacterBody3D
 @export var seat: Node3D
 @export var cockpit_light: Light3D
 
-const SPEED = 10
+const SPEED = 8
 const ACCEL = 1.1
 const BOOST_SPEED = 8
 const JUMP_VELOCITY = 8
