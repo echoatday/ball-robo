@@ -1,0 +1,19 @@
+// Game: FuncGodot
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+"_tb_mod" "textures"
+"_tb_textures" "textures/librequake/lq_conc;textures/librequake/lq_dev;textures/librequake/lq_flesh;textures/librequake/lq_greek;textures/librequake/lq_health_ammo;textures/librequake/lq_legacy;textures/librequake/lq_liquidsky;textures/librequake/lq_metal;textures/librequake/lq_palette;textures/librequake/lq_props;textures/librequake/lq_tech;textures/librequake/lq_tech/src;textures/librequake/lq_terra;textures/librequake/lq_utility;textures/librequake/lq_wood"
+// brush 0
+{
+( 0 0 0 ) ( 0 1 0 ) ( 0 0 1 ) librequake/lq_tech/fdoor02 [ 0 1 0 0 ] [ 0 0 -1 16 ] 90 1 1
+( 0 0 0 ) ( 0 0 1 ) ( 1 0 0 ) librequake/lq_tech/doortrak1 [ 1 0 -0 0 ] [ 0 -0 -1 0 ] 0 -1 1
+( 0 0 0 ) ( 1 0 0 ) ( 0 1 0 ) librequake/lq_tech/doortrak1 [ -1 0 0 0 ] [ -0 -1 -0 0 ] 0 1 1
+( 32 128 128 ) ( 32 129 128 ) ( 33 128 128 ) librequake/lq_tech/doortrak1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 -1 1
+( 32 128 128 ) ( 33 128 128 ) ( 32 128 129 ) librequake/lq_tech/doortrak1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 128 128 ) ( 32 128 129 ) ( 32 129 128 ) librequake/lq_tech/fdoor02 [ 0 1 0 0 ] [ 0 0 -1 16 ] 270 1 1
+}
+}

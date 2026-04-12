@@ -1,0 +1,78 @@
+[gd_scene format=4 uid="uid://ckvy45cv3w7rm"]
+
+[ext_resource type="Script" uid="uid://b87hr24wx5jt2" path="res://scripts/conveyer_belt.gd" id="1_ha3om"]
+[ext_resource type="Texture2D" uid="uid://cpxdx14yqfb12" path="res://textures/librequake/lq_tech/aqsupp01.png" id="2_ha3om"]
+[ext_resource type="Texture2D" uid="uid://dkpjcn8jm28e4" path="res://textures/librequake/lq_tech/aqtrim03.png" id="3_ha3om"]
+[ext_resource type="Texture2D" uid="uid://bmojxmglcr874" path="res://textures/librequake/lq_tech/aqrust10.png" id="4_nrfx1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrfx1"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_ha3om")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am15k"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("3_ha3om")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ih8gs"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("4_nrfx1")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_de5se"]
+resource_local_to_scene = true
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 14, 1, 4),
+"attribute_data": PackedByteArray("BQCAvwAAcMAAAIC///9/vgAAAAAAAIC+iUUktQAAcMCJRSS1AABwwAAAAAAAAIC+AACAv///f74FAIC/AABwwA=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": SubResource("StandardMaterial3D_nrfx1"),
+"name": "librequake/lq_tech/aqsupp01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AABgQQAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAAAABgQQAAAAAAAAAAAABgQQAAAAAAAIBAAAAAAAAAAAAAAIBAAAAAAAAAgD8AAIBAAABgQQAAgD8AAIBA//////9//n///////3/+f///////f/5///////9//n//f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgA==")
+}, {
+"aabb": AABB(0, 0, 0, 14, 1, 4),
+"attribute_data": PackedByteArray("L7r0vi+9uzQAAMC8AAAAAPv/v7wAAIA/L7r0vgMAgD8vuvS+AACAvwAAwLwAAIC/AADAvNE/gA0vuvS+0T+ADQ=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": SubResource("StandardMaterial3D_am15k"),
+"name": "librequake/lq_tech/aqtrim03",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAIBAAABgQQAAgD8AAIBAAABgQQAAgD8AAAAAAABgQQAAAAAAAAAAAABgQQAAAAAAAIBAAAD/f/////8AAP9//////wAA/3//////AAD/f/////////9//////////3//////////f/////////9//////w==")
+}, {
+"aabb": AABB(0, 0, 0, 14, 1, 4),
+"attribute_data": PackedByteArray("AACAvy69OzMDAIC/AADgv4hFpLQAAOC/AAAAAAAAAAAAAIC/yslTJQAAAAAAAAAAkVC5JgAA4D8AAIC/AADgPw=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": SubResource("StandardMaterial3D_ih8gs"),
+"name": "librequake/lq_tech/aqrust10",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAIBAAABgQQAAAAAAAIBAAABgQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD8AAIBAAAAAAAAAgD8AAAAAAABgQQAAgD8AAAAAAABgQQAAgD8AAIBA/38AAP//////fwAA//////9/AAD//////38AAP//////f/////////9//////////3//////////f////////w==")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rrwlo"]
+points = PackedVector3Array(14, 1, 4, 14, 0, 4, 0, 1, 4, 0, 0, 4, 14, 1, 0, 14, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[node name="ConveyerBelt" type="StaticBody3D" unique_id=579438279 node_paths=PackedStringArray("belt_mesh")]
+script = ExtResource("1_ha3om")
+belt_mesh = NodePath("entity_0_mesh_instance")
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="." unique_id=660382678]
+mesh = SubResource("ArrayMesh_de5se")
+skeleton = NodePath("")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="." unique_id=432828280]
+shape = SubResource("ConvexPolygonShape3D_rrwlo")

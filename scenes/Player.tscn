@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://hdyusj28ul3r" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
+[ext_resource type="Material" uid="uid://bukw7cscdnlfw" path="res://materials/unit_metal_small.tres" id="3_2hk6f"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
 [ext_resource type="Texture2D" uid="uid://dehlubwc5lcpe" path="res://textures/cockpit/crosshair_box_yellow.png" id="4_gtmj1"]
 [ext_resource type="Material" uid="uid://ck00ajppk6fe8" path="res://materials/unit_metal.tres" id="5_3wou3"]
 [ext_resource type="Script" uid="uid://ctcvj2saeox2g" path="res://scripts/gauge_control.gd" id="5_4oxq5"]
 [ext_resource type="Texture2D" uid="uid://b8m73klewviwy" path="res://textures/cockpit/crosshair_box_red.png" id="5_8qmgo"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_8bc5l"]
+[ext_resource type="ArrayMesh" uid="uid://n7qc4c0howw5" path="res://models/array.obj" id="9_la8f2"]
+[ext_resource type="ArrayMesh" uid="uid://cyssvlnmv4blm" path="res://models/screen.obj" id="9_oanc2"]
+[ext_resource type="ArrayMesh" uid="uid://c4x51s0fho678" path="res://models/screen_small.obj" id="10_41lfj"]
 [ext_resource type="Material" uid="uid://bpxi0l621ahdn" path="res://materials/cable.tres" id="10_lnno2"]
 [ext_resource type="Texture2D" uid="uid://mj7p2kfr8ygy" path="res://textures/cockpit/crosshair_box.png" id="12_go2wy"]
 [ext_resource type="ArrayMesh" uid="uid://db3f7cupygb0q" path="res://models/gauge.obj" id="13_i7ojs"]
@@ -146,7 +150,7 @@ outer_radius = 0.9
 sides = 12
 ring_sides = 4
 smooth_faces = false
-material = ExtResource("5_3wou3")
+material = ExtResource("3_2hk6f")
 script = ExtResource("16_i4nk8")
 
 [node name="heat_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1487858954 node_paths=PackedStringArray("gauge_needle", "gauge_text")]
@@ -211,6 +215,34 @@ font = ExtResource("9_8bc5l")
 font_size = 80
 outline_size = 0
 
+[node name="screen_l" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=219682308]
+transform = Transform3D(0.0025980757, -0.0014999998, 0, 0.0014999997, 0.002598076, 0, 0, 0, 0.0029999996, -0.026026044, -0.016613409, -0.00079107285)
+layers = 2
+mesh = ExtResource("9_oanc2")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("5_3wou3")
+
+[node name="screen_r" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1049038661]
+transform = Transform3D(-0.0025980757, 0.0014999998, -2.622683e-10, 0.0014999997, 0.002598076, 0, 2.27131e-10, -1.3113415e-10, -0.0029999996, 0.026, -0.017, -0.001)
+layers = 2
+mesh = ExtResource("9_oanc2")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("5_3wou3")
+
+[node name="screen_u" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1962627126]
+transform = Transform3D(-6.181724e-11, -6.181724e-11, -0.002, -0.0014142136, 0.0014142136, 5.514538e-25, 0.0014142136, 0.0014142136, -8.742278e-11, 0, 0.019551609, -0.01877443)
+layers = 2
+mesh = ExtResource("10_41lfj")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("5_3wou3")
+
+[node name="array" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=999686786]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, -0.025474988, -0.03727204)
+layers = 2
+mesh = ExtResource("9_la8f2")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = ExtResource("5_3wou3")
+
 [node name="seat_model" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=834740296]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, -0.028, -0.009)
 layers = 2
@@ -219,7 +251,7 @@ surface_material_override/0 = ExtResource("5_3wou3")
 surface_material_override/1 = ExtResource("15_3lbgh")
 surface_material_override/2 = ExtResource("5_3wou3")
 surface_material_override/3 = ExtResource("5_3wou3")
-surface_material_override/4 = ExtResource("15_3lbgh")
+surface_material_override/4 = ExtResource("5_3wou3")
 surface_material_override/5 = ExtResource("5_3wou3")
 
 [node name="Sphere" type="Node3D" parent="Cockpit" unique_id=1770536803 node_paths=PackedStringArray("icosphere", "screen", "walk_sphere")]

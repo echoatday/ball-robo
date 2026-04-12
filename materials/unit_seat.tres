@@ -1,9 +1,14 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bhe8qkmrjyxtk"]
 
+[ext_resource type="Texture2D" uid="uid://c762pe8awpgjb" path="res://textures/librequake/lq_metal/met_mt3_flat.png" id="1_h7c6v"]
+
 [resource]
 cull_mode = 2
 specular_mode = 2
 disable_ambient_light = true
-albedo_color = Color(0.0768359, 0.0768359, 0.076835, 1)
+albedo_color = Color(0.53585833, 0.6423687, 0.78962517, 1)
+albedo_texture = ExtResource("1_h7c6v")
 metallic_specular = 0.0
+uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
+texture_filter = 0

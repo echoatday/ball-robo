@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://4tm2kdqgd13n"
+path="res://.godot/imported/conveyer_belt.map-bc55e3c0697ef48538eb0873ba3e4f68.tres"
+
+[deps]
+
+source_file="res://maps/objects/conveyer_belt.map"
+dest_files=["res://.godot/imported/conveyer_belt.map-bc55e3c0697ef48538eb0873ba3e4f68.tres"]
+
+[params]
+

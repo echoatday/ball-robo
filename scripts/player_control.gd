@@ -45,7 +45,7 @@ var spin_velocity := Vector3.ZERO
 var spin_speed = 0
 
 var max_energy := 500
-var energy := 0
+var energy := 200
 var energy_recharge := 1
 var max_heat := 1000
 var heat := 0

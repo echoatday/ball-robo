@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://btp4ub1kj4via"]
+[gd_scene format=3 uid="uid://btp4ub1kj4via"]
 
-[ext_resource type="Script" path="res://scripts/station_map.gd" id="1_6qam4"]
+[ext_resource type="Script" uid="uid://8s5kwoawj5f8" path="res://scripts/station_map.gd" id="1_6qam4"]
 [ext_resource type="PackedScene" uid="uid://b1r631revkidw" path="res://scenes/rooms/RoomJump.tscn" id="2_346va"]
 [ext_resource type="PackedScene" uid="uid://dmk5yqayoagty" path="res://scenes/rooms/RoomSwitch.tscn" id="2_fhm68"]
+[ext_resource type="PackedScene" uid="uid://bjh2lsv65m6lb" path="res://scenes/rooms/RoomRoll.tscn" id="4_bg02t"]
 
-[node name="StationMap" type="Node3D"]
+[node name="StationMap" type="Node3D" unique_id=776085377]
 script = ExtResource("1_6qam4")
-rooms = Array[PackedScene]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource("2_fhm68"), null, null, null, null, null, null, null, null, null, ExtResource("2_346va"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+rooms = Array[PackedScene]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, ExtResource("2_fhm68"), null, null, null, null, null, null, null, null, null, ExtResource("2_346va"), ExtResource("4_bg02t"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

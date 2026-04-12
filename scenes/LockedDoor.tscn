@@ -1,0 +1,77 @@
+[gd_scene format=4 uid="uid://di0g34gb2cnm8"]
+
+[ext_resource type="Curve3D" uid="uid://p6kevhynr26d" path="res://paths/locked_door.tres" id="1_xr2ep"]
+[ext_resource type="Script" uid="uid://bgfyn3si27po" path="res://scripts/locked_door.gd" id="2_xr2ep"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_bsxro"]
+[ext_resource type="Texture2D" uid="uid://b7fo87x22ycpw" path="res://textures/librequake/lq_tech/fdoor02.png" id="3_t0exp"]
+[ext_resource type="Texture2D" uid="uid://djpf1rego1s0u" path="res://textures/librequake/lq_tech/doortrak1.png" id="4_jeyh0"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_t0exp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62h67"]
+albedo_texture = ExtResource("3_t0exp")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msuef"]
+albedo_texture = ExtResource("4_jeyh0")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dwrgd"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 4, 4, 1),
+"attribute_data": PackedByteArray("AACAPwAAYL8AAAAAAABgvwAAAAAAAAA+AACAPwAAAD4AAIA/AAAAPgAAAAAAAAA+AAAAAAAAYL8AAIA/AABgvw=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": SubResource("StandardMaterial3D_62h67"),
+"name": "librequake/lq_tech/fdoor02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAQAAAgEAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAAAACAQAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgEAAAIA/AACAQAAAgEAAAIA//////////z//////////P/////////8//////////z//f/9/////v/9//3////+//3//f////7//f/9/////vw==")
+}, {
+"aabb": AABB(0, 0, 0, 4, 4, 1),
+"attribute_data": PackedByteArray("AACAvwAAAAAAAACAAAAAAAAAAIAAAADAAACAvwAAAMAAAIC/AAAAAAAAgL8AAADAAAAAAAAAAMAAAAAAAAAAAAAAgL8AAAAAAAAAgAAAAAAAAACAAAAAwAAAgL8AAADAAACAvwAAAMAAAAAAAAAAwAAAAAAAAAAAAACAvwAAAAA="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8A"),
+"material": SubResource("StandardMaterial3D_msuef"),
+"name": "librequake/lq_tech/doortrak1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAgEAAAIA/AAAAAAAAAAAAAIA/AACAQAAAAAAAAIA/AACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAIA/AAAAAAAAgEAAAAAAAACAQAAAgEAAAAAAAACAQAAAgEAAAIA/AACAQAAAgEAAAIA/AACAQAAAgEAAAAAAAACAQAAAAAAAAAAAAACAQAAAAAAAAIA/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//fwAA//////9/AAD//////38AAP//////fwAA//////9/////f/+//3////9//7//f////3//v/9/////f/+/////f/////////9//////////3//////////f/////8=")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg2g4"]
+points = PackedVector3Array(4, 4, 1, 4, 0, 1, 0, 4, 1, 0, 0, 1, 4, 4, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0)
+
+[node name="LockedDoor" type="Path3D" unique_id=1984032725]
+curve = ExtResource("1_xr2ep")
+script = ExtResource("2_xr2ep")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=364380761]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D" unique_id=1598960729]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=99217362]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=295749311]
+mesh = SubResource("ArrayMesh_dwrgd")
+skeleton = NodePath("../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1324213621]
+shape = SubResource("ConvexPolygonShape3D_cg2g4")
+
+[node name="FuncGodotMap" type="Node3D" parent="AnimatableBody3D" unique_id=697555256]
+visible = false
+script = ExtResource("3_bsxro")
+local_map_file = "uid://q0fjoxmxsko8"
+map_settings = ExtResource("4_t0exp")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap" unique_id=1400477947]
+collision_mask = 0
