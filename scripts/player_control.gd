@@ -176,8 +176,6 @@ func _physics_process(delta: float) -> void:
 		energy_checkout += 1
 	if state_bouncing:
 		energy_checkout += 2
-	if state_floating:
-		energy_checkout += 3
 
 	heat += heat_level
 	
@@ -237,7 +235,7 @@ func _physics_process(delta: float) -> void:
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
-		
+
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
 			velocity.y = JUMP_VELOCITY/3
 			velocity += direction * BOOST_SPEED
@@ -250,10 +248,9 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
-		if Input.is_action_pressed("boost"):
-			state_floating = true
-		else:
-			state_floating = false
+		if Input.is_action_just_pressed("boost"):
+			velocity.y = -BOOST_SPEED
+			energy_checkout += energy_cost.large
 		if Input.is_action_pressed("jump") and not is_on_floor():
 			state_bouncing = true
 		else:

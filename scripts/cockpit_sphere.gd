@@ -6,6 +6,7 @@ extends Node3D
 @export var screen: Array[Node3D]
 @export var walk_sphere: Node3D
 var count := 41
+var bob_count := 0
 
 func _physics_process(delta: float) -> void:
 		
@@ -42,6 +43,15 @@ func _physics_process(delta: float) -> void:
 	transform.origin = owner.transform.origin
 	if !owner.state_rolling:
 		icosphere.transform =  base_ico_transform
+		if owner.is_on_floor():
+			if Input.get_vector("left", "right", "forward", "back") != Vector2.ZERO:
+				bob_count += 1
+				icosphere.set_position(Vector3(sin(bob_count * 0.1)*0.005, sin(bob_count * 0.2)*0.002, 0))
+			else:
+				bob_count = 0
+		else:
+			bob_count += 1
+			icosphere.set_position(Vector3(0, sin(bob_count * 0.1)*0.001, 0))
 	else:
 		if owner.is_on_floor():
 			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.01*owner.velocity.length())
