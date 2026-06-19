@@ -8,8 +8,11 @@ extends CharacterBody3D
 @export_category("UI")
 @export var reticle: Node3D
 @export var reticle_pilot: Node3D
+@export var dummy_reticle: Node3D
+@export var dummy_reticle2: Node3D
 @export var box_display: Node3D
 @export var dead_text: Node3D
+@export var pilot_cast: Node3D
 @export_category("Grappling")
 @export var grapple_cable: Node3D
 @export var grapple_cast: Node3D
@@ -160,7 +163,7 @@ func _physics_process(delta: float) -> void:
 	energy -= energy_checkout
 	energy_checkout = 0
 	
-	cockpit_light.light_color = Color(heat*0.001,0.1,0.5-(heat*0.001))
+	cockpit_light.light_color = Color(heat*0.0005,0.1,0.5-(heat*0.0005))
 	
 	if heat > max_heat:
 		state_dead = true
@@ -249,7 +252,7 @@ func _physics_process(delta: float) -> void:
 			state_grappling = true
 	else:
 		if Input.is_action_just_pressed("boost"):
-			velocity.y = -BOOST_SPEED
+			velocity.y += -BOOST_SPEED
 			energy_checkout += energy_cost.large
 		if Input.is_action_pressed("jump") and not is_on_floor():
 			state_bouncing = true
@@ -288,6 +291,8 @@ func aim() -> void:
 	
 	if state_looking:
 		reticle_pilot.visible = false
+		dummy_reticle.visible = true
+		dummy_reticle2.visible = true
 		camera.rotation = Vector3.ZERO
 		camera_gimbal.rotation = Vector3.ZERO
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -300,6 +305,8 @@ func aim() -> void:
 		reticle.rotation.z = 0
 	else:
 		reticle_pilot.visible = true
+		dummy_reticle.visible = false
+		dummy_reticle2.visible = false
 		state_grappling = false
 		state_spinning = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -307,7 +314,8 @@ func aim() -> void:
 	
 	# Mouse turning control
 	if Input.is_action_just_pressed("look") and not state_dead:
-		state_looking = not state_looking
+		if abs(pilot_cast.global_rotation.x - spin_cast.global_rotation.x) < 0.25 and abs(pilot_cast.global_rotation.y - spin_cast.global_rotation.y) < 0.25:
+			state_looking = not state_looking
 	if state_looking and not state_grappling:
 		var cursor_distance_from_center_x = screen_center_hori - cursor_location.x
 		var cursor_distance_from_center_y = screen_center_verti - cursor_location.y
@@ -315,6 +323,7 @@ func aim() -> void:
 		seat.rotate_x(cursor_distance_from_center_y * LOOK_SPEED)
 		
 		seat.rotation.x = clamp(seat.rotation.x, -0.9, 0.9)
+		
 
 func _unhandled_input(event):
 	if not state_looking and event is InputEventMouseMotion:

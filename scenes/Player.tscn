@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c82iey1rryacy"]
 
 [ext_resource type="Script" uid="uid://hdyusj28ul3r" path="res://scripts/player_control.gd" id="1_mm6ix"]
+[ext_resource type="Texture2D" uid="uid://ck0w2kijammg0" path="res://textures/cockpit/crosshair_pilot_dummy.png" id="2_2hk6f"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
 [ext_resource type="Material" uid="uid://bukw7cscdnlfw" path="res://materials/unit_metal_small.tres" id="3_2hk6f"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
@@ -13,6 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cyssvlnmv4blm" path="res://models/screen.obj" id="9_oanc2"]
 [ext_resource type="ArrayMesh" uid="uid://c4x51s0fho678" path="res://models/screen_small.obj" id="10_41lfj"]
 [ext_resource type="Material" uid="uid://bpxi0l621ahdn" path="res://materials/cable.tres" id="10_lnno2"]
+[ext_resource type="Texture2D" uid="uid://be21ma1s6wyya" path="res://textures/cockpit/gauge_background.png" id="11_kvw7q"]
 [ext_resource type="Texture2D" uid="uid://mj7p2kfr8ygy" path="res://textures/cockpit/crosshair_box.png" id="12_go2wy"]
 [ext_resource type="ArrayMesh" uid="uid://db3f7cupygb0q" path="res://models/gauge.obj" id="13_i7ojs"]
 [ext_resource type="Script" uid="uid://2iisovd3ds1i" path="res://scripts/cockpit_sphere.gd" id="14_y10qh"]
@@ -29,6 +31,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cr5dabkwyh50g" path="res://models/icosphere_wire.obj" id="23_ku51j"]
 [ext_resource type="FontFile" uid="uid://ls66kquife41" path="res://ui/Source_Code_Pro/static/SourceCodePro-Regular.ttf" id="25_3lssg"]
 [ext_resource type="ArrayMesh" uid="uid://c12tbi0h080hb" path="res://models/ico_01.obj" id="25_la8f2"]
+[ext_resource type="Texture2D" uid="uid://bcethlll2ri8o" path="res://textures/cockpit/crosshair_pilot_dummy_2.png" id="28_xmxrx"]
 [ext_resource type="Material" uid="uid://cmtsqrhbc5xq0" path="res://materials/window_frame.tres" id="28_yrgn6"]
 [ext_resource type="ArrayMesh" uid="uid://bpxkmhrul5vxt" path="res://models/ico_02.obj" id="29_mpjcu"]
 [ext_resource type="ArrayMesh" uid="uid://cirf0xta2g0n1" path="res://models/ico_03.obj" id="30_368kq"]
@@ -82,7 +85,7 @@ points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05
 
 [sub_resource type="ImageTexture" id="ImageTexture_wlgdr"]
 
-[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "box_display", "dead_text", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
+[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
@@ -95,8 +98,11 @@ collider = NodePath("PlayerCollision3D")
 sphere = NodePath("Cockpit/Sphere")
 reticle = NodePath("Cockpit/Sphere/UI/Reticle")
 reticle_pilot = NodePath("Cockpit/Seat/camera_gimbal/camera/reticle_pilot")
+dummy_reticle = NodePath("Cockpit/Seat/dummy_reticle_pilot")
+dummy_reticle2 = NodePath("Cockpit/Sphere/UI/dummy_reticle_pilot_2")
 box_display = NodePath("Cockpit/Sphere/UI/Reticle/box")
 dead_text = NodePath("Cockpit/Sphere/UI/DeadText")
+pilot_cast = NodePath("Cockpit/Seat/camera_gimbal/camera/PilotCast")
 grapple_cable = NodePath("Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/cable_controller")
 grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
 spin_cast = NodePath("Cockpit/Sphere/UI/Reticle/SpinCast")
@@ -123,6 +129,16 @@ omni_attenuation = 0.1
 
 [node name="Seat" type="Node3D" parent="Cockpit" unique_id=1000544793]
 
+[node name="dummy_reticle_pilot" type="Sprite3D" parent="Cockpit/Seat" unique_id=2035253881]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.11)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.44705883, 1, 0.99607843, 1)
+pixel_size = 0.0001
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("2_2hk6f")
+
 [node name="camera_gimbal" type="Node3D" parent="Cockpit/Seat" unique_id=2131133268]
 
 [node name="camera" type="Camera3D" parent="Cockpit/Seat/camera_gimbal" unique_id=106913055]
@@ -134,10 +150,15 @@ near = 0.001
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.02)
 layers = 2
 cast_shadow = 0
+modulate = Color(0.44797218, 1, 0.99787265, 1)
 pixel_size = 0.0001
 no_depth_test = true
 render_priority = 1
 texture = ExtResource("2_ax5xn")
+
+[node name="PilotCast" type="RayCast3D" parent="Cockpit/Seat/camera_gimbal/camera" unique_id=1117786796]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+target_position = Vector3(0, 0, 0.1)
 
 [node name="pilot_rig" type="Node3D" parent="Cockpit/Seat" unique_id=1503290293]
 
@@ -166,8 +187,8 @@ gauge_text = NodePath("heat_text")
 [node name="heat_needle" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge" unique_id=886504292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -2.98023e-08, 0.946367)
 layers = 2
+modulate = Color(0.89149815, 1, 0.99691325, 1)
 pixel_size = 0.0026
-shaded = true
 double_sided = false
 texture_filter = 0
 texture = ExtResource("15_4yao8")
@@ -177,12 +198,21 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.799999, 0, 0, 0, 1, 0, 0, 1.06)
 pixel_size = 0.008
 shaded = true
 texture_filter = 0
-modulate = Color(0.864675, 0.864675, 0.864675, 1)
+modulate = Color(0.44705883, 1, 0.99607843, 1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "99"
 font = ExtResource("9_8bc5l")
 font_size = 80
 outline_size = 0
+
+[node name="heat_bg" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge" unique_id=1956839271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -3.1664946e-08, 0.8655265)
+layers = 2
+modulate = Color(0.7529412, 0.7529412, 0.7529412, 1)
+pixel_size = 0.0026
+double_sided = false
+texture_filter = 0
+texture = ExtResource("11_kvw7q")
 
 [node name="energy_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1412220430 node_paths=PackedStringArray("gauge_needle", "gauge_text")]
 transform = Transform3D(0.0034641, 0.001, -0.00173205, 0, 0.0034641, 0.002, 0.002, -0.00173205, 0.003, 0.017, -0.019, -0.03)
@@ -197,8 +227,8 @@ gauge_text = NodePath("energy_text")
 [node name="energy_needle" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/energy_gauge" unique_id=2090509858]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -2.98023e-08, 0.946367)
 layers = 2
+modulate = Color(0.8901961, 1, 0.99607843, 1)
 pixel_size = 0.0026
-shaded = true
 double_sided = false
 texture_filter = 0
 texture = ExtResource("15_4yao8")
@@ -208,12 +238,21 @@ transform = Transform3D(0.999999, 0, 0, 0, 0.8, 0, 0, 0, 0.999999, 0, 0, 1.06)
 pixel_size = 0.008
 shaded = true
 texture_filter = 0
-modulate = Color(0.862745, 0.862745, 0.862745, 1)
+modulate = Color(0.44705883, 1, 0.99607843, 1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "300"
 font = ExtResource("9_8bc5l")
 font_size = 80
 outline_size = 0
+
+[node name="energy_bg" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/energy_gauge" unique_id=1160330452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1664946e-08, -3.1664946e-08, 0.8947557)
+layers = 2
+modulate = Color(0.7539839, 0.75398386, 0.75398386, 1)
+pixel_size = 0.0026
+double_sided = false
+texture_filter = 0
+texture = ExtResource("11_kvw7q")
 
 [node name="screen_l" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=219682308]
 transform = Transform3D(0.0025980757, -0.0014999998, 0, 0.0014999997, 0.002598076, 0, 0, 0, 0.0029999996, -0.026026044, -0.016613409, -0.00079107285)
@@ -351,6 +390,16 @@ font = ExtResource("25_3lssg")
 font_size = 200
 outline_size = 0
 script = ExtResource("17_vwp1p")
+
+[node name="dummy_reticle_pilot_2" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=496738371]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.11)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.44797218, 1, 0.99787265, 1)
+pixel_size = 0.0001
+no_depth_test = true
+render_priority = 1
+texture = ExtResource("28_xmxrx")
 
 [node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=518802272]
 transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)

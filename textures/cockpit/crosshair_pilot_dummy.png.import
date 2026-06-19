@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc35621ol2cmr"
-path.s3tc="res://.godot/imported/met_shm_flat.png-65d9e8d56c05005fd0965f10484ac257.s3tc.ctex"
+uid="uid://ck0w2kijammg0"
+path.s3tc="res://.godot/imported/crosshair_pilot_dummy.png-93eaee0ae70b374ed47d914a60336695.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/librequake/lq_metal/met_shm_flat.png"
-dest_files=["res://.godot/imported/met_shm_flat.png-65d9e8d56c05005fd0965f10484ac257.s3tc.ctex"]
+source_file="res://textures/cockpit/crosshair_pilot_dummy.png"
+dest_files=["res://.godot/imported/crosshair_pilot_dummy.png-93eaee0ae70b374ed47d914a60336695.s3tc.ctex"]
 
 [params]
 

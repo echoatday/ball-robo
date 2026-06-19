@@ -6,7 +6,7 @@
 cull_mode = 2
 specular_mode = 2
 disable_ambient_light = true
-albedo_color = Color(0.53585833, 0.6423687, 0.78962517, 1)
+albedo_color = Color(0.5735017, 0.81830955, 0.9455003, 1)
 albedo_texture = ExtResource("1_h7c6v")
 metallic_specular = 0.0
 uv1_scale = Vector3(0.2, 0.2, 0.2)
