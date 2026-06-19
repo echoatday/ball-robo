@@ -76,6 +76,12 @@
 [ext_resource type="Material" uid="uid://cxfyouko7xq08" path="res://materials/unit_outside.tres" id="69_qm4gb"]
 [ext_resource type="ArrayMesh" uid="uid://csfe6teri25h8" path="res://models/arm.obj" id="70_fjarb"]
 [ext_resource type="ArrayMesh" uid="uid://dautwm88l6rj5" path="res://models/gun.obj" id="71_be0uw"]
+[ext_resource type="ArrayMesh" uid="uid://djuc8ywc4eq5u" path="res://models/ui_roll.obj" id="77_p0eor"]
+[ext_resource type="Texture2D" uid="uid://5ik45udlkohc" path="res://textures/cockpit/ui_roll.png" id="78_dsbg5"]
+[ext_resource type="ArrayMesh" uid="uid://c16vlc0wpvcm" path="res://models/ui_yaw.obj" id="78_nrwhh"]
+[ext_resource type="Texture2D" uid="uid://y344aixy431m" path="res://textures/cockpit/ui_yaw.png" id="78_s7djh"]
+[ext_resource type="Script" uid="uid://dhgm70gdsaefu" path="res://scripts/ui_roll.gd" id="79_im07a"]
+[ext_resource type="Script" uid="uid://bvkldgjmupvtg" path="res://scripts/ui_yaw.gd" id="80_wx1s8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
@@ -84,6 +90,35 @@ radius = 0.9
 points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -6, -6, 30, 6, -6, 30, -6, 6, 30, 6, 6, 30)
 
 [sub_resource type="ImageTexture" id="ImageTexture_wlgdr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsbg5"]
+transparency = 1
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.47843137, 0.8039216, 0.8039216, 1)
+albedo_texture = ExtResource("78_dsbg5")
+uv1_scale = Vector3(-1, 1.5, 1)
+uv1_offset = Vector3(0.5, 0.935, 0)
+uv1_triplanar_sharpness = 0.6569492
+uv1_world_triplanar = true
+texture_filter = 0
+billboard_keep_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrwhh"]
+transparency = 1
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.47843137, 0.8039216, 0.8039216, 1)
+albedo_texture = ExtResource("78_s7djh")
+uv1_scale = Vector3(-1, 1.5, 1)
+uv1_offset = Vector3(0.5, 0.92, 0)
+uv1_triplanar_sharpness = 0.6569492
+uv1_world_triplanar = true
+texture_filter = 0
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_iy5dr"]
+size = Vector2(0.17, 100)
 
 [node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
@@ -395,7 +430,7 @@ script = ExtResource("17_vwp1p")
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.11)
 layers = 2
 cast_shadow = 0
-modulate = Color(0.44797218, 1, 0.99787265, 1)
+modulate = Color(0.44705883, 1, 0.99607843, 1)
 pixel_size = 0.0001
 no_depth_test = true
 render_priority = 1
@@ -678,6 +713,26 @@ mesh = ExtResource("70_fjarb")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("69_qm4gb")
 surface_material_override/1 = ExtResource("69_qm4gb")
+
+[node name="ui_roll" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=1958659508 node_paths=PackedStringArray("sphere")]
+transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.12, 0, 0.12, 0, -5.2453664e-09, -0.05, 0, 0)
+mesh = ExtResource("77_p0eor")
+surface_material_override/0 = SubResource("StandardMaterial3D_dsbg5")
+script = ExtResource("79_im07a")
+sphere = NodePath("..")
+
+[node name="ui_yaw" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=868312468]
+transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, 0, 0.005, 0)
+cast_shadow = 0
+mesh = ExtResource("78_nrwhh")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nrwhh")
+script = ExtResource("80_wx1s8")
+
+[node name="ui_altitude" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=1726854023]
+transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, -0.11802919, 0.005, -0.063247874)
+mesh = SubResource("QuadMesh_iy5dr")
+skeleton = NodePath("../ui_yaw")
 
 [node name="Timer" type="Timer" parent="." unique_id=314712587]
 process_callback = 0
