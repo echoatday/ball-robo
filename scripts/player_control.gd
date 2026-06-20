@@ -286,8 +286,8 @@ func aim() -> void:
 	var screen_center_hori = get_viewport().size.x/2
 	var screen_center_verti = get_viewport().size.y/2
 	
-	var ui_edge_x = get_viewport().size.x/3.7
-	var ui_edge_y = get_viewport().size.y/5
+	var ui_edge_x = get_viewport().size.x/1
+	var ui_edge_y = get_viewport().size.y/1
 	
 	if state_looking:
 		reticle_pilot.visible = false
@@ -296,11 +296,13 @@ func aim() -> void:
 		camera.rotation = Vector3.ZERO
 		camera_gimbal.rotation = Vector3.ZERO
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) #<-- final version
 		cursor_location.x = clamp(cursor_location.x, screen_center_hori-ui_edge_x, screen_center_hori+ui_edge_x)
 		cursor_location.y = clamp(cursor_location.y, screen_center_verti-ui_edge_y, screen_center_verti+ui_edge_y)
 		pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
 		#reticle handling
 		reticle.global_position = camera.project_position(cursor_location,0.2)
+		reticle.position.z = abs(reticle.position.x/3)-0.3
 		reticle.look_at(camera.global_position)
 		reticle.rotation.z = 0
 	else:

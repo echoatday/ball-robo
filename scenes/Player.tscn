@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
 [ext_resource type="Material" uid="uid://bukw7cscdnlfw" path="res://materials/unit_metal_small.tres" id="3_2hk6f"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
+[ext_resource type="Script" uid="uid://7m0ekawqrbcw" path="res://addons/godot360/src/camera360.gd" id="3_84ti5"]
 [ext_resource type="Texture2D" uid="uid://dehlubwc5lcpe" path="res://textures/cockpit/crosshair_box_yellow.png" id="4_gtmj1"]
 [ext_resource type="Material" uid="uid://ck00ajppk6fe8" path="res://materials/unit_metal.tres" id="5_3wou3"]
 [ext_resource type="Script" uid="uid://ctcvj2saeox2g" path="res://scripts/gauge_control.gd" id="5_4oxq5"]
@@ -29,10 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://xn4oulwfuj6s" path="res://textures/cockpit/ui_corner.png" id="20_yhiff"]
 [ext_resource type="Texture2D" uid="uid://brewp7727q8wt" path="res://textures/cockpit/ui_border.png" id="21_hdyft"]
 [ext_resource type="ArrayMesh" uid="uid://cr5dabkwyh50g" path="res://models/icosphere_wire.obj" id="23_ku51j"]
-[ext_resource type="FontFile" uid="uid://ls66kquife41" path="res://ui/Source_Code_Pro/static/SourceCodePro-Regular.ttf" id="25_3lssg"]
 [ext_resource type="ArrayMesh" uid="uid://c12tbi0h080hb" path="res://models/ico_01.obj" id="25_la8f2"]
 [ext_resource type="Texture2D" uid="uid://bcethlll2ri8o" path="res://textures/cockpit/crosshair_pilot_dummy_2.png" id="28_xmxrx"]
 [ext_resource type="Material" uid="uid://cmtsqrhbc5xq0" path="res://materials/window_frame.tres" id="28_yrgn6"]
+[ext_resource type="Script" uid="uid://daehwm2v4a3jr" path="res://scripts/ui_speedometer.gd" id="29_84ti5"]
 [ext_resource type="ArrayMesh" uid="uid://bpxkmhrul5vxt" path="res://models/ico_02.obj" id="29_mpjcu"]
 [ext_resource type="ArrayMesh" uid="uid://cirf0xta2g0n1" path="res://models/ico_03.obj" id="30_368kq"]
 [ext_resource type="ArrayMesh" uid="uid://g77ban81cjjj" path="res://models/ico_04.obj" id="31_ddaiu"]
@@ -180,24 +181,32 @@ omni_attenuation = 0.1
 [node name="Seat" type="Node3D" parent="Cockpit" unique_id=1000544793]
 
 [node name="dummy_reticle_pilot" type="Sprite3D" parent="Cockpit/Seat" unique_id=2035253881]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.11)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.17)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.44705883, 1, 0.99607843, 1)
 pixel_size = 0.0001
-no_depth_test = true
 render_priority = 1
 texture = ExtResource("2_2hk6f")
 
 [node name="camera_gimbal" type="Node3D" parent="Cockpit/Seat" unique_id=2131133268]
 
-[node name="camera" type="Camera3D" parent="Cockpit/Seat/camera_gimbal" unique_id=106913055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.000104345)
-fov = 90.0
-near = 0.001
+[node name="camera" type="Camera3D" parent="Cockpit/Seat/camera_gimbal" unique_id=318843731 node_paths=PackedStringArray("subviewport")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00010433793)
+script = ExtResource("3_84ti5")
+fovx = 160.0
+lens = 1
+clip_near = 0.001
+clip_far = 10000.0
+subviewport = NodePath("SubViewport")
+metadata/_custom_type_script = "uid://7m0ekawqrbcw"
+
+[node name="SubViewport" type="SubViewport" parent="Cockpit/Seat/camera_gimbal/camera" unique_id=1919873154]
+vrs_mode = 1
+size = Vector2i(2048, 2048)
 
 [node name="reticle_pilot" type="Sprite3D" parent="Cockpit/Seat/camera_gimbal/camera" unique_id=827514668]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.02)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, -0.03)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.44797218, 1, 0.99787265, 1)
@@ -374,6 +383,8 @@ texture = SubResource("ImageTexture_wlgdr")
 script = ExtResource("17_isqgh")
 box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("16_dpgmg"), ExtResource("17_tu6o0"), ExtResource("12_go2wy"), ExtResource("4_gtmj1"), ExtResource("5_8qmgo")])
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cockpit/Sphere/UI/Reticle" unique_id=1710007759]
+
 [node name="HUDBorder" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=1901376912]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
 visible = false
@@ -383,6 +394,7 @@ texture = ExtResource("21_hdyft")
 
 [node name="HUDBorderNW" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=184603847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, 0.15, -0.2)
+visible = false
 modulate = Color(0.4, 1, 0.4, 1)
 pixel_size = 0.0005
 billboard = 1
@@ -391,16 +403,17 @@ texture_filter = 0
 texture = ExtResource("20_yhiff")
 
 [node name="HUDBorderNE" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=1623330527]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.15, -0.2)
+transform = Transform3D(0.57357645, 0, -0.81915206, 0, 1, 0, 0.81915206, 0, 0.57357645, 0.20261163, 0.15, -0.2)
+visible = false
 flip_h = true
 modulate = Color(0.4, 1, 0.4, 1)
 pixel_size = 0.0005
-billboard = 1
 texture_filter = 0
 texture = ExtResource("20_yhiff")
 
 [node name="HUDBorderSW" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=598339283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, -0.15, -0.2)
+visible = false
 flip_v = true
 modulate = Color(0.4, 1, 0.4, 1)
 pixel_size = 0.0005
@@ -410,46 +423,123 @@ texture = ExtResource("20_yhiff")
 
 [node name="HUDBorderSE" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=241893947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, -0.15, -0.2)
+visible = false
 flip_h = true
 flip_v = true
 modulate = Color(0.4, 1, 0.4, 1)
 pixel_size = 0.0005
-billboard = 1
 texture_filter = 0
 texture = ExtResource("20_yhiff")
 
 [node name="DeadText" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=904329377]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0182206, -0.09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0013822094, -0.09)
 visible = false
 layers = 2
 pixel_size = 0.0001
-text = "Offline"
-font = ExtResource("25_3lssg")
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "offline"
+font = ExtResource("9_8bc5l")
 font_size = 64
 outline_size = 0
 
 [node name="speedometer_text" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=633176023]
-transform = Transform3D(0.01, 0, 2.38419e-09, 0, 0.01, 0, -2.38419e-09, 0, 0.01, 0.28, 0.185, -0.2)
+transform = Transform3D(0.0007660445, 0, -0.0006427876, 0, 0.001, 0, 0.0006427876, 0, 0.0007660445, 0.074, -0.013, -0.066)
 layers = 2
-pixel_size = 0.006
-billboard = 1
+pixel_size = 0.015
 texture_filter = 0
-modulate = Color(1, 1, 0.4, 1)
-text = "00.0"
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 font = ExtResource("9_8bc5l")
-font_size = 200
+font_size = 250
 outline_size = 0
+horizontal_alignment = 2
+autowrap_trim_flags = 0
+justification_flags = 131
 script = ExtResource("17_vwp1p")
 
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=1391234709]
+transform = Transform3D(0.0007660445, 0, -0.0006427876, 0, 0.001, 0, 0.0006427876, 0, 0.0007660445, 0.072843954, -0.014191028, -0.063430525)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+script = ExtResource("29_84ti5")
+
 [node name="dummy_reticle_pilot_2" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=496738371]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.11)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.17)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.44705883, 1, 0.99607843, 1)
 pixel_size = 0.0001
-no_depth_test = true
 render_priority = 1
 texture = ExtResource("28_xmxrx")
+
+[node name="ui_roll" type="MeshInstance3D" parent="Cockpit/Sphere/UI" unique_id=1958659508 node_paths=PackedStringArray("sphere")]
+transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.11999999, 0, 0.11999999, 0, -5.2453664e-09, -0.051692028, 0, 0)
+mesh = ExtResource("77_p0eor")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dsbg5")
+script = ExtResource("79_im07a")
+sphere = NodePath("../..")
+
+[node name="ui_yaw" type="MeshInstance3D" parent="Cockpit/Sphere/UI" unique_id=868312468]
+transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, 0, 0.005, 0)
+cast_shadow = 0
+mesh = ExtResource("78_nrwhh")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nrwhh")
+script = ExtResource("80_wx1s8")
+
+[node name="ui_altitude" type="MeshInstance3D" parent="Cockpit/Sphere/UI" unique_id=1726854023]
+transform = Transform3D(0.059999995, 0, 0.10392305, 0, 0.12, 0, -0.10392305, 0, 0.059999995, -0.08835891, 0, -0.05673483)
+mesh = SubResource("QuadMesh_iy5dr")
+skeleton = NodePath("../ui_yaw")
+surface_material_override/0 = SubResource("StandardMaterial3D_uobdy")
+script = ExtResource("84_iv1vf")
+
+[node name="roll_text" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=1732782891 node_paths=PackedStringArray("sphere")]
+transform = Transform3D(0.0008485284, 0, 0.0008485284, 0, 0.0012000004, 0, -0.0008485284, 0, 0.0008485284, -0.07271825, 0, -0.06654175)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "00.0"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+horizontal_alignment = 2
+script = ExtResource("86_rjt17")
+sphere = NodePath("../..")
+
+[node name="yaw_text" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=451871261]
+transform = Transform3D(0.0012000004, 0, 0, 0, 0.0011591114, -0.00031058295, 0, 0.00031058295, 0.0011591114, 0, 0.05091609, -0.082660355)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "00.0"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+script = ExtResource("86_27epi")
+
+[node name="altitude_text" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=339465457]
+transform = Transform3D(0.0007713454, 0, 0.0009192536, 0, 0.0012000004, 0, -0.0009192536, 0, 0.0007713454, -0.088441744, -0.0003703609, -0.0551988)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "00.0"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+horizontal_alignment = 2
+script = ExtResource("85_2viqe")
 
 [node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=518802272]
 transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)
@@ -728,70 +818,6 @@ mesh = ExtResource("70_fjarb")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("69_qm4gb")
 surface_material_override/1 = ExtResource("69_qm4gb")
-
-[node name="ui_roll" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=1958659508 node_paths=PackedStringArray("sphere")]
-transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.11999999, 0, 0.11999999, 0, -5.2453664e-09, -0.05, 0, 0)
-mesh = ExtResource("77_p0eor")
-surface_material_override/0 = SubResource("StandardMaterial3D_dsbg5")
-script = ExtResource("79_im07a")
-sphere = NodePath("..")
-
-[node name="ui_yaw" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=868312468]
-transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, 0, 0.005, 0)
-cast_shadow = 0
-mesh = ExtResource("78_nrwhh")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_nrwhh")
-script = ExtResource("80_wx1s8")
-
-[node name="ui_altitude" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=1726854023]
-transform = Transform3D(0.081252694, 0, 0.08830628, 0, 0.12, 0, -0.08830628, 0, 0.081252694, -0.082, 0, -0.066)
-mesh = SubResource("QuadMesh_iy5dr")
-skeleton = NodePath("../ui_yaw")
-surface_material_override/0 = SubResource("StandardMaterial3D_uobdy")
-script = ExtResource("84_iv1vf")
-
-[node name="roll_text" type="Label3D" parent="Cockpit/Sphere" unique_id=1732782891 node_paths=PackedStringArray("sphere")]
-transform = Transform3D(0.0012000004, 0, 2.8610278e-10, 0, 0.0012000004, 0, -2.8610278e-10, 0, 0.0012000004, -0.06750102, 0, -0.061999995)
-layers = 2
-pixel_size = 0.015
-billboard = 1
-texture_filter = 0
-modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
-text = "00.0"
-font = ExtResource("9_8bc5l")
-font_size = 200
-outline_size = 0
-horizontal_alignment = 2
-script = ExtResource("86_rjt17")
-sphere = NodePath("..")
-
-[node name="yaw_text" type="Label3D" parent="Cockpit/Sphere" unique_id=451871261]
-transform = Transform3D(0.0012000004, 0, 2.8610278e-10, 0, 0.0012000004, 0, -2.8610278e-10, 0, 0.0012000004, 0, 0.04, -0.062)
-layers = 2
-pixel_size = 0.015
-billboard = 1
-texture_filter = 0
-modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
-text = "00.0"
-font = ExtResource("9_8bc5l")
-font_size = 200
-outline_size = 0
-script = ExtResource("86_27epi")
-
-[node name="altitude_text" type="Label3D" parent="Cockpit/Sphere" unique_id=339465457]
-transform = Transform3D(0.0012000004, 0, 2.8610278e-10, 0, 0.0012000004, 0, -2.8610278e-10, 0, 0.0012000004, -0.08038981, 0, -0.062434617)
-layers = 2
-pixel_size = 0.015
-billboard = 1
-texture_filter = 0
-modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
-text = "00.0"
-font = ExtResource("9_8bc5l")
-font_size = 200
-outline_size = 0
-horizontal_alignment = 2
-script = ExtResource("85_2viqe")
 
 [node name="Timer" type="Timer" parent="." unique_id=314712587]
 process_callback = 0
