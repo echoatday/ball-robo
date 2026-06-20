@@ -82,6 +82,11 @@
 [ext_resource type="Texture2D" uid="uid://y344aixy431m" path="res://textures/cockpit/ui_yaw.png" id="78_s7djh"]
 [ext_resource type="Script" uid="uid://dhgm70gdsaefu" path="res://scripts/ui_roll.gd" id="79_im07a"]
 [ext_resource type="Script" uid="uid://bvkldgjmupvtg" path="res://scripts/ui_yaw.gd" id="80_wx1s8"]
+[ext_resource type="Texture2D" uid="uid://btcdmuq3kk0rw" path="res://textures/cockpit/ui_altitude.png" id="83_uobdy"]
+[ext_resource type="Script" uid="uid://kj5th4icltld" path="res://scripts/ui_altitude.gd" id="84_iv1vf"]
+[ext_resource type="Script" uid="uid://sw81uag6u0c6" path="res://scripts/altitude_text.gd" id="85_2viqe"]
+[ext_resource type="Script" uid="uid://bttbjy8gjiuqm" path="res://scripts/yaw_text.gd" id="86_27epi"]
+[ext_resource type="Script" uid="uid://cxqs1mju005tw" path="res://scripts/roll_text.gd" id="86_rjt17"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
@@ -119,6 +124,16 @@ billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_iy5dr"]
 size = Vector2(0.17, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uobdy"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.47843137, 0.8039216, 0.8039216, 1)
+albedo_texture = ExtResource("83_uobdy")
+uv1_scale = Vector3(0.09, 20, 1)
+uv1_offset = Vector3(0.445, 0, 0)
+texture_filter = 4
+distance_fade_max_distance = 0.2
 
 [node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
@@ -421,7 +436,7 @@ billboard = 1
 texture_filter = 0
 modulate = Color(1, 1, 0.4, 1)
 text = "00.0"
-font = ExtResource("25_3lssg")
+font = ExtResource("9_8bc5l")
 font_size = 200
 outline_size = 0
 script = ExtResource("17_vwp1p")
@@ -715,7 +730,7 @@ surface_material_override/0 = ExtResource("69_qm4gb")
 surface_material_override/1 = ExtResource("69_qm4gb")
 
 [node name="ui_roll" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=1958659508 node_paths=PackedStringArray("sphere")]
-transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.12, 0, 0.12, 0, -5.2453664e-09, -0.05, 0, 0)
+transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.11999999, 0, 0.11999999, 0, -5.2453664e-09, -0.05, 0, 0)
 mesh = ExtResource("77_p0eor")
 surface_material_override/0 = SubResource("StandardMaterial3D_dsbg5")
 script = ExtResource("79_im07a")
@@ -730,9 +745,53 @@ surface_material_override/0 = SubResource("StandardMaterial3D_nrwhh")
 script = ExtResource("80_wx1s8")
 
 [node name="ui_altitude" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=1726854023]
-transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, -0.11802919, 0.005, -0.063247874)
+transform = Transform3D(0.081252694, 0, 0.08830628, 0, 0.12, 0, -0.08830628, 0, 0.081252694, -0.082, 0, -0.066)
 mesh = SubResource("QuadMesh_iy5dr")
 skeleton = NodePath("../ui_yaw")
+surface_material_override/0 = SubResource("StandardMaterial3D_uobdy")
+script = ExtResource("84_iv1vf")
+
+[node name="roll_text" type="Label3D" parent="Cockpit/Sphere" unique_id=1732782891 node_paths=PackedStringArray("sphere")]
+transform = Transform3D(0.0012000004, 0, 2.8610278e-10, 0, 0.0012000004, 0, -2.8610278e-10, 0, 0.0012000004, -0.06750102, 0, -0.061999995)
+layers = 2
+pixel_size = 0.015
+billboard = 1
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "00.0"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+horizontal_alignment = 2
+script = ExtResource("86_rjt17")
+sphere = NodePath("..")
+
+[node name="yaw_text" type="Label3D" parent="Cockpit/Sphere" unique_id=451871261]
+transform = Transform3D(0.0012000004, 0, 2.8610278e-10, 0, 0.0012000004, 0, -2.8610278e-10, 0, 0.0012000004, 0, 0.04, -0.062)
+layers = 2
+pixel_size = 0.015
+billboard = 1
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "00.0"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+script = ExtResource("86_27epi")
+
+[node name="altitude_text" type="Label3D" parent="Cockpit/Sphere" unique_id=339465457]
+transform = Transform3D(0.0012000004, 0, 2.8610278e-10, 0, 0.0012000004, 0, -2.8610278e-10, 0, 0.0012000004, -0.08038981, 0, -0.062434617)
+layers = 2
+pixel_size = 0.015
+billboard = 1
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "00.0"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+horizontal_alignment = 2
+script = ExtResource("85_2viqe")
 
 [node name="Timer" type="Timer" parent="." unique_id=314712587]
 process_callback = 0
