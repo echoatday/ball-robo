@@ -7,27 +7,27 @@ extends Sprite3D
 func _physics_process(delta: float) -> void:
 	if not owner.state_rolling:
 		if not owner.can_grapple:
-			set_modulate(Color(0.2,0.2,0.2))
+			set_modulate(Color("333333"))
 			texture = box_texture[3]
 		elif not owner.grapple_ready and not owner.state_grappling:
-			set_modulate(Color(0.4,1,0.4))
+			set_modulate(Color("72fffe"))
 			texture = box_texture[3]
 		elif not owner.state_grappling:
-			set_modulate(Color(1,1,0.4))
+			set_modulate(Color("72fffe"))
 			texture = box_texture[4]
 		else:
-			set_modulate(Color(1,0.2,0.2))
+			set_modulate(Color("72fffe"))
 			texture = box_texture[5]
 	else:
 		if not owner.can_spin and not owner.state_spinning:
-			set_modulate(Color(0.2,0.2,0.2))
+			set_modulate(Color("333333"))
 			texture = box_texture[0]
 		elif owner.spin_speed == 0:
-			set_modulate(Color(0.4,1,0.4))
+			set_modulate(Color("72fffe"))
 			texture = box_texture[0]
 		elif owner.spin_speed < owner.spin_strength:
-			set_modulate(Color(1,1,0.4))
+			set_modulate(Color("72fffe"))
 			texture = box_texture[1]
 		else:
-			set_modulate(Color(1,0.2,0.2))
+			set_modulate(Color("72fffe"))
 			texture = box_texture[2]

@@ -167,6 +167,8 @@ func _physics_process(delta: float) -> void:
 	
 	if heat > max_heat:
 		state_dead = true
+	if global_position.y < -500:
+		state_dead = true
 	
 	if energy < 0:
 		heat += -energy*4
@@ -188,9 +190,10 @@ func _physics_process(delta: float) -> void:
 	# --- ACTIONS ---
 	if state_rolling:
 		can_jump = false
-		can_boost = false
 		if is_on_floor():
 			can_spin = true
+			if can_boost == false:
+				can_boost = true
 	elif is_on_floor() or state_grappling:
 		can_boost = true
 		can_jump = true
@@ -234,7 +237,6 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor() or state_grappling:
 			velocity.y = JUMP_VELOCITY/3
 			state_grappling = false
-		can_boost = true
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
@@ -251,9 +253,10 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
-		if Input.is_action_just_pressed("boost"):
+		if Input.is_action_just_pressed("boost") and not is_on_floor() and can_boost:
 			velocity.y += -BOOST_SPEED
 			energy_checkout += energy_cost.large
+			can_boost = false
 		if Input.is_action_pressed("jump") and not is_on_floor():
 			state_bouncing = true
 		else:
@@ -273,6 +276,7 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			can_spin = true
+			can_boost = true
 			velocity = velocity.bounce(collision.get_normal()) * 0.95
 		elif velocity.y == 0:
 			velocity += get_gravity() * delta
