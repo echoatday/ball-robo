@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c4oisnqi1ftdl"
+path="res://.godot/imported/save_station.map-ce79b317309417a9be372a9f876bab0e.tres"
+
+[deps]
+
+source_file="res://maps/objects/save_station.map"
+dest_files=["res://.godot/imported/save_station.map-ce79b317309417a9be372a9f876bab0e.tres"]
+
+[params]
+

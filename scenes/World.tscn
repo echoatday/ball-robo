@@ -26,7 +26,7 @@ fog_density = 0.0
 environment = SubResource("Environment_si5j6")
 
 [node name="Player" parent="." unique_id=1268744149 instance=ExtResource("1_dow2d")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.8734, 7.0836396, 6.121567)
+transform = Transform3D(1.1920929e-07, 0, 1, 0, 1, 0, -1, 0, 1.1920929e-07, 8.1266, 16.08364, -22.878433)
 
 [node name="Room" parent="." unique_id=2117626967 instance=ExtResource("5_dcgyx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 0)
