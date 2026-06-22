@@ -215,6 +215,7 @@ func _physics_process(delta: float) -> void:
 		can_grapple = false
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire"):
+			Globals.load_game()
 			state_dead = false
 			heat = 0
 			can_grapple = true
@@ -222,7 +223,7 @@ func _physics_process(delta: float) -> void:
 			position = spawn_position
 		
 	
-	if Input.is_action_just_pressed("jump") and can_jump:
+	if Input.is_action_just_pressed("jump") and can_jump and Globals.unlock_jump == true:
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
@@ -238,6 +239,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY/3
 			state_grappling = false
 		state_rolling = not state_rolling
+		Globals.rolled_state = state_rolling
 		
 	if not state_rolling:
 

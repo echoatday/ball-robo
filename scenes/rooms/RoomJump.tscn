@@ -2811,4 +2811,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -26, 62)
 curve = SubResource("Curve3D_16npu")
 
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("40_pquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -17.25, -40)
+transform = Transform3D(-0.9999999, 0, -4.371138e-08, 0, 1, 0, 4.371138e-08, 0, -0.9999999, -5, -17.25, -25)
+level_id = 65
