@@ -215,12 +215,16 @@ func _physics_process(delta: float) -> void:
 		can_grapple = false
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire"):
-			Globals.load_game()
+			global_transform = Globals.load_game()
+			seat.rotation = Vector3.ZERO
+			sphere.rotation_degrees = global_rotation_degrees
+			reticle.position = Vector3(0,0,-0.2)
+			reticle.position.z = abs(reticle.position.x/3)-0.3
+			reticle.rotation_degrees = Vector3(0,-180,0)
 			state_dead = false
 			heat = 0
 			can_grapple = true
 			dead_text.visible = false
-			position = spawn_position
 		
 	
 	if Input.is_action_just_pressed("jump") and can_jump and Globals.unlock_jump == true:
@@ -272,7 +276,7 @@ func _physics_process(delta: float) -> void:
 			state_spinning = false
 			can_spin = false
 			can_boost = true
-
+	
 	aim()
 	if state_bouncing and state_rolling:
 		var collision = move_and_collide(velocity * delta)

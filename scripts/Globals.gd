@@ -1,6 +1,7 @@
 extends Node
 
 var player: CharacterBody3D
+@onready var world = get_tree().current_scene
 
 var current_checkpoint: int
 var rolled_state := false
@@ -10,7 +11,7 @@ var lever_powershovel := true
 var lever_wastedisposal := true
 
 var unlock_roll := true
-var unlock_jump := false
+var unlock_jump := true
 var unlock_walljump := true
 var unlock_lateralboost := true
 var unlock_downboost := true
@@ -74,3 +75,13 @@ func load_game():
 	unlock_energy_1 = json.data["unlock_energy_1"]
 	unlock_energy_2 = json.data["unlock_energy_2"]
 	unlock_heat = json.data["unlock_heat"]
+	
+	
+	var instance = StationMap.rooms[current_checkpoint].instantiate()
+	var instance_checkpoint_transform = instance.find_child("SaveStation").transform
+	for child in world.get_children():
+		if child != player:
+			print(world)
+			world.remove_child(child)
+	world.add_child(instance)
+	return(instance_checkpoint_transform)
