@@ -321,7 +321,7 @@ script = ExtResource("1_jpwdf")
 save_trigger = NodePath("SaveTrigger")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=73169720]
-transform = Transform3D(1.4999999, 0, 0, 0, 1.5, 0, 0, 0, 1.4999999, 0, -0.75, 0)
+transform = Transform3D(-6.556708e-08, 0, -1.4999999, 0, 1.5, 0, 1.4999999, 0, -6.556708e-08, 0, -0.75, 0)
 script = ExtResource("5_csba6")
 local_map_file = "uid://c4oisnqi1ftdl"
 map_settings = ExtResource("6_jpwdf")
@@ -331,7 +331,6 @@ metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
 collision_mask = 0
 
 [node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=878308802]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jpwdf")
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=999306515]
