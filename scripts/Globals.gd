@@ -6,7 +6,7 @@ var player: CharacterBody3D
 var current_checkpoint: int
 var rolled_state := false
 
-var button_rawmaterials := true
+var doors_rawmaterials := false
 var lever_powershovel := true
 var lever_wastedisposal := true
 
@@ -28,7 +28,7 @@ func save_game():
 		"current_checkpoint" : current_checkpoint,
 		"rolled_state" : rolled_state,
 		
-		"button_rawmaterials" : button_rawmaterials,
+		"doors_rawmaterials" : doors_rawmaterials,
 		"lever_powershovel" : lever_powershovel,
 		"lever_wastedisposal" : lever_wastedisposal,
 		
@@ -59,7 +59,7 @@ func load_game():
 	current_checkpoint = json.data["current_checkpoint"]
 	rolled_state = json.data["rolled_state"]
 	
-	button_rawmaterials = json.data["button_rawmaterials"]
+	doors_rawmaterials = json.data["doors_rawmaterials"]
 	lever_powershovel = json.data["lever_powershovel"]
 	lever_wastedisposal = json.data["lever_wastedisposal"]
 	
@@ -76,6 +76,7 @@ func load_game():
 	unlock_energy_2 = json.data["unlock_energy_2"]
 	unlock_heat = json.data["unlock_heat"]
 	
+	player.state_rolling = rolled_state
 	
 	var instance = StationMap.rooms[current_checkpoint].instantiate()
 	var instance_checkpoint_transform = instance.find_child("SaveStation").transform

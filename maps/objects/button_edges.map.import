@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dukrduoeqt1tc"
+path="res://.godot/imported/button_edges.map-27b00302a213e1ce068682dab1314fab.tres"
+
+[deps]
+
+source_file="res://maps/objects/button_edges.map"
+dest_files=["res://.godot/imported/button_edges.map-27b00302a213e1ce068682dab1314fab.tres"]
+
+[params]
+

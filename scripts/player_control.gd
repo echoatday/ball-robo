@@ -204,7 +204,7 @@ func _physics_process(delta: float) -> void:
 		can_jump = false
 	
 	if state_dead:
-		state_rolling = false
+		#state_rolling = false
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -243,7 +243,6 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY/3
 			state_grappling = false
 		state_rolling = not state_rolling
-		Globals.rolled_state = state_rolling
 		
 	if not state_rolling:
 

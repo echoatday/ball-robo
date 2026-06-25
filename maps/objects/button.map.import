@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dp1q27tfnms6u"
+path="res://.godot/imported/button.map-12f19a45533fb3571ae85bcba5d3a5c2.tres"
+
+[deps]
+
+source_file="res://maps/objects/button.map"
+dest_files=["res://.godot/imported/button.map-12f19a45533fb3571ae85bcba5d3a5c2.tres"]
+
+[params]
+

@@ -1,0 +1,82 @@
+// Game: FuncGodot
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+"_tb_mod" "textures"
+"_tb_textures" "textures/librequake/lq_conc;textures/librequake/lq_dev;textures/librequake/lq_flesh;textures/librequake/lq_greek;textures/librequake/lq_health_ammo;textures/librequake/lq_legacy;textures/librequake/lq_liquidsky;textures/librequake/lq_metal;textures/librequake/lq_palette;textures/librequake/lq_props;textures/librequake/lq_tech;textures/librequake/lq_tech/src;textures/librequake/lq_terra;textures/librequake/lq_utility;textures/librequake/lq_wood"
+// brush 0
+{
+( -40 48 32 ) ( -48 40 32 ) ( -48 40 0 ) librequake/lq_tech/metalstrip_1 [ 0 0.7071067657322367 -0.7071067966408575 0 ] [ 0 -0.7071067966408575 -0.7071067657322367 0 ] 45 1 1
+( -48 40 32 ) ( 48 40 32 ) ( 48 40 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -48 40 0 ) ( 48 40 0 ) ( 40 48 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 40 48 32 ) ( 48 40 32 ) ( -48 40 32 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 40 48 0 ) ( 40 48 32 ) ( -40 48 32 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 90 1 1
+( 48 40 0 ) ( 48 40 32 ) ( 40 48 32 ) librequake/lq_tech/metalstrip_1 [ 0 0.7071067657322369 -0.7071067966408573 0 ] [ 0 -0.7071067966408573 -0.7071067657322369 0 ] 45 1 1
+}
+// brush 1
+{
+( 40 -40 0 ) ( 40 -39 0 ) ( 40 -40 1 ) librequake/lq_tech/metalstrip_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 -40 0 ) ( 32 -40 1 ) ( 33 -40 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 -40 0 ) ( 33 -40 0 ) ( 32 -39 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 56 40 32 ) ( 56 41 32 ) ( 57 40 32 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 56 40 8 ) ( 57 40 8 ) ( 56 40 9 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 48 40 8 ) ( 48 40 9 ) ( 48 41 8 ) librequake/lq_tech/metalstrip_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 270 1 1
+}
+// brush 2
+{
+( -48 -40 0 ) ( -48 -39 0 ) ( -48 -40 1 ) librequake/lq_tech/metalstrip_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 90 1 1
+( -56 -40 0 ) ( -56 -40 1 ) ( -55 -40 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -56 -40 0 ) ( -55 -40 0 ) ( -56 -39 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -32 40 32 ) ( -32 41 32 ) ( -31 40 32 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -32 40 8 ) ( -31 40 8 ) ( -32 40 9 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -40 40 8 ) ( -40 40 9 ) ( -40 41 8 ) librequake/lq_tech/metalstrip_1 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 3
+{
+( -40 -48 0 ) ( -48 -40 0 ) ( -48 -40 32 ) librequake/lq_tech/metalstrip_1 [ 0 0.7071067657322369 -0.7071067966408573 0 ] [ 0 -0.7071067966408573 -0.7071067657322369 0 ] 45 1 1
+( -40 -48 32 ) ( 40 -48 32 ) ( 40 -48 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 40 -48 0 ) ( 48 -40 0 ) ( -48 -40 0 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -48 -40 32 ) ( 48 -40 32 ) ( 40 -48 32 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 48 -40 0 ) ( 48 -40 32 ) ( -48 -40 32 ) librequake/lq_tech/metalstrip_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 40 -48 32 ) ( 48 -40 32 ) ( 48 -40 0 ) librequake/lq_tech/metalstrip_1 [ 0 0.7071067657322369 -0.7071067966408573 0 ] [ 0 -0.7071067966408573 -0.7071067657322369 0 ] 45 1 1
+}
+// brush 4
+{
+( -40 -32 0 ) ( -40 -31 0 ) ( -40 -32 1 ) librequake/lq_tech/t_tech02 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -40 -32 0 ) ( -40 -32 1 ) ( -39 -32 0 ) librequake/lq_tech/t_tech02 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -40 -32 0 ) ( -39 -32 0 ) ( -40 -31 0 ) librequake/lq_tech/t_tech02 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -32 32 24 ) ( -32 33 24 ) ( -31 32 24 ) librequake/lq_tech/t_tech02 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -32 32 24 ) ( -31 32 24 ) ( -32 32 25 ) librequake/lq_tech/t_tech02 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -32 32 24 ) ( -32 32 25 ) ( -32 33 24 ) librequake/lq_tech/t_tech02 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 5
+{
+( 32 -32 0 ) ( 32 -31 0 ) ( 32 -32 1 ) librequake/lq_tech/t_tech02 [ 0 1 0 -8 ] [ 0 0 -1 0 ] 0 1 1
+( 32 -32 0 ) ( 32 -32 1 ) ( 33 -32 0 ) librequake/lq_tech/t_tech02 [ 1 0 0 -8 ] [ 0 0 -1 0 ] 0 1 1
+( 32 -32 0 ) ( 33 -32 0 ) ( 32 -31 0 ) librequake/lq_tech/t_tech02 [ 1 0 0 -8 ] [ 0 -1 0 0 ] 0 1 1
+( 40 32 24 ) ( 40 33 24 ) ( 41 32 24 ) librequake/lq_tech/t_tech02 [ 1 0 0 -8 ] [ 0 -1 0 0 ] 0 1 1
+( 40 32 24 ) ( 41 32 24 ) ( 40 32 25 ) librequake/lq_tech/t_tech02 [ 1 0 0 -8 ] [ 0 0 -1 0 ] 0 1 1
+( 40 32 24 ) ( 40 32 25 ) ( 40 33 24 ) librequake/lq_tech/t_tech02 [ 0 1 0 -8 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 6
+{
+( -40 32 0 ) ( -40 33 0 ) ( -40 32 1 ) librequake/lq_tech/t_tech02 [ 0 -4.371139006309477e-08 -0.999999999999999 0 ] [ 0 -0.999999999999999 4.371139006309477e-08 0 ] 90 1 1
+( -40 32 0 ) ( -40 32 1 ) ( -39 32 0 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 0 -0.999999999999999 0 ] [ -0.999999999999999 0 4.371139006309477e-08 0 ] 90 1 1
+( -40 32 0 ) ( -39 32 0 ) ( -40 33 0 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 -0.999999999999999 0 0 ] [ -0.999999999999999 4.371139006309477e-08 0 0 ] 90 1 1
+( 40 40 24 ) ( 40 41 24 ) ( 41 40 24 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 -0.999999999999999 0 0 ] [ -0.999999999999999 4.371139006309477e-08 0 0 ] 90 1 1
+( 40 40 24 ) ( 41 40 24 ) ( 40 40 25 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 0 -0.999999999999999 0 ] [ -0.999999999999999 0 4.371139006309477e-08 0 ] 90 1 1
+( 40 40 24 ) ( 40 40 25 ) ( 40 41 24 ) librequake/lq_tech/t_tech02 [ 0 -4.371139006309477e-08 -0.999999999999999 0 ] [ 0 -0.999999999999999 4.371139006309477e-08 0 ] 90 1 1
+}
+// brush 7
+{
+( -40 -40 0 ) ( -40 -39 0 ) ( -40 -40 1 ) librequake/lq_tech/t_tech02 [ 0 -4.371139006309477e-08 -0.999999999999999 0 ] [ 0 -0.999999999999999 4.371139006309477e-08 0 ] 90 1 1
+( -40 -40 0 ) ( -40 -40 1 ) ( -39 -40 0 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 0 -0.999999999999999 0 ] [ -0.999999999999999 0 4.371139006309477e-08 0 ] 90 1 1
+( -40 -40 0 ) ( -39 -40 0 ) ( -40 -39 0 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 -0.999999999999999 0 0 ] [ -0.999999999999999 4.371139006309477e-08 0 0 ] 90 1 1
+( 40 -32 24 ) ( 40 -31 24 ) ( 41 -32 24 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 -0.999999999999999 0 0 ] [ -0.999999999999999 4.371139006309477e-08 0 0 ] 90 1 1
+( 40 -32 24 ) ( 41 -32 24 ) ( 40 -32 25 ) librequake/lq_tech/t_tech02 [ -4.371139006309477e-08 0 -0.999999999999999 0 ] [ -0.999999999999999 0 4.371139006309477e-08 0 ] 90 1 1
+( 40 -32 24 ) ( 40 -32 25 ) ( 40 -31 24 ) librequake/lq_tech/t_tech02 [ 0 -4.371139006309477e-08 -0.999999999999999 0 ] [ 0 -0.999999999999999 4.371139006309477e-08 0 ] 90 1 1
+}
+}

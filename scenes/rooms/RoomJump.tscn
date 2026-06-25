@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvy45cv3w7rm" path="res://scenes/ConveyerBelt.tscn" id="36_4x34d"]
 [ext_resource type="PackedScene" uid="uid://di0g34gb2cnm8" path="res://scenes/LockedDoor.tscn" id="38_fqet3"]
 [ext_resource type="PackedScene" uid="uid://bodki4dvettuo" path="res://scenes/SaveStation.tscn" id="40_pquwl"]
+[ext_resource type="PackedScene" uid="uid://ct17gh0qvvsgj" path="res://scenes/Button.tscn" id="41_16npu"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pquwl"]
 _surfaces = [{
@@ -1568,7 +1569,7 @@ points = PackedVector3Array(16, -4, -12, 16, -6, -12, -18, -4, -12, -18, -6, -12
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l2t86"]
 points = PackedVector3Array(6, -4, 16, 6, -18, 16, -18, -4, 16, -18, -18, 16, 6, -4, -12, 6, -18, -12, -18, -4, -12, -18, -18, -12)
 
-[sub_resource type="Curve3D" id="Curve3D_pquwl"]
+[sub_resource type="Curve3D" id="Curve3D_16npu"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8649902, 0),
@@ -1576,7 +1577,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_16npu"]
+[sub_resource type="Curve3D" id="Curve3D_20dks"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8649902, 0),
@@ -2804,12 +2805,16 @@ transform = Transform3D(-1.7165462e-07, 0, 1, 0, 1, 0, -3.927, 0, -4.371139e-08,
 
 [node name="LockedDoor" parent="." unique_id=1984032725 instance=ExtResource("38_fqet3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -26, 18)
-curve = SubResource("Curve3D_pquwl")
+curve = SubResource("Curve3D_16npu")
 
 [node name="LockedDoor2" parent="." unique_id=1230698459 instance=ExtResource("38_fqet3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -26, 62)
-curve = SubResource("Curve3D_16npu")
+curve = SubResource("Curve3D_20dks")
 
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("40_pquwl")]
 transform = Transform3D(-8.940697e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -8.940697e-08, -5, -17.25, -25)
 level_id = 35
+
+[node name="Button" parent="." unique_id=2011625114 instance=ExtResource("41_16npu")]
+transform = Transform3D(-1, 2.6226832e-07, 0, -2.6226832e-07, -1, 0, 0, 0, 1, -23, -22, 7)
+is_on_cieling = true

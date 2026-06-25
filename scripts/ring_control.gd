@@ -13,6 +13,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("roll"):
 		walk_transition = true
 	
+	if owner.state_dead and Globals.rolled_state != owner.state_rolling:
+		walk_transition = true
+	
 	if walk_transition:
 		rotation_degrees.x = move_toward(rotation_degrees.x, -roll_rotation, 2)
 		if rotation_degrees.x == -roll_rotation:

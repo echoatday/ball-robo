@@ -1,0 +1,19 @@
+// Game: FuncGodot
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+"_tb_mod" "textures"
+"_tb_textures" "textures/librequake/lq_conc;textures/librequake/lq_dev;textures/librequake/lq_flesh;textures/librequake/lq_greek;textures/librequake/lq_health_ammo;textures/librequake/lq_legacy;textures/librequake/lq_liquidsky;textures/librequake/lq_metal;textures/librequake/lq_palette;textures/librequake/lq_props;textures/librequake/lq_tech;textures/librequake/lq_tech/src;textures/librequake/lq_terra;textures/librequake/lq_utility;textures/librequake/lq_wood"
+// brush 0
+{
+( -32 -32 8 ) ( -32 -31 8 ) ( -32 -32 9 ) librequake/lq_tech/aqsupp09 [ 0 1 0 32 ] [ 0 0 -1 0 ] 90 1 1
+( -48 -32 8 ) ( -48 -32 9 ) ( -47 -32 8 ) librequake/lq_tech/aqsupp09 [ 1 0 0 32 ] [ 0 0 -1 0 ] 270 1 1
+( -48 -32 0 ) ( -47 -32 0 ) ( -48 -31 0 ) __TB_empty [ 1 0 0 8 ] [ 0 -1 0 0 ] 180 1 1
+( 32 32 32 ) ( 32 33 32 ) ( 33 32 32 ) librequake/lq_tech/plat_top3 [ 1 0 0 32 ] [ 0 -1 0 32 ] 270 1 1
+( 32 32 264 ) ( 33 32 264 ) ( 32 32 265 ) librequake/lq_tech/aqsupp09 [ 1 0 0 32 ] [ 0 0 -1 0 ] 90 1 1
+( 32 32 264 ) ( 32 32 265 ) ( 32 33 264 ) librequake/lq_tech/aqsupp09 [ 0 1 0 32 ] [ 0 0 -1 0 ] 270 1 1
+}
+}

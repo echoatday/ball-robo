@@ -41,10 +41,10 @@ func _physics_process(delta: float) -> void:
 	look_target = owner.camera.project_position((get_viewport().get_mouse_position()/9)+Vector2(get_viewport().size/2.25),10)
 	
 	transform.origin = owner.transform.origin
-	if !owner.state_rolling:
+	if !owner.state_rolling and !owner.state_dead:
 		icosphere.transform =  base_ico_transform
 		if owner.is_on_floor():
-			if Input.get_vector("left", "right", "forward", "back") != Vector2.ZERO:
+			if Input.get_vector("left", "right", "forward", "back") != Vector2.ZERO and !owner.state_dead:
 				bob_count += 1
 				icosphere.set_position(Vector3(sin(bob_count * 0.1)*0.005, sin(bob_count * 0.2)*0.002, 0))
 			else:

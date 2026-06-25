@@ -47,7 +47,7 @@ _surfaces = [{
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg2g4"]
 points = PackedVector3Array(4, 4, 1, 4, 0, 1, 0, 4, 1, 0, 0, 1, 4, 4, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0)
 
-[node name="LockedDoor" type="Path3D" unique_id=1984032725]
+[node name="LockedDoor2" type="Path3D" unique_id=1984032725]
 curve = ExtResource("1_xr2ep")
 script = ExtResource("2_xr2ep")
 

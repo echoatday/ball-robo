@@ -8,9 +8,7 @@ extends Node3D
 	"control_deck:54","forge_works:55","engine_block:56"
 ) var level_id: int
 
-func _physics_process(delta: float) -> void:
-	pass
-
 func _on_save_trigger_body_entered(body: Node3D) -> void:
 	Globals.current_checkpoint = level_id
+	Globals.rolled_state = body.state_rolling
 	Globals.save_game()
