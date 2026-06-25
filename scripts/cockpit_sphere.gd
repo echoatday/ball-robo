@@ -8,6 +8,10 @@ extends Node3D
 var count := 41
 var bob_count := 0
 
+func _ready() -> void:
+	for current_screen in screen:
+		current_screen.visible = true
+
 func _physics_process(delta: float) -> void:
 		
 	if owner.state_dead:

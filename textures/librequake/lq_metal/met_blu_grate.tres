@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://7hkp68uiewio"]
+
+[ext_resource type="Texture2D" uid="uid://cu1uvfj5ytl4m" path="res://textures/librequake/lq_metal/met_blu_grate.png" id="1_abekm"]
+
+[resource]
+albedo_texture = ExtResource("1_abekm")
+metallic_specular = 0.0
+texture_filter = 2

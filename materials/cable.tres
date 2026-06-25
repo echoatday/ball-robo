@@ -1,4 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bpxi0l621ahdn"]
 
+[ext_resource type="Texture2D" uid="uid://cdurt5wosn6vn" path="res://textures/librequake/lq_tech/t_metalsheetb.png" id="1_trcb0"]
+
 [resource]
-albedo_color = Color(0.136825, 0.136826, 0.136826, 1)
+albedo_texture = ExtResource("1_trcb0")
+uv1_scale = Vector3(8, 8, 8)
+uv1_triplanar = true
+uv1_world_triplanar = true

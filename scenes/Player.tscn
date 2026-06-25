@@ -433,7 +433,6 @@ texture = ExtResource("20_yhiff")
 
 [node name="DeadText" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=904329377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0013822094, -0.09)
-visible = false
 layers = 2
 pixel_size = 0.0001
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -803,13 +802,13 @@ surface_material_override/0 = ExtResource("69_qm4gb")
 
 [node name="cable_controller" type="Node3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking/gun" unique_id=511496611]
 transform = Transform3D(-2.91409e-07, 0, 6.66667, 0, 6.66667, 0, -6.66667, 0, -2.91409e-07, -2.24985, -1.31843, -0.0249643)
-visible = false
 
 [node name="grapple_cable" type="CSGCylinder3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/cable_controller" unique_id=861865469]
 transform = Transform3D(1.50475, 0, 0, 0, -4.38498e-08, -1.00317, 0, 1.00317, -4.38498e-08, -0.000695884, -0.00207834, -0.500199)
-radius = 0.05
+radius = 0.2
 height = 1.0
-sides = 4
+sides = 6
+smooth_faces = false
 material = ExtResource("10_lnno2")
 
 [node name="arm" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking" unique_id=870476816]

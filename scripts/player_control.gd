@@ -69,6 +69,7 @@ var spawn_position: Vector3
 
 func _ready() -> void:
 	Globals.player = self
+	state_dead = true
 
 func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()
@@ -141,7 +142,7 @@ func _physics_process(delta: float) -> void:
 		if grapple_velocity.length() < SPEED:
 			state_grappling = false
 		else:
-			cable_material.set_albedo(Color(0.8-(grapple_velocity.length()/30),0.2,0.2))
+			cable_material.set_albedo(Color(1.2-(grapple_velocity.length()/30),0.4,0.4))
 	else:
 		state_grappling = false
 
@@ -155,7 +156,7 @@ func _physics_process(delta: float) -> void:
 	if state_grappling:
 		grapple_cable.visible = true
 		grapple_cable.look_at(grapple_hook_position)
-		grapple_cable.scale.z = (grapple_hook_position - grapple_cable.transform.origin).length()*2
+		grapple_cable.scale.z = (grapple_hook_position - grapple_cable.transform.origin).length()*8
 	else:
 		grapple_cable.visible = false
 	
