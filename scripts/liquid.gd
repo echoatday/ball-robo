@@ -36,11 +36,11 @@ func _process(delta: float) -> void:
 			liquid_mesh.get_active_material(0).distance_fade_max_distance = 0.195
 
 func _on_damage_zone_body_entered(body: Node3D) -> void:
-	#body.heat_level += 1
+	body.heat_level += 1
 	player = body
 	underwater = true
 
 
 func _on_damage_zone_body_exited(body: Node3D) -> void:
-	#body.heat_level -= 1
+	body.heat_level -= 1
 	underwater = false
