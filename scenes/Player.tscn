@@ -136,7 +136,7 @@ uv1_offset = Vector3(0.445, 0, 0)
 texture_filter = 4
 distance_fade_max_distance = 0.2
 
-[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
+[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
@@ -147,12 +147,13 @@ camera_gimbal = NodePath("Cockpit/Seat/camera_gimbal")
 cockpit = NodePath("Cockpit")
 collider = NodePath("PlayerCollision3D")
 sphere = NodePath("Cockpit/Sphere")
+entire_ui = NodePath("Cockpit/Sphere/UI")
 reticle = NodePath("Cockpit/Sphere/UI/Reticle")
 reticle_pilot = NodePath("Cockpit/Seat/camera_gimbal/camera/reticle_pilot")
 dummy_reticle = NodePath("Cockpit/Seat/dummy_reticle_pilot")
 dummy_reticle2 = NodePath("Cockpit/Sphere/UI/dummy_reticle_pilot_2")
 box_display = NodePath("Cockpit/Sphere/UI/Reticle/box")
-dead_text = NodePath("Cockpit/Sphere/UI/DeadText")
+dead_text = NodePath("Cockpit/Sphere/DeadText")
 pilot_cast = NodePath("Cockpit/Seat/camera_gimbal/camera/PilotCast")
 grapple_cable = NodePath("Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/cable_controller")
 grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
@@ -431,16 +432,6 @@ pixel_size = 0.0005
 texture_filter = 0
 texture = ExtResource("20_yhiff")
 
-[node name="DeadText" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=904329377]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0013822094, -0.09)
-layers = 2
-pixel_size = 0.0001
-modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
-text = "offline"
-font = ExtResource("9_8bc5l")
-font_size = 64
-outline_size = 0
-
 [node name="speedometer_text" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=633176023]
 transform = Transform3D(0.0007660445, 0, -0.0006427876, 0, 0.001, 0, 0.0006427876, 0, 0.0007660445, 0.074, -0.013, -0.066)
 layers = 2
@@ -541,8 +532,18 @@ outline_size = 0
 horizontal_alignment = 2
 script = ExtResource("85_2viqe")
 
+[node name="DeadText" type="Label3D" parent="Cockpit/Sphere" unique_id=904329377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -0.09)
+layers = 2
+pixel_size = 0.0001
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "offline"
+font = ExtResource("9_8bc5l")
+font_size = 64
+outline_size = 0
+
 [node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=518802272]
-transform = Transform3D(0.1, 0, 0, 0, 0.0965926, 0.0258819, 0, -0.0258819, 0.0965926, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.096592605, 0.0258819, 0, -0.0258819, 0.096592605, 0, 0, 0)
 layers = 2
 mesh = ExtResource("23_ku51j")
 surface_material_override/0 = ExtResource("28_yrgn6")

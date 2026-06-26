@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var collider: Node3D
 @export var sphere: Node3D
 @export_category("UI")
+@export var entire_ui: Node3D
 @export var reticle: Node3D
 @export var reticle_pilot: Node3D
 @export var dummy_reticle: Node3D
@@ -205,7 +206,7 @@ func _physics_process(delta: float) -> void:
 		can_jump = false
 	
 	if state_dead:
-		#state_rolling = false
+		entire_ui.visible = false
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -216,11 +217,12 @@ func _physics_process(delta: float) -> void:
 		can_grapple = false
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire"):
+			entire_ui.visible = true
 			global_transform = Globals.load_game()
 			seat.rotation = Vector3.ZERO
 			sphere.rotation_degrees = global_rotation_degrees
 			reticle.position = Vector3(0,0,-0.2)
-			reticle.position.z = abs(reticle.position.x/3)-0.3
+			reticle.position.z = abs(reticle.position.x/3)-0.1
 			reticle.rotation_degrees = Vector3(0,-180,0)
 			state_dead = false
 			heat = 0
