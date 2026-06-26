@@ -18,20 +18,20 @@ func _physics_process(delta: float) -> void:
 		if count == 41:
 			screen.shuffle()
 			count -= 1
-		elif count >= 0 and Engine.get_physics_frames() % 2 == 0:
+		elif count >= 0:
 			screen[count-1].visible = true
 			count -= 1
-		elif count >= 0 and Engine.get_physics_frames() % 2 != 0:
+		elif count >= 0:
 			screen[40-count-1].visible = true
 			count -= 1
 	else:
 		if count == -1:
 			screen.shuffle()
 			count += 1
-		elif count <= 40 and Engine.get_physics_frames() % 2 == 0:
+		elif count <= 40:
 			screen[count-1].visible = false
 			count += 1
-		elif count <= 40 and Engine.get_physics_frames() % 2 != 0:
+		elif count <= 40:
 			screen[40-count-1].visible = false
 			count += 1
 		else:

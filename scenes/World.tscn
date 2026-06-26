@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://scenes/Player.tscn" id="1_dow2d"]
 [ext_resource type="Texture2D" uid="uid://8ldhuru2pd6s" path="res://textures/skybox.png" id="1_xewje"]
-[ext_resource type="PackedScene" uid="uid://b1r631revkidw" path="res://scenes/rooms/RoomJump.tscn" id="5_dcgyx"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wyjor"]
 panorama = ExtResource("1_xewje")
@@ -26,7 +25,3 @@ fog_density = 0.0
 environment = SubResource("Environment_si5j6")
 
 [node name="Player" parent="." unique_id=1268744149 instance=ExtResource("1_dow2d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1266, 16.08364, -22.878433)
-
-[node name="Room" parent="." unique_id=2117626967 instance=ExtResource("5_dcgyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 0)
