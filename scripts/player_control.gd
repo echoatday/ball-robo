@@ -312,7 +312,7 @@ func aim() -> void:
 		pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
 		#reticle handling
 		reticle.global_position = camera.project_position(cursor_location,0.2)
-		reticle.position.z = abs(reticle.position.x/3)-0.3
+		reticle.position.z = abs(reticle.position.x/3)-0.1
 		reticle.look_at(camera.global_position)
 		reticle.rotation.z = 0
 	else:

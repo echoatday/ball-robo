@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://lnwrx2rrmy25" path="res://textures/librequake/lq_tech/t_flat01.tres" id="7_t8sw8"]
 [ext_resource type="Material" uid="uid://h1vwqna6b7kh" path="res://textures/librequake/lq_tech/t_blok08.tres" id="8_t8sw8"]
 [ext_resource type="Material" uid="uid://cqochfyi84tnt" path="res://textures/librequake/lq_tech/rw33_1.tres" id="9_s6c6i"]
+[ext_resource type="PackedScene" uid="uid://d1dayeiv365ny" path="res://scenes/LiquidWastewater.tscn" id="12_syyup"]
 [ext_resource type="Material" uid="uid://dq7usw3coj1xm" path="res://textures/librequake/lq_tech/t_flat02.tres" id="15_1lbhj"]
 [ext_resource type="Material" uid="uid://d06w7jfavkiyu" path="res://textures/librequake/lq_conc/conc1_1.tres" id="19_1lhwy"]
 [ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="27_a1yl1"]
@@ -675,3 +676,6 @@ script = ExtResource("28_amw66")
 
 [node name="GrappleTarget" parent="." unique_id=911075568 instance=ExtResource("29_0kite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -13, -7)
+
+[node name="LiquidWastewater" parent="." unique_id=691101047 instance=ExtResource("12_syyup")]
+transform = Transform3D(62.611, 0, 0, 0, 16, 0, 0, 0, 60, 0, -29, 0)

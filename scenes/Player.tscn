@@ -93,7 +93,7 @@
 radius = 0.9
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7s8xn"]
-points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -6, -6, 30, 6, -6, 30, -6, 6, 30, 6, 6, 30)
+points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -6, -6, 100, 6, -6, 100, -6, 6, 100, 6, 6, 100)
 
 [sub_resource type="ImageTexture" id="ImageTexture_wlgdr"]
 
@@ -181,11 +181,12 @@ omni_attenuation = 0.1
 [node name="Seat" type="Node3D" parent="Cockpit" unique_id=1000544793]
 
 [node name="dummy_reticle_pilot" type="Sprite3D" parent="Cockpit/Seat" unique_id=2035253881]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.17)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -0.11)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.44705883, 1, 0.99607843, 1)
 pixel_size = 0.0001
+alpha_cut = 1
 render_priority = 1
 texture = ExtResource("2_2hk6f")
 
@@ -362,7 +363,7 @@ walk_sphere = NodePath("Icosphere/Screens/ico_walking")
 [node name="UI" type="Node3D" parent="Cockpit/Sphere" unique_id=538750737]
 
 [node name="Reticle" type="Node3D" parent="Cockpit/Sphere/UI" unique_id=1956216443]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
+transform = Transform3D(-0.35, 0, -5.284853e-08, 0, 0.35, 0, 5.284853e-08, 0, -0.35, 0, 0, -0.2)
 
 [node name="SpinCast" type="RayCast3D" parent="Cockpit/Sphere/UI/Reticle" unique_id=211535948]
 target_position = Vector3(0, 0, 30)
@@ -376,14 +377,13 @@ max_results = 1
 collision_mask = 256
 
 [node name="box" type="Sprite3D" parent="Cockpit/Sphere/UI/Reticle" unique_id=1926687302]
-transform = Transform3D(-2.6, 0, -3.92589e-07, 0, 2.6, 0, 3.92589e-07, 0, -2.6, 0, 0, 0)
+transform = Transform3D(-2.6, 0, -3.9258902e-07, 0, 2.6, 0, 3.9258902e-07, 0, -2.6, 0, 0, 0)
 pixel_size = 0.0001
 double_sided = false
+alpha_cut = 1
 texture = SubResource("ImageTexture_wlgdr")
 script = ExtResource("17_isqgh")
 box_texture = Array[Texture]([ExtResource("3_7tb5x"), ExtResource("16_dpgmg"), ExtResource("17_tu6o0"), ExtResource("12_go2wy"), ExtResource("4_gtmj1"), ExtResource("5_8qmgo")])
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cockpit/Sphere/UI/Reticle" unique_id=1710007759]
 
 [node name="HUDBorder" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=1901376912]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
@@ -470,16 +470,17 @@ line_spacing = -200.0
 script = ExtResource("29_84ti5")
 
 [node name="dummy_reticle_pilot_2" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=496738371]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, -0.17)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -0.11)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.44705883, 1, 0.99607843, 1)
 pixel_size = 0.0001
+alpha_cut = 1
 render_priority = 1
 texture = ExtResource("28_xmxrx")
 
 [node name="ui_roll" type="MeshInstance3D" parent="Cockpit/Sphere/UI" unique_id=1958659508 node_paths=PackedStringArray("sphere")]
-transform = Transform3D(-5.2453664e-09, 0, -0.12, 0, 0.11999999, 0, 0.11999999, 0, -5.2453664e-09, -0.051692028, 0, 0)
+transform = Transform3D(-3.496911e-09, 0, -0.08, 0, 0.08, 0, 0.08, 0, -3.496911e-09, -0.03270537, 0, 8.2993323e-10)
 mesh = ExtResource("77_p0eor")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_dsbg5")
@@ -487,7 +488,7 @@ script = ExtResource("79_im07a")
 sphere = NodePath("../..")
 
 [node name="ui_yaw" type="MeshInstance3D" parent="Cockpit/Sphere/UI" unique_id=868312468]
-transform = Transform3D(-0.12, 0, -1.8119495e-08, 0, 0.12, 0, 1.8119495e-08, 0, -0.12, 0, 0.005, 0)
+transform = Transform3D(-0.098, 0, -1.4797588e-08, 0, 0.098, 0, 1.4797588e-08, 0, -0.098, 0, 0.003, 0)
 cast_shadow = 0
 mesh = ExtResource("78_nrwhh")
 skeleton = NodePath("../../../..")
@@ -795,7 +796,7 @@ mesh = ExtResource("69_8inck")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="gun" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking" unique_id=1336044653]
-transform = Transform3D(-6.55671e-09, 0, -0.15, -0.0388229, 0.144889, 1.697e-09, 0.144889, 0.0388229, -6.33329e-09, 1.4, -0.280257, -0.897775)
+transform = Transform3D(-2.7090039e-08, -2.3129766e-10, -0.6, -0.15529138, 0.5795556, 6.787999e-09, 0.5795556, 0.15529138, -2.6226834e-08, 5.588026, -0.7953503, -3.206001)
 mesh = ExtResource("71_be0uw")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("69_qm4gb")
@@ -812,7 +813,7 @@ smooth_faces = false
 material = ExtResource("10_lnno2")
 
 [node name="arm" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere/Screens/ico_walking" unique_id=870476816]
-transform = Transform3D(0.1, 0, 0, 0, 0.0965926, -0.0258819, 0, 0.0258819, 0.0965926, 0, -0.138325, -0.140592)
+transform = Transform3D(0.4, 0, 0, 0, 0.38637036, -0.10352758, 0, 0.10352758, 0.38637036, 0, -0.138325, -0.140592)
 mesh = ExtResource("70_fjarb")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("69_qm4gb")
