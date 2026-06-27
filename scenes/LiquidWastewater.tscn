@@ -8,7 +8,7 @@ transparency = 1
 cull_mode = 2
 depth_draw_mode = 1
 specular_mode = 2
-albedo_color = Color(1, 1, 1, 0.88235295)
+albedo_color = Color(1, 1, 1, 0.78431374)
 albedo_texture = ExtResource("1_o25bm")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
@@ -22,14 +22,14 @@ distance_fade_max_distance = 0.19
 material = SubResource("StandardMaterial3D_xxwkf")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
-size = Vector3(2, 2, 2)
+size = Vector3(2, 1000, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh8w8"]
 transparency = 1
 cull_mode = 1
 depth_draw_mode = 1
 shading_mode = 0
-albedo_color = Color(0.17999999, 0.24, 0, 0.6313726)
+albedo_color = Color(0.15322226, 0.1972479, 2.4065375e-08, 0.6392157)
 texture_filter = 0
 billboard_keep_scale = true
 distance_fade_mode = 2
@@ -57,7 +57,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DamageZone" unique_id=470594461]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 0)
 shape = SubResource("BoxShape3D_iy5dr")
 
 [node name="UnderwaterOverlay" type="MeshInstance3D" parent="." unique_id=2058991525]

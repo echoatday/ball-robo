@@ -18,6 +18,7 @@ var unlock_downboost := true
 var unlock_bounce := true
 var unlock_grapple := true
 var unlock_spin := true
+var unlock_waterproofing := true
 
 var unlock_energy_1 := true
 var unlock_energy_2 := true
@@ -40,6 +41,7 @@ func save_game():
 		"unlock_bounce" : unlock_bounce,
 		"unlock_grapple" : unlock_grapple,
 		"unlock_spin" : unlock_spin,
+		"unlock_waterproofing": unlock_waterproofing,
 		
 		"unlock_energy_1" : unlock_energy_1,
 		"unlock_energy_2" : unlock_energy_2,
@@ -75,6 +77,7 @@ func load_game():
 	unlock_energy_1 = json.data["unlock_energy_1"]
 	unlock_energy_2 = json.data["unlock_energy_2"]
 	unlock_heat = json.data["unlock_heat"]
+	unlock_waterproofing = json.data["unlock_waterproofing"]
 	
 	player.state_rolling = rolled_state
 	

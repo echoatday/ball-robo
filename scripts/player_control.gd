@@ -78,6 +78,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not state_floating and not is_on_floor():
 		velocity += get_gravity() * delta
+	elif not is_on_floor():
+		velocity += get_gravity() * 0.5 * delta
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2
@@ -110,15 +112,22 @@ func _physics_process(delta: float) -> void:
 	if state_rolling:
 		state_grappling = false
 		collider.shape.radius = 0.4
-		current_speed = SPEED * 1.5
-		current_accel = ACCEL / 4
+		if !state_floating:
+			current_speed = SPEED * 1.5
+			current_accel = ACCEL / 4
+		else:
+			current_speed = SPEED
+			current_accel = ACCEL / 6
 	else:
 		state_bouncing = false
-		state_floating = false
 		state_spinning = false
 		collider.shape.radius = 0.9
-		current_speed = SPEED
-		current_accel = ACCEL
+		if !state_floating:
+			current_speed = SPEED
+			current_accel = ACCEL
+		else:
+			current_speed = SPEED * 0.6
+			current_accel = ACCEL / 2
 	
 	# --- SPINNING ---
 	var spin_direction = (spin_cast.global_position - global_position).normalized()
@@ -215,6 +224,7 @@ func _physics_process(delta: float) -> void:
 		can_boost = false
 		can_spin = false
 		can_grapple = false
+		state_floating = false
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire"):
 			entire_ui.visible = true
@@ -226,6 +236,7 @@ func _physics_process(delta: float) -> void:
 			reticle.rotation_degrees = Vector3(0,-180,0)
 			state_dead = false
 			heat = 0
+			energy = 300
 			can_grapple = true
 			dead_text.visible = false
 		

@@ -35,6 +35,15 @@ func _process(delta: float) -> void:
 			liquid_mesh.get_active_material(0).distance_fade_min_distance = 0.19
 			liquid_mesh.get_active_material(0).distance_fade_max_distance = 0.195
 
+func _physics_process(delta: float) -> void:
+	if underwater and player and player.global_position.y < global_position.y + 0.1:
+		if not Globals.unlock_waterproofing:
+			player.state_dead = true
+		else:
+			player.state_floating = true
+	elif player:
+		player.state_floating = false
+
 func _on_damage_zone_body_entered(body: Node3D) -> void:
 	body.heat_level += 1
 	player = body
