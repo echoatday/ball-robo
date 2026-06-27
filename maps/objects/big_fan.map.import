@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bccrhsgusickt"
+path="res://.godot/imported/big_fan.map-493ea23c846fef1f9e8fdb6e2ef66047.tres"
+
+[deps]
+
+source_file="res://maps/objects/big_fan.map"
+dest_files=["res://.godot/imported/big_fan.map-493ea23c846fef1f9e8fdb6e2ef66047.tres"]
+
+[params]
+
