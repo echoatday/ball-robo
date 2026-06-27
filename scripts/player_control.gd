@@ -215,7 +215,6 @@ func _physics_process(delta: float) -> void:
 		can_jump = false
 	
 	if state_dead:
-		entire_ui.visible = false
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -227,7 +226,7 @@ func _physics_process(delta: float) -> void:
 		state_floating = false
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire"):
-			entire_ui.visible = true
+			sphere.reset_screen()
 			global_transform = Globals.load_game()
 			seat.rotation = Vector3.ZERO
 			sphere.rotation_degrees = global_rotation_degrees

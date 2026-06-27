@@ -16,13 +16,11 @@ func _physics_process(delta: float) -> void:
 		
 	if owner.state_dead:
 		if count == 41:
+			owner.entire_ui.visible = false
 			screen.shuffle()
 			count -= 1
 		elif count >= 0:
 			screen[count-1].visible = true
-			count -= 1
-		elif count >= 0:
-			screen[40-count-1].visible = true
 			count -= 1
 	else:
 		if count == -1:
@@ -31,10 +29,8 @@ func _physics_process(delta: float) -> void:
 		elif count <= 40:
 			screen[count-1].visible = false
 			count += 1
-		elif count <= 40:
-			screen[40-count-1].visible = false
-			count += 1
 		else:
+			owner.entire_ui.visible = true
 			if owner.state_looking:
 				look_at(look_target)
 			if not owner.state_rolling:
@@ -61,3 +57,8 @@ func _physics_process(delta: float) -> void:
 			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.01*owner.velocity.length())
 		else:
 			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.005*owner.velocity.length())
+
+func reset_screen():
+	for current_screen in screen:
+		count = -1
+		current_screen.visible = true
