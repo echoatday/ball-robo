@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpurh1mtmayaw"
-path.s3tc="res://.godot/imported/tlightnb.png-7097bada40b212ec386c96a1ccaf340e.s3tc.ctex"
+uid="uid://bjdmynb6icrqu"
+path.s3tc="res://.godot/imported/targeting_box.png-22f19479cd1e048371daebe099e684e3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/librequake/lq_tech/tlightnb.png"
-dest_files=["res://.godot/imported/tlightnb.png-7097bada40b212ec386c96a1ccaf340e.s3tc.ctex"]
+source_file="res://textures/cockpit/targeting_box.png"
+dest_files=["res://.godot/imported/targeting_box.png-22f19479cd1e048371daebe099e684e3.s3tc.ctex"]
 
 [params]
 

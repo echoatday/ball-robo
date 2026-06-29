@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://caa3m2vyo3fly"
+path="res://.godot/imported/big_fan_edges.map-43e882689aa62d9654cd891c114de0e6.tres"
+
+[deps]
+
+source_file="res://maps/objects/big_fan_edges.map"
+dest_files=["res://.godot/imported/big_fan_edges.map-43e882689aa62d9654cd891c114de0e6.tres"]
+
+[params]
+

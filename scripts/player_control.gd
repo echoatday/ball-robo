@@ -43,6 +43,7 @@ var can_boost := true
 var can_jump := true
 var can_grapple := true
 var can_spin := true
+var target_visible := false
 var current_speed = SPEED
 var current_accel = ACCEL
 var spin_velocity := Vector3.ZERO
@@ -159,8 +160,9 @@ func _physics_process(delta: float) -> void:
 	if not grapple_cast.is_colliding():
 		grapple_ready = false
 	else:
-		grapple_ready = true
-		can_grapple = true
+		if grapple_cast.get_collider(0).owner.target_visible == true:
+			grapple_ready = true
+			can_grapple = true
 	
 	# Grapple cable
 	if state_grappling:

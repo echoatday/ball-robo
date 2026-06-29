@@ -2785,7 +2785,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -26, 63)
 script = ExtResource("6_1m232")
 
 [node name="GrappleTarget" parent="." unique_id=911075568 instance=ExtResource("8_0efov")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -24, 34)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -24, 36)
 
 [node name="belts" type="Node3D" parent="." unique_id=1739224706]
 
