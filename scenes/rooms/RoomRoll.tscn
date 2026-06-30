@@ -656,6 +656,7 @@ heat_level = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -31, -1)
 light_color = Color(1, 0.816445, 0.778427, 1)
 light_energy = 2.0
+light_specular = 0.0
 omni_range = 100.0
 omni_attenuation = 0.0
 
@@ -682,4 +683,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -13, -7)
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, -29.5, 0)
 
 [node name="BigFan" parent="." unique_id=1376926596 instance=ExtResource("13_f0ds5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, -30, -44)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, -29, -44)

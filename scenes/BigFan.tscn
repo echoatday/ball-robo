@@ -1,15 +1,14 @@
 [gd_scene format=4 uid="uid://25lg6272tsul"]
 
+[ext_resource type="PackedScene" uid="uid://cjov8m7g8tyfc" path="res://scenes/GrappleTargetSmall.tscn" id="1_6hyki"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_h1u14"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_dtgwx"]
 [ext_resource type="Material" uid="uid://bc3pm15xm8hrq" path="res://textures/librequake/lq_tech/metalstrip_1.tres" id="3_etk56"]
 [ext_resource type="Material" uid="uid://bodjbd48oivr7" path="res://textures/librequake/lq_tech/tlightfb_fbr.tres" id="4_6hyki"]
-[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="7_mmt84"]
+[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://textures/default_texture.png" id="7_mmt84"]
 [ext_resource type="Material" uid="uid://duxiee4ljvrh3" path="res://textures/librequake/lq_tech/t_tech02.tres" id="7_uw6xt"]
 [ext_resource type="Material" uid="uid://gmy7c7u78hyj" path="res://textures/librequake/lq_tech/t_wall6c.tres" id="9_cw5xb"]
 [ext_resource type="Material" uid="uid://b8sg6upkgrd8i" path="res://textures/librequake/lq_tech/t_trim1d.tres" id="9_m2sta"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mmt84"]
 _surfaces = [{
@@ -193,13 +192,8 @@ radius = 4.0
 
 [node name="BigFan" type="Node3D" unique_id=1376926596]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1409062984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_layer = 256
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1323138346]
-shape = SubResource("BoxShape3D_iy5dr")
+[node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("1_6hyki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39, 0)
 
 [node name="BigFan" type="Node3D" parent="." unique_id=942037218]
 script = ExtResource("1_h1u14")
@@ -297,9 +291,3 @@ shape = SubResource("ConvexPolygonShape3D_wr4yb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WindArea" unique_id=1041451378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
 shape = SubResource("CylinderShape3D_iy5dr")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1922893894]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7691599, 0)
-light_color = Color(1, 0.7165, 0.19, 1)
-omni_range = 46.082
-omni_attenuation = 3.961

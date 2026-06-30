@@ -16,10 +16,9 @@ sky_rotation = Vector3(1.5708, 0, 0)
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
-fog_enabled = true
+reflected_light_source = 1
 fog_light_color = Color(0.787717, 0.367609, 0.379549, 1)
 fog_light_energy = 0.69
-fog_density = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=1502763437]
 environment = SubResource("Environment_si5j6")

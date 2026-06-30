@@ -2765,6 +2765,7 @@ heat_level = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -31, -3)
 light_color = Color(1, 0.816445, 0.778427, 1)
 light_energy = 2.0
+light_specular = 0.0
 omni_range = 100.0
 omni_attenuation = 0.0
 
