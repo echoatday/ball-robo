@@ -80,7 +80,7 @@ func _physics_process(delta: float) -> void:
 	if not state_floating and not is_on_floor():
 		velocity += get_gravity() * delta
 	elif not is_on_floor():
-		velocity += get_gravity() * 0.5 * delta
+		velocity += get_gravity() * 0.8 * delta
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2

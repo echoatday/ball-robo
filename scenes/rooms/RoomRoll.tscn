@@ -681,7 +681,7 @@ transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, -29.5, 0)
 [node name="BigFan" parent="." unique_id=1376926596 instance=ExtResource("13_f0ds5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, -29, -44)
 timer_length = 6.0
-wind_speed = 1
+wind_speed = 2
 
 [node name="BigFan2" parent="." unique_id=1073125673 instance=ExtResource("13_f0ds5")]
 transform = Transform3D(0, -1.0000001, 0, 1.0000001, 0, 0, 0, 0, 1, 51, -26, -44)

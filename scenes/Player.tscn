@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://daehwm2v4a3jr" path="res://scripts/ui_speedometer.gd" id="29_84ti5"]
 [ext_resource type="ArrayMesh" uid="uid://bpxkmhrul5vxt" path="res://models/ico_02.obj" id="29_mpjcu"]
 [ext_resource type="ArrayMesh" uid="uid://cirf0xta2g0n1" path="res://models/ico_03.obj" id="30_368kq"]
+[ext_resource type="Script" uid="uid://cmfgpgquxfj4c" path="res://scripts/speedometer_direction_control.gd" id="30_afj6a"]
 [ext_resource type="ArrayMesh" uid="uid://g77ban81cjjj" path="res://models/ico_04.obj" id="31_ddaiu"]
 [ext_resource type="ArrayMesh" uid="uid://lloeoeoso4f8" path="res://models/ico_05.obj" id="32_k38qi"]
 [ext_resource type="ArrayMesh" uid="uid://b0yffqo6k2trx" path="res://models/ico_06.obj" id="33_3lkj1"]
@@ -96,6 +97,35 @@ radius = 0.9
 points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -17, -17, 100, 17, -17, 100, -17, 17, 100, 17, 17, 100)
 
 [sub_resource type="ImageTexture" id="ImageTexture_wlgdr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxwkf"]
+shading_mode = 0
+albedo_color = Color(0.47843137, 0.8039216, 0.8039216, 1)
+grow_amount = 0.001
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_afj6a"]
+material = SubResource("StandardMaterial3D_xxwkf")
+top_radius = 0.001
+bottom_radius = 0.001
+height = 0.002
+radial_segments = 4
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_84ti5"]
+material = SubResource("StandardMaterial3D_xxwkf")
+top_radius = 0.001
+bottom_radius = 0.001
+height = 0.01
+radial_segments = 4
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pnher"]
+material = SubResource("StandardMaterial3D_xxwkf")
+top_radius = 0.001
+bottom_radius = 0.001
+height = 0.002
+radial_segments = 4
+rings = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsbg5"]
 transparency = 1
@@ -447,7 +477,7 @@ justification_flags = 131
 script = ExtResource("17_vwp1p")
 
 [node name="ui_speedometer" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=1391234709]
-transform = Transform3D(0.0007660445, 0, -0.0006427876, 0, 0.001, 0, 0.0006427876, 0, 0.0007660445, 0.072843954, -0.014191028, -0.063430525)
+transform = Transform3D(0.0007660445, 0, -0.0006427876, 0, 0.001, 0, 0.0006427876, 0, 0.0007660445, 0.07380726, -0.014191028, -0.06457855)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
@@ -459,6 +489,23 @@ horizontal_alignment = 0
 vertical_alignment = 2
 line_spacing = -200.0
 script = ExtResource("29_84ti5")
+
+[node name="speedometer_direction_base" type="MeshInstance3D" parent="Cockpit/Sphere/UI" unique_id=1602059318]
+transform = Transform3D(0.5, 0, 0, 0, -1.0927847e-08, 0.5, 0, -0.25, -2.1855694e-08, 0.062, -0.013, -0.073684625)
+mesh = SubResource("CylinderMesh_afj6a")
+skeleton = NodePath("../speedometer_direction")
+
+[node name="speedometer_direction" type="Node3D" parent="Cockpit/Sphere/UI" unique_id=1035738732]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.062, -0.013, -0.073684625)
+script = ExtResource("30_afj6a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cockpit/Sphere/UI/speedometer_direction" unique_id=734862088]
+transform = Transform3D(0.3, 0, 0, 0, -4.371139e-08, -0.3, 0, 1, -1.3113417e-08, 0, 0, -0.005)
+mesh = SubResource("CylinderMesh_84ti5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cockpit/Sphere/UI/speedometer_direction" unique_id=941672595]
+transform = Transform3D(0.8, 0, 0, 0, -2.6226834e-08, 0.8, 0, -0.6, -3.4969112e-08, 0, 0, -0.01)
+mesh = SubResource("CylinderMesh_pnher")
 
 [node name="dummy_reticle_pilot_2" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=496738371]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -0.11)
