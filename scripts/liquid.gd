@@ -41,8 +41,6 @@ func _physics_process(delta: float) -> void:
 			player.state_dead = true
 		else:
 			player.state_floating = true
-	elif player:
-		player.state_floating = false
 
 func _on_damage_zone_body_entered(body: Node3D) -> void:
 	body.heat_level += 1
@@ -53,3 +51,4 @@ func _on_damage_zone_body_entered(body: Node3D) -> void:
 func _on_damage_zone_body_exited(body: Node3D) -> void:
 	body.heat_level -= 1
 	underwater = false
+	player.state_floating = false

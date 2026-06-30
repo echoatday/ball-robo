@@ -47,7 +47,6 @@ cast_shadow = 0
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
 pixel_size = 0.03
 shaded = true
-alpha_cut = 1
 texture_filter = 2
 render_priority = 1
 texture = ExtResource("3_1uraq")

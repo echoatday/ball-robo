@@ -12,7 +12,6 @@
 [ext_resource type="Material" uid="uid://d06w7jfavkiyu" path="res://textures/librequake/lq_conc/conc1_1.tres" id="19_1lhwy"]
 [ext_resource type="PackedScene" uid="uid://cgusnhk3ph8f0" path="res://scenes/HeatZone.tscn" id="27_a1yl1"]
 [ext_resource type="Script" uid="uid://ckskj03dex25p" path="res://scripts/door_control.gd" id="28_amw66"]
-[ext_resource type="PackedScene" uid="uid://7lt2mtpgunn3" path="res://scenes/GrappleTarget.tscn" id="29_0kite"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t8sw8"]
 _surfaces = [{
@@ -676,11 +675,16 @@ script = ExtResource("28_amw66")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 64)
 script = ExtResource("28_amw66")
 
-[node name="GrappleTarget" parent="." unique_id=911075568 instance=ExtResource("29_0kite")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -13, -7)
-
 [node name="LiquidWastewater" parent="." unique_id=691101047 instance=ExtResource("12_syyup")]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 0, -29.5, 0)
 
 [node name="BigFan" parent="." unique_id=1376926596 instance=ExtResource("13_f0ds5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, -29, -44)
+timer_length = 6.0
+wind_speed = 1
+
+[node name="BigFan2" parent="." unique_id=1073125673 instance=ExtResource("13_f0ds5")]
+transform = Transform3D(0, -1.0000001, 0, 1.0000001, 0, 0, 0, 0, 1, 51, -26, -44)
+timer_length = 6.0
+constant = true
+wind_speed = 6
