@@ -26,7 +26,7 @@ extends CharacterBody3D
 const SPEED = 8
 const ACCEL = 1.1
 const BOOST_SPEED = 8
-const JUMP_VELOCITY = 8
+const JUMP_VELOCITY = 4
 const LOOK_SPEED = 0.0002
 const MARGIN = 160
 const GRAPPLE_SPEED = 20
@@ -75,7 +75,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()
-	
+	print(state_floating)
 	# Add the gravity.
 	if not state_floating and not is_on_floor():
 		velocity += get_gravity() * delta
@@ -84,14 +84,14 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2
-	if not state_dead:
+	if not state_dead and $Timer.is_stopped():
 		input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if abs(velocity.x) < abs(direction.x) * current_speed:
 		velocity.x += direction.x * current_accel
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel)
-	elif direction.x * velocity.x < 0 and $Timer.is_stopped():
+	elif direction.x * velocity.x < 0:
 		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel)
 	else:
 		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel/100)
@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z += direction.z * current_accel
 	elif is_on_floor():
 		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel)
-	elif direction.z * velocity.z < 0 and $Timer.is_stopped():
+	elif direction.z * velocity.z < 0:
 		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel)
 	else:
 		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel/100)
@@ -243,6 +243,7 @@ func _physics_process(delta: float) -> void:
 		
 	
 	if Input.is_action_just_pressed("jump") and can_jump and Globals.unlock_jump == true:
+		$Timer2.start()
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
@@ -252,17 +253,21 @@ func _physics_process(delta: float) -> void:
 				velocity.z = get_wall_normal().z * BOOST_SPEED * 1.3
 			state_grappling = false
 		can_jump = false
+	
+	if Input.is_action_pressed("jump") and not $Timer2.is_stopped():
+			velocity.y += 0.6
+			energy_checkout += 2
 		
 	if Input.is_action_just_pressed("roll"):
 		if is_on_floor() or state_grappling:
-			velocity.y = JUMP_VELOCITY/3
+			velocity.y = JUMP_VELOCITY/2
 			state_grappling = false
 		state_rolling = not state_rolling
 		
 	if not state_rolling:
 
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
-			velocity.y = JUMP_VELOCITY/3
+			velocity.y = JUMP_VELOCITY/2
 			velocity += direction * BOOST_SPEED
 			energy_checkout += energy_cost.large
 			can_boost = false

@@ -871,3 +871,7 @@ surface_material_override/1 = ExtResource("69_qm4gb")
 process_callback = 0
 wait_time = 0.3
 one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1422813019]
+wait_time = 0.1
+one_shot = true
