@@ -233,7 +233,7 @@ func _physics_process(delta: float) -> void:
 			seat.rotation = Vector3.ZERO
 			sphere.rotation_degrees = global_rotation_degrees
 			reticle.position = Vector3(0,0,-0.2)
-			reticle.position.z = abs(reticle.position.x/3)-0.1
+			reticle.position.z = abs(reticle.position.x/3)-0.09
 			reticle.rotation_degrees = Vector3(0,-180,0)
 			state_dead = false
 			heat = 0
@@ -326,7 +326,7 @@ func aim() -> void:
 		pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
 		#reticle handling
 		reticle.global_position = camera.project_position(cursor_location,0.2)
-		reticle.position.z = abs(reticle.position.x/3)-0.1
+		reticle.position.z = abs(reticle.position.x/3)-0.09
 		reticle.look_at(camera.global_position)
 		reticle.rotation.z = 0
 	else:

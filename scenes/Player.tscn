@@ -212,7 +212,7 @@ omni_attenuation = 0.1
 [node name="Seat" type="Node3D" parent="Cockpit" unique_id=1000544793]
 
 [node name="dummy_reticle_pilot" type="Sprite3D" parent="Cockpit/Seat" unique_id=2035253881]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -0.11)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, -0.09)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.44705883, 1, 0.99607843, 1)
@@ -508,7 +508,7 @@ transform = Transform3D(0.8, 0, 0, 0, -2.6226834e-08, 0.8, 0, -0.6, -3.4969112e-
 mesh = SubResource("CylinderMesh_pnher")
 
 [node name="dummy_reticle_pilot_2" type="Sprite3D" parent="Cockpit/Sphere/UI" unique_id=496738371]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -0.11)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, -0.09)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.44705883, 1, 0.99607843, 1)
@@ -580,7 +580,7 @@ horizontal_alignment = 2
 script = ExtResource("85_2viqe")
 
 [node name="DeadText" type="Label3D" parent="Cockpit/Sphere" unique_id=904329377]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -0.09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0010524634, -0.06356848)
 layers = 2
 pixel_size = 0.0001
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -590,7 +590,7 @@ font_size = 64
 outline_size = 0
 
 [node name="Icosphere" type="MeshInstance3D" parent="Cockpit/Sphere" unique_id=518802272]
-transform = Transform3D(0.1, 0, 0, 0, 0.096592605, 0.0258819, 0, -0.0258819, 0.096592605, 0, 0, 0)
+transform = Transform3D(0.08, 0, 0, 0, 0.07727407, 0.020705514, 0, -0.020705514, 0.07727407, 0, 0, 0)
 layers = 2
 mesh = ExtResource("23_ku51j")
 surface_material_override/0 = ExtResource("28_yrgn6")

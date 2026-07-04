@@ -8,7 +8,7 @@ transparency = 1
 cull_mode = 2
 depth_draw_mode = 1
 specular_mode = 2
-albedo_color = Color(1, 1, 1, 0.78431374)
+albedo_color = Color(1, 1, 1, 0.39215687)
 albedo_texture = ExtResource("1_o25bm")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
@@ -21,20 +21,24 @@ distance_fade_max_distance = 0.19
 [sub_resource type="PlaneMesh" id="PlaneMesh_iy5dr"]
 material = SubResource("StandardMaterial3D_xxwkf")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
-size = Vector3(2, 1000, 2)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh8w8"]
 transparency = 1
 cull_mode = 1
 depth_draw_mode = 1
 shading_mode = 0
-albedo_color = Color(0.15322226, 0.1972479, 2.4065375e-08, 0.6392157)
+albedo_color = Color(0.15666667, 0.2, 0, 0.50980395)
 texture_filter = 0
 billboard_keep_scale = true
 distance_fade_mode = 2
 distance_fade_min_distance = 0.19
 distance_fade_max_distance = 0.19
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w0aip"]
+material = SubResource("StandardMaterial3D_hh8w8")
+flip_faces = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
+size = Vector3(2, 1000, 2)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fvdg1"]
 material = SubResource("StandardMaterial3D_hh8w8")
@@ -51,6 +55,9 @@ overlay_mesh = NodePath("UnderwaterOverlay")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1748877200]
 mesh = SubResource("PlaneMesh_iy5dr")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=243759220]
+mesh = SubResource("PlaneMesh_w0aip")
 
 [node name="DamageZone" type="Area3D" parent="." unique_id=768593065]
 collision_layer = 4
