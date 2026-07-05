@@ -249,8 +249,8 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			if get_wall_normal():
 				$Timer.start()
-				velocity.x = get_wall_normal().x * BOOST_SPEED * 1.3
-				velocity.z = get_wall_normal().z * BOOST_SPEED * 1.3
+				velocity.x += get_wall_normal().x * BOOST_SPEED * 1.3
+				velocity.z += get_wall_normal().z * BOOST_SPEED * 1.3
 			state_grappling = false
 		can_jump = false
 	
