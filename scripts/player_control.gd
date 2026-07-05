@@ -75,7 +75,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()
-	print(state_floating)
+	
 	# Add the gravity.
 	if not state_floating and not is_on_floor():
 		velocity += get_gravity() * delta
@@ -251,6 +251,7 @@ func _physics_process(delta: float) -> void:
 				$Timer.start()
 				velocity.x += get_wall_normal().x * BOOST_SPEED * 1.3
 				velocity.z += get_wall_normal().z * BOOST_SPEED * 1.3
+				can_boost = true
 			state_grappling = false
 		can_jump = false
 	
