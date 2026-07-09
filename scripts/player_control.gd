@@ -48,6 +48,7 @@ var current_speed = SPEED
 var current_accel = ACCEL
 var spin_velocity := Vector3.ZERO
 var spin_speed = 0
+var previous_wall_normal
 
 var max_energy := 500
 var energy := 200
@@ -87,27 +88,16 @@ func _physics_process(delta: float) -> void:
 	if not state_dead and $Timer.is_stopped():
 		input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if abs(velocity.x) < abs(direction.x) * current_speed:
-		velocity.x += direction.x * current_accel
-	elif is_on_floor():
-		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel)
-	elif direction.x * velocity.x < 0:
-		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel)
+	if is_on_floor():
+		velocity = velocity.move_toward(Vector3(direction.x*current_speed,velocity.y,direction.z*current_speed), current_accel)
 	else:
-		velocity.x = move_toward(velocity.x, direction.x * current_speed, current_accel/100)
-	if abs(velocity.z) < abs(direction.z) * current_speed:
-		velocity.z += direction.z * current_accel
-	elif is_on_floor():
-		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel)
-	elif direction.z * velocity.z < 0:
-		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel)
-	else:
-		velocity.z = move_toward(velocity.z, direction.z * current_speed, current_accel/100)
-	
-	if not direction.x and is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, current_accel)
-	if not direction.z and is_on_floor():
-		velocity.z = move_toward(velocity.z, 0, current_accel)
+		var hoz_speed = Vector2(velocity.x,velocity.z).length()
+		if not direction:
+			pass
+		elif (direction*current_speed).length() >= hoz_speed:
+			velocity = velocity.move_toward(Vector3(direction.x*current_speed,velocity.y,direction.z*current_speed), current_accel)
+		elif (direction*current_speed).length() < hoz_speed:
+			velocity = velocity.move_toward(Vector3(direction.x*hoz_speed,velocity.y,direction.z*hoz_speed), current_accel/2)
 	
 	# --- ROLLING ---
 	if state_rolling:
@@ -248,6 +238,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
 			if get_wall_normal():
+				if get_wall_normal() == previous_wall_normal:
+					velocity.y -= 3
+				previous_wall_normal = get_wall_normal()
 				$Timer.start()
 				velocity.x += get_wall_normal().x * BOOST_SPEED * 1.3
 				velocity.z += get_wall_normal().z * BOOST_SPEED * 1.3
@@ -255,9 +248,16 @@ func _physics_process(delta: float) -> void:
 			state_grappling = false
 		can_jump = false
 	
-	if Input.is_action_pressed("jump") and not $Timer2.is_stopped():
+	if is_on_floor() or state_grappling:
+		previous_wall_normal = null
+	
+	if Input.is_action_pressed("jump") and not is_on_floor() and not state_rolling:
+		if not $Timer2.is_stopped():
 			velocity.y += 0.6
 			energy_checkout += 2
+		else:
+			velocity.y += 0.06
+			energy_checkout += 1
 		
 	if Input.is_action_just_pressed("roll"):
 		if is_on_floor() or state_grappling:
