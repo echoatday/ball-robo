@@ -25,7 +25,7 @@ extends CharacterBody3D
 
 const SPEED = 8
 const ACCEL = 1.1
-const BOOST_SPEED = 8
+const BOOST_SPEED = 6
 const JUMP_VELOCITY = 4
 const LOOK_SPEED = 0.0002
 const MARGIN = 160
@@ -78,10 +78,13 @@ func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()
 	
 	# Add the gravity.
-	if not state_floating and not is_on_floor():
-		velocity += get_gravity() * delta
-	elif not is_on_floor():
-		velocity += get_gravity() * 0.8 * delta
+	if is_on_wall() and velocity.y < -16:
+		pass
+	else:
+		if not state_floating and not is_on_floor():
+			velocity += get_gravity() * delta
+		elif not is_on_floor():
+			velocity += get_gravity() * 0.8 * delta
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2
@@ -255,9 +258,7 @@ func _physics_process(delta: float) -> void:
 		if not $Timer2.is_stopped():
 			velocity.y += 0.6
 			energy_checkout += 2
-		else:
-			velocity.y += 0.06
-			energy_checkout += 1
+
 		
 	if Input.is_action_just_pressed("roll"):
 		if is_on_floor() or state_grappling:
@@ -268,11 +269,16 @@ func _physics_process(delta: float) -> void:
 	if not state_rolling:
 
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
+			$Timer2.start()
 			velocity.y = JUMP_VELOCITY/2
 			velocity += direction * BOOST_SPEED
 			energy_checkout += energy_cost.large
 			can_boost = false
 			state_grappling = false
+			
+		if Input.is_action_pressed("boost") and not $Timer2.is_stopped():
+			velocity += direction * 0.5
+			energy_checkout += 2
 		
 		if Input.is_action_just_pressed("fire") and grapple_ready:
 			grapple_hook_position = grapple_cast.get_collider(0).global_position
