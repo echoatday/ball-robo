@@ -245,8 +245,8 @@ func _physics_process(delta: float) -> void:
 					velocity.y -= 3
 				previous_wall_normal = get_wall_normal()
 				$Timer.start()
-				velocity.x += get_wall_normal().x * BOOST_SPEED * 1.3
-				velocity.z += get_wall_normal().z * BOOST_SPEED * 1.3
+				velocity.x += get_wall_normal().x * BOOST_SPEED * 1.4
+				velocity.z += get_wall_normal().z * BOOST_SPEED * 1.4
 				can_boost = true
 			state_grappling = false
 		can_jump = false
@@ -256,7 +256,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("jump") and not is_on_floor() and not state_rolling:
 		if not $Timer2.is_stopped():
-			velocity.y += 0.6
+			velocity.y += 0.7
 			energy_checkout += 2
 
 		
