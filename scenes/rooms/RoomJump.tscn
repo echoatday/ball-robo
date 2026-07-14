@@ -2701,7 +2701,7 @@ points = PackedVector3Array(11, -14, -32, 11, -18, -32, 9, -14, -36, 9, -18, -36
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h2w6v"]
 points = PackedVector3Array(0, -12, -35, 0, -14, -35, -12, -12, -35, -12, -14, -35, 0, -12, -37, 0, -14, -37, -12, -12, -37, -12, -14, -37)
 
-[sub_resource type="Curve3D" id="Curve3D_stjs1"]
+[sub_resource type="Curve3D" id="Curve3D_3gn65"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8649902, 0),
@@ -2709,7 +2709,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_cim7p"]
+[sub_resource type="Curve3D" id="Curve3D_qng0r"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8649902, 0),
@@ -4871,11 +4871,11 @@ transform = Transform3D(-2.7924602e-07, 0, -1, 0, 1, 0, 1.714, 0, -1.6292068e-07
 
 [node name="LockedDoor" parent="." unique_id=1984032725 instance=ExtResource("38_fqet3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -26, 18)
-curve = SubResource("Curve3D_stjs1")
+curve = SubResource("Curve3D_3gn65")
 
 [node name="LockedDoor2" parent="." unique_id=1230698459 instance=ExtResource("38_fqet3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -26, 62)
-curve = SubResource("Curve3D_cim7p")
+curve = SubResource("Curve3D_qng0r")
 
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("40_pquwl")]
 transform = Transform3D(-0.7071066, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.7071066, 5.75, -17.25, -24.75)
