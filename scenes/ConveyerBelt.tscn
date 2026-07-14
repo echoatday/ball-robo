@@ -68,9 +68,6 @@ points = PackedVector3Array(14, 1, 4, 14, 0, 4, 0, 1, 4, 0, 0, 4, 14, 1, 0, 14, 
 
 [node name="ConveyerBelt" type="StaticBody3D" unique_id=579438279 node_paths=PackedStringArray("belt_mesh")]
 collision_mask = 2
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
 script = ExtResource("1_ha3om")
 belt_mesh = NodePath("entity_0_mesh_instance")
 
