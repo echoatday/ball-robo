@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://kqd0jxf22hsx"]
+
+[ext_resource type="Script" uid="uid://di0hojd08wacy" path="res://scripts/glass.gd" id="1_6cmal"]
+[ext_resource type="Texture2D" uid="uid://bapm3ogpt12tp" path="res://textures/librequake/lq_greek/grk_bl_wll3b.png" id="1_gtrt1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnher"]
+size = Vector3(1.6, 1.6, 1.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
+margin = 0.02
+size = Vector3(2, 2, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtrt1"]
+transparency = 1
+cull_mode = 2
+specular_mode = 2
+albedo_color = Color(1.4356638, 1.626979, 1.4994355, 0.3137255)
+albedo_texture = ExtResource("1_gtrt1")
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_offset = Vector3(0.042, 0.042, 0)
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iy5dr"]
+material = SubResource("StandardMaterial3D_gtrt1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxwkf"]
+transparency = 1
+specular_mode = 2
+albedo_color = Color(1.4356638, 1.626979, 1.4994355, 0.3137255)
+albedo_texture = ExtResource("1_gtrt1")
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_offset = Vector3(0.042, 0.042, 0)
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="PrismMesh" id="PrismMesh_gtrt1"]
+material = SubResource("StandardMaterial3D_xxwkf")
+left_to_right = 0.0
+size = Vector3(0.495, 0.2, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_6cmal"]
+material = SubResource("StandardMaterial3D_xxwkf")
+size = Vector3(0.65, 0.12, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_yaf02"]
+material = SubResource("StandardMaterial3D_xxwkf")
+left_to_right = 0.1
+size = Vector3(0.65, 0.12, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_nxf8j"]
+material = SubResource("StandardMaterial3D_xxwkf")
+left_to_right = 1.0
+size = Vector3(0.505, 0.195, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_71jq8"]
+material = SubResource("StandardMaterial3D_xxwkf")
+left_to_right = 0.1
+size = Vector3(0.455, 0.16, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_2h05u"]
+material = SubResource("StandardMaterial3D_xxwkf")
+left_to_right = 0.1
+size = Vector3(0.455, 0.065, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_vd0xx"]
+material = SubResource("StandardMaterial3D_xxwkf")
+left_to_right = 0.6
+size = Vector3(0.83, 0.085, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_coerm"]
+material = SubResource("StandardMaterial3D_xxwkf")
+left_to_right = 0.7
+size = Vector3(0.665, 0.08, 0.01)
+
+[sub_resource type="PrismMesh" id="PrismMesh_6t6b3"]
+material = SubResource("StandardMaterial3D_xxwkf")
+size = Vector3(0.615, 0.05, 0.01)
+
+[node name="Glass" type="Node3D" unique_id=71719860]
+script = ExtResource("1_6cmal")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=658182264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=524811078]
+shape = SubResource("BoxShape3D_pnher")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=698689298]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1463846055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+shape = SubResource("BoxShape3D_iy5dr")
+
+[node name="unbroken" type="MeshInstance3D" parent="." unique_id=357787117]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1, 1, 0)
+mesh = SubResource("PlaneMesh_iy5dr")
+
+[node name="broken" type="Node3D" parent="." unique_id=2112978597]
+visible = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="broken" unique_id=1572094720]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.7638063, 0.08419943, 0)
+mesh = SubResource("PrismMesh_gtrt1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="broken" unique_id=2104686233]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.34810868, 0.0518488, 0)
+mesh = SubResource("PrismMesh_6cmal")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="broken" unique_id=1376074441]
+transform = Transform3D(-4.371139e-08, -0.99999994, 0, 0.99999994, -4.371138e-08, 0, 0, 0, 0.9999999, -0.05574298, 0.31579074, 0)
+mesh = SubResource("PrismMesh_yaf02")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="broken" unique_id=697108503]
+transform = Transform3D(-4.371139e-08, -0.99999994, 0, 0.99999994, -4.371138e-08, 0, 0, 0, 0.9999999, -0.09378573, 1.7551315, 0)
+mesh = SubResource("PrismMesh_nxf8j")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="broken" unique_id=495292596]
+transform = Transform3D(-0.9999999, 8.7422755e-08, 0, -8.742276e-08, -0.9999999, 0, 0, 0, 0.9999999, -1.7740928, 1.9164728, 0)
+mesh = SubResource("PrismMesh_71jq8")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="broken" unique_id=805659299]
+transform = Transform3D(1.3113414e-07, 0.9999999, 0, -0.9999999, 1.3113413e-07, 0, 0, 0, 0.9999999, -1.969726, 1.7328917, 0)
+mesh = SubResource("PrismMesh_2h05u")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="broken" unique_id=572307787]
+transform = Transform3D(-0.9999999, 8.7422755e-08, 0, -8.742276e-08, -0.9999999, 0, 0, 0, 0.9999999, -0.80936927, 1.9566773, 0)
+mesh = SubResource("PrismMesh_vd0xx")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="broken" unique_id=1338857667]
+transform = Transform3D(1.3113414e-07, 0.9999999, 0, -0.9999999, 1.3113413e-07, 0, 0, 0, 0.9999999, -1.9643719, 0.68495953, 0)
+mesh = SubResource("PrismMesh_coerm")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="broken" unique_id=870287315]
+transform = Transform3D(-4.371139e-08, -0.99999994, 0, 0.99999994, -4.371138e-08, 0, 0, 0, 0.9999999, -0.02300921, 1.1012084, 0)
+mesh = SubResource("PrismMesh_6t6b3")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

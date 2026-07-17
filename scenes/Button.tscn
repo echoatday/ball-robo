@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://duxiee4ljvrh3" path="res://textures/librequake/lq_tech/t_tech02.tres" id="5_v48ca"]
 [ext_resource type="Material" uid="uid://bnb3ie0aphnja" path="res://textures/librequake/lq_tech/aqsupp09.tres" id="6_ut2l2"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_v48ca"]
-[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="7_cbeap"]
+[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://textures/default_texture.png" id="7_cbeap"]
 [ext_resource type="Material" uid="uid://bk1gtwrva8vno" path="res://textures/librequake/lq_tech/plat_top3.tres" id="8_5dw0w"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cbk1h"]

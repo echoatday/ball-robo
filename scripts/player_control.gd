@@ -288,7 +288,10 @@ func _physics_process(delta: float) -> void:
 			state_grappling = true
 	else:
 		if Input.is_action_just_pressed("boost") and not is_on_floor() and can_boost:
-			velocity.y += -BOOST_SPEED
+			if velocity.y > -12:
+				velocity.y = -BOOST_SPEED * 2
+			else:
+				velocity.y += -BOOST_SPEED
 			energy_checkout += energy_cost.large
 			can_boost = false
 		if Input.is_action_pressed("jump") and not is_on_floor():
