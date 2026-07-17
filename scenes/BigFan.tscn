@@ -191,10 +191,36 @@ points = PackedVector3Array(1.5, 0.5, -3, 1.5, -0.5, -3, 0, 0.5, -3.25, 0, -0.5,
 height = 20.0
 radius = 3.0
 
-[node name="BigFan" type="Node3D" unique_id=1376926596 node_paths=PackedStringArray("wind_area_collision", "fan_blades", "timer")]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1u14"]
+load_path = "res://.godot/imported/+0water_f3.png-74c31eb87949777a85777a3b29553e7a.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etk56"]
+transparency = 1
+cull_mode = 1
+specular_mode = 2
+albedo_color = Color(1, 1, 1, 0.15686275)
+albedo_texture = SubResource("CompressedTexture2D_h1u14")
+texture_filter = 0
+disable_receive_shadows = true
+grow_amount = 1.273
+stencil_flags = 2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pnher"]
+lightmap_size_hint = Vector2i(127, 144)
+material = SubResource("StandardMaterial3D_etk56")
+top_radius = 3.5
+bottom_radius = 3.5
+height = 20.0
+radial_segments = 12
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[node name="BigFan" type="Node3D" unique_id=1376926596 node_paths=PackedStringArray("wind_area_collision", "fan_blades", "wind_visual", "timer")]
 script = ExtResource("1_dtgwx")
 wind_area_collision = NodePath("WindArea/CollisionShape3D")
 fan_blades = NodePath("BigFan")
+wind_visual = NodePath("Wind")
 timer = NodePath("Timer")
 
 [node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("1_6hyki")]
@@ -298,6 +324,10 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WindArea" unique_id=1041451378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 shape = SubResource("CylinderShape3D_iy5dr")
+
+[node name="Wind" type="MeshInstance3D" parent="." unique_id=1608871932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+mesh = SubResource("CylinderMesh_pnher")
 
 [node name="Timer" type="Timer" parent="." unique_id=479205634]
 

@@ -2,6 +2,7 @@ extends Node3D
 
 @export var wind_area_collision: Node3D
 @export var fan_blades: Node3D
+@export var wind_visual: Node3D
 @export var timer: Timer
 @export var timer_length := 4.0
 @export var constant := false
@@ -18,12 +19,18 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if active:
+		wind_visual.visible = true
 		wind_area_collision.set_disabled(false)
 		fan_blades.rotate_y(0.2)
 	else:
+		wind_visual.visible = false
 		if timer.get_time_left() > timer_length - 0.5 or timer.get_time_left() < 0.5:
+			wind_visual.visible = true
 			fan_blades.rotate_y(0.1)
 		wind_area_collision.set_disabled(true)
+	
+	wind_visual.get_active_material(0).uv1_offset += basis.y * 0.001
+	wind_visual.get_active_material(0).uv1_offset += basis.x * 0.01
 	
 	if lifted:
 		Globals.player.state_floating = true
