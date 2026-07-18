@@ -1,60 +1,143 @@
-[gd_scene load_steps=9 format=4 uid="uid://cnj0lrfm2cffb"]
+[gd_scene format=4 uid="uid://cnj0lrfm2cffb"]
 
 [ext_resource type="Curve3D" uid="uid://1p3wr1mffenr" path="res://paths/moving_platform.tres" id="1_np8sq"]
-[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="2_vcq7f"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_vjcdg"]
+[ext_resource type="Script" uid="uid://bx8s23eut0yso" path="res://scripts/moving_platform.gd" id="2_vcq7f"]
+[ext_resource type="Material" uid="uid://532rue1sth6u" path="res://textures/librequake/lq_tech/aqconc05.tres" id="3_g2gc3"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_vjcdg"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_ce2l8"]
-[ext_resource type="Material" uid="uid://dpmntve512h46" path="res://textures/value_1.tres" id="6_tvtem"]
+[ext_resource type="Material" uid="uid://tnakwkmvx81o" path="res://textures/librequake/lq_tech/aqtrim08.tres" id="5_g2gc3"]
+[ext_resource type="Material" uid="uid://cqrk7u4txtdeh" path="res://textures/librequake/lq_tech/aqsupp03.tres" id="5_kwwsn"]
+[ext_resource type="Material" uid="uid://8bnk3k3syle0" path="res://textures/librequake/lq_tech/aqsupp06.tres" id="8_g2gc3"]
 
-[sub_resource type="ArrayOccluder3D" id="ArrayOccluder3D_orkpw"]
-vertices = PackedVector3Array(-3, 3, -12, -3, -3, -12, 3, -3, -12, 3, 3, -12, -3, 3, -12, -3, 3, 12, -3, -3, 12, -3, -3, -12, 3, -3, -12, -3, -3, -12, -3, -3, 12, 3, -3, 12, 3, 3, -12, 3, 3, 12, -3, 3, 12, -3, 3, -12, 3, 3, -12, 3, -3, -12, 3, -3, 12, 3, 3, 12, -3, 3, 12, 3, 3, 12, 3, -3, 12, -3, -3, 12)
-indices = PackedInt32Array(0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7, 8, 9, 10, 8, 10, 11, 12, 13, 14, 12, 14, 15, 16, 17, 18, 16, 18, 19, 20, 21, 22, 20, 22, 23)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_uydrb"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_8smva"]
 _surfaces = [{
-"aabb": AABB(-3, -3, -12, 6, 6, 24),
-"attribute_data": PackedByteArray("AAAAQAAAwL8AAABAAADAPwAAgL8AAMA/AACAvwAAwL8AALDAAADAvwAA0EAAAMC/AADQQAAAwD8AALDAAADAPwAAsEAAAIC/AACwQAAAAEAAANDAAAAAQAAA0MAAAIC/AACwwAAAgL8AANBAAACAvwAA0EAAAABAAACwwAAAAEAAALBAAADAvwAAsEAAAMA/AADQwAAAwD8AANDAAADAvwAAAMAAAMC/AACAPwAAwL8AAIA/AADAPwAAAMAAAMA/"),
+"aabb": AABB(0, 0, 0, 4, 4, 8),
+"attribute_data": PackedByteArray("AAAAQAAAgL8AAAAAAACAvwAAAAAAAAAAAAAAQAAAAAAvvTuzAAAAvwAAAAAAAAAAAACAvy+9uzIAAIC/////vg=="),
 "format": 34359742487,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": ExtResource("6_tvtem"),
-"name": "value_1",
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": ExtResource("3_g2gc3"),
+"name": "librequake/lq_tech/aqconc05",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AABAwAAAQEAAAEDBAABAwAAAQMAAAEDBAABAQAAAQMAAAEDBAABAQAAAQEAAAEDBAABAwAAAQEAAAEDBAABAwAAAQEAAAEBBAABAwAAAQMAAAEBBAABAwAAAQMAAAEDBAABAQAAAQMAAAEDBAABAwAAAQMAAAEDBAABAwAAAQMAAAEBBAABAQAAAQMAAAEBBAABAQAAAQEAAAEDBAABAQAAAQEAAAEBBAABAwAAAQEAAAEBBAABAwAAAQEAAAEDBAABAQAAAQEAAAEDBAABAQAAAQMAAAEDBAABAQAAAQMAAAEBBAABAQAAAQEAAAEBBAABAwAAAQEAAAEBBAABAQAAAQEAAAEBBAABAQAAAQMAAAEBBAABAwAAAQMAAAEBB/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AACAQAAAgEAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAAAAAAAAACAQAAAAAAAAABBAAAAAAAAAAAAAABBAAAAAAAAgEAAAABBAACAQAAAgEAAAABB/////////z//////////P/////////8//////////z//f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgA==")
+}, {
+"aabb": AABB(0, 0, 0, 4, 4, 7),
+"attribute_data": PackedByteArray("iUWkswAAYL8AAAAAAAAAAAAAgL8vvbsyAQCAvwAAYL+JRaSzAABgvwEAgL8AAGC/AACAvy+9uzIAAAAAAAAAAIlFpLMAAGC/AAAAAAAAAAAAAIC/L727MgEAgL8AAGC/AQCAvwAAYL8AAIC/L727MgAAAAAAAAAAiUWkswAAYL8vvTuzAAAAvwAAAAAAAAAAAACAvy+9uzIAAIC/////vg=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMA"),
+"material": ExtResource("5_kwwsn"),
+"name": "librequake/lq_tech/aqsupp03",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAOBAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAgEAAAOBAAAAAAAAAAAAAAOBAAACAQAAAAAAAAOBAAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAOBAAAAAAAAAgEAAAAAAAACAQAAAgEAAAAAAAACAQAAAgEAAAOBAAACAQAAAgEAAAOBAAACAQAAAgEAAAAAAAACAQAAAAAAAAAAAAACAQAAAAAAAAOBAAACAQAAAAAAAAOBAAAAAAAAAAAAAAOBAAAAAAAAAgEAAAOBAAACAQAAAgEAAAOBAAAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/fwAAAAD/P/9/AAAAAP8//38AAAAA/z//fwAAAAD/P/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/////f/9//n////9//3/+f////3//f/5/////f/9//n//f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgA==")
+}, {
+"aabb": AABB(0, 0, 7, 4, 4, 1),
+"attribute_data": PackedByteArray("AACAv///f8AAAIC/L707NAAAAAAAAAAAL707swAAgMAvvbuzAAAAwYlFpLMAAODAAQCAvwAA4MABAIC/AAAAwePNjDQAAADBAgCAP////8ACAIA////fwE1odjQAAODAL727swAAAMGJRaSzAADgwAEAgL8AAODAAQCAvwAAAMEBAIA/AAAAwQEAgD8AAODAiUWkMwAA4MAvvbszAAAAwQ=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMA"),
+"material": ExtResource("5_g2gc3"),
+"name": "librequake/lq_tech/aqtrim08",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AACAQAAAgEAAAOBAAAAAAAAAgEAAAOBAAAAAAAAAAAAAAOBAAACAQAAAAAAAAOBAAAAAAAAAAAAAAABBAAAAAAAAAAAAAOBAAAAAAAAAgEAAAOBAAAAAAAAAgEAAAABBAAAAAAAAAAAAAABBAACAQAAAAAAAAABBAACAQAAAAAAAAOBAAAAAAAAAAAAAAOBAAAAAAAAAgEAAAABBAAAAAAAAgEAAAOBAAACAQAAAgEAAAOBAAACAQAAAgEAAAABBAACAQAAAgEAAAABBAACAQAAAgEAAAOBAAACAQAAAAAAAAOBAAACAQAAAAAAAAABB//////9//n///////3/+f///////f/5///////9//n8AAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgP9/AAD+//8//38AAP7//z//fwAA/v//P/9/AAD+//8//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7////9//3/+f////3//f/5/////f/9//n////9//3/+fw==")
 }]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6dvbx"]
-points = PackedVector3Array(-3, 3, -12, -3, -3, -12, 3, -3, -12, 3, 3, -12, -3, 3, 12, -3, -3, 12, 3, -3, 12, 3, 3, 12)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pg6vv"]
+points = PackedVector3Array(4, 4, 7, 4, 0, 7, 0, 4, 7, 0, 0, 7, 4, 4, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0)
 
-[node name="MovingPiston" type="Path3D"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mpbja"]
+points = PackedVector3Array(4, 4, 8, 4, 0, 8, 0, 4, 8, 0, 0, 8, 4, 4, 7, 4, 0, 7, 0, 4, 7, 0, 0, 7)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kwwsn"]
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 6, 6, 1),
+"attribute_data": PackedByteArray("AACAPwAAIL8AAACAAAAAvwAAgMAAAAC/AACgwAAAIL8AAIC/AAAAAAAAAIAAAAAAAAAAgAAAAD4AAIC/AAAAAAAAgL8AAAC/AAAAgAAAAL8AAACAAAAAAAAAgL8AAAC/AAAAgAAAIL8AAACAAAAAvwAAgL8AAAC/AACAvwAAAAAAAACAAAAAPgAAAIAAACC/AACgQAAAIL8AAIBAAAAAvwAA9CcAAAC/AACAvwAAIL8AAIC/AAB0JgAAAIAAAHQmAAAAgAAAAD8AAIC/AAAAPwAAgL8AAHQmAAAAgAAAAL4AAACAAAB0JgAAgL8AAAA/AAAAgAAAAD8AAACAAAAgPwAAgL8AAHQmAACAvwAAAD8AAACAAAAgPwAAAIAAAAC+AACAPwAAAL4AAACAAAAAAAAAgMABAACyAACgwAEAAL4AAIC/AAAAAAAAAIAAAAAAAAAAgAAAAD4AAACAAAAgvwAAAIAAAAC/AACAvwAAAL8AAIC/AAAAvwAAAIAAAAC/AAAAgAAAAAAAAIC/AAAAAAAAgL8AAAC/AACAvwAAAAAAAACAAAAAPgAAAIAAACC/AACgQP///70AAIBAAQAAMgAAAIAAAAAAAACAvwAAAL4AAACAAAAAvgAAAIAAAAAAAACAvwAAAAAAAIC/AAAAAAAAAIAAAAAAAAAAgAAAAD8AAIC/AAAAPwAAgL8AAAA/AAAAgAAAAD8AAACAAAAgPwAAgL8AAAAAAACAvwAAAD8AAACAAAAgPwAAAIAAAAC+"),
+"format": 34359742487,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABwAIAAkABwAJAAoACwAMAA0ADgAPABAADgAQABEAEgATABQAEgAUABUAFgAXABgAFgAYABkAGgAbABwAHQAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKwAsAC0ALgAvADAALgAwADEAMgAzADQAMgA0ADUANgA3ADgANgA4ADkAOgA7ADwAPQA+AD8APQA/AEAAQQBCAEMARABFAEYARABGAEcA"),
+"material": ExtResource("8_g2gc3"),
+"name": "librequake/lq_tech/aqsupp06",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("AACAvwAAoEAAAAAAAAAAAAAAgEAAAAAAAACAQAAAgEAAAAAAAACgQAAAoEAAAAAAAAAAAAAAgEAAAIA/AAAAAAAAgEAAAAAAAACAvwAAoEAAAAAAAAAAAAAAgEAAAIA/AACAQAAAgEAAAIA/AACAQAAAgEAAAAAAAAAAAAAAgEAAAAAAAACAQAAAgEAAAIA/AACgQAAAoEAAAAAAAACAQAAAgEAAAAAAAACAQAAAgEAAAIA/AAAAAAAAgEAAAIA/AACAvwAAoEAAAAAAAACgQAAAoEAAAAAAAACgQAAAoEAAAAAAAACAQAAAgEAAAAAAAACAQAAAAAAAAAAAAACgQAAAgL8AAAAAAACAQAAAAAAAAIA/AACAQAAAAAAAAAAAAACAQAAAgEAAAAAAAACAQAAAgEAAAIA/AACAQAAAAAAAAIA/AACgQAAAgL8AAAAAAACAQAAAAAAAAAAAAACAQAAAgEAAAIA/AACAQAAAgEAAAAAAAACgQAAAoEAAAAAAAACAQAAAAAAAAIA/AACAQAAAgEAAAIA/AACgQAAAoEAAAAAAAACgQAAAgL8AAAAAAACAvwAAgL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAAAAAACAvwAAoEAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAvwAAgL8AAAAAAACAvwAAoEAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAgEAAAIA/AAAAAAAAgEAAAIA/AAAAAAAAgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAgEAAAIA/AAAAAAAAAAAAAIA/AACAvwAAgL8AAAAAAACAvwAAoEAAAAAAAACgQAAAgL8AAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAvwAAgL8AAAAAAACAvwAAgL8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAQAAAAAAAAAAAAACAQAAAAAAAAIA/AACAQAAAAAAAAIA/AACAQAAAAAAAAAAAAACgQAAAgL8AAAAAAAAAAAAAAAAAAIA/AACAQAAAAAAAAIA/AACgQAAAgL8AAAAAAACAvwAAgL8AAAAA/////////z//////////P/////////8//////////z//P/8//3//P/8//z//f/8//z//P/9//z//fwAA/3//P/9/AAD/f/8//38AAP9//z//fwAA/3//P/+//z//f/8//7//P/9//z//v/8//3//P/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+///////9//n///////3/+f///////f/5///////9//n8AAP9//3//PwAA/3//f/8/AAD/f/9//z8AAP9//3//P/8//z//f/8//z//P/9//z//P/8//3//P/8//7//f/8//z//v/9//z//P/+//3//P/+//3//f/+//7//f/9//7//v/9//3//v/+//3//f/+///////9/AAD//////38AAP//////fwAA//////9/AAD/v/8//3//P/+//z//f/8//7//P/9//z//v/+//3//P/+//7//f/8//7//v/9//z////9//3//P////3//f/8/////f/9//z////9//3//P/8//3//f/+//z//f/9//7//P/9//3//v/8//3//f/+//////wAA/z//////AAD/P/////8AAP8//////wAA/z//P/+//3//P/8//7//f/8//z//v/9//z//f////3//P/9/////f/8//3////9//z//f////3//P/+//7//f/8//7//v/9//z//v/+//3//P/9//z//f/+//3//P/9//7//f/8//3//v/9//z//f/+/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8smva"]
+points = PackedVector3Array(4, 4, 1.0000004, 5.0000005, 5.0000005, 0, 0, 4, 1.0000004, -1.0000004, 5.0000005, 0, 4, 4, 0, 0, 4, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ih00t"]
+points = PackedVector3Array(4, 4, 1.0000004, 5.0000005, 5.0000005, 0, 4, 0, 1.0000004, 5.0000005, -1.0000004, 0, 4, 4, 0, 4, 0, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yu2ng"]
+points = PackedVector3Array(0, 4, 1, 0, 0, 1, -1, 5, 0, -1, -1, 0, 0, 4, 0, 0, 0, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iwf8e"]
+points = PackedVector3Array(4, 0, 1, 5, -1, 0, 0, 0, 1, -1, -1, 0, 4, 0, 0, 0, 0, 0)
+
+[node name="MovingPiston" type="Path3D" unique_id=850175750]
 curve = ExtResource("1_np8sq")
 script = ExtResource("2_vcq7f")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="."]
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=974827222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 rotation_mode = 0
 cubic_interp = false
+loop = false
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D"]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D" unique_id=85735312]
 remote_path = NodePath("../../AnimatableBody3D")
 
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=20610032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
-[node name="FuncGodotMap" type="Node3D" parent="AnimatableBody3D"]
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=858782668]
+mesh = SubResource("ArrayMesh_8smva")
+skeleton = NodePath("../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1411267675]
+shape = SubResource("ConvexPolygonShape3D_pg6vv")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=259244212]
+shape = SubResource("ConvexPolygonShape3D_mpbja")
+
+[node name="FuncGodotMap" type="Node3D" parent="AnimatableBody3D" unique_id=319411396]
+visible = false
 script = ExtResource("3_vjcdg")
 local_map_file = "res://maps/objects/moving_piston.map"
 map_settings = ExtResource("4_ce2l8")
 
-[node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap"]
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap" unique_id=1017244254]
 collision_mask = 0
 
-[node name="entity_0_occluder_instance" type="OccluderInstance3D" parent="AnimatableBody3D/FuncGodotMap/entity_0_worldspawn"]
-occluder = SubResource("ArrayOccluder3D_orkpw")
+[node name="FuncGodotMap" type="Node3D" parent="." unique_id=1369850719]
+script = ExtResource("3_vjcdg")
+local_map_file = "uid://bg28pqxy1p3fn"
+map_settings = ExtResource("4_ce2l8")
 
-[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="AnimatableBody3D"]
-mesh = SubResource("ArrayMesh_uydrb")
-skeleton = NodePath("../FuncGodotMap/entity_0_worldspawn")
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap" unique_id=1932841150]
+collision_mask = 0
 
-[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="AnimatableBody3D"]
-shape = SubResource("ConvexPolygonShape3D_6dvbx")
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=238848162]
+mesh = SubResource("ArrayMesh_kwwsn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1693606219]
+shape = SubResource("ConvexPolygonShape3D_8smva")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1705393943]
+shape = SubResource("ConvexPolygonShape3D_ih00t")
+
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1387418853]
+shape = SubResource("ConvexPolygonShape3D_yu2ng")
+
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=339425913]
+shape = SubResource("ConvexPolygonShape3D_iwf8e")
+
+[node name="Timer" type="Timer" parent="." unique_id=326014359]
+one_shot = true

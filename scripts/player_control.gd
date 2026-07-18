@@ -273,7 +273,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
 			$Timer2.start()
 			velocity.y = JUMP_VELOCITY/2
-			velocity += direction * BOOST_SPEED
+			velocity += direction * (BOOST_SPEED/2)
 			energy_checkout += energy_cost.large
 			can_boost = false
 			state_grappling = false

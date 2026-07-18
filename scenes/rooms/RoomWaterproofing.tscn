@@ -17,6 +17,7 @@
 [ext_resource type="Material" uid="uid://d0ontgb3vfkul" path="res://textures/librequake/lq_tech/aqpipe04.tres" id="20_hg7nf"]
 [ext_resource type="Material" uid="uid://c48daka6mklhr" path="res://textures/librequake/lq_tech/rw33_4.tres" id="21_h0dsa"]
 [ext_resource type="PackedScene" uid="uid://c20l17ix0767f" path="res://scenes/LiquidLava.tscn" id="22_264ib"]
+[ext_resource type="PackedScene" uid="uid://cnj0lrfm2cffb" path="res://scenes/MovingPiston.tscn" id="24_otlbm"]
 [ext_resource type="Material" uid="uid://duyyhijqq6fup" path="res://textures/librequake/lq_tech/t_tech05.tres" id="34_vfe1y"]
 [ext_resource type="Material" uid="uid://bc3pm15xm8hrq" path="res://textures/librequake/lq_tech/metalstrip_1.tres" id="35_el21w"]
 [ext_resource type="Material" uid="uid://b511asbqw76p6" path="res://textures/librequake/lq_utility/black.tres" id="42_ra3ol"]
@@ -435,6 +436,22 @@ points = PackedVector3Array(18, -28, 4, 18, -30, 4, 16, -28, 4, 16, -30, 4, 18, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cmsoy"]
 points = PackedVector3Array(15, 0, 2, 15, -28, 2, 12, 0, 2, 12, -28, 2, 15, 0, -2, 15, -28, -2, 12, 0, -2, 12, -28, -2)
 
+[sub_resource type="Curve3D" id="Curve3D_otlbm"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_nu408"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="Room" type="Node3D" unique_id=1901160722]
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=312778904]
@@ -701,3 +718,12 @@ transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1, 16, -33, -2)
 
 [node name="LiquidLava" parent="." unique_id=691101047 instance=ExtResource("22_264ib")]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -34, 0)
+
+[node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("24_otlbm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 56, -31, 29)
+curve = SubResource("Curve3D_otlbm")
+
+[node name="MovingPiston2" parent="." unique_id=2010184521 instance=ExtResource("24_otlbm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 56, -31, 39)
+curve = SubResource("Curve3D_nu408")
+start_pos = 1.0
