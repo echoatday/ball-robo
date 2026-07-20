@@ -208,8 +208,8 @@ stencil_flags = 2
 [sub_resource type="CylinderMesh" id="CylinderMesh_pnher"]
 lightmap_size_hint = Vector2i(127, 144)
 material = SubResource("StandardMaterial3D_etk56")
-top_radius = 3.5
-bottom_radius = 3.5
+top_radius = 3.0
+bottom_radius = 3.0
 height = 20.0
 radial_segments = 12
 rings = 1

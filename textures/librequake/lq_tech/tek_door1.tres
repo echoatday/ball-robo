@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bbhxh4anbmu56"]
+
+[ext_resource type="Texture2D" uid="uid://b7icnbblkst43" path="res://textures/librequake/lq_tech/tek_door1.png" id="1_47anj"]
+
+[resource]
+albedo_texture = ExtResource("1_47anj")
+metallic_specular = 0.0
+texture_filter = 2

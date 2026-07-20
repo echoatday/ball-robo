@@ -127,7 +127,7 @@ func _physics_process(delta: float) -> void:
 	var spin_direction = (spin_cast.global_position - global_position).normalized()
 	if state_spinning:
 		current_speed = SPEED * 0.9
-		spin_speed = move_toward(spin_speed, spin_strength, 0.2)
+		spin_speed = move_toward(spin_speed, spin_strength, 0.6)
 		spin_velocity = spin_direction*spin_speed
 	else:
 		spin_speed = 0

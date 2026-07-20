@@ -7,6 +7,7 @@ var current_checkpoint: int
 var rolled_state := false
 
 var doors_rawmaterials := false
+var doors_blastfurnace := false
 var lever_powershovel := true
 var lever_wastedisposal := true
 
@@ -30,6 +31,7 @@ func save_game():
 		"rolled_state" : rolled_state,
 		
 		"doors_rawmaterials" : doors_rawmaterials,
+		"doors_blastfurnace" : doors_blastfurnace,
 		"lever_powershovel" : lever_powershovel,
 		"lever_wastedisposal" : lever_wastedisposal,
 		
@@ -62,6 +64,7 @@ func load_game():
 	rolled_state = json.data["rolled_state"]
 	
 	doors_rawmaterials = json.data["doors_rawmaterials"]
+	doors_blastfurnace = json.data["doors_blastfurnace"]
 	lever_powershovel = json.data["lever_powershovel"]
 	lever_wastedisposal = json.data["lever_wastedisposal"]
 	

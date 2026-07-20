@@ -1,0 +1,108 @@
+[gd_scene format=4 uid="uid://depyk1lvhf45q"]
+
+[ext_resource type="Curve3D" uid="uid://p6kevhynr26d" path="res://paths/locked_door.tres" id="1_k6gku"]
+[ext_resource type="Script" uid="uid://dbw1wap05jpig" path="res://scripts/locked_hatch.gd" id="1_phcsc"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_lej4k"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_0hk3j"]
+[ext_resource type="Material" uid="uid://ntril8d376sc" path="res://textures/librequake/lq_tech/fddoor01.tres" id="7_phcsc"]
+[ext_resource type="Material" uid="uid://df568nmv8t1qk" path="res://textures/librequake/lq_tech/doortrak1.tres" id="8_252cl"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lej4k"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 1.5, 3, 0.5),
+"attribute_data": PackedByteArray("AACwP/z//70AALA/480MMwAAID8AAAAAAAAgPwAAAL4AALA//P//vQAAsD/jzQwzAAAgPzIxjSMAACA/AAAAvgAAID8AAAC+AAAgPzIxjaMAALA/480MMwAAsD/8//+9kyRFPxxJkryTJEU/SpIkPgIAcD5JkiQ+AwBwPidJkrwBAGg+J0mSvAAAaD5JkiQ+kyRDP0qSJD6TJEM/HEmSvA=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMA"),
+"material": ExtResource("7_phcsc"),
+"name": "librequake/lq_tech/fddoor01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAPwAAQEAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAPwAAQEAAAAA/AAAAPwAAQEAAAAAAAAAAPwAAAAAAAAAAAAAAPwAAAAAAAAA/AAAAPwAAAAAAAAA/AAAAAAAAAAAAAAA/AAAAAAAAQEAAAAA/AAAAPwAAQEAAAAA/AADAPwAAQEAAAAAAAAAAPwAAQEAAAAAAAAAAPwAAAAAAAAAAAADAPwAAAAAAAAAAAADAPwAAAAAAAAA/AAAAPwAAAAAAAAA/AAAAPwAAQEAAAAA/AADAPwAAQEAAAAA///////9//////////3//////////f/////////9///////9//3///////3//f///////f/9///////9//3////9//3//fwAA/3//f/9/AAD/f/9//38AAP9//3//fwAA//////9//////////3//////////f/////////9/////f/9//38AAP9//3//fwAA/3//f/9/AAD/f/9//38AAA==")
+}, {
+"aabb": AABB(0, 0, 0, 1.5, 3, 0.5),
+"attribute_data": PackedByteArray("AACAvwAAAAAAAAC/AAAAAAAAAL8AAMC/AACAvwAAwL8AAIC/MjENJAAAgL8AAIA+AAAAvwAAgD4AAAC/AAAAAAAAgL8yMQ0kAAAAvwAAAAAAAAC/AACAPgAAgL8AAIA+AACAvwAAAAAAAAC/AAAAAAAAAL8AAMC/AACAvwAAwL8AAIC/AAAAAAAAgL8AAAA/AAAAvwAAAD8AAAC/AAAAAAAAgL8AAAAAAAAAvwAAAAAAAAC/AAAAPwAAgL8AAAA/AACAvwAAwL8AAAC/AADAvwAAAL8AAAAAAACAvwAAAAA="),
+"format": 34359742487,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsA"),
+"material": ExtResource("8_252cl"),
+"name": "librequake/lq_tech/doortrak1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAQEAAAAA/AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAA/AAAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAA/AAAAAAAAQEAAAAAAAAAAPwAAQEAAAAAAAAAAPwAAQEAAAAA/AAAAPwAAAAAAAAA/AAAAPwAAAAAAAAAAAAAAPwAAQEAAAAAAAAAAPwAAQEAAAAA/AAAAPwAAAAAAAAA/AADAPwAAAAAAAAA/AADAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAPwAAQEAAAAA/AAAAPwAAQEAAAAAAAADAPwAAQEAAAAAAAADAPwAAQEAAAAA/AADAPwAAQEAAAAA/AADAPwAAQEAAAAAAAADAPwAAAAAAAAAAAADAPwAAAAAAAAA/AAD/f///AAAAAP9///8AAAAA/3///wAAAAD/f///AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9//////////3//////////f/////////9/////////AAD/f///AAAAAP9///8AAAAA/3///wAAAAD/f///AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9//////////3//////////f/////////9/////////////f/////////9//////////3//////////f/////8=")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0hk3j"]
+points = PackedVector3Array(0.5, 3, 0.5, 0.5, 0, 0.5, 0, 3, 0.5, 0, 0, 0.5, 0.5, 3, 0, 0.5, 0, 0, 0, 3, 0, 0, 0, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_huiye"]
+points = PackedVector3Array(1.5, 3, 0.5, 1.5, 0, 0.5, 0.5, 3, 0.5, 0.5, 0, 0.5, 1.5, 3, 0, 1.5, 0, 0, 0.5, 3, 0, 0.5, 0, 0)
+
+[sub_resource type="Curve3D" id="Curve3D_k6gku"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, -1.6, 0, 0.5),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="LockedHatch" type="Node3D" unique_id=2011431275]
+script = ExtResource("1_phcsc")
+
+[node name="FuncGodotMap" type="Node3D" parent="." unique_id=697555256]
+visible = false
+script = ExtResource("5_lej4k")
+local_map_file = "uid://cm4c0cgugh631"
+map_settings = ExtResource("6_0hk3j")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap" unique_id=540329321]
+collision_mask = 0
+
+[node name="Hatch1" type="Path3D" parent="." unique_id=1984032725]
+curve = ExtResource("1_k6gku")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Hatch1" unique_id=364380761]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Hatch1/PathFollow3D" unique_id=1598960729]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Hatch1" unique_id=99217362]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="Hatch1/AnimatableBody3D" unique_id=2118212449]
+mesh = SubResource("ArrayMesh_lej4k")
+skeleton = NodePath("../../../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="Hatch1/AnimatableBody3D" unique_id=1515515045]
+shape = SubResource("ConvexPolygonShape3D_0hk3j")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="Hatch1/AnimatableBody3D" unique_id=906894033]
+shape = SubResource("ConvexPolygonShape3D_huiye")
+
+[node name="Hatch2" type="Path3D" parent="." unique_id=2058989218]
+curve = SubResource("Curve3D_k6gku")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Hatch2" unique_id=441687678]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Hatch2/PathFollow3D" unique_id=2116176734]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Hatch2" unique_id=1596424855]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="Hatch2/AnimatableBody3D" unique_id=474639776]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0.5)
+mesh = SubResource("ArrayMesh_lej4k")
+skeleton = NodePath("../../../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="Hatch2/AnimatableBody3D" unique_id=1196949700]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0.5)
+shape = SubResource("ConvexPolygonShape3D_0hk3j")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="Hatch2/AnimatableBody3D" unique_id=10041400]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0.5)
+shape = SubResource("ConvexPolygonShape3D_huiye")

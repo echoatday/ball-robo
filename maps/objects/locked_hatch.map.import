@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cm4c0cgugh631"
+path="res://.godot/imported/locked_hatch.map-88074bfb24b5ddfb4dbdf6584fb8a642.tres"
+
+[deps]
+
+source_file="res://maps/objects/locked_hatch.map"
+dest_files=["res://.godot/imported/locked_hatch.map-88074bfb24b5ddfb4dbdf6584fb8a642.tres"]
+
+[params]
+
