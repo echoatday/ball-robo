@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cgn8qnod8xwa6"
+path="res://.godot/imported/furnace_rotator.map-74398780e26b63cb1edaaae7cfcc9d53.tres"
+
+[deps]
+
+source_file="res://maps/objects/furnace_rotator.map"
+dest_files=["res://.godot/imported/furnace_rotator.map-74398780e26b63cb1edaaae7cfcc9d53.tres"]
+
+[params]
+

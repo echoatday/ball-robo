@@ -247,7 +247,6 @@ func _physics_process(delta: float) -> void:
 				$Timer.start()
 				velocity.x += get_wall_normal().x * BOOST_SPEED * 1.6
 				velocity.z += get_wall_normal().z * BOOST_SPEED * 1.6
-				can_boost = true
 			state_grappling = false
 		can_jump = false
 	
