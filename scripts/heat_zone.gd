@@ -17,8 +17,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	#world.environment.fog_density = heat_level * 0.02
-	body.heat_level = heat_level
-	body.spawn_position = body.global_position
+	body.heat_level += heat_level
 	
 	self.primary_room = true
 	for child in world.get_children():
@@ -60,3 +59,4 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _on_body_exited(body: Node3D) -> void:
 	self.primary_room = false
+	body.heat_level -= heat_level

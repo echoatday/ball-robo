@@ -167,9 +167,14 @@ points = PackedVector3Array(2, 0.5, 12, 2, 0, 12, -2, 0.5, 12, -2, 0, 12, 2, 0.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bqcpb"]
 points = PackedVector3Array(2, 0.5, -2, 2, 0, -2, -2, 0.5, -2, -2, 0, -2, 2, 0.5, -12, 2, 0, -12, -2, 0.5, -12, -2, 0, -12)
 
-[node name="FurnaceRotator" type="Node3D" unique_id=1562993075 node_paths=PackedStringArray("rotator")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pnher"]
+height = 200.0
+radius = 12.0
+
+[node name="FurnaceRotator" type="Node3D" unique_id=1562993075 node_paths=PackedStringArray("rotator", "heatzone")]
 script = ExtResource("1_mtv7i")
 rotator = NodePath("AnimatableBody3D")
+heatzone = NodePath("Area3D")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=348541691]
 
@@ -254,3 +259,13 @@ map_settings = ExtResource("4_kgypk")
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap" unique_id=224296333]
 collision_mask = 0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1049103345]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=281900187]
+shape = SubResource("CylinderShape3D_pnher")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

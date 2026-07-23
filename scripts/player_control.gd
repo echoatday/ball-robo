@@ -55,7 +55,7 @@ var energy := 200
 var energy_recharge := 1
 var max_heat := 1000
 var heat := 0
-var heat_level := -1 # range should be -1 to 1. -1 is fine, 0 is hot, 1 is dangerous
+var heat_level := 0 # range should be -1 to 1. -1 is fine, 0 is hot, 1 is dangerous
 
 var energy_cost := {
 	"small": 50,
