@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c7vkqcep1fnmg"
+path="res://.godot/imported/room_bounce.map-a61ebda980d4210620552350e9d29dbf.tres"
+
+[deps]
+
+source_file="res://maps/room_bounce.map"
+dest_files=["res://.godot/imported/room_bounce.map-a61ebda980d4210620552350e9d29dbf.tres"]
+
+[params]
+
