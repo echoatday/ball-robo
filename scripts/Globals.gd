@@ -8,6 +8,7 @@ var rolled_state := false
 
 var doors_rawmaterials := false
 var doors_blastfurnace := false
+var doors_coolingsystem := false
 var lever_powershovel := true
 var lever_wastedisposal := true
 
@@ -32,6 +33,7 @@ func save_game():
 		
 		"doors_rawmaterials" : doors_rawmaterials,
 		"doors_blastfurnace" : doors_blastfurnace,
+		"doors_coolingsystem" : doors_coolingsystem,
 		"lever_powershovel" : lever_powershovel,
 		"lever_wastedisposal" : lever_wastedisposal,
 		
@@ -65,6 +67,7 @@ func load_game():
 	
 	doors_rawmaterials = json.data["doors_rawmaterials"]
 	doors_blastfurnace = json.data["doors_blastfurnace"]
+	doors_coolingsystem = json.data["doors_coolingsystem"]
 	lever_powershovel = json.data["lever_powershovel"]
 	lever_wastedisposal = json.data["lever_wastedisposal"]
 	

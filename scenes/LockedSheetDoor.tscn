@@ -1,0 +1,61 @@
+[gd_scene format=4 uid="uid://v5coxx56r8yw"]
+
+[ext_resource type="Script" uid="uid://b1hvll2wr007w" path="res://scripts/locked_sheet_door.gd" id="1_0cif3"]
+[ext_resource type="Material" uid="uid://fwttlilg048d" path="res://textures/librequake/lq_tech/t_metalsheetb.tres" id="2_0cif3"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_al2cu"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_ifko6"]
+
+[sub_resource type="Curve3D" id="Curve3D_1m6ip"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4jvde"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 12, 8, 1),
+"attribute_data": PackedByteArray("AABAwAAAAMAAAAAAAAAAwAAAAAAAAAAAAABAwAAAAAAAAMA+AAAAAAAAAD4AAAAAAAAAPgAAAMAAAMA+AAAAwP///70AAIA+AABIwAQAgD4AAEjA480MNAAAAL4AAAAAAADAPgAAAAAAAAA+AAAAAAAAAD4AAEDAAADAPgAAQMAAAMC+AAAAwAAAAL4AAADAAAAAvgAAAAAAAMC+AAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAQEAAAADA"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": ExtResource("2_0cif3"),
+"name": "librequake/lq_tech/t_metalsheetb",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AABAQQAAAEEAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAABAQQAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAEEAAIA/AAAAAAAAAAAAAIA/AABAQQAAAAAAAIA/AABAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAIA/AAAAAAAAAEEAAAAAAABAQQAAAEEAAAAAAABAQQAAAEEAAIA/AABAQQAAAEEAAIA/AABAQQAAAEEAAAAAAABAQQAAAAAAAAAAAABAQQAAAAAAAIA/AABAQQAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAEEAAIA/AABAQQAAAEEAAIA//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iyoii"]
+points = PackedVector3Array(12, 8, 1, 12, 0, 1, 0, 8, 1, 0, 0, 1, 12, 8, 0, 12, 0, 0, 0, 8, 0, 0, 0, 0)
+
+[node name="LockedSheetDoor" type="Path3D" unique_id=1984032725]
+curve = SubResource("Curve3D_1m6ip")
+script = ExtResource("1_0cif3")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=364380761]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D" unique_id=1598960729]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=99217362]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=330012406]
+mesh = SubResource("ArrayMesh_4jvde")
+skeleton = NodePath("../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=871734166]
+shape = SubResource("ConvexPolygonShape3D_iyoii")
+
+[node name="FuncGodotMap" type="Node3D" parent="AnimatableBody3D" unique_id=697555256]
+visible = false
+script = ExtResource("5_al2cu")
+local_map_file = "uid://dvidejj0j46tb"
+map_settings = ExtResource("6_ifko6")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap" unique_id=1447828980]
+collision_mask = 0

@@ -1,0 +1,19 @@
+// Game: FuncGodot
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+"_tb_mod" "textures"
+"_tb_textures" "textures/librequake/lq_conc;textures/librequake/lq_dev;textures/librequake/lq_flesh;textures/librequake/lq_greek;textures/librequake/lq_health_ammo;textures/librequake/lq_legacy;textures/librequake/lq_liquidsky;textures/librequake/lq_metal;textures/librequake/lq_palette;textures/librequake/lq_props;textures/librequake/lq_tech;textures/librequake/lq_tech/src;textures/librequake/lq_terra;textures/librequake/lq_utility;textures/librequake/lq_wood"
+// brush 0
+{
+( 0 64 -64 ) ( 0 65 -64 ) ( 0 64 -63 ) librequake/lq_tech/t_metalsheetb [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( -16 0 -64 ) ( -16 0 -63 ) ( -15 0 -64 ) librequake/lq_tech/t_metalsheetb [ 1 0 0 16 ] [ 0 0 -1 0 ] 0 1 1
+( -16 64 0 ) ( -15 64 0 ) ( -16 65 0 ) librequake/lq_tech/t_metalsheetb [ 4.371139006309477e-08 -0.999999999999999 0 -16 ] [ 0.999999999999999 4.371139006309477e-08 0 0 ] 360 1 1
+( 48 384 256 ) ( 48 385 256 ) ( 49 384 256 ) librequake/lq_tech/t_metalsheetb [ 1 0 0 16 ] [ 0 -1 0 0 ] 90 1 1
+( 48 384 256 ) ( 49 384 256 ) ( 48 384 257 ) librequake/lq_tech/t_metalsheetb [ -1 0 0 -16 ] [ 0 0 -1 0 ] 90 1 1
+( 32 384 256 ) ( 32 384 257 ) ( 32 385 256 ) librequake/lq_tech/t_metalsheetb [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+}

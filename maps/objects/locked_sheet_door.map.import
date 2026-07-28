@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dvidejj0j46tb"
+path="res://.godot/imported/locked_sheet_door.map-aaf367b490dbd6d938896023dcb551e1.tres"
+
+[deps]
+
+source_file="res://maps/objects/locked_sheet_door.map"
+dest_files=["res://.godot/imported/locked_sheet_door.map-aaf367b490dbd6d938896023dcb551e1.tres"]
+
+[params]
+

@@ -1,11 +1,18 @@
 [gd_scene format=4 uid="uid://di0g34gb2cnm8"]
 
-[ext_resource type="Curve3D" uid="uid://p6kevhynr26d" path="res://paths/locked_door.tres" id="1_xr2ep"]
 [ext_resource type="Script" uid="uid://bgfyn3si27po" path="res://scripts/locked_door.gd" id="2_xr2ep"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_bsxro"]
 [ext_resource type="Texture2D" uid="uid://b7fo87x22ycpw" path="res://textures/librequake/lq_tech/fdoor02.png" id="3_t0exp"]
 [ext_resource type="Texture2D" uid="uid://djpf1rego1s0u" path="res://textures/librequake/lq_tech/doortrak1.png" id="4_jeyh0"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_t0exp"]
+
+[sub_resource type="Curve3D" id="Curve3D_r37dj"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62h67"]
 albedo_texture = ExtResource("3_t0exp")
@@ -48,7 +55,7 @@ _surfaces = [{
 points = PackedVector3Array(4, 4, 1, 4, 0, 1, 0, 4, 1, 0, 0, 1, 4, 4, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0)
 
 [node name="LockedDoor2" type="Path3D" unique_id=1984032725]
-curve = ExtResource("1_xr2ep")
+curve = SubResource("Curve3D_r37dj")
 script = ExtResource("2_xr2ep")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=364380761]
