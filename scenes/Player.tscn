@@ -89,6 +89,7 @@
 [ext_resource type="Script" uid="uid://sw81uag6u0c6" path="res://scripts/altitude_text.gd" id="85_2viqe"]
 [ext_resource type="Script" uid="uid://bttbjy8gjiuqm" path="res://scripts/yaw_text.gd" id="86_27epi"]
 [ext_resource type="Script" uid="uid://cxqs1mju005tw" path="res://scripts/roll_text.gd" id="86_rjt17"]
+[ext_resource type="ArrayMesh" uid="uid://r6kp3tdmywnl" path="res://models/icosphere_wire_thick.obj" id="90_cji5y"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
@@ -166,7 +167,7 @@ uv1_offset = Vector3(0.445, 0, 0)
 texture_filter = 4
 distance_fade_max_distance = 0.2
 
-[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
+[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
@@ -177,6 +178,7 @@ camera_gimbal = NodePath("Cockpit/Seat/camera_gimbal")
 cockpit = NodePath("Cockpit")
 collider = NodePath("PlayerCollision3D")
 sphere = NodePath("Cockpit/Sphere")
+bounce_sphere = NodePath("Cockpit/Sphere/Icosphere/IcosphereBounce")
 entire_ui = NodePath("Cockpit/Sphere/UI")
 reticle = NodePath("Cockpit/Sphere/UI/Reticle")
 reticle_pilot = NodePath("Cockpit/Seat/camera_gimbal/camera/reticle_pilot")
@@ -593,6 +595,14 @@ outline_size = 0
 transform = Transform3D(0.08, 0, 0, 0, 0.07727407, 0.020705514, 0, -0.020705514, 0.07727407, 0, 0, 0)
 layers = 2
 mesh = ExtResource("23_ku51j")
+surface_material_override/0 = ExtResource("28_yrgn6")
+
+[node name="IcosphereBounce" type="MeshInstance3D" parent="Cockpit/Sphere/Icosphere" unique_id=1545224210]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+visible = false
+layers = 2
+mesh = ExtResource("90_cji5y")
+skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("28_yrgn6")
 
 [node name="Screens" type="Node3D" parent="Cockpit/Sphere/Icosphere" unique_id=367546210]

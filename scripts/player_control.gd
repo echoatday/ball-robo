@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var cockpit: Node3D
 @export var collider: Node3D
 @export var sphere: Node3D
+@export var bounce_sphere: Node3D
 @export_category("UI")
 @export var entire_ui: Node3D
 @export var reticle: Node3D
@@ -291,8 +292,10 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.large
 			can_boost = false
 		if Input.is_action_pressed("jump") and not is_on_floor():
+			bounce_sphere.visible = true
 			state_bouncing = true
 		else:
+			bounce_sphere.visible = false
 			state_bouncing = false
 		
 		if Input.is_action_just_pressed("fire") and can_spin:
