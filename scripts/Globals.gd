@@ -91,7 +91,6 @@ func load_game():
 	var instance_checkpoint_transform = instance.find_child("SaveStation").transform
 	for child in world.get_children():
 		if child != player:
-			print(world)
 			world.remove_child(child)
 	world.add_child(instance)
 	return(instance_checkpoint_transform)
