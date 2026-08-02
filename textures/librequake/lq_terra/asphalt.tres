@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://fpjkyle046qk"]
+
+[ext_resource type="Texture2D" uid="uid://8bwab6m1uoqb" path="res://textures/librequake/lq_terra/asphalt.png" id="1_80srd"]
+
+[resource]
+albedo_texture = ExtResource("1_80srd")
+metallic_specular = 0.0
+texture_filter = 2
