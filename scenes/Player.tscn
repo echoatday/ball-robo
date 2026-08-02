@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://ck00ajppk6fe8" path="res://materials/unit_metal.tres" id="5_3wou3"]
 [ext_resource type="Script" uid="uid://ctcvj2saeox2g" path="res://scripts/gauge_control.gd" id="5_4oxq5"]
 [ext_resource type="Texture2D" uid="uid://b8m73klewviwy" path="res://textures/cockpit/crosshair_box_red.png" id="5_8qmgo"]
+[ext_resource type="Script" uid="uid://bo5k1a46i4s8s" path="res://scripts/rig_control.gd" id="5_blnfk"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_8bc5l"]
 [ext_resource type="ArrayMesh" uid="uid://n7qc4c0howw5" path="res://models/array.obj" id="9_la8f2"]
 [ext_resource type="ArrayMesh" uid="uid://cyssvlnmv4blm" path="res://models/screen.obj" id="9_oanc2"]
@@ -253,7 +254,9 @@ texture = ExtResource("2_ax5xn")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 target_position = Vector3(0, 0, 0.1)
 
-[node name="pilot_rig" type="Node3D" parent="Cockpit/Seat" unique_id=1503290293]
+[node name="pilot_rig" type="Node3D" parent="Cockpit/Seat" unique_id=1503290293 node_paths=PackedStringArray("shake_timer")]
+script = ExtResource("5_blnfk")
+shake_timer = NodePath("SeatShakeTimer")
 
 [node name="ring" type="CSGTorus3D" parent="Cockpit/Seat/pilot_rig" unique_id=728756850]
 transform = Transform3D(0.08, 0, 0, 0, -3.49691e-09, -0.08, 0, 0.08, -3.49691e-09, 0, -0.03, 0.0104344)
@@ -385,6 +388,10 @@ surface_material_override/2 = ExtResource("5_3wou3")
 surface_material_override/3 = ExtResource("5_3wou3")
 surface_material_override/4 = ExtResource("5_3wou3")
 surface_material_override/5 = ExtResource("5_3wou3")
+
+[node name="SeatShakeTimer" type="Timer" parent="Cockpit/Seat/pilot_rig" unique_id=815598865]
+wait_time = 0.1
+one_shot = true
 
 [node name="Sphere" type="Node3D" parent="Cockpit" unique_id=1770536803 node_paths=PackedStringArray("icosphere", "screen", "walk_sphere")]
 top_level = true
