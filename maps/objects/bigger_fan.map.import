@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cxgwafgbmbtxu"
+path="res://.godot/imported/bigger_fan.map-a1143fd971e58dbf980349d4ade7a484.tres"
+
+[deps]
+
+source_file="res://maps/objects/bigger_fan.map"
+dest_files=["res://.godot/imported/bigger_fan.map-a1143fd971e58dbf980349d4ade7a484.tres"]
+
+[params]
+
