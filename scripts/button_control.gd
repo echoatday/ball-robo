@@ -31,7 +31,6 @@ func _ready() -> void:
 func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 	var speed_check
 	var player_velocity_y = body.velocity.y
-	print(player_velocity_y)
 	if is_on_cieling:
 		speed_check = 6
 	else:

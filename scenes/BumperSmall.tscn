@@ -1,0 +1,77 @@
+[gd_scene format=4 uid="uid://7g7g7horxyql"]
+
+[ext_resource type="Script" uid="uid://dtkrd1c3gpxpo" path="res://scripts/bumper_small.gd" id="1_qvool"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_yrjmx"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_ir64r"]
+[ext_resource type="Texture2D" uid="uid://jlwlxfidpcjn" path="res://textures/librequake/lq_conc/conc3_10.png" id="4_l4agw"]
+[ext_resource type="Material" uid="uid://bhpx37d0y40ks" path="res://textures/librequake/lq_tech/rw33_5.tres" id="5_oaikh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ps3k"]
+albedo_texture = ExtResource("4_l4agw")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d5w1f"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.75, -0.5, 1, 1.5, 1),
+"attribute_data": PackedByteArray("aN2AP////z5o3YA/480Ms7tn3bvjzQwzu2fduwEAAD+7Z927////vrtn3bvjzQwzaN2AP+PNDLNo3YA/AQAAv2jdgD/jzQyzaN2AP////z67Z927AQAAP7tn3bvjzQwzu2fdu+PNDDO7Z927////vmjdgD8BAAC/aN2AP+PNDLM="),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8A"),
+"material": SubResource("StandardMaterial3D_4ps3k"),
+"name": "librequake/lq_conc/conc3_10",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAvwAAQL8AAAAAAAAAAAAAQL8AAAC/AAAAAAAAQD8AAAC/AAAAvwAAQD8AAAAAAAAAPwAAQD8AAAAAAAAAAAAAQD8AAAC/AAAAAAAAQL8AAAC/AAAAPwAAQL8AAAAAAAAAAAAAQL8AAAA/AAAAvwAAQL8AAAAAAAAAvwAAQD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAAQD8AAAA/AAAAPwAAQD8AAAAAAAAAPwAAQL8AAAAAAAAAAAAAQL8AAAA/AAD/v/9//n8AAP+//3/+fwAA/7//f/5/AAD/v/9//n////+//3/+f////7//f/5/////v/9//n////+//3/+f/8//3//fwCA/z//f/9/AID/P/9//38AgP8//3//fwCA/7//f/9/AID/v/9//38AgP+//3//fwCA/7//f/9/AIA=")
+}, {
+"aabb": AABB(-0.5, -0.75, -0.5, 1, 1.5, 1),
+"attribute_data": PackedByteArray("AACAPgAAAAAAAAAAAACAvgAAgL4AAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAIA+AACAvgAAAAAAAAAAAACAvg=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcA"),
+"material": ExtResource("5_oaikh"),
+"name": "librequake/lq_tech/rw33_5",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAQL8AAAA/AAAAPwAAQL8AAAAAAAAAAAAAQL8AAAC/AAAAvwAAQL8AAAAAAAAAAAAAQD8AAAA/AAAAvwAAQD8AAAAAAAAAAAAAQD8AAAC/AAAAPwAAQD8AAAAA/38AAP9//z//fwAA/3//P/9/AAD/f/8//38AAP9//z//f////3//v/9/////f/+//3////9//7//f////3//vw==")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sge8k"]
+points = PackedVector3Array(0, 0.75, 0.5, 0, -0.75, 0.5, 0.5, 0.75, 0, 0.5, -0.75, 0, -0.5, 0.75, 0, -0.5, -0.75, 0, 0, 0.75, -0.5, 0, -0.75, -0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pnher"]
+radius = 1.3
+
+[node name="BumperSmall" type="Node3D" unique_id=375125877]
+script = ExtResource("1_qvool")
+
+[node name="bumper" type="Node3D" parent="." unique_id=132432074]
+script = ExtResource("2_yrjmx")
+local_map_file = "uid://boomksniafscn"
+map_settings = ExtResource("3_ir64r")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="bumper" unique_id=880109542]
+collision_mask = 0
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="bumper/entity_0_worldspawn" unique_id=327479021]
+mesh = SubResource("ArrayMesh_d5w1f")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="bumper/entity_0_worldspawn" unique_id=1842819407]
+shape = SubResource("ConvexPolygonShape3D_sge8k")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2144119721]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=784971311]
+shape = SubResource("CylinderShape3D_pnher")
+
+[node name="Timer" type="Timer" parent="." unique_id=1147641082]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

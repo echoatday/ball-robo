@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dqvg4jl82i01s"
+path="res://.godot/imported/rotating_tunnel_fan.map-bdbf4aa65c7e056c99c8847fe6a49825.tres"
+
+[deps]
+
+source_file="res://maps/objects/rotating_tunnel_fan.map"
+dest_files=["res://.godot/imported/rotating_tunnel_fan.map-bdbf4aa65c7e056c99c8847fe6a49825.tres"]
+
+[params]
+

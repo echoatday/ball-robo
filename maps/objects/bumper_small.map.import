@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://boomksniafscn"
+path="res://.godot/imported/bumper_small.map-0bec8aad374bf4ab4ee2aa42715b57b9.tres"
+
+[deps]
+
+source_file="res://maps/objects/bumper_small.map"
+dest_files=["res://.godot/imported/bumper_small.map-0bec8aad374bf4ab4ee2aa42715b57b9.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ped2os2ixf3q"
+path="res://.godot/imported/rotating_tunnel.map-259498590dd7d34c34a47381908e128b.tres"
+
+[deps]
+
+source_file="res://maps/objects/rotating_tunnel.map"
+dest_files=["res://.godot/imported/rotating_tunnel.map-259498590dd7d34c34a47381908e128b.tres"]
+
+[params]
+

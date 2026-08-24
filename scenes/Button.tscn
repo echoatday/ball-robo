@@ -110,7 +110,7 @@ points = PackedVector3Array(1, 1, 1, 1, 0, 1, -1, 1, 1, -1, 0, 1, 1, 1, -1, 1, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
 size = Vector3(1.8, 2.2, 1.8)
 
-[node name="Button" type="Node3D" unique_id=2011625114 node_paths=PackedStringArray("button", "pickup_trigger")]
+[node name="BumperSmall" type="Node3D" unique_id=2011625114 node_paths=PackedStringArray("button", "pickup_trigger")]
 script = ExtResource("1_1hvhs")
 button = NodePath("button")
 pickup_trigger = NodePath("PickupTrigger")

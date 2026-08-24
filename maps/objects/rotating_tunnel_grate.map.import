@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cmvmjb3wp6byx"
+path="res://.godot/imported/rotating_tunnel_grate.map-f6484f79dbf6cc0f6851c2ee331701a1.tres"
+
+[deps]
+
+source_file="res://maps/objects/rotating_tunnel_grate.map"
+dest_files=["res://.godot/imported/rotating_tunnel_grate.map-f6484f79dbf6cc0f6851c2ee331701a1.tres"]
+
+[params]
+
