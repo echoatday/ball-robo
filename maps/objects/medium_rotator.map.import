@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c2heb8ak6qglm"
+path="res://.godot/imported/medium_rotator.map-81a2581a13d99dd2d8b62f1ed37df281.tres"
+
+[deps]
+
+source_file="res://maps/objects/medium_rotator.map"
+dest_files=["res://.godot/imported/medium_rotator.map-81a2581a13d99dd2d8b62f1ed37df281.tres"]
+
+[params]
+
