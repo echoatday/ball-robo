@@ -43,15 +43,18 @@ func _physics_process(delta: float) -> void:
 	transform.origin = owner.transform.origin
 	if !owner.state_rolling and !owner.state_dead:
 		icosphere.transform =  base_ico_transform
-		if owner.is_on_floor():
+		if owner.state_grappling:
+			icosphere.set_rotation(Vector3(max(-0.26,owner.velocity.y*0.01-0.26),owner.velocity.length()*0.01,0))
+		elif owner.is_on_floor():
 			if Input.get_vector("left", "right", "forward", "back") != Vector2.ZERO and !owner.state_dead:
 				bob_count += 1
 				icosphere.set_position(Vector3(sin(bob_count * 0.1)*0.005, sin(bob_count * 0.2)*0.002, 0))
 			else:
 				bob_count = 0
+		elif owner.is_on_ceiling():
+			icosphere.set_position(Vector3(0,-0.01,0))
 		else:
-			bob_count += 1
-			icosphere.set_position(Vector3(0, sin(bob_count * 0.1)*0.001, 0))
+			icosphere.set_rotation(Vector3(max(-0.26,owner.velocity.y*0.01-0.26),0,0))
 	else:
 		if owner.is_on_floor():
 			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.01*owner.velocity.length())
