@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://d2hfhi2jlv73b"
+path="res://.godot/imported/claw.map-0226fb0a51a62f5b1f2ad492cbbfad33.tres"
+
+[deps]
+
+source_file="res://maps/objects/claw.map"
+dest_files=["res://.godot/imported/claw.map-0226fb0a51a62f5b1f2ad492cbbfad33.tres"]
+
+[params]
+
