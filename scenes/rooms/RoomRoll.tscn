@@ -2445,7 +2445,7 @@ points = PackedVector3Array(-66, -3, 4, -66, -16, 4, -68, -3, 4, -68, -16, 4, -6
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_unovb"]
 points = PackedVector3Array(-66, -3, -6, -66, -16, -6, -68, -3, -6, -68, -16, -6, -66, -3, -9, -66, -16, -9, -68, -3, -9, -68, -16, -9)
 
-[sub_resource type="Curve3D" id="Curve3D_686ts"]
+[sub_resource type="Curve3D" id="Curve3D_amw66"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
@@ -2453,7 +2453,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_fmekc"]
+[sub_resource type="Curve3D" id="Curve3D_0kite"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
@@ -4298,9 +4298,12 @@ shape = SubResource("ConvexPolygonShape3D_unovb")
 [node name="HeatZone" parent="." unique_id=1752538793 instance=ExtResource("27_a1yl1")]
 transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 0, 0, 0)
 heat_level = 0
+fog_color = Color(0.27273616, 0.32496983, 0.20500758, 1)
+ambient_light_color = Color(0.8347333, 0.95, 0.8265, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1728845328]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -31, -1)
+visible = false
 light_color = Color(1, 0.816445, 0.778427, 1)
 light_energy = 2.0
 light_specular = 0.0
@@ -4367,8 +4370,8 @@ transform = Transform3D(9, 0, 0, 0, 2, 0, 0, 0, 1, 56, -24, -7)
 
 [node name="LockedSheetDoor" parent="." unique_id=1984032725 instance=ExtResource("56_0kite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, -14, -19.5)
-curve = SubResource("Curve3D_686ts")
+curve = SubResource("Curve3D_amw66")
 
 [node name="LockedSheetDoor2" parent="." unique_id=340486989 instance=ExtResource("56_0kite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -14, -31.5)
-curve = SubResource("Curve3D_fmekc")
+curve = SubResource("Curve3D_0kite")

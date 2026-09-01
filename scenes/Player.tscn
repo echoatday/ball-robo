@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
 [ext_resource type="Script" uid="uid://7m0ekawqrbcw" path="res://addons/godot360/src/camera360.gd" id="3_84ti5"]
 [ext_resource type="Texture2D" uid="uid://dehlubwc5lcpe" path="res://textures/cockpit/crosshair_box_yellow.png" id="4_gtmj1"]
+[ext_resource type="Environment" uid="uid://drnolridx1fpg" path="res://camera_environment.tres" id="4_qycqj"]
 [ext_resource type="Material" uid="uid://ck00ajppk6fe8" path="res://materials/unit_metal.tres" id="5_3wou3"]
 [ext_resource type="Script" uid="uid://ctcvj2saeox2g" path="res://scripts/gauge_control.gd" id="5_4oxq5"]
 [ext_resource type="Texture2D" uid="uid://b8m73klewviwy" path="res://textures/cockpit/crosshair_box_red.png" id="5_8qmgo"]
@@ -443,6 +444,7 @@ fovx = 160.0
 lens = 1
 clip_near = 0.001
 clip_far = 10000.0
+camera_environment = ExtResource("4_qycqj")
 subviewport = NodePath("SubViewport")
 metadata/_custom_type_script = "uid://7m0ekawqrbcw"
 

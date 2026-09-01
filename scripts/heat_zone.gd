@@ -1,7 +1,8 @@
 extends Area3D
 
 @export var heat_level := -1
-@export var color_box: Node3D
+@export var fog_color: Color
+@export var ambient_light_color: Color
 
 enum {NORTH = 90, SOUTH = -90, WEST = 180, EAST = 0}
 @onready var world = get_tree().current_scene
@@ -16,7 +17,8 @@ func _ready() -> void:
 		this_room = $"../SaveStation".level_id
 
 func _on_body_entered(body: Node3D) -> void:
-	#world.environment.fog_density = heat_level * 0.02
+	Globals.player.camera.camera_environment.set_fog_light_color(fog_color)
+	Globals.player.camera.camera_environment.set_ambient_light_color(ambient_light_color)
 	body.heat_level += heat_level
 	
 	self.primary_room = true

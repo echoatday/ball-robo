@@ -1,26 +1,7 @@
 [gd_scene format=3 uid="uid://3ilansp4ikci"]
 
 [ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://scenes/Player.tscn" id="1_dow2d"]
-[ext_resource type="Texture2D" uid="uid://8ldhuru2pd6s" path="res://textures/skybox.png" id="1_xewje"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wyjor"]
-panorama = ExtResource("1_xewje")
-
-[sub_resource type="Sky" id="Sky_o77hc"]
-sky_material = SubResource("PanoramaSkyMaterial_wyjor")
-
-[sub_resource type="Environment" id="Environment_si5j6"]
-background_mode = 2
-sky = SubResource("Sky_o77hc")
-sky_rotation = Vector3(1.5708, 0, 0)
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.0
-reflected_light_source = 1
-fog_light_color = Color(0.787717, 0.367609, 0.379549, 1)
-fog_light_energy = 0.69
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=1502763437]
-environment = SubResource("Environment_si5j6")
 
 [node name="Player" parent="." unique_id=1268744149 instance=ExtResource("1_dow2d")]

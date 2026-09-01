@@ -6745,9 +6745,12 @@ shape = SubResource("ConvexPolygonShape3D_dbr6j")
 
 [node name="HeatZone" parent="." unique_id=1752538793 instance=ExtResource("54_b02vw")]
 transform = Transform3D(119.175, 0, 0, 0, 200, 0, 0, 0, 119.189, 0, 0, 0)
+fog_color = Color(0.6369167, 0.7146046, 0.75280696, 1)
+ambient_light_color = Color(0.85499996, 0.88983333, 0.95, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1728845328]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -31, -3)
+visible = false
 light_color = Color(1, 0.816445, 0.778427, 1)
 light_energy = 2.0
 light_specular = 0.0
