@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bxojdohe0ik46"
+path="res://.godot/imported/claw_brokenarm.map-64bd7f7f51e9f3af6bf8ce13c4736680.tres"
+
+[deps]
+
+source_file="res://maps/objects/claw_brokenarm.map"
+dest_files=["res://.godot/imported/claw_brokenarm.map-64bd7f7f51e9f3af6bf8ce13c4736680.tres"]
+
+[params]
+
