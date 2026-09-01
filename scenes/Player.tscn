@@ -1129,6 +1129,14 @@ skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Cockpit/Sphere" unique_id=1928287098]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09492874)
+light_energy = 6.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+spot_range = 50.0
+spot_attenuation = -0.05
+spot_angle = 60.0
+spot_angle_attenuation = 1.9318736
 
 [node name="Timer" type="Timer" parent="." unique_id=314712587]
 process_callback = 0
