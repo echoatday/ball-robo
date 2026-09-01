@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://ckskj03dex25p" path="res://scripts/door_control.gd" id="6_1m232"]
 [ext_resource type="Material" uid="uid://bc3pm15xm8hrq" path="res://textures/librequake/lq_tech/metalstrip_1.tres" id="6_ran5e"]
 [ext_resource type="Material" uid="uid://bhpx37d0y40ks" path="res://textures/librequake/lq_tech/rw33_5.tres" id="7_folbh"]
-[ext_resource type="PackedScene" uid="uid://7lt2mtpgunn3" path="res://scenes/GrappleTarget.tscn" id="8_0efov"]
 [ext_resource type="Material" uid="uid://dr5xc6v5yy4t4" path="res://textures/librequake/lq_tech/t_band1b.tres" id="9_bwcfx"]
 [ext_resource type="Material" uid="uid://buqgbbnmpt47b" path="res://textures/librequake/lq_tech/rw33_4b_l.tres" id="10_nchkp"]
 [ext_resource type="Material" uid="uid://bm05k654g506r" path="res://textures/librequake/lq_tech/t_flor2a.tres" id="11_dw3yt"]
@@ -6420,9 +6419,6 @@ script = ExtResource("6_1m232")
 [node name="DoorEast" type="Node3D" parent="." unique_id=1342957165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -26, 67)
 script = ExtResource("6_1m232")
-
-[node name="GrappleTarget" parent="." unique_id=911075568 instance=ExtResource("8_0efov")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -53, -19)
 
 [node name="belts" type="Node3D" parent="." unique_id=1739224706]
 

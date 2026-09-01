@@ -1127,6 +1127,9 @@ transform = Transform3D(-0.09352715, -1.2386928, 0.8407692, 0.94757473, -0.70116
 mesh = SubResource("ArrayMesh_24r77")
 skeleton = NodePath("")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Cockpit/Sphere" unique_id=1928287098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09492874)
+
 [node name="Timer" type="Timer" parent="." unique_id=314712587]
 process_callback = 0
 wait_time = 0.5
