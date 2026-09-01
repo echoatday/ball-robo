@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c3l05d5dutwxb"
+path="res://.godot/imported/clawfist.map-972dd9e50a84fcd14e776a9d4164af7a.tres"
+
+[deps]
+
+source_file="res://maps/objects/clawfist.map"
+dest_files=["res://.godot/imported/clawfist.map-972dd9e50a84fcd14e776a9d4164af7a.tres"]
+
+[params]
+

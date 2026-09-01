@@ -144,7 +144,7 @@ func _physics_process(delta: float) -> void:
 		if grapple_velocity.length() < SPEED:
 			state_grappling = false
 		else:
-			cable_material.set_albedo(Color(1.2-(grapple_velocity.length()/30),0.4,0.4))
+			cable_material.set_albedo(Color(1-(grapple_velocity.length()*0.01),0.4,0.4))
 	else:
 		cable_material.set_albedo(Color(0.4,0.4,0.4))
 		state_grappling = false

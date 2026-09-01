@@ -2,11 +2,11 @@
 extends Path3D
 
 @export var distance_interval = 1.0
-var frequency = 2
+var frequency = 3
 
 func _physics_process(delta) -> void:
 	_arm_movement()
-	_update_multimesh()
+	
 
 func _update_multimesh():
 	var path_length: float = curve.get_baked_length()
@@ -33,10 +33,11 @@ func _update_multimesh():
 		basis.z = -forward
 		
 		var transform = Transform3D(basis, position)
-		if i%frequency == 0:
-			outer_arm.set_instance_transform(i,transform)
+		var size = clampf((position.z-20) * -0.04,1,4)
+		if i%frequency == 0 and i < 12:
+			outer_arm.set_instance_transform(i,transform.scaled_local(Vector3(size,size,1)))
 		else:
-			inner_arm.set_instance_transform(i,transform)
+			inner_arm.set_instance_transform(i,transform.scaled_local(Vector3(size,size,1)))
 
 func _arm_movement():
 	var point_3_base_position = Vector3(0.5,-3.0,-6.0)
@@ -46,19 +47,20 @@ func _arm_movement():
 	var path_length: float = curve.get_baked_length()
 	
 	if owner.state_grappling:
-		if path_length > 100:
-			frequency = 6
-		else:
-			frequency = 4
-		cable_material.uv1_offset.y -= 0.02
+		$ClawMesh.visible = true
+		$ClawFist.visible = false
+		frequency = 3
+		cable_material.uv1_offset.y += 0.02
 		curve.set_point_position(3,to_local(owner.grapple_hook_position)*0.8)
 		curve.set_point_position(2,Vector3(2.0,-2.0,-1.0))
 	else:
-		frequency = 2
+		$ClawMesh.visible = false
+		$ClawFist.visible = true
+		frequency = 3
 		cable_material.uv1_offset.y = 0
 		curve.set_point_position(3,point_3_base_position)
 		curve.set_point_position(2,point_2_base_position)
-		curve.set_point_position(1,point_1_base_position)
+		#curve.set_point_position(1,point_1_base_position)
 
 func _on_curve_changed() -> void:
-	pass
+	_update_multimesh()

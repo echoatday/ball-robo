@@ -148,7 +148,7 @@ shape = SubResource("ConvexPolygonShape3D_37f1w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2304578)
 light_color = Color(1, 0.7165, 0.19, 1)
 light_specular = 0.0
-light_cull_mask = 4294967291
+light_cull_mask = 4294967289
 omni_range = 46.082
 omni_attenuation = 3.961
 

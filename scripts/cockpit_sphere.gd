@@ -5,6 +5,7 @@ extends Node3D
 @export var icosphere: Node3D
 @export var screen: Array[Node3D]
 @export var walk_sphere: Node3D
+@export var arms: Node3D
 var count := 41
 var bob_count := 0
 
@@ -49,12 +50,14 @@ func _physics_process(delta: float) -> void:
 			if Input.get_vector("left", "right", "forward", "back") != Vector2.ZERO and !owner.state_dead:
 				bob_count += 1
 				icosphere.set_position(Vector3(sin(bob_count * 0.1)*0.005, sin(bob_count * 0.2)*0.002, 0))
+				arms.set_position(Vector3(5+(sin(bob_count * 0.1)*0.05), 1+(sin(bob_count * 0.2)*0.02), 1.7))
+				arms.curve.set_point_position(1, Vector3(2.0, -1.2, 1+(sin(bob_count * 0.2)*0.1)))
 			else:
 				bob_count = 0
 		elif owner.is_on_ceiling():
 			icosphere.set_position(Vector3(0,-0.01,0))
 		else:
-			icosphere.set_rotation(Vector3(max(-0.26,owner.velocity.y*0.01-0.26),0,0))
+			icosphere.set_rotation(Vector3(max(-0.26,owner.velocity.y*0.006-0.26),0,0))
 	else:
 		if owner.is_on_floor():
 			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.01*owner.velocity.length())
