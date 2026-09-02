@@ -16,10 +16,12 @@ func _ready() -> void:
 	if not this_room:
 		this_room = $"../SaveStation".level_id
 
+
 func _on_body_entered(body: Node3D) -> void:
-	Globals.player.camera.camera_environment.set_fog_light_color(fog_color)
-	Globals.player.camera.camera_environment.set_ambient_light_color(ambient_light_color)
 	body.heat_level += heat_level
+	body.fog_counter = 0
+	body.fog_color = fog_color
+	body.ambient_color = ambient_light_color
 	
 	self.primary_room = true
 	for child in world.get_children():

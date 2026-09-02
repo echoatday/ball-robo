@@ -71,9 +71,25 @@ var grapple_ready := false
 
 var spawn_position: Vector3
 
+var fog_counter := 0
+var fog_color: Color
+var ambient_color: Color
+
 func _ready() -> void:
 	Globals.player = self
 	state_dead = true
+
+func _process(delta: float) -> void:
+	if fog_counter < 120:
+		var new_fog_color = camera.camera_environment.get_fog_light_color().lerp(fog_color, 0.001*(fog_counter/2))
+		var new_ambient_color = camera.camera_environment.get_ambient_light_color().lerp(ambient_color, 0.001*(fog_counter/2))
+		camera.camera_environment.set_fog_light_color(new_fog_color)
+		camera.camera_environment.set_ambient_light_color(new_ambient_color)
+		fog_counter += 1
+	elif fog_counter == 120:
+		camera.camera_environment.set_fog_light_color(fog_color)
+		camera.camera_environment.set_ambient_light_color(ambient_color)
+		fog_counter += 1
 
 func _physics_process(delta: float) -> void:
 	transform = transform.orthonormalized()

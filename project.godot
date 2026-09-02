@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Globals="*res://scripts/Globals.gd"
 StationMap="*res://scenes/StationMap.tscn"
+CameraEnvironment="*uid://drnolridx1fpg"
 
 [editor_plugins]
 
