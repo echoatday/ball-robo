@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cnegemvulcyfo"]
+
+[ext_resource type="Texture2D" uid="uid://5a442idyxxun" path="res://textures/librequake/lq_medieval/med_csl_flr4_1.png" id="1_ycecm"]
+
+[resource]
+albedo_texture = ExtResource("1_ycecm")
+metallic_specular = 0.0
+texture_filter = 2
