@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cyytlwa8x070i"
+path="res://.godot/imported/room_blastfurnace.map-0779ef8577262f865f39ff191209ad3c.tres"
+
+[deps]
+
+source_file="res://maps/room_blastfurnace.map"
+dest_files=["res://.godot/imported/room_blastfurnace.map-0779ef8577262f865f39ff191209ad3c.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bvfqgmvm0uudx"
+path="res://.godot/imported/room_forgeworks.map-e8b8aa7fc8bcbd3a49f2ba97e89968d6.tres"
+
+[deps]
+
+source_file="res://maps/room_forgeworks.map"
+dest_files=["res://.godot/imported/room_forgeworks.map-e8b8aa7fc8bcbd3a49f2ba97e89968d6.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c7vkqcep1fnmg"
+path="res://.godot/imported/room_coolingsystem.map-3b626964f0a5af295ac5010dc05ac369.tres"
+
+[deps]
+
+source_file="res://maps/room_coolingsystem.map"
+dest_files=["res://.godot/imported/room_coolingsystem.map-3b626964f0a5af295ac5010dc05ac369.tres"]
+
+[params]
+

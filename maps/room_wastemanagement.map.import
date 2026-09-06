@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://de7w074t86ps2"
+path="res://.godot/imported/room_wastemanagement.map-c04636a2edc1213287b5e5b838e6e8c4.tres"
+
+[deps]
+
+source_file="res://maps/room_wastemanagement.map"
+dest_files=["res://.godot/imported/room_wastemanagement.map-c04636a2edc1213287b5e5b838e6e8c4.tres"]
+
+[params]
+
