@@ -63,6 +63,8 @@ rings = 1
 script = ExtResource("1_w0aip")
 liquid_mesh = NodePath("MeshInstance3D")
 overlay_mesh = NodePath("UnderwaterOverlay")
+heat_severity = 0
+energy_severity = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1748877200]
 mesh = SubResource("PlaneMesh_iy5dr")

@@ -3,6 +3,7 @@ extends Node3D
 @export var liquid_mesh: Node3D
 @export var overlay_mesh: Node3D
 @export var heat_severity := 1
+@export var energy_severity := 0
 
 var bob_count := 0
 var underwater := false
@@ -45,11 +46,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_damage_zone_body_entered(body: Node3D) -> void:
 	body.heat_level += heat_severity
+	body.energy -= 1
+	body.energy_recharge -= energy_severity
 	player = body
 	underwater = true
 
 
 func _on_damage_zone_body_exited(body: Node3D) -> void:
 	body.heat_level -= heat_severity
+	body.energy_recharge += energy_severity
 	underwater = false
 	player.state_floating = false
