@@ -39,6 +39,7 @@ var state_grappling := false
 var state_spinning := false
 var state_floating := false
 var state_bouncing := false
+var state_boosting := false
 var state_dead := false
 var can_boost := true
 var can_jump := true
@@ -224,6 +225,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		can_jump = false
 	
+	if Input.is_action_just_released("boost"):
+		state_boosting = false
+	
 	if state_dead:
 		heat = max_heat
 		energy = 0
@@ -291,6 +295,7 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.large
 			can_boost = false
 			state_grappling = false
+			state_boosting = true
 			
 		if Input.is_action_pressed("boost") and not $Timer2.is_stopped():
 			velocity += direction * 0.5
@@ -308,6 +313,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y += -BOOST_SPEED
 			energy_checkout += energy_cost.large
 			can_boost = false
+			state_boosting = true
 		if Input.is_action_pressed("jump") and not is_on_floor():
 			bounce_sphere.visible = true
 			state_bouncing = true

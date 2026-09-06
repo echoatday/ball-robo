@@ -6520,7 +6520,8 @@ transform = Transform3D(-1.09278474e-07, 0, 1, 0, 2, 0, -2.5, 0, -4.371139e-08, 
 transform = Transform3D(2.5, 0, 0, 0, 2, 0, 0, 0, 1, 33, -26, 50.5)
 
 [node name="Glass5" parent="." unique_id=949294242 instance=ExtResource("62_yj5rx")]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 1, 0, -2, -4.371139e-08, 50, -40.5, 7.5)
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 1, 0, -2, -4.371139e-08, 50, -40.4, 7.5)
+skylight = true
 
 [node name="Glass6" parent="." unique_id=2067799531 instance=ExtResource("62_yj5rx")]
 transform = Transform3D(-1.09278474e-07, 0, 1, 0, 1, 0, -2.5, 0, -4.371139e-08, -27.5, -26, 1)
