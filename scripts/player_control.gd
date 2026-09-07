@@ -122,7 +122,7 @@ func _physics_process(delta: float) -> void:
 	if state_rolling:
 		state_grappling = false
 		collider.shape.radius = 0.4
-		stuck_area_shape.shape.radius = 0.35
+		stuck_area_shape.shape.radius = 0.3
 		if !state_floating:
 			current_speed = SPEED * 1.5
 			current_accel = ACCEL / 4
@@ -133,7 +133,7 @@ func _physics_process(delta: float) -> void:
 		state_bouncing = false
 		state_spinning = false
 		collider.shape.radius = 0.9
-		stuck_area_shape.shape.radius = 0.85
+		stuck_area_shape.shape.radius = 0.8
 		if !state_floating:
 			current_speed = SPEED
 			current_accel = ACCEL
@@ -191,8 +191,6 @@ func _physics_process(delta: float) -> void:
 	cockpit_light.light_color = Color(heat*0.0005,0.1,0.5-(heat*0.0005))
 	
 	if heat > max_heat:
-		state_dead = true
-	if global_position.y < -500:
 		state_dead = true
 	
 	if energy < 0:

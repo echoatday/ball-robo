@@ -15,6 +15,11 @@ func _ready() -> void:
 	if not this_room:
 		this_room = $"../SaveStation".level_id
 
+func _physics_process(_delta: float) -> void:
+	if Globals.player.state_dead:
+		await get_tree().create_timer(1.0).timeout
+		owner.queue_free()
+
 
 func _on_body_entered(body: Node3D) -> void:
 	body.heat_level += heat_level
