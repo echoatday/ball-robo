@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var camera_gimbal: Node3D
 @export var cockpit: Node3D
 @export var collider: Node3D
+@export var stuck_area_shape: Node3D
 @export var sphere: Node3D
 @export var bounce_sphere: Node3D
 @export_category("UI")
@@ -80,7 +81,7 @@ func _ready() -> void:
 	Globals.player = self
 	state_dead = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if fog_counter < 120:
 		var new_fog_color = camera.camera_environment.get_fog_light_color().lerp(fog_color, 0.001*(fog_counter/2))
 		var new_ambient_color = camera.camera_environment.get_ambient_light_color().lerp(ambient_color, 0.001*(fog_counter/2))
@@ -121,6 +122,7 @@ func _physics_process(delta: float) -> void:
 	if state_rolling:
 		state_grappling = false
 		collider.shape.radius = 0.4
+		stuck_area_shape.shape.radius = 0.35
 		if !state_floating:
 			current_speed = SPEED * 1.5
 			current_accel = ACCEL / 4
@@ -131,6 +133,7 @@ func _physics_process(delta: float) -> void:
 		state_bouncing = false
 		state_spinning = false
 		collider.shape.radius = 0.9
+		stuck_area_shape.shape.radius = 0.85
 		if !state_floating:
 			current_speed = SPEED
 			current_accel = ACCEL
@@ -247,6 +250,7 @@ func _physics_process(delta: float) -> void:
 			reticle.position = Vector3(0,0,-0.2)
 			reticle.position.z = abs(reticle.position.x/3)-0.09
 			reticle.rotation_degrees = Vector3(0,-180,0)
+			stuck_area_shape.shape.radius = 0
 			state_dead = false
 			heat = 0
 			energy = 300
@@ -394,3 +398,11 @@ func _unhandled_input(event):
 	if not state_looking and event is InputEventMouseMotion:
 		camera_gimbal.rotate_y(-event.relative.x * 0.002)
 		camera.rotate_x(-event.relative.y * 0.002)
+
+
+func _on_stuck_area_body_entered(body: Node3D) -> void:
+	if Globals.unlock_roll and not state_rolling:
+		state_rolling = true
+		heat += 20
+	elif not state_dead:
+		state_dead = true

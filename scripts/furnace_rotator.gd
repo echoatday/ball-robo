@@ -6,7 +6,7 @@ extends Node3D
 var lifted := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	$AnimatableBody3D.rotate_y(0.003)
 	if lifted and not Globals.player.is_on_floor():
 		Globals.player.velocity.y += 0.1

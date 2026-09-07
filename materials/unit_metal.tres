@@ -5,7 +5,7 @@
 [resource]
 cull_mode = 2
 specular_mode = 2
-albedo_color = Color(0.5372549, 0.5176471, 0.54901963, 1)
+albedo_color = Color(0.7019608, 0.6313726, 0.59607846, 1)
 albedo_texture = ExtResource("1_7x018")
 metallic_specular = 0.0
 uv1_scale = Vector3(0.3, 0.3, 0.3)

@@ -1,10 +1,9 @@
-@tool
 extends Path3D
 
 @export var distance_interval = 1.0
 var frequency = 3
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	_arm_movement()
 	
 
@@ -21,19 +20,19 @@ func _update_multimesh():
 	
 	for i in range(0,count):
 		var curve_distance = distance_interval * i
-		var position = curve.sample_baked(curve_distance,true)
+		var curve_position = curve.sample_baked(curve_distance,true)
 		
 		var basis = Basis()
 		
 		var up = curve.sample_baked_up_vector(curve_distance,true)
-		var forward = position.direction_to(curve.sample_baked(curve_distance+0.1,true))
+		var forward = curve_position.direction_to(curve.sample_baked(curve_distance+0.1,true))
 		
 		basis.y = up
 		basis.x = forward.cross(up).normalized()
 		basis.z = -forward
 		
-		var transform = Transform3D(basis, position)
-		var size = clampf((position.z-20) * -0.04,1,4)
+		var transform = Transform3D(basis, curve_position)
+		var size = clampf((curve_position.z-20) * -0.04,1,4)
 		if i%frequency == 0 and i < 12:
 			outer_arm.set_instance_transform(i,transform.scaled_local(Vector3(size,size,1)))
 		else:

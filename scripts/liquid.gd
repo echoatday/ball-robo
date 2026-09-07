@@ -15,7 +15,7 @@ func _ready() -> void:
 	overlay_mesh.position.y = -0.4/scale.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	bob_count += 1
 	liquid_mesh.get_active_material(0).uv1_offset = Vector3(sin(bob_count * 0.004)*0.3, 0, sin(bob_count * 0.008)*0.1)
 	if underwater:
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			liquid_mesh.get_active_material(0).distance_fade_min_distance = 0.19
 			liquid_mesh.get_active_material(0).distance_fade_max_distance = 0.195
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if underwater and player and player.global_position.y < global_position.y + 0.1:
 		if not Globals.unlock_waterproofing:
 			player.state_dead = true

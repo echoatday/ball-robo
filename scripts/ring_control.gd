@@ -3,7 +3,7 @@ extends CSGTorus3D
 var walk_transition := false
 var roll_rotation := -90
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if owner.state_rolling:
 		if owner.state_spinning:
 			rotate_x(-owner.spin_velocity.length() * 0.01)

@@ -6,7 +6,7 @@ extends Node
 # 120 to -120 degrees, or 240 degrees total
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match type:
 		1: 
 			gauge_move(owner.energy, 2.1, 10)

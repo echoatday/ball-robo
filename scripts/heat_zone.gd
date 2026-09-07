@@ -12,7 +12,6 @@ var this_room
 # NORTH/SOUTH/EAST/WEST, door_rotation, global_position, spawn_position, spawn_room
 
 func _ready() -> void:
-	var heat_color = heat_level*0.3
 	if not this_room:
 		this_room = $"../SaveStation".level_id
 

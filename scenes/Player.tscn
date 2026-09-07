@@ -106,6 +106,10 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_iy5dr"]
+margin = 0.02
+radius = 0.85
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7s8xn"]
 points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05, -0.05, 0, -17, -17, 100, 17, -17, 100, -17, 17, 100, 17, 17, 100)
 
@@ -379,7 +383,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AACAPgAAAAAAAAC/AABAPwAAAAAAAAC/AABAPwAAgD8AAAC/AACAPgAAgD8AAAC/AAAAPwAAAAAAAAC+AABAPwAAAAAAAAC/AACAPgAAAAAAAAC/AAAAPwAAgD8AAAC+AACAPgAAgD8AAAC/AABAPwAAgD8AAAC/AAAAPwAAAAAAAAC+AACAPgAAAAAAAAC/AACAPgAAgD8AAAC/AAAAPwAAgD8AAAC+AAAAPwAAgD8AAAC+AABAPwAAgD8AAAC/AABAPwAAAAAAAAC/AAAAPwAAAAAAAAC+AACAvgAAkD8AAEA/AACAvgAAAAAAAKA+AACAPgAAAAAAAKA+AACAPgAAkD8AAEA/AAAAAAAAgL4AABA/AACAPgAAAAAAAKA+AACAvgAAAAAAAKA+AAAAAAAAYD8AAIA/AACAPgAAkD8AAEA/AACAPgAAAAAAAKA+AAAAAAAAgL4AABA/AAAAAAAAYD8AAIA/AAAAAAAAgL4AABA/AACAvgAAAAAAAKA+AACAvgAAkD8AAEA/AACAvgAAkD8AAEA/AACAPgAAkD8AAEA/AAAAAAAAYD8AAIA/AAAAvwAAwL4AAMC+AAAgvgAAAL4AAMC+AAA4vwAAQD8AADi/AADAvgAAgD8AABi/AAA4vwAAQD8AADi/AAAgvgAAAL4AAMC+AABYvwAAgD8AAIC+AAA4vwAAQD8AADi/AADAvgAAgD8AABi/AAAAvwAAwL4AAMC+AAA4vwAAQD8AADi/AABYvwAAgD8AAIC+AADAvgAAAL4AAAC9AAAgvgAAAL4AAMC+AAAAvwAAwL4AAMC+AABYvwAAgD8AAIC+AADAvgAAAL4AAAC9AAAAvwAAwL4AAMC+AADAvgAAAL4AAAC9AADAvgAAgD8AABi/AAAgvgAAAL4AAMC+AADAvgAAAL4AAAC9AABYvwAAgD8AAIC+AADAvgAAgD8AABi//////////z//////////P/////////8//////////z//fwAA/3//P/9/AAD/f/8//38AAP9//z//f////3//v/9/////f/+//3////9//78yM/9//3//vzIz/3//f/+/MjP/f/9//78yM/9//3//v8zM/3//f/8/zMz/f/9//z/MzP9//3//P8zM/3//f/8/otv//////z+i2///////P6Lb//////8/otv//////z//vwAA/3//P/+/AAD/f/8//78AAP9//z//v9Ft/3//P/+/0W3/f/8//7/Rbf9//z//v9Ft/3//P/8/0W3//wAA/z/Rbf//AAD/P9Ft//8AAP8/0W3//wAA/3//v/9/AAD/f/+//38AAP9//7//fwAAGejlEP+//z8Z6OUQ/7//Pxno5RD/v/8/jfbmI/+//z+N9uYj/7//P4325iP/v/8/Nzwy4/+//z83PDLj/7//Pzc8MuP/v/8/qRboXP///x+pFuhc////H6kW6Fz///8f0anaRAAA/x/RqdpEAAD/H9Gp2kQAAP8f7zv8agAA/x/vO/xqAAD/H+87/GoAAP8frMCClf8//z+swIKV/z//P6zAgpX/P/8/8qlEnf8//z/yqUSd/z//P/KpRJ3/P/8/")
 }]
 
-[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
+[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "stuck_area_shape", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light")]
 collision_layer = 2
 collision_mask = 5
 floor_constant_speed = true
@@ -389,6 +393,7 @@ camera = NodePath("Cockpit/Seat/camera_gimbal/camera")
 camera_gimbal = NodePath("Cockpit/Seat/camera_gimbal")
 cockpit = NodePath("Cockpit")
 collider = NodePath("PlayerCollision3D")
+stuck_area_shape = NodePath("StuckArea/CollisionShape3D")
 sphere = NodePath("Cockpit/Sphere")
 bounce_sphere = NodePath("Cockpit/Sphere/Icosphere/IcosphereBounce")
 entire_ui = NodePath("Cockpit/Sphere/UI")
@@ -408,6 +413,12 @@ cockpit_light = NodePath("Cockpit/CockpitLight")
 
 [node name="PlayerCollision3D" type="CollisionShape3D" parent="." unique_id=475040309]
 shape = SubResource("SphereShape3D_v0m4j")
+
+[node name="StuckArea" type="Area3D" parent="." unique_id=837550511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StuckArea" unique_id=190861761]
+shape = SubResource("SphereShape3D_iy5dr")
+debug_color = Color(0.90043795, 0.27938697, 0.36739096, 0.41960785)
 
 [node name="Cockpit" type="Node3D" parent="." unique_id=266975798]
 
@@ -516,8 +527,9 @@ outline_size = 0
 [node name="heat_bg" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge" unique_id=1956839271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -3.1664946e-08, 0.8655265)
 layers = 2
-modulate = Color(0.7529412, 0.7529412, 0.7529412, 1)
+modulate = Color(1, 0.88235295, 0.8, 1)
 pixel_size = 0.0026
+shaded = true
 double_sided = false
 texture_filter = 0
 texture = ExtResource("11_kvw7q")
@@ -556,8 +568,9 @@ outline_size = 0
 [node name="energy_bg" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/energy_gauge" unique_id=1160330452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1664946e-08, -3.1664946e-08, 0.8947557)
 layers = 2
-modulate = Color(0.7539839, 0.75398386, 0.75398386, 1)
+modulate = Color(1, 0.8833333, 0.8, 1)
 pixel_size = 0.0026
+shaded = true
 double_sided = false
 texture_filter = 0
 texture = ExtResource("11_kvw7q")
@@ -1148,4 +1161,5 @@ process_callback = 0
 wait_time = 0.1
 one_shot = true
 
+[connection signal="body_entered" from="StuckArea" to="." method="_on_stuck_area_body_entered"]
 [connection signal="curve_changed" from="Cockpit/Sphere/Icosphere/Screens/ico_walking/ArmPath" to="Cockpit/Sphere/Icosphere/Screens/ico_walking/ArmPath" method="_on_curve_changed"]

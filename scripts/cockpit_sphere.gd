@@ -13,7 +13,7 @@ func _ready() -> void:
 	for current_screen in screen:
 		current_screen.visible = true
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 		
 	if owner.state_dead:
 		if count == 41:

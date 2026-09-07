@@ -4,7 +4,7 @@ extends Sprite3D
 @onready var grapple_cast = owner.grapple_cast
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not owner.state_rolling:
 		if not owner.can_grapple:
 			set_modulate(Color("226665"))

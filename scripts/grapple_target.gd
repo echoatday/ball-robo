@@ -6,7 +6,7 @@ extends Node3D
 var target_visible := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	look_at(Globals.player.global_position)
 	if raycast.is_colliding() and raycast.get_collider() == Globals.player:
 		var distance_to_player = global_position.distance_to(Globals.player.global_position)

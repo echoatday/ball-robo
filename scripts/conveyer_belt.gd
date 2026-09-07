@@ -21,6 +21,6 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	belt_mesh.get_active_material(2).uv1_offset.y += 0.02
 	belt_mesh.get_active_material(1).uv1_offset.y += 0.1

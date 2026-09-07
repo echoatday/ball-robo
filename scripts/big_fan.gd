@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if active:
 		wind_visual.visible = true
 		wind_area_collision.set_disabled(false)
@@ -38,10 +38,10 @@ func _physics_process(delta: float) -> void:
 		Globals.player.velocity.y += 0.123
 
 
-func _on_wind_area_body_entered(body: Node3D) -> void:
+func _on_wind_area_body_entered(_body: Node3D) -> void:
 	lifted = true
 
-func _on_wind_area_body_exited(body: Node3D) -> void:
+func _on_wind_area_body_exited(_body: Node3D) -> void:
 	Globals.player.state_floating = false
 	lifted = false
 

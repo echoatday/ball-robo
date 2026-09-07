@@ -1,11 +1,6 @@
 extends Node3D
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	pass
-
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	body.velocity = -body.get_real_velocity()
 	if body.velocity.length() < 12:
@@ -14,7 +9,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.velocity.y += 2
 
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
+func _on_area_3d_body_exited(_body: Node3D) -> void:
 	$bumper.scale = Vector3(1.3,1.3,1.3)
 	$Timer.start()
 
