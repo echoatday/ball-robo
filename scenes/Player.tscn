@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hdyusj28ul3r" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://ck0w2kijammg0" path="res://textures/cockpit/crosshair_pilot_dummy.png" id="2_2hk6f"]
+[ext_resource type="PackedScene" uid="uid://bnctbjvpcp7t8" path="res://scenes/Skybox.tscn" id="2_24r77"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
 [ext_resource type="Material" uid="uid://bukw7cscdnlfw" path="res://materials/unit_metal_small.tres" id="3_2hk6f"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
@@ -411,6 +412,9 @@ pilot_rig = NodePath("Cockpit/Seat/pilot_rig")
 seat = NodePath("Cockpit/Seat")
 cockpit_light = NodePath("Cockpit/CockpitLight")
 
+[node name="Skybox" parent="." unique_id=1898085006 instance=ExtResource("2_24r77")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+
 [node name="PlayerCollision3D" type="CollisionShape3D" parent="." unique_id=475040309]
 shape = SubResource("SphereShape3D_v0m4j")
 
@@ -450,6 +454,7 @@ texture = ExtResource("2_2hk6f")
 
 [node name="camera" type="Camera3D" parent="Cockpit/Seat/camera_gimbal" unique_id=318843731 node_paths=PackedStringArray("subviewport")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00010433793)
+current = true
 script = ExtResource("3_84ti5")
 fovx = 160.0
 lens = 1

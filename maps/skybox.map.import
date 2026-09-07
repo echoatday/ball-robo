@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dbijwkk4uchp1"
+path="res://.godot/imported/skybox.map-26fca8cfa215c40edfc59cd22d4400f0.tres"
+
+[deps]
+
+source_file="res://maps/skybox.map"
+dest_files=["res://.godot/imported/skybox.map-26fca8cfa215c40edfc59cd22d4400f0.tres"]
+
+[params]
+

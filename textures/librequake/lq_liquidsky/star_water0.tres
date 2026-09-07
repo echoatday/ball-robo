@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://du0ymjl8gtfk5"]
+
+[ext_resource type="Texture2D" uid="uid://bgkixf6ewlyeq" path="res://textures/librequake/lq_liquidsky/star_water0.png" id="1_prdr8"]
+
+[resource]
+albedo_texture = ExtResource("1_prdr8")
+metallic_specular = 0.0
+texture_filter = 2

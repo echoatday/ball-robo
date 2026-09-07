@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6n42m13m3swh"]
+
+[ext_resource type="Texture2D" uid="uid://cf88ljdqdws1e" path="res://textures/librequake/lq_liquidsky/sky5_dismal.png" id="1_wrd0o"]
+
+[resource]
+albedo_texture = ExtResource("1_wrd0o")
+metallic_specular = 0.0
+texture_filter = 2
