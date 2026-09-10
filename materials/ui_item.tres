@@ -1,6 +1,26 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dl2prsr523g2r"]
 
-[resource]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oue0x"]
+render_priority = 1
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0, 1, 0, 0.501961)
+albedo_color = Color(0.47843137, 0.8039216, 0.8039216, 1)
+grow = true
+grow_amount = 0.01
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[resource]
+next_pass = SubResource("StandardMaterial3D_oue0x")
+transparency = 1
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.48000002, 0.8, 0.8, 0)
+billboard_keep_scale = true
+fixed_size = true
+fov_override = 26.9
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(0.47843137, 0.8039216, 0.8039216, 1)

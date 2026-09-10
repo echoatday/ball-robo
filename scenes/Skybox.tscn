@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bnctbjvpcp7t8"]
 
-[ext_resource type="Script" uid="uid://b4k134vfh0a7p" path="res://scripts/skybox.gd" id="1_vx42q"]
+[ext_resource type="Script" uid="uid://b4k134vfh0a7p" path="res://scripts/rotation_lock.gd" id="1_vx42q"]
 [ext_resource type="Material" uid="uid://du0ymjl8gtfk5" path="res://textures/librequake/lq_liquidsky/star_water0.tres" id="2_uva76"]
 [ext_resource type="Material" uid="uid://b357ieynee0u" path="res://textures/librequake/lq_legacy/med_rock6.tres" id="3_mfwie"]
 [ext_resource type="Material" uid="uid://c7l0qiqkdwvrd" path="res://textures/librequake/lq_terra/med_rock5.tres" id="4_vx42q"]
