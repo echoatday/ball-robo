@@ -7,23 +7,17 @@ func _process(_delta: float) -> void:
 	
 	if owner.state_rolling:
 		if owner.is_on_floor():
-			self.mesh.material.stencil_outline_thickness = 0.001
-			self.mesh.radius = 0.3
-			self.mesh.height = 1
+			pass
 		else:
-			self.mesh.material.stencil_outline_thickness = 0.003
-			self.mesh.radius = 1.5
-			self.mesh.height = 3
+			pass
+		self.mesh.material.stencil_outline_thickness = 0.003
+		self.mesh.radius = 0.65
+		self.mesh.height = 1.3
 	else:
-		if owner.is_on_floor():
-			self.mesh.material.stencil_outline_thickness = 0.002
-			self.mesh.radius = 0.8
-			self.mesh.height = 2
-		elif owner.is_on_wall():
-			self.mesh.material.stencil_outline_thickness = 0.0005
-			self.mesh.radius = 0.91
-			self.mesh.height = 1.88
+		if owner.is_on_wall() or owner.is_on_floor():
+			pass
 		else:
-			self.mesh.material.stencil_outline_thickness = 0.006
-			self.mesh.radius = 3
-			self.mesh.height = 6
+			pass
+		self.mesh.material.stencil_outline_thickness = 0.006
+		self.mesh.radius = 1.5
+		self.mesh.height = 3
