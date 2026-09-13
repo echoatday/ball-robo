@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c5rg17ev7urmc"
+path="res://.godot/imported/room_habitation.map-95ebf94fca1b2176f3a5156acb1a630b.tres"
+
+[deps]
+
+source_file="res://maps/room_habitation.map"
+dest_files=["res://.godot/imported/room_habitation.map-95ebf94fca1b2176f3a5156acb1a630b.tres"]
+
+[params]
+
