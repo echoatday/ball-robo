@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7e2pt17trqp7"
-path.s3tc="res://.godot/imported/sky_dev_day_fbr.png-f89abfc359b08717f265cd8ac433cfee.s3tc.ctex"
+uid="uid://0nk7hbm08dtn"
+path.s3tc="res://.godot/imported/sky4_alt.png-fc5a10d0623e4765b6539b85bae474e6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/librequake/lq_dev/sky_dev_day_fbr.png"
-dest_files=["res://.godot/imported/sky_dev_day_fbr.png-f89abfc359b08717f265cd8ac433cfee.s3tc.ctex"]
+source_file="res://textures/librequake/lq_liquidsky/sky4_alt.png"
+dest_files=["res://.godot/imported/sky4_alt.png-fc5a10d0623e4765b6539b85bae474e6.s3tc.ctex"]
 
 [params]
 
