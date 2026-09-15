@@ -159,7 +159,7 @@ func _physics_process(delta: float) -> void:
 	var grapple_idle_direction = (spin_cast.global_position - position).normalized()
 	var cable_material = grapple_cable.get_child(0).material
 	if Input.is_action_pressed("fire") and state_grappling:
-		var grapple_velocity = ((grapple_hook_position - position) - grapple_direction) * 2
+		var grapple_velocity = ((grapple_hook_position - position) - grapple_direction) * 1.2
 		velocity = velocity.move_toward(grapple_velocity, current_accel*1.5)
 		if grapple_velocity.length() < SPEED:
 			state_grappling = false

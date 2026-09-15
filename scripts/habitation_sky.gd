@@ -3,7 +3,7 @@ extends Node3D
 @onready var sky_mesh = $FuncGodotMap/entity_0_worldspawn/entity_0_mesh_instance
 @onready var old_position = Globals.player.camera.global_position
 @onready var old_rotation = Globals.player.camera.global_rotation_degrees
-@onready var base_color = Color(2.0,2.0,2.1)
+@onready var base_color = Color(1.7,1.9,1.9)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

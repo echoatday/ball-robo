@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://hs5ixtdnygep" path="res://textures/cockpit/triscreen_layer.png" id="2_88nno"]
 
 [resource]
-diffuse_mode = 2
-albedo_color = Color(1.122315, 1.122315, 1.122315, 1)
+shading_mode = 0
+albedo_color = Color(1.0665772, 1.122377, 1.103777, 1)
 albedo_texture = ExtResource("1_ix4r3")
-metallic_specular = 0.0
 detail_enabled = true
 detail_uv_layer = 1
 detail_albedo = ExtResource("2_88nno")
@@ -15,6 +14,7 @@ uv1_scale = Vector3(0.4, 0.4, 0.4)
 uv1_offset = Vector3(0, 0.2, 0)
 uv1_world_triplanar = true
 uv2_scale = Vector3(0.1, 0.12, 0.1)
+uv2_offset = Vector3(0.1, 0.2, 0.13)
 uv2_triplanar = true
 uv2_triplanar_sharpness = 150.0
 texture_filter = 2
