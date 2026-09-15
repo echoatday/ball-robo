@@ -13,12 +13,12 @@ func _process(delta: float) -> void:
 	var rot_difference = old_rotation - new_rotation
 	
 	if Engine.get_frames_drawn() % ceili(Engine.get_frames_per_second()/2) == 0:
-		sky_mesh.get_active_material(4).uv1_offset += Vector3(0.002,0,0.002)
-		sky_mesh.get_active_material(4).uv1_offset += Vector3(pos_difference.x + pos_difference.z,pos_difference.y,pos_difference.x + pos_difference.z) * -0.1
-		sky_mesh.get_active_material(4).uv1_offset += Vector3(rot_difference.y,-rot_difference.x,rot_difference.y) / 360
+		sky_mesh.get_active_material(7).uv1_offset += Vector3(0.002,0,0.002)
+		sky_mesh.get_active_material(7).uv1_offset += Vector3(pos_difference.x + pos_difference.z,pos_difference.y,pos_difference.x + pos_difference.z) * -0.1
+		sky_mesh.get_active_material(7).uv1_offset += Vector3(rot_difference.y,-rot_difference.x,rot_difference.y) / 360
 	
 	old_position = new_position
 	old_rotation = new_rotation
 	
 	if Engine.get_frames_drawn() % ceili(Engine.get_frames_per_second()/randi_range(1,4)) == 0:
-		sky_mesh.get_active_material(4).albedo_color = base_color * randf_range(0.95,1.0)
+		sky_mesh.get_active_material(7).albedo_color = base_color * randf_range(0.95,1.0)
