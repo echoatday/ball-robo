@@ -134,6 +134,7 @@ func _physics_process(delta: float) -> void:
 		state_spinning = false
 		collider.shape.radius = 0.9
 		stuck_area_shape.shape.radius = 0.8
+		bounce_sphere.visible = false
 		if !state_floating:
 			current_speed = SPEED
 			current_accel = ACCEL
