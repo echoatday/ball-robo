@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://jm7j0w33jl38"
+path="res://.godot/imported/bucket_wheel.map-c257dac0ddd36129d4c22a11e7460207.tres"
+
+[deps]
+
+source_file="res://maps/objects/bucket_wheel.map"
+dest_files=["res://.godot/imported/bucket_wheel.map-c257dac0ddd36129d4c22a11e7460207.tres"]
+
+[params]
+

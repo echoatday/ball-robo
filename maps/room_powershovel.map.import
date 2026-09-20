@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dc8qhn20wyvvg"
+path="res://.godot/imported/room_powershovel.map-eac8177ddc4165b43fdd90e7729465bd.tres"
+
+[deps]
+
+source_file="res://maps/room_powershovel.map"
+dest_files=["res://.godot/imported/room_powershovel.map-eac8177ddc4165b43fdd90e7729465bd.tres"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://5mh1cvl33jwa"
+path="res://.godot/imported/bucket_wheel_area.map-e71f14223b3b348857a97ca7ca3b560d.tres"
+
+[deps]
+
+source_file="res://maps/objects/bucket_wheel_area.map"
+dest_files=["res://.godot/imported/bucket_wheel_area.map-e71f14223b3b348857a97ca7ca3b560d.tres"]
+
+[params]
+

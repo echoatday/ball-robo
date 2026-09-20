@@ -51,7 +51,10 @@ var current_speed = SPEED
 var current_accel = ACCEL
 var spin_velocity := Vector3.ZERO
 var spin_speed = 0
+var current_wall_normal
 var previous_wall_normal
+
+var sliding = false
 
 var max_energy := 500
 var energy := 200
@@ -94,6 +97,7 @@ func _process(_delta: float) -> void:
 		fog_counter += 1
 
 func _physics_process(delta: float) -> void:
+	
 	transform = transform.orthonormalized()
 	
 	# Add the gravity.
@@ -107,7 +111,7 @@ func _physics_process(delta: float) -> void:
 	if not state_dead and $Timer.is_stopped():
 		input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor():
+	if is_on_floor() and not sliding:
 		velocity = velocity.move_toward(Vector3(direction.x*current_speed,velocity.y,direction.z*current_speed), current_accel)
 	else:
 		var hoz_speed = Vector2(velocity.x,velocity.z).length()
@@ -218,12 +222,11 @@ func _physics_process(delta: float) -> void:
 			can_spin = true
 			if can_boost == false:
 				can_boost = true
-	elif is_on_floor() or state_grappling:
-		can_boost = true
+	elif not $CoyoteTimer.is_stopped() or state_grappling:
+		if not current_wall_normal:
+			can_boost = true
 		can_jump = true
 		can_spin = true
-	elif is_on_wall() and not state_rolling:
-		can_jump = true
 	else:
 		can_jump = false
 	
@@ -262,17 +265,18 @@ func _physics_process(delta: float) -> void:
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
-			if get_wall_normal():
-				if get_wall_normal() == previous_wall_normal:
+			if current_wall_normal:
+				if current_wall_normal == previous_wall_normal:
 					velocity.y -= 3
-				previous_wall_normal = get_wall_normal()
+				previous_wall_normal = current_wall_normal
 				$Timer.start()
-				velocity.x += get_wall_normal().x * BOOST_SPEED * 1.6
-				velocity.z += get_wall_normal().z * BOOST_SPEED * 1.6
-			state_grappling = false
+				velocity.x += current_wall_normal.x * BOOST_SPEED * 1.6
+				velocity.z += current_wall_normal.z * BOOST_SPEED * 1.6
+				state_grappling = false
 		can_jump = false
 	
 	if is_on_floor() or state_grappling:
+		current_wall_normal = null
 		previous_wall_normal = null
 	
 	if Input.is_action_pressed("jump") and not is_on_floor() and not state_rolling:
@@ -334,16 +338,21 @@ func _physics_process(delta: float) -> void:
 			can_boost = true
 	
 	aim()
-	if state_bouncing and state_rolling:
+	if state_bouncing and state_rolling and not is_on_floor():
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			can_spin = true
 			can_boost = true
-			velocity = velocity.bounce(collision.get_normal()) * 0.95
-		elif velocity.y == 0:
-			velocity += get_gravity() * delta
+			velocity = (velocity.bounce(collision.get_normal()) * 0.95)
 	else:
+		if not state_rolling:
+			if is_on_floor() and not sliding:
+				$CoyoteTimer.start()
+			elif is_on_wall() and not sliding:
+				$CoyoteTimer.start()
+				current_wall_normal = get_wall_normal()
 		move_and_slide()
+				
 
 # Aiming system
 func aim() -> void:
