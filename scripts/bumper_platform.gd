@@ -9,7 +9,7 @@ func _on_top_area_body_entered(body: Node3D) -> void:
 	if body.velocity.y > -power:
 		body.velocity.y = power
 	else:
-		body.velocity.y = -body.velocity.y + 2
+		body.velocity.y = -body.velocity.y
 
 
 func _on_bottom_area_body_entered(body: Node3D) -> void:
