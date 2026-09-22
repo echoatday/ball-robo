@@ -33,9 +33,9 @@
 [ext_resource type="Material" uid="uid://ta0exkdorcp5" path="res://textures/librequake/lq_tech/t_wall05.tres" id="24_qyh1d"]
 [ext_resource type="Material" uid="uid://c888fwas0b5w6" path="res://textures/librequake/lq_terra/gravel3.tres" id="25_qyh1d"]
 [ext_resource type="Material" uid="uid://dc86pwc2k24tw" path="res://textures/librequake/lq_conc/conc1_4.tres" id="26_0ym3h"]
-[ext_resource type="PackedScene" uid="uid://c20l17ix0767f" path="res://scenes/LiquidLava.tscn" id="26_2ksfe"]
 [ext_resource type="PackedScene" uid="uid://1l2a6wh85vhi" path="res://scenes/RotatorMedium.tscn" id="31_icvin"]
 [ext_resource type="PackedScene" uid="uid://cqf3fq38cac7k" path="res://scenes/LiquidLavaShallow.tscn" id="36_0ym3h"]
+[ext_resource type="PackedScene" uid="uid://nf0jiglt354b" path="res://scenes/LiquidGas.tscn" id="36_hvtj3"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hvtj3"]
 _surfaces = [{
@@ -2323,9 +2323,6 @@ transform = Transform3D(-1.3113416e-07, 0, 4, 0, 2, 0, -3, 0, -1.7484555e-07, 45
 [node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("13_2gfyj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, -10, 42)
 
-[node name="LiquidLava" parent="." unique_id=691101047 instance=ExtResource("26_2ksfe")]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 66, 37, -33, 0)
-
 [node name="GrappleTarget2" parent="." unique_id=336755697 instance=ExtResource("13_2gfyj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 18, 0)
 
@@ -2344,3 +2341,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 9, -57)
 
 [node name="LiquidLavaShallow" parent="." unique_id=288212501 instance=ExtResource("36_0ym3h")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 23, -7, 73)
+
+[node name="LiquidGas" parent="." unique_id=691101047 instance=ExtResource("36_hvtj3")]
+transform = Transform3D(95, 0, 0, 0, 1, 0, 0, 0, 66, 37, -33, 0)
+heat_severity = 1

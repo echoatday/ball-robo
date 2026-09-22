@@ -10,7 +10,7 @@ sky_material = SubResource("PanoramaSkyMaterial_wyjor")
 
 [resource]
 background_mode = 1
-background_color = Color(0.11814507, 0.14624348, 0.18672937, 1)
+background_color = Color(0.19, 0.19, 0.19, 1)
 background_camera_feed_id = 10
 sky = SubResource("Sky_o77hc")
 sky_rotation = Vector3(1.5708, 0, 0)

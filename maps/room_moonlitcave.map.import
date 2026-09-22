@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dqfe6dxwbce87"
+path="res://.godot/imported/room_moonlitcave.map-6ab4088f3d12bac173b6ec9ff4d12dbf.tres"
+
+[deps]
+
+source_file="res://maps/room_moonlitcave.map"
+dest_files=["res://.godot/imported/room_moonlitcave.map-6ab4088f3d12bac173b6ec9ff4d12dbf.tres"]
+
+[params]
+

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://nf0jiglt354b"]
+
+[ext_resource type="Script" uid="uid://cgvg7y2uuch80" path="res://scripts/liquid.gd" id="1_w2ke6"]
+[ext_resource type="Texture2D" uid="uid://cn2i3sd6vrrtf" path="res://textures/librequake/lq_liquidsky/sky_slime_2.png" id="2_w2ke6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qewp8"]
+transparency = 1
+cull_mode = 2
+depth_draw_mode = 1
+specular_mode = 2
+albedo_color = Color(1, 1, 1, 0.3137255)
+albedo_texture = ExtResource("2_w2ke6")
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+distance_fade_mode = 2
+distance_fade_min_distance = 0.19
+distance_fade_max_distance = 0.19
+
+[sub_resource type="BoxMesh" id="BoxMesh_jh0fq"]
+material = SubResource("StandardMaterial3D_qewp8")
+size = Vector3(2, 1000, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0aip"]
+transparency = 1
+cull_mode = 1
+depth_draw_mode = 1
+shading_mode = 0
+albedo_color = Color(0.23600002, 0.18, 0.3, 0.15686275)
+texture_filter = 0
+billboard_keep_scale = true
+distance_fade_mode = 2
+distance_fade_min_distance = 0.19
+distance_fade_max_distance = 0.19
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w0aip"]
+material = SubResource("StandardMaterial3D_w0aip")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
+size = Vector3(2, 1000, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fvdg1"]
+material = SubResource("StandardMaterial3D_w0aip")
+top_radius = 0.21
+bottom_radius = 0.21
+height = 0.399
+radial_segments = 16
+rings = 1
+
+[node name="LiquidGas" type="Node3D" unique_id=691101047 node_paths=PackedStringArray("liquid_mesh", "overlay_mesh")]
+script = ExtResource("1_w2ke6")
+liquid_mesh = NodePath("MeshInstance3D")
+overlay_mesh = NodePath("UnderwaterOverlay")
+heat_severity = 2
+energy_severity = 10
+is_liquid = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1748877200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 0)
+mesh = SubResource("BoxMesh_jh0fq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=243759220]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -0.02, 0)
+mesh = SubResource("PlaneMesh_w0aip")
+
+[node name="DamageZone" type="Area3D" parent="." unique_id=768593065]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageZone" unique_id=470594461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -500, 0)
+shape = SubResource("BoxShape3D_iy5dr")
+
+[node name="UnderwaterOverlay" type="MeshInstance3D" parent="." unique_id=2058991525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+sorting_offset = 10.0
+mesh = SubResource("CylinderMesh_fvdg1")
+
+[connection signal="body_entered" from="DamageZone" to="." method="_on_damage_zone_body_entered"]
+[connection signal="body_exited" from="DamageZone" to="." method="_on_damage_zone_body_exited"]

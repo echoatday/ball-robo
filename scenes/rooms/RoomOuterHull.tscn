@@ -385,7 +385,7 @@ omni_range = 100.0
 omni_attenuation = 0.0
 
 [node name="DoorNorth" type="Node3D" parent="." unique_id=369027586]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, -10, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 64, -10, -220)
 script = ExtResource("10_e5ro4")
 
 [node name="DoorSouth" type="Node3D" parent="." unique_id=1859670522]

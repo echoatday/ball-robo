@@ -4,11 +4,12 @@ extends Node3D
 @export var overlay_mesh: Node3D
 @export var heat_severity := 1
 @export var energy_severity := 0
+@export var is_liquid := true
 
 var bob_count := 0
 var underwater := false
 var player: Node3D
-@onready var max_height := liquid_mesh.global_position.y-0.2
+@onready var max_height := global_position.y-0.2
 
 func _ready() -> void:
 	overlay_mesh.scale = Vector3(1/scale.x,1/scale.y,1/scale.z)
@@ -23,14 +24,14 @@ func _process(_delta: float) -> void:
 		overlay_mesh.global_position.z = player.global_position.z
 		overlay_mesh.global_position.y = clamp(player.global_position.y, player.global_position.y, max_height)
 		if player.state_rolling:
-			max_height = liquid_mesh.global_position.y-0.1
+			max_height = global_position.y-0.1
 			overlay_mesh.mesh.height = 0.199
 			overlay_mesh.get_active_material(0).distance_fade_min_distance = 0.09
 			overlay_mesh.get_active_material(0).distance_fade_max_distance = 0.095
 			liquid_mesh.get_active_material(0).distance_fade_min_distance = 0.09
 			liquid_mesh.get_active_material(0).distance_fade_max_distance = 0.095
 		else:
-			max_height = liquid_mesh.global_position.y-0.2
+			max_height = global_position.y-0.2
 			overlay_mesh.mesh.height = 0.399
 			overlay_mesh.get_active_material(0).distance_fade_min_distance = 0.19
 			overlay_mesh.get_active_material(0).distance_fade_max_distance = 0.195
@@ -38,7 +39,7 @@ func _process(_delta: float) -> void:
 			liquid_mesh.get_active_material(0).distance_fade_max_distance = 0.195
 
 func _physics_process(_delta: float) -> void:
-	if underwater and player and player.global_position.y < global_position.y + 0.1:
+	if underwater and player and player.global_position.y < global_position.y + 0.1 and is_liquid:
 		if not Globals.unlock_waterproofing:
 			player.state_dead = true
 		else:

@@ -3564,7 +3564,7 @@ points = PackedVector3Array(12, -17.5, 28, 12, -18, 28, 6, -17.5, 28, 6, -18, 28
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j2r35"]
 points = PackedVector3Array(4, -14, 56, 4, -18, 56, 0, -14, 56, 0, -18, 56, 4, -14, 50, 4, -18, 50, 0, -14, 50, 0, -18, 50)
 
-[sub_resource type="Curve3D" id="Curve3D_rjluf"]
+[sub_resource type="Curve3D" id="Curve3D_kqbv1"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8649902, 0),
@@ -3572,7 +3572,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_rnjfy"]
+[sub_resource type="Curve3D" id="Curve3D_hsc3k"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.8649902, 0),
@@ -6553,11 +6553,11 @@ transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, -86,
 
 [node name="LockedDoor" parent="." unique_id=1984032725 instance=ExtResource("38_fqet3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -26, 18)
-curve = SubResource("Curve3D_rjluf")
+curve = SubResource("Curve3D_kqbv1")
 
 [node name="LockedDoor2" parent="." unique_id=1230698459 instance=ExtResource("38_fqet3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -26, 62)
-curve = SubResource("Curve3D_rnjfy")
+curve = SubResource("Curve3D_hsc3k")
 
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("40_pquwl")]
 transform = Transform3D(-0.7071066, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.7071066, 5.75, -17.25, -25.75)
@@ -6567,7 +6567,7 @@ level_id = 35
 transform = Transform3D(-1, 2.6226832e-07, 0, -2.6226832e-07, -1, 0, 0, 0, 1, -23, -21.5, 7)
 is_on_cieling = true
 
-[node name="LiquidLava" parent="." unique_id=691101047 instance=ExtResource("61_7oi0v")]
+[node name="LiquidLava" parent="." unique_id=1109847009 instance=ExtResource("61_7oi0v")]
 transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 12, -7.995, -66, -3.904)
 
 [node name="Glass" parent="." unique_id=71719860 instance=ExtResource("62_yj5rx")]
