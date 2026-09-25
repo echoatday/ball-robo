@@ -3150,7 +3150,7 @@ points = PackedVector3Array(-25, 20, 58, -25, 16, 58, -27, 20, 58, -27, 16, 58, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mv3ja"]
 points = PackedVector3Array(-25, 20, 52, -25, 16, 52, -27, 20, 52, -27, 16, 52, -25, 20, 50, -25, 16, 50, -27, 20, 50, -27, 16, 50)
 
-[sub_resource type="Curve3D" id="Curve3D_bkhhk"]
+[sub_resource type="Curve3D" id="Curve3D_rgwr6"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -5642,7 +5642,7 @@ transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 55, -17, -2.5, -23)
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("37_523xk")]
 transform = Transform3D(1.9106855e-15, -1, -4.371139e-08, -4.371139e-08, -4.371139e-08, 1, -1, 0, -4.371139e-08, 6, -8, -70)
-curve = SubResource("Curve3D_bkhhk")
+curve = SubResource("Curve3D_rgwr6")
 speed = 2.0
 
 [node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("40_sa1e0")]

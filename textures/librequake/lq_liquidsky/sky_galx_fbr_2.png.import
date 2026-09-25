@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4n2dosbj6lsi"
-path.s3tc="res://.godot/imported/sky_galx_fbr.png-2254c092929d697f903f05b0aac67b57.s3tc.ctex"
+uid="uid://bh81hksmbixkw"
+path.s3tc="res://.godot/imported/sky_galx_fbr_2.png-e0a27c59835e0b543be4b6e7f8d8a330.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/librequake/lq_liquidsky/sky_galx_fbr.png"
-dest_files=["res://.godot/imported/sky_galx_fbr.png-2254c092929d697f903f05b0aac67b57.s3tc.ctex"]
+source_file="res://textures/librequake/lq_liquidsky/sky_galx_fbr_2.png"
+dest_files=["res://.godot/imported/sky_galx_fbr_2.png-e0a27c59835e0b543be4b6e7f8d8a330.s3tc.ctex"]
 
 [params]
 
