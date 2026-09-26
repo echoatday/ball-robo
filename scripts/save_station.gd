@@ -8,7 +8,16 @@ extends Node3D
 	"control_deck:54","forge_works:55","engine_block:56"
 ) var level_id: int
 
+
 func _on_save_trigger_body_entered(body: Node3D) -> void:
 	Globals.current_checkpoint = level_id
 	Globals.rolled_state = body.state_rolling
+	Globals.player.heat = 0
+	Globals.player.energy = Globals.player.max_energy
+	$OmniLight3D.visible = true
+	$Timer.start()
 	Globals.save_game()
+
+
+func _on_timer_timeout() -> void:
+	$OmniLight3D.visible = false
