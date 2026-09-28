@@ -1351,6 +1351,7 @@ points = PackedVector3Array(-40, 13, 18, -40, 12, 18, -64, 13, 18, -64, 12, 18, 
 
 [node name="Room" type="Node3D" unique_id=1901160722]
 script = ExtResource("1_bf75o")
+sky_material = ExtResource("13_bf75o")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=312778904]
 script = ExtResource("1_qfsb6")
@@ -2443,7 +2444,7 @@ shape = SubResource("ConvexPolygonShape3D_jwhah")
 [node name="HeatZone" parent="." unique_id=1752538793 instance=ExtResource("9_lip1y")]
 transform = Transform3D(140, 0, 0, 0, 200, 0, 0, 0, 105, 2, 0, 6.177)
 heat_level = 0
-fog_color = Color(0.12, 0.12, 0.3, 1)
+fog_color = Color(0.14, 0.14, 0.2, 1)
 ambient_light_color = Color(0.56, 0.5833333, 0.7, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1728845328]
