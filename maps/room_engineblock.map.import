@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b6ptqjdjilh5k"
+path="res://.godot/imported/room_engineblock.map-e75b61e66d24c656b2890cb55175eeae.tres"
+
+[deps]
+
+source_file="res://maps/room_engineblock.map"
+dest_files=["res://.godot/imported/room_engineblock.map-e75b61e66d24c656b2890cb55175eeae.tres"]
+
+[params]
+

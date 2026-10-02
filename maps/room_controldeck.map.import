@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ckv0dcv2l80hg"
+path="res://.godot/imported/room_controldeck.map-4102b1f0b0da2399b217741e8db8b2fd.tres"
+
+[deps]
+
+source_file="res://maps/room_controldeck.map"
+dest_files=["res://.godot/imported/room_controldeck.map-4102b1f0b0da2399b217741e8db8b2fd.tres"]
+
+[params]
+
