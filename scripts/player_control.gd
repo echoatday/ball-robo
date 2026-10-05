@@ -210,7 +210,10 @@ func _physics_process(delta: float) -> void:
 	if state_bouncing:
 		energy_checkout += 2
 
-	heat += heat_level
+	if Globals.unlock_heat:
+		heat += floor(heat_level / 2.0)
+	else:
+		heat += heat_level
 	
 	heat = clamp(heat, 0, max_heat+111)
 	energy = clamp(energy, 0, max_energy)
