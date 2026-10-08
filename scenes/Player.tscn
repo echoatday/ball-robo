@@ -27,6 +27,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ceixtb58kkriv" path="res://models/seat.obj" id="16_7grwn"]
 [ext_resource type="Texture2D" uid="uid://qrcfyp2nqb7i" path="res://textures/cockpit/crosshair_ball_yellow.png" id="16_dpgmg"]
 [ext_resource type="Script" uid="uid://bt4uj6psswfpw" path="res://scripts/ring_control.gd" id="16_i4nk8"]
+[ext_resource type="Texture2D" uid="uid://bcysivjjgbevx" path="res://textures/cockpit/tek_button.png" id="16_onyu1"]
 [ext_resource type="Script" uid="uid://bm0sd34rtqvg" path="res://scripts/reticle_box_control.gd" id="17_isqgh"]
 [ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
 [ext_resource type="Script" uid="uid://cimwqvgwmd23g" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
@@ -112,6 +113,29 @@ radius = 0.9
 margin = 0.02
 radius = 0.85
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnher"]
+albedo_color = Color(0.8, 0.56, 0.56399995, 1)
+albedo_texture = ExtResource("16_onyu1")
+uv1_scale = Vector3(1.4, 1.4, 1.4)
+uv1_offset = Vector3(0.11, -0.59, 0)
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iy5dr"]
+material = SubResource("StandardMaterial3D_pnher")
+top_radius = 0.4
+height = 0.5
+radial_segments = 8
+rings = 0
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxwkf"]
+shading_mode = 0
+albedo_color = Color(0.47843137, 0.8039216, 0.8039216, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_pnher"]
+material = SubResource("StandardMaterial3D_xxwkf")
+size = Vector2(0.2, 0.2)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07ay5"]
 render_priority = 1
 transparency = 1
@@ -149,13 +173,13 @@ points = PackedVector3Array(0.05, -0.05, 0, -0.05, 0.05, 0, 0.05, 0.05, 0, -0.05
 
 [sub_resource type="ImageTexture" id="ImageTexture_wlgdr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxwkf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onyu1"]
 shading_mode = 0
 albedo_color = Color(0.47843137, 0.8039216, 0.8039216, 1)
 grow_amount = 0.001
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_afj6a"]
-material = SubResource("StandardMaterial3D_xxwkf")
+material = SubResource("StandardMaterial3D_onyu1")
 top_radius = 0.001
 bottom_radius = 0.001
 height = 0.002
@@ -163,7 +187,7 @@ radial_segments = 4
 rings = 1
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_84ti5"]
-material = SubResource("StandardMaterial3D_xxwkf")
+material = SubResource("StandardMaterial3D_onyu1")
 top_radius = 0.001
 bottom_radius = 0.001
 height = 0.01
@@ -171,7 +195,7 @@ radial_segments = 4
 rings = 1
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pnher"]
-material = SubResource("StandardMaterial3D_xxwkf")
+material = SubResource("StandardMaterial3D_onyu1")
 top_radius = 0.001
 bottom_radius = 0.001
 height = 0.002
@@ -574,6 +598,11 @@ double_sided = false
 texture_filter = 0
 texture = ExtResource("11_kvw7q")
 
+[node name="e_button" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/heat_gauge" unique_id=1633640282]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.7252903e-09, -0.8547869, 1)
+layers = 2
+mesh = SubResource("CylinderMesh_iy5dr")
+
 [node name="energy_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1412220430 node_paths=PackedStringArray("gauge_needle", "gauge_text")]
 transform = Transform3D(0.0034641, 0.001, -0.00173205, 0, 0.0034641, 0.002, 0.002, -0.00173205, 0.003, 0.017, -0.019, -0.03)
 layers = 2
@@ -642,6 +671,216 @@ layers = 2
 mesh = ExtResource("9_la8f2")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = ExtResource("5_3wou3")
+
+[node name="light1" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=1619918341]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, -0.5, 1.4, 0.3)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light1" unique_id=599365391]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light2" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=641878968]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0, 1.4, 0.3)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light2" unique_id=389784186]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light3" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=927938862]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0.5, 1.4, 0.3)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light3" unique_id=797517491]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light4" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=1901552750]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, -0.5, 1, 0.4)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light4" unique_id=526732694]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light5" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=2074155464]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0, 1, 0.4)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light5" unique_id=2016124844]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light6" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=1552084957]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0.5, 1, 0.4)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light6" unique_id=2014049286]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light7" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=448542604]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, -0.5, 0.6, 0.5)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light7" unique_id=1109766147]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light8" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=440550295]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0, 0.6, 0.5)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light8" unique_id=265210653]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light9" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=9091141]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0.5, 0.6, 0.5)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light9" unique_id=1690415831]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light10" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=1204281523]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, -0.5, 0.2, 0.6)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light10" unique_id=914201840]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light11" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=932405854]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0, 0.2, 0.6)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light11" unique_id=1830008643]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light12" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=432057363]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0.5, 0.2, 0.6)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light12" unique_id=985372632]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light13" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=134382448]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, -0.5, -0.2, 0.7)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light13" unique_id=940459875]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light14" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=943381340]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0, -0.2, 0.7)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light14" unique_id=1073178560]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
+
+[node name="light15" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/array" unique_id=213095516]
+transform = Transform3D(0.6, 0, 0, 0, 0.2815479, 0.1726491, 0, -0.10358947, 0.4692465, 0.5, -0.2, 0.7)
+layers = 2
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cockpit/Seat/pilot_rig/array/light15" unique_id=1187544409]
+layers = 2
+light_color = Color(0.44000003, 0.62, 0.8, 1)
+light_energy = 0.01
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 0.01
 
 [node name="seat_model" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=834740296]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, -0.028, -0.009)

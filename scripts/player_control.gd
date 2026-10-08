@@ -294,6 +294,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY/2
 			state_grappling = false
 		state_rolling = not state_rolling
+		energy_checkout += energy_cost.small / 2
 		floor_stop_on_slope = not floor_stop_on_slope
 		floor_constant_speed = not floor_constant_speed
 		
