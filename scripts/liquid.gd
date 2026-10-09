@@ -43,6 +43,7 @@ func _physics_process(_delta: float) -> void:
 		if not Globals.unlock_waterproofing:
 			player.state_dead = true
 		else:
+			player.state_underwater = true
 			player.state_floating = true
 
 func _on_damage_zone_body_entered(body: Node3D) -> void:
@@ -57,4 +58,5 @@ func _on_damage_zone_body_exited(body: Node3D) -> void:
 	body.heat_level -= heat_severity
 	body.energy_recharge += energy_severity
 	underwater = false
+	player.state_underwater = false
 	player.state_floating = false

@@ -24,6 +24,10 @@ extends CharacterBody3D
 @export var pilot_rig: Node3D
 @export var seat: Node3D
 @export var cockpit_light: Light3D
+@export_category("Timers")
+@export var disable_movement_timer: Timer
+@export var regrab_timer: Timer
+@export var coyote_timer: Timer
 
 const SPEED = 8
 const ACCEL = 1.1
@@ -39,6 +43,7 @@ var state_rolling := false
 var state_grappling := false
 var state_spinning := false
 var state_floating := false
+var state_underwater := false
 var state_bouncing := false
 var state_boosting := false
 var state_dead := false
@@ -56,7 +61,7 @@ var previous_wall_normal
 
 var sliding = false
 
-var max_energy := 500
+var max_energy := 300
 var energy := 200
 var energy_recharge := 1
 var max_heat := 1000
@@ -108,7 +113,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2
-	if not state_dead and $Timer.is_stopped():
+	if not state_dead and disable_movement_timer.is_stopped():
 		input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor() and not sliding:
@@ -225,7 +230,7 @@ func _physics_process(delta: float) -> void:
 			can_spin = true
 			if can_boost == false:
 				can_boost = true
-	elif not $CoyoteTimer.is_stopped() or state_grappling:
+	elif not coyote_timer.is_stopped() or state_grappling:
 		if not current_wall_normal:
 			can_boost = true
 		can_jump = true
@@ -257,14 +262,20 @@ func _physics_process(delta: float) -> void:
 			reticle.rotation_degrees = Vector3(0,-180,0)
 			stuck_area_shape.shape.radius = 0
 			state_dead = false
+			if Globals.unlock_energy_1:
+				max_energy = 500
+			else:
+				max_energy = 300
 			heat = 0
-			energy = 300
+			energy = max_energy
 			can_grapple = true
 			dead_text.visible = false
 		
+	if not regrab_timer.is_stopped():
+		coyote_timer.stop()
 	
 	if Input.is_action_just_pressed("jump") and can_jump and Globals.unlock_jump == true:
-		$Timer2.start()
+		regrab_timer.start()
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
 		if not is_on_floor():
@@ -272,7 +283,7 @@ func _physics_process(delta: float) -> void:
 				if current_wall_normal == previous_wall_normal:
 					velocity.y -= 3
 				previous_wall_normal = current_wall_normal
-				$Timer.start()
+				disable_movement_timer.start()
 				velocity.x += current_wall_normal.x * BOOST_SPEED * 1.6
 				velocity.z += current_wall_normal.z * BOOST_SPEED * 1.6
 				velocity.y -= abs(current_wall_normal.y * BOOST_SPEED)
@@ -284,7 +295,7 @@ func _physics_process(delta: float) -> void:
 		previous_wall_normal = null
 	
 	if Input.is_action_pressed("jump") and not is_on_floor() and not state_rolling:
-		if not $Timer2.is_stopped():
+		if not regrab_timer.is_stopped():
 			velocity.y += 0.7
 			energy_checkout += 2
 
@@ -301,7 +312,7 @@ func _physics_process(delta: float) -> void:
 	if not state_rolling:
 
 		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
-			$Timer2.start()
+			regrab_timer.start()
 			velocity.y = JUMP_VELOCITY/2
 			velocity += direction * (BOOST_SPEED/2)
 			energy_checkout += energy_cost.large
@@ -309,7 +320,7 @@ func _physics_process(delta: float) -> void:
 			state_grappling = false
 			state_boosting = true
 			
-		if Input.is_action_pressed("boost") and not $Timer2.is_stopped():
+		if Input.is_action_pressed("boost") and not regrab_timer.is_stopped():
 			velocity += direction * 0.5
 			energy_checkout += 2
 		
@@ -352,9 +363,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		if not state_rolling:
 			if is_on_floor() and not sliding:
-				$CoyoteTimer.start()
+				coyote_timer.start()
 			elif is_on_wall() and not sliding:
-				$CoyoteTimer.start()
+				coyote_timer.start()
 				current_wall_normal = get_wall_normal()
 		move_and_slide()
 				
