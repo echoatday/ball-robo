@@ -24,6 +24,8 @@ extends CharacterBody3D
 @export var pilot_rig: Node3D
 @export var seat: Node3D
 @export var cockpit_light: Light3D
+@export var estop_button: Node3D
+@export var estop_button_body: Node3D
 @export_category("Timers")
 @export var disable_movement_timer: Timer
 @export var regrab_timer: Timer
@@ -242,6 +244,7 @@ func _physics_process(delta: float) -> void:
 		state_boosting = false
 	
 	if state_dead:
+		estop_button.mesh.top_radius = 0.3
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -252,7 +255,8 @@ func _physics_process(delta: float) -> void:
 		can_grapple = false
 		state_floating = false
 		dead_text.visible = true
-		if Input.is_action_just_pressed("fire"):
+		if Input.is_action_just_pressed("fire") and pilot_cast.get_collider() == estop_button_body:
+			estop_button.mesh.top_radius = 0.4
 			sphere.reset_screen()
 			global_transform = Globals.load_game()
 			seat.rotation = Vector3.ZERO
@@ -270,6 +274,8 @@ func _physics_process(delta: float) -> void:
 			energy = max_energy
 			can_grapple = true
 			dead_text.visible = false
+	elif Input.is_action_just_pressed("fire") and pilot_cast.get_collider() == estop_button_body:
+		state_dead = true
 		
 	if not regrab_timer.is_stopped():
 		coyote_timer.stop()
