@@ -4,12 +4,16 @@ extends Path3D
 var frequency = 3
 
 func _physics_process(_delta) -> void:
-	_arm_movement()
+		_arm_movement()
 	
 
-func _update_multimesh():
+func _update_multimesh(length):
 	var path_length: float = curve.get_baked_length()
-	var count = ceil(path_length / distance_interval)
+	var count
+	if length == 0:
+		count = ceil(path_length / distance_interval)
+	else: 
+		count = length
 	
 	var outer_arm = $ArmMesh1.multimesh
 	var inner_arm = $ArmMesh2.multimesh
@@ -60,6 +64,13 @@ func _arm_movement():
 		curve.set_point_position(3,point_3_base_position)
 		curve.set_point_position(2,point_2_base_position)
 		#curve.set_point_position(1,point_1_base_position)
+	
+	if not Globals.unlock_grapple:
+		$ClawMesh.visible = false
+		$ClawFist.visible = false
 
 func _on_curve_changed() -> void:
-	_update_multimesh()
+	if Globals.unlock_grapple:
+		_update_multimesh(0)
+	else:
+		_update_multimesh(2)
