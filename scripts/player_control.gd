@@ -278,7 +278,7 @@ func _physics_process(delta: float) -> void:
 	if not regrab_timer.is_stopped():
 		coyote_timer.stop()
 	
-	if Input.is_action_just_pressed("jump") and can_jump and Globals.unlock_jump == true:
+	if Input.is_action_just_pressed("jump") and can_jump and Globals.unlock_jump:
 		regrab_timer.start()
 		energy_checkout += energy_cost.small
 		velocity.y = JUMP_VELOCITY
@@ -303,8 +303,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y += 0.7
 			energy_checkout += 2
 
-		
-	if Input.is_action_just_pressed("roll"):
+	
+	if Input.is_action_just_pressed("roll") and Globals.unlock_roll:
 		if is_on_floor() or state_grappling:
 			velocity.y = JUMP_VELOCITY/2
 			state_grappling = false
@@ -315,7 +315,7 @@ func _physics_process(delta: float) -> void:
 		
 	if not state_rolling:
 
-		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost:
+		if Input.is_action_just_pressed("boost") and input_dir != Vector2.ZERO and can_boost and Globals.unlock_lateralboost:
 			regrab_timer.start()
 			velocity.y = JUMP_VELOCITY/2
 			velocity += direction * (BOOST_SPEED/2)
@@ -328,12 +328,12 @@ func _physics_process(delta: float) -> void:
 			velocity += direction * 0.5
 			energy_checkout += 2
 		
-		if Input.is_action_just_pressed("fire") and grapple_ready:
+		if Input.is_action_just_pressed("fire") and grapple_ready and Globals.unlock_grapple:
 			grapple_hook_position = grapple_cast.get_collider(0).global_position
 			energy_checkout += energy_cost.small
 			state_grappling = true
 	else:
-		if Input.is_action_just_pressed("boost") and not is_on_floor() and can_boost:
+		if Input.is_action_just_pressed("boost") and not is_on_floor() and can_boost and Globals.unlock_downboost:
 			if velocity.y > -12:
 				velocity.y = -BOOST_SPEED * 2
 			else:
@@ -341,16 +341,16 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.large
 			can_boost = false
 			state_boosting = true
-		if Input.is_action_pressed("jump") and not is_on_floor():
+		if Input.is_action_pressed("jump") and not is_on_floor() and Globals.unlock_bounce:
 			bounce_sphere.visible = true
 			state_bouncing = true
 		else:
 			bounce_sphere.visible = false
 			state_bouncing = false
 		
-		if Input.is_action_just_pressed("fire") and can_spin:
+		if Input.is_action_just_pressed("fire") and can_spin and Globals.unlock_spin:
 			state_spinning = true
-		if Input.is_action_just_released("fire") and can_spin:
+		if Input.is_action_just_released("fire") and can_spin and Globals.unlock_spin:
 			energy_checkout += spin_velocity.length()*4
 			velocity = spin_velocity
 			state_spinning = false

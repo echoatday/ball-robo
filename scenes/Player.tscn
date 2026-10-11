@@ -559,7 +559,7 @@ pointer_texture = Array[Texture]([ExtResource("2_ax5xn"), ExtResource("8_36yat")
 [node name="PilotCast" type="RayCast3D" parent="Cockpit/Seat/camera_gimbal/camera" unique_id=1117786796]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 target_position = Vector3(0, 0, 0.1)
-collision_mask = 11
+collision_mask = 8
 debug_shape_thickness = 1
 
 [node name="pilot_rig" type="Node3D" parent="Cockpit/Seat" unique_id=1503290293 node_paths=PackedStringArray("shake_timer")]
