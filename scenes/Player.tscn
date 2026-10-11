@@ -13,7 +13,10 @@
 [ext_resource type="Script" uid="uid://ctcvj2saeox2g" path="res://scripts/gauge_control.gd" id="5_4oxq5"]
 [ext_resource type="Texture2D" uid="uid://b8m73klewviwy" path="res://textures/cockpit/crosshair_box_red.png" id="5_8qmgo"]
 [ext_resource type="Script" uid="uid://bo5k1a46i4s8s" path="res://scripts/rig_control.gd" id="5_blnfk"]
+[ext_resource type="Script" uid="uid://cc4oonvvade1w" path="res://scripts/reticle_pilot_control.gd" id="7_1lbfo"]
+[ext_resource type="Texture2D" uid="uid://b4q0smceo3ml2" path="res://textures/cockpit/crosshair_pilot_hover.png" id="8_36yat"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_8bc5l"]
+[ext_resource type="Texture2D" uid="uid://lh7qdckq08wh" path="res://textures/cockpit/crosshair_pilot_click.png" id="9_aybtq"]
 [ext_resource type="ArrayMesh" uid="uid://n7qc4c0howw5" path="res://models/array.obj" id="9_la8f2"]
 [ext_resource type="ArrayMesh" uid="uid://cyssvlnmv4blm" path="res://models/screen.obj" id="9_oanc2"]
 [ext_resource type="ArrayMesh" uid="uid://c4x51s0fho678" path="res://models/screen_small.obj" id="10_41lfj"]
@@ -31,8 +34,10 @@
 [ext_resource type="Script" uid="uid://bm0sd34rtqvg" path="res://scripts/reticle_box_control.gd" id="17_isqgh"]
 [ext_resource type="Texture2D" uid="uid://cnk0gr580ob27" path="res://textures/cockpit/crosshair_ball_red.png" id="17_tu6o0"]
 [ext_resource type="Script" uid="uid://cimwqvgwmd23g" path="res://scripts/speedometer_control.gd" id="17_vwp1p"]
+[ext_resource type="Texture2D" uid="uid://ordhrpyi6cuc" path="res://textures/cockpit/glow_light.png" id="18_wy8pi"]
 [ext_resource type="Texture2D" uid="uid://7rkgd75e4rnx" path="res://textures/cockpit/array_light.png" id="20_2cdbf"]
 [ext_resource type="Texture2D" uid="uid://xn4oulwfuj6s" path="res://textures/cockpit/ui_corner.png" id="20_yhiff"]
+[ext_resource type="Script" uid="uid://n23bjgmmwv2i" path="res://scripts/e_button_control.gd" id="21_aybtq"]
 [ext_resource type="Texture2D" uid="uid://brewp7727q8wt" path="res://textures/cockpit/ui_border.png" id="21_hdyft"]
 [ext_resource type="Texture2D" uid="uid://ugx07egjf1nc" path="res://textures/cockpit/array_light_bright.png" id="21_ksomn"]
 [ext_resource type="Script" uid="uid://cw2ia7rtko5j2" path="res://scripts/array_control.gd" id="21_we1n3"]
@@ -116,6 +121,14 @@ radius = 0.9
 margin = 0.02
 radius = 0.85
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxwkf"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_pnher"]
+material = SubResource("StandardMaterial3D_xxwkf")
+size = Vector2(0.4, 0.3)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnher"]
 albedo_color = Color(0.8, 0.56, 0.56399995, 1)
 albedo_texture = ExtResource("16_onyu1")
@@ -134,14 +147,6 @@ cap_bottom = false
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iy5dr"]
 height = 1.0
 radius = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxwkf"]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_pnher"]
-material = SubResource("StandardMaterial3D_xxwkf")
-size = Vector2(0.4, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07ay5"]
 render_priority = 1
@@ -548,11 +553,14 @@ pixel_size = 0.0001
 no_depth_test = true
 render_priority = 1
 texture = ExtResource("2_ax5xn")
+script = ExtResource("7_1lbfo")
+pointer_texture = Array[Texture]([ExtResource("2_ax5xn"), ExtResource("8_36yat"), ExtResource("9_aybtq")])
 
 [node name="PilotCast" type="RayCast3D" parent="Cockpit/Seat/camera_gimbal/camera" unique_id=1117786796]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 target_position = Vector3(0, 0, 0.1)
 collision_mask = 11
+debug_shape_thickness = 1
 
 [node name="pilot_rig" type="Node3D" parent="Cockpit/Seat" unique_id=1503290293 node_paths=PackedStringArray("shake_timer")]
 script = ExtResource("5_blnfk")
@@ -590,25 +598,29 @@ texture_filter = 0
 texture = ExtResource("15_4yao8")
 
 [node name="heat_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/heat_gauge" unique_id=235077300]
-transform = Transform3D(0.999999, 0, 0, 0, 0.799999, 0, 0, 0, 1, 0, 0, 1.06)
+transform = Transform3D(0.999999, 0, 0, 0, 0.799999, 0, 0, 0, 1, 0, 0, 1.1)
 layers = 2
 pixel_size = 0.008
-shaded = true
 texture_filter = 0
-modulate = Color(0.44705883, 1, 0.99607843, 1)
+modulate = Color(0.425, 0.85, 0.85, 1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "99"
 font = ExtResource("9_8bc5l")
 font_size = 80
 outline_size = 0
 
-[node name="glow" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge/heat_text" unique_id=1677273073]
-transform = Transform3D(4, 0, 0, 0, 6, 0, 0, 0, 4, 0, 0, -0.05)
+[node name="textbg" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/heat_gauge/heat_text" unique_id=916991987]
+transform = Transform3D(1.9, 0, 0, 0, 2, 3.2218722e-08, 0, -3.2218722e-08, 2, 0, 0.03, -0.09)
 layers = 2
-modulate = Color(1, 1, 1, 0.11764706)
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="glow" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge/heat_text" unique_id=1677273073]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.05, -0.05)
+layers = 2
+modulate = Color(1, 1, 1, 0.7058824)
 double_sided = false
 texture_filter = 0
-texture = ExtResource("20_2cdbf")
+texture = ExtResource("18_wy8pi")
 
 [node name="heat_bg" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge" unique_id=1956839271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -3.1664946e-08, 0.8655265)
@@ -624,6 +636,7 @@ texture = ExtResource("11_kvw7q")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.7252903e-09, -0.8547869, 1)
 layers = 2
 mesh = SubResource("CylinderMesh_iy5dr")
+script = ExtResource("21_aybtq")
 
 [node name="estop_button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/heat_gauge/e_button" unique_id=239366185]
 collision_layer = 8
@@ -632,6 +645,20 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/heat_gauge/e_button/estop_button_body" unique_id=376545820]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 3.7252903e-09, 7.45058e-09, -0.21633652)
 shape = SubResource("CylinderShape3D_iy5dr")
+
+[node name="glow" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge/e_button" unique_id=1320459302]
+transform = Transform3D(3.5, 0, 0, 0, -1.5298986e-07, 3.5, 0, -3.5, -1.5298986e-07, 0.01, 0.01, 0.01)
+layers = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("18_wy8pi")
+
+[node name="glow_bright" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/heat_gauge/e_button" unique_id=1343337235]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, 0, 0.02, -0.01)
+layers = 2
+double_sided = false
+texture_filter = 0
+texture = ExtResource("21_ksomn")
 
 [node name="energy_gauge" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1412220430 node_paths=PackedStringArray("gauge_needle", "gauge_text")]
 transform = Transform3D(0.0034641, 0.001, -0.00173205, 0, 0.0034641, 0.002, 0.002, -0.00173205, 0.003, 0.017, -0.019, -0.03)
@@ -653,25 +680,29 @@ texture_filter = 0
 texture = ExtResource("15_4yao8")
 
 [node name="energy_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/energy_gauge" unique_id=2105288543]
-transform = Transform3D(0.999999, 0, 0, 0, 0.8, 0, 0, 0, 0.999999, 0, 0, 1.06)
+transform = Transform3D(0.999999, 0, 0, 0, 0.8, 0, 0, 0, 0.999999, 0, 0, 1.1)
 layers = 2
 pixel_size = 0.008
-shaded = true
 texture_filter = 0
-modulate = Color(0.44705883, 1, 0.99607843, 1)
+modulate = Color(0.425, 0.85, 0.85, 1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "300"
 font = ExtResource("9_8bc5l")
 font_size = 80
 outline_size = 0
 
-[node name="glow" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/energy_gauge/energy_text" unique_id=38757141]
-transform = Transform3D(4, 0, 0, 0, 6, 0, 0, 0, 4, 0, 0, -0.05)
+[node name="textbg" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig/energy_gauge/energy_text" unique_id=1719893489]
+transform = Transform3D(2.8, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.03, -0.09)
 layers = 2
-modulate = Color(1, 1, 1, 0.11764706)
+mesh = SubResource("QuadMesh_pnher")
+
+[node name="glow" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/energy_gauge/energy_text" unique_id=38757141]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.05, -0.05)
+layers = 2
+modulate = Color(1, 1, 1, 0.7058824)
 double_sided = false
 texture_filter = 0
-texture = ExtResource("20_2cdbf")
+texture = ExtResource("18_wy8pi")
 
 [node name="energy_bg" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/energy_gauge" unique_id=1160330452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1664946e-08, -3.1664946e-08, 0.8947557)

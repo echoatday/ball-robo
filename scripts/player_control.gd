@@ -244,7 +244,6 @@ func _physics_process(delta: float) -> void:
 		state_boosting = false
 	
 	if state_dead:
-		estop_button.mesh.top_radius = 0.3
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -256,7 +255,6 @@ func _physics_process(delta: float) -> void:
 		state_floating = false
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire") and pilot_cast.get_collider() == estop_button_body:
-			estop_button.mesh.top_radius = 0.4
 			sphere.reset_screen()
 			global_transform = Globals.load_game()
 			seat.rotation = Vector3.ZERO
@@ -387,7 +385,6 @@ func aim() -> void:
 	var ui_edge_y = get_viewport().size.y/1
 	
 	if state_looking:
-		reticle_pilot.visible = false
 		dummy_reticle.visible = true
 		dummy_reticle2.visible = true
 		camera.rotation = Vector3.ZERO
@@ -403,7 +400,6 @@ func aim() -> void:
 		reticle.look_at(camera.global_position)
 		reticle.rotation.z = 0
 	else:
-		reticle_pilot.visible = true
 		dummy_reticle.visible = false
 		dummy_reticle2.visible = false
 		state_grappling = false
