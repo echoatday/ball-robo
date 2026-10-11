@@ -341,7 +341,7 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += energy_cost.large
 			can_boost = false
 			state_boosting = true
-		if Input.is_action_pressed("jump") and not is_on_floor() and Globals.unlock_bounce:
+		if Input.is_action_pressed("jump") and not is_on_floor() and not is_on_wall() and not is_on_ceiling() and Globals.unlock_bounce:
 			bounce_sphere.visible = true
 			state_bouncing = true
 		else:
