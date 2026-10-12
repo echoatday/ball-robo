@@ -48,6 +48,7 @@ var state_floating := false
 var state_underwater := false
 var state_bouncing := false
 var state_boosting := false
+var state_downboosting := false
 var state_dead := false
 var can_boost := true
 var can_jump := true
@@ -183,7 +184,7 @@ func _physics_process(delta: float) -> void:
 
 	if not grapple_cast.is_colliding():
 		grapple_ready = false
-	else:
+	elif not state_dead:
 		if grapple_cast.get_collider(0).owner.target_visible == true:
 			grapple_ready = true
 			can_grapple = true
@@ -338,6 +339,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = -BOOST_SPEED * 2
 			else:
 				velocity.y += -BOOST_SPEED
+			state_downboosting = true
 			energy_checkout += energy_cost.large
 			can_boost = false
 			state_boosting = true
@@ -356,6 +358,9 @@ func _physics_process(delta: float) -> void:
 			state_spinning = false
 			can_spin = false
 			can_boost = true
+	
+	if state_downboosting and velocity.y > -BOOST_SPEED:
+			state_downboosting = false
 	
 	aim()
 	if state_bouncing and state_rolling and not is_on_floor():

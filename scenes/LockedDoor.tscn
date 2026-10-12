@@ -54,9 +54,13 @@ _surfaces = [{
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cg2g4"]
 points = PackedVector3Array(4, 4, 1, 4, 0, 1, 0, 4, 1, 0, 0, 1, 4, 4, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r37dj"]
+size = Vector3(4, 4, 12)
+
 [node name="LockedDoor2" type="Path3D" unique_id=1984032725]
 curve = SubResource("Curve3D_r37dj")
 script = ExtResource("2_xr2ep")
+speed = 12.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=364380761]
 rotation_mode = 0
@@ -82,3 +86,15 @@ map_settings = ExtResource("4_t0exp")
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap" unique_id=1400477947]
 collision_mask = 0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1395065873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=848733456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+shape = SubResource("BoxShape3D_r37dj")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

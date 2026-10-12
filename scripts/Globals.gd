@@ -6,11 +6,11 @@ var player: CharacterBody3D
 var current_checkpoint: int
 var rolled_state := false
 
-var doors_rawmaterials := false
-var doors_blastfurnace := false
-var doors_coolingsystem := false
-var lever_powershovel := true
-var lever_wastedisposal := true
+var unlock_door := false
+var unlock_hatch := false
+var unlock_sheet := false
+var unlock_iris := true
+var unlock_vault := true
 
 var unlock_roll := true
 var unlock_jump := true
@@ -31,11 +31,11 @@ func save_game():
 		"current_checkpoint" : current_checkpoint,
 		"rolled_state" : rolled_state,
 		
-		"doors_rawmaterials" : doors_rawmaterials,
-		"doors_blastfurnace" : doors_blastfurnace,
-		"doors_coolingsystem" : doors_coolingsystem,
-		"lever_powershovel" : lever_powershovel,
-		"lever_wastedisposal" : lever_wastedisposal,
+		"unlock_door" : unlock_door,
+		"unlock_hatch" : unlock_hatch,
+		"unlock_sheet" : unlock_sheet,
+		"unlock_iris" : unlock_iris,
+		"unlock_vault" : unlock_vault,
 		
 		"unlock_roll" : unlock_roll,
 		"unlock_jump" : unlock_jump,
@@ -65,11 +65,11 @@ func load_game():
 	current_checkpoint = json.data["current_checkpoint"]
 	rolled_state = json.data["rolled_state"]
 	
-	doors_rawmaterials = json.data["doors_rawmaterials"]
-	doors_blastfurnace = json.data["doors_blastfurnace"]
-	doors_coolingsystem = json.data["doors_coolingsystem"]
-	lever_powershovel = json.data["lever_powershovel"]
-	lever_wastedisposal = json.data["lever_wastedisposal"]
+	unlock_door = json.data["unlock_door"]
+	unlock_hatch = json.data["unlock_hatch"]
+	unlock_sheet = json.data["unlock_sheet"]
+	unlock_iris = json.data["unlock_iris"]
+	unlock_vault = json.data["unlock_vault"]
 	
 	unlock_roll = json.data["unlock_roll"]
 	unlock_jump = json.data["unlock_jump"]

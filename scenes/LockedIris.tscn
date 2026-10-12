@@ -1,0 +1,323 @@
+[gd_scene format=4 uid="uid://dv7pb3b2bph2w"]
+
+[ext_resource type="Script" uid="uid://htdafmnp4pwt" path="res://scripts/locked_iris.gd" id="1_nveqg"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_ppghj"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_kjqbd"]
+[ext_resource type="Material" uid="uid://u4n3ooucvv6b" path="res://textures/librequake/lq_tech/aqf075.tres" id="4_nveqg"]
+[ext_resource type="Material" uid="uid://d06w7jfavkiyu" path="res://textures/librequake/lq_conc/conc1_1.tres" id="5_uqhl0"]
+[ext_resource type="Material" uid="uid://bq4jd1l4y4tv1" path="res://textures/librequake/lq_tech/w17_1.tres" id="6_iwhhn"]
+[ext_resource type="Material" uid="uid://c4a6ou442krg6" path="res://textures/librequake/lq_tech/aqpipe13.tres" id="7_1lkg4"]
+[ext_resource type="Texture2D" uid="uid://b7qgv8wivc3hb" path="res://textures/librequake/lq_tech/fddoor01c.png" id="8_jpf53"]
+[ext_resource type="Texture2D" uid="uid://bvjy34ex46h5r" path="res://textures/librequake/lq_tech/aqf075.png" id="9_yykph"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pnjx2"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 4, 4, 1),
+"attribute_data": PackedByteArray("AAAAAAAAwL4AAAAAAAAAAAAAwD4AAAAAAADAPgAAAAAAAAAAAAAAAAAAAAAAAMC+AADAPgAAgL8AAAAAAACAvwAAAAAAACC/AAAAAAAAIL8AAAAAAACAvwAAwD4AAIC/AACAPwAAwL4AACA/AAAAAAAAgD8AAAAAAACAPwAAAAAAACA/AAAAAAAAgD8AAMC+AACAPwAAgL8AACA/AACAvwAAgD8AACC/AACAPwAAIL8AACA/AACAvwAAgD8AAIC/"),
+"format": 34359742487,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcA"),
+"material": ExtResource("4_nveqg"),
+"name": "librequake/lq_tech/aqf075",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAwD8AAAAAAAAAAAAAAAAAAAAAAADAPwAAAAAAAAAAAADAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAwD8AAIA/AADAPwAAgEAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAIEAAAIA/AAAAAAAAgEAAAIA/AADAPwAAgEAAAIA/AACAQAAAwD8AAAAAAAAgQAAAAAAAAAAAAACAQAAAAAAAAAAAAACAQAAAAAAAAIA/AAAgQAAAAAAAAIA/AACAQAAAwD8AAIA/AACAQAAAgEAAAAAAAAAgQAAAgEAAAAAAAACAQAAAIEAAAAAAAACAQAAAIEAAAIA/AAAgQAAAgEAAAIA/AACAQAAAgEAAAIA//////////z//////////P/////////8//3//f////7//f/9/////v/9//3////+//////////z//////////P/////////8//3//f////7//f/9/////v/9//3////+//////////z//////////P/////////8//3//f////7//f/9/////v/9//3////+//////////z//////////P/////////8//3//f////7//f/9/////v/9//3////+/")
+}, {
+"aabb": AABB(0, 0, 0, 4, 4, 1),
+"attribute_data": PackedByteArray("AACAPgAAAAAAAAAAAAAAAAAAAAAAAMC+AACAPgAAwL4AAIA+AAAAAAAAgD4AAMC+AAAAAAAAwL4AAAAAAAAAAAAAgD4AACC/AAAAAAAAIL8AAAAAAACAvwAAgD4AAIC/AACAPgAAAAAAAAAAAAAAAAAAAAAAAMC+AACAPgAAwL4AAIA+AAAgvwAAgD4AAIC/AAAAAAAAgL8AAAAAAAAgvwAAgD4AAMC+AAAAAAAAwL4AAAAAAAAAAAAAgD4AAAAAAACAPgAAIL8AAAAAAAAgvwAAAAAAAIC/AACAPgAAgL8AAIA+AACAvwAAAAAAAIC/AAAAAAAAIL8AAIA+AAAgvwAAgD4AAMC+AAAAAAAAwL4AAAAAAAAgvwAAgD4AACC/AACAPgAAwL4AAIA+AAAgvwAAAAAAACC/AAAAAAAAwL4AAIA+AADAvgAAAAAAAMC+AAAAAAAAIL8AAIA+AAAgvwAAgD4AACC/AAAAAAAAIL8AAAAAAADAvgAAgD4AAMC+"),
+"format": 34359742487,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8A"),
+"material": ExtResource("5_uqhl0"),
+"name": "librequake/lq_conc/conc1_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAwD8AAAAAAAAAAAAAwD8AAIA/AAAAAAAAAAAAAIA/AADAPwAAAAAAAIA/AADAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEAAAIA/AAAAAAAAIEAAAAAAAAAAAAAAgEAAAAAAAAAAAAAAgEAAAIA/AAAAAAAAgEAAAIA/AAAAAAAAgEAAAAAAAADAPwAAgEAAAAAAAADAPwAAgEAAAIA/AAAgQAAAAAAAAIA/AACAQAAAAAAAAIA/AACAQAAAAAAAAAAAAAAgQAAAAAAAAAAAAACAQAAAwD8AAIA/AACAQAAAwD8AAAAAAACAQAAAAAAAAAAAAACAQAAAAAAAAIA/AAAgQAAAgEAAAIA/AAAgQAAAgEAAAAAAAACAQAAAgEAAAAAAAACAQAAAgEAAAIA/AACAQAAAgEAAAIA/AACAQAAAgEAAAAAAAACAQAAAIEAAAAAAAACAQAAAIEAAAIA/AADAPwAAgEAAAIA/AADAPwAAgEAAAAAAAAAgQAAAgEAAAAAAAAAgQAAAgEAAAIA/AADAPwAAAAAAAIA/AAAgQAAAAAAAAIA/AAAgQAAAAAAAAAAAAADAPwAAAAAAAAAAAAAAAAAAwD8AAIA/AAAAAAAAwD8AAAAAAAAAAAAAIEAAAAAAAAAAAAAAIEAAAIA/AACAQAAAIEAAAIA/AACAQAAAIEAAAAAAAACAQAAAwD8AAAAAAACAQAAAwD8AAIA/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//fwAA/3//P/9/AAD/f/8//38AAP9//z//fwAA/3//PwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+//3////9//7//f////3//v/9/////f/+//3////9//7//fwAA/3//P/9/AAD/f/8//38AAP9//z//fwAA/3//P////3//f/8/////f/9//z////9//3//P////3//f/8//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//P////3//f/8/////f/9//z////9//3//P/9/////f/+//3////9//7//f////3//v/9/////f/+//38AAP9//z//fwAA/3//P/9/AAD/f/8//38AAP9//z8AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v////3//f/8/////f/9//z////9//3//P////3//f/8/")
+}, {
+"aabb": AABB(0, 0, 0, 4, 4, 1),
+"attribute_data": PackedByteArray("btu2PgAAAAC3bVs+AAAAALdtWz63bdu+btu2Prdt275u27Y+AAAAAG7btj63bdu+t21bPrdt2763bVs+AAAAAG7btj4lSRI/t21bPiVJEj+3bVs+AACAP27btj4AAIA/btu2PiVJEj9u27Y+AACAP7dtWz4AAIA/t21bPiVJEj9u27Y+JUmSvm7btj63bVu/t21bPrdtW7+3bVs+JUmSvm7btj4lSRI+t21bPiVJEj63bVs+bts2P27btj5u2zY/btu2PrdtW7+3bVs+t21bv7dtWz4lSZK+btu2PiVJkr5u27Y+JUkSPrdtWz4lSRI+t21bPm7bNj9u27Y+bts2Pw=="),
+"format": 34359742487,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8A"),
+"material": ExtResource("6_iwhhn"),
+"name": "librequake/lq_tech/w17_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("AAAAAAAAwD8AAIA/AAAAAAAAwD8AAAAAAADAPwAAAAAAAAAAAADAPwAAAAAAAIA/AAAAAAAAIEAAAIA/AADAPwAAgEAAAIA/AADAPwAAgEAAAAAAAAAAAAAAIEAAAAAAAAAgQAAAAAAAAIA/AAAgQAAAAAAAAAAAAACAQAAAwD8AAAAAAACAQAAAwD8AAIA/AAAgQAAAgEAAAIA/AACAQAAAIEAAAIA/AACAQAAAIEAAAAAAAAAgQAAAgEAAAAAAAACAPwAAYEAAAIA/AABAQAAAYEAAAIA/AABAQAAAYEAAAAAAAACAPwAAYEAAAAAAAACAPwAAAD8AAIA/AACAPwAAAD8AAAAAAABAQAAAAD8AAAAAAABAQAAAAD8AAIA/AAAAPwAAQEAAAIA/AAAAPwAAQEAAAAAAAAAAPwAAgD8AAAAAAAAAPwAAgD8AAIA/AABgQAAAgD8AAIA/AABgQAAAgD8AAAAAAABgQAAAQEAAAAAAAABgQAAAQEAAAIA//7//v/9//7//v/+//3//v/+//7//f/+//7//v/9//7//v/8//3//P/+//z//f/8//7//P/9//z//v/8//3//P/8//7//f/+//z//v/9//7//P/+//3//v/8//7//f/+//z//P/9//z//P/8//3//P/8//z//f/8//z//P/9//z//fwAA/3//P/9/AAD/f/8//38AAP9//z//fwAA/3//P/9/////f/+//3////9//7//f////3//v/9/////f/+/////f/9//z////9//3//P////3//f/8/////f/9//z8AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vw==")
+}, {
+"aabb": AABB(0, 0, 0, 4, 4, 1),
+"attribute_data": PackedByteArray("AABAPwAAYD8AACA/AACAPwAAwD4AAIA/AACAPgAAYD8AAIA+AACAvgAAAAAAAIC+AAAAAAAAwL4AAIA+AADAvgAAgD4AACC/AAAAAAAAIL8AAAAAAABAvwAAgD4AAEC/AABAPwAAkD8AAIA+AACQPwAAwD4AAKA/AAAgPwAAoD8AAEA/AAAAvgAAgD4AAAC+AADAPgAAAAAAACA/AAAAAAAAgD4AAIC+AACAPgAAwL4AAAAAAADAvgAAAAAAAIC+AACAPgAAIL8AAIA+AABAvwAAAAAAAEC/AAAAAAAAIL8AACA/AAAAAAAAwD4AAAAAAACAPgAAAL4AAEA/AAAAvgAAQL/8//+9AAAgv3us6jIAAMC+482MMgAAgL7///+9AACAPgAAAAAAAIA+AAAAvgAAAAAAAAC+AAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAAAAAAAAAL4AAIA+AAAAvgAAgL7///+9AADAvuPNjDIAACC/e6zqMgAAQL/8//+9//8fPwAAgD///z8/AQBgP/3/fz4AAGA///+/PgAAgD8AAIA+AABgvwAAgD4AAIC/AAAAAAAAgL8AAAAAAABgvwAAgD4AAGC/AAAAAAAAYL8AAAAAAACAvwAAgD4AAIC/AQAgvwAAgD8BAMC+AACAPwEAgL4AAGA/AQBAv///Xz8="),
+"format": 34359742487,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8AMAAxADIAMAAyADMANAA1ADYANAA2ADcAOAA5ADoAOAA6ADsAPAA9AD4APAA+AD8A"),
+"material": ExtResource("7_1lkg4"),
+"name": "librequake/lq_tech/aqpipe13",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("AABAQAAAYEAAAAAAAAAgQAAAgEAAAAAAAADAPwAAgEAAAAAAAACAPwAAYEAAAAAAAACAPwAAYEAAAIA/AACAPwAAYEAAAAAAAADAPwAAgEAAAAAAAADAPwAAgEAAAIA/AAAgQAAAgEAAAIA/AAAgQAAAgEAAAAAAAABAQAAAYEAAAAAAAABAQAAAYEAAAIA/AABAQAAAYEAAAIA/AACAPwAAYEAAAIA/AADAPwAAgEAAAIA/AAAgQAAAgEAAAIA/AABAQAAAAD8AAAAAAACAPwAAAD8AAAAAAADAPwAAAAAAAAAAAAAgQAAAAAAAAAAAAACAPwAAAD8AAIA/AADAPwAAAAAAAIA/AADAPwAAAAAAAAAAAACAPwAAAD8AAAAAAAAgQAAAAAAAAIA/AABAQAAAAD8AAIA/AABAQAAAAD8AAAAAAAAgQAAAAAAAAAAAAAAgQAAAAAAAAIA/AADAPwAAAAAAAIA/AACAPwAAAD8AAIA/AABAQAAAAD8AAIA/AAAAPwAAQEAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAwD8AAAAAAAAAPwAAgD8AAAAAAAAAAAAAwD8AAIA/AAAAPwAAgD8AAIA/AAAAPwAAgD8AAAAAAAAAAAAAwD8AAAAAAAAAAAAAIEAAAIA/AAAAAAAAIEAAAAAAAAAAPwAAQEAAAAAAAAAAPwAAQEAAAIA/AAAAPwAAgD8AAIA/AAAAAAAAwD8AAIA/AAAAAAAAIEAAAIA/AAAAPwAAQEAAAIA/AACAQAAAIEAAAAAAAABgQAAAQEAAAAAAAABgQAAAgD8AAAAAAACAQAAAwD8AAAAAAABgQAAAgD8AAIA/AACAQAAAwD8AAIA/AACAQAAAwD8AAAAAAABgQAAAgD8AAAAAAABgQAAAQEAAAIA/AABgQAAAQEAAAAAAAACAQAAAIEAAAAAAAACAQAAAIEAAAIA/AACAQAAAIEAAAIA/AACAQAAAwD8AAIA/AABgQAAAgD8AAIA/AABgQAAAQEAAAIA//////////z//////////P/////////8//////////z//P/+//3//v/8//7//f/+//z//v/9//7//P/+//3//v/+//7//f/+//7//v/9//7//v/+//3//v/+//7//f/+//3//f////7//f/9/////v/9//3////+//3//f////7//////////P/////////8//////////z//////////P/8//z//f/8//z//P/9//z//P/8//3//P/8//z//f/8//7//P/9//z//v/8//3//P/+//z//f/8//7//P/9//z//f/9/////v/9//3////+//3//f////7//f/9/////v///////f/5///////9//n///////3/+f///////f/5//z//P/9//z//P/8//3//P/8//z//f/8//z//P/9//z//P/+//3//v/8//7//f/+//z//v/9//7//P/+//3//v/9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA//////9/AAD//////38AAP//////fwAA//////9/AAD/v/8//3//P/+//z//f/8//7//P/9//z//v/8//3//P/+//7//f/+//7//v/9//7//v/+//3//v/+//7//f/+//3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AIA=")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pm0m1"]
+points = PackedVector3Array(1.5, 0, 1, 0, 1.5, 1, 0, 0, 1, 1.5, 0, 0, 0, 1.5, 0, 0, 0, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tkpqt"]
+points = PackedVector3Array(1.5, 4, 1, 0, 2.5, 1, 0, 4, 1, 1.5, 4, 0, 0, 2.5, 0, 0, 4, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uvpb6"]
+points = PackedVector3Array(4, 0, 1, 4, 1.5, 1, 2.5, 0, 1, 4, 0, 0, 4, 1.5, 0, 2.5, 0, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w6rjy"]
+points = PackedVector3Array(4, 4, 1, 4, 2.5000005, 1, 2.5000005, 4, 1, 4, 4, 0, 4, 2.5000005, 0, 2.5000005, 4, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0s15t"]
+points = PackedVector3Array(2.4999998, 4, 1, 2.9999995, 3.5000002, 1, 1.5000001, 4, 1, 1.0000002, 3.5000002, 1, 2.4999998, 4, 0, 2.9999995, 3.5000002, 0, 1.5000001, 4, 0, 1.0000002, 3.5000002, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p56hj"]
+points = PackedVector3Array(3, 0.5, 1, 2.4999998, 0, 1, 0.99999994, 0.5, 1, 1.5, 0, 1, 3, 0.5, 0, 2.4999998, 0, 0, 0.99999994, 0.5, 0, 1.5, 0, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tpg04"]
+points = PackedVector3Array(0.5, 3, 1, 0.5, 0.99999994, 1, 0, 2.4999998, 1, 0, 1.5, 1, 0.5, 3, 0, 0.5, 0.99999994, 0, 0, 2.4999998, 0, 0, 1.5, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ixbab"]
+points = PackedVector3Array(4, 2.4999998, 1, 4, 1.5000001, 1, 3.5000002, 2.9999995, 1, 3.5000002, 1.0000002, 1, 4, 2.4999998, 0, 4, 1.5000001, 0, 3.5000002, 2.9999995, 0, 3.5000002, 1.0000002, 0)
+
+[sub_resource type="Curve3D" id="Curve3D_20xp4"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, -1.5, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgsdo"]
+albedo_texture = ExtResource("8_jpf53")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dly2h"]
+albedo_texture = ExtResource("9_yykph")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s73rt"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0.25, 1.5, 1.5, 0.5),
+"attribute_data": PackedByteArray("8gS1PVVkDr/yBLW9VWQOv7bDh74wRsK+8wS1vW6HT77zBLU9bodPvrbDhz4wRsK+9gQ1varIfL63wwe+MEYivlRknr6Rpau+MEZivs7m2L7yBDU9MEYivvQENb2qyHy+tsMHvjBGIr7zBDW9boePvfYENb2qyHy+MEZivs7m2L5UZJ6+kaWrvrfDB74wRiK+8gS1vVVkDr/yBLU9VWQOv7bDhz4wRsK+8wS1PW6HT77zBLW9bodPvrbDh74wRsK+"),
+"format": 34359742487,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAAADAAQAAAAEAAUABgAHAAgABgAIAAkACgALAAwACgAMAA0ADgAPABAADgAQABEAEgATABQAEgAUABUAEgAVABYAEgAWABcA"),
+"material": SubResource("StandardMaterial3D_kgsdo"),
+"name": "librequake/lq_tech/fddoor01c",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AADAPwAAgD8AAIA+AACAPwAAwD8AAIA+AAAAAAAAwD8AAIA+AAAAAAAAAD8AAIA+AAAAPwAAAAAAAIA+AADAPwAAAAAAAIA+AAAAAAAAAD8AAEA/AAAAAAAAAD8AAIA+AAAAAAAAwD8AAIA+AAAAAAAAwD8AAEA/AAAAAAAAAD8AAEA/AAAAPwAAAAAAAEA/AAAAPwAAAAAAAIA+AAAAAAAAAD8AAIA+AAAAPwAAAAAAAEA/AADAPwAAAAAAAEA/AADAPwAAAAAAAIA+AAAAPwAAAAAAAIA+AACAPwAAwD8AAEA/AADAPwAAgD8AAEA/AADAPwAAAAAAAEA/AAAAPwAAAAAAAEA/AAAAAAAAAD8AAEA/AAAAAAAAwD8AAEA///////+//1///////7//X///////v/9f//////+//1///////7//X///////v/9fAAD/f/9//58AAP9//3//nwAA/3//f/+fAAD/f/9//5//P/8//z//P/8//z//P/8//z//P/8//z//P/8//z//P/9/AAD/P/8//38AAP8//z//fwAA/z//P/9/AAD/P/8//3//f/+//5//f/9//7//n/9//3//v/+f/3//f/+//5//f/9//7//n/9//3//v/+f")
+}, {
+"aabb": AABB(0, 0, 0.25, 1.5, 1.5, 0.5),
+"attribute_data": PackedByteArray("AQAAvgAAQL4AAAC+AACAvQAAwL79/3+9AADAvv//P74AAMC+//8/vgAAwL79/3+9AAAAv/z/f70AAAC///8/vgAAwL7//z++AADAvv3/f70AAAC+AACAvQEAAL4AAEC+AABAPgAAgL4AAIA9AACAvgAAgD0AAMC+AABAPgAAwL4AAEA+AADAvgAAgD0AAMC+AACAPQAAgL4AAEA+AACAvg=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMA"),
+"material": ExtResource("7_1lkg4"),
+"name": "librequake/lq_tech/aqpipe13",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAAAAwD8AAEA/AAAAAAAAwD8AAIA+AACAPwAAwD8AAIA+AACAPwAAwD8AAEA/AACAPwAAwD8AAEA/AACAPwAAwD8AAIA+AADAPwAAgD8AAIA+AADAPwAAgD8AAEA/AADAPwAAgD8AAEA/AADAPwAAgD8AAIA+AADAPwAAAAAAAIA+AADAPwAAAAAAAEA/AACAPwAAwD8AAEA/AACAPwAAwD8AAIA+AADAPwAAwD8AAIA+AADAPwAAwD8AAEA/AADAPwAAwD8AAEA/AADAPwAAwD8AAIA+AADAPwAAgD8AAIA+AADAPwAAgD8AAEA//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//v/+/AAD/v/+//78AAP+//7//vwAA/7//v/+/AAD/v////3//f/5/////f/9//n////9//3/+f////3//f/5//3////9//7//f////3//v/9/////f/+//3////9//7////9//3//P////3//f/8/////f/9//z////9//3//Pw==")
+}, {
+"aabb": AABB(1, 1, 0.25, 0.5, 0.5, 0.5),
+"attribute_data": PackedByteArray("AACAPwAAgL8AAEA/AACAvwAAgD8AAEC/AADAPgAAQL8AAMA+AACAvwAAAD4AAIC/AAAAPgAAQL8AAIA/AABAvwAAQD8AAIC/AACAPwAAgL8="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAFAAYABwAIAAkA"),
+"material": SubResource("StandardMaterial3D_dly2h"),
+"name": "librequake/lq_tech/aqf075",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AADAPwAAwD8AAIA+AACAPwAAwD8AAIA+AADAPwAAgD8AAIA+AACAPwAAwD8AAEA/AADAPwAAgD8AAEA/AADAPwAAgD8AAIA+AACAPwAAwD8AAIA+AADAPwAAgD8AAEA/AACAPwAAwD8AAEA/AADAPwAAwD8AAEA//////////z//////////P/////////8//z//P/9//z//P/8//3//P/8//z//f/8//z//P/9//z//f/9/////v/9//3////+//3//f////78=")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pi0jf"]
+points = PackedVector3Array(1.5, 1.0000001, 0.75, 1.5, 0, 0.75, 1.0000001, 1.5, 0.75, 0, 1.5, 0.75, 0.5, 0, 0.75, 0, 0.5, 0.75, 1.5, 1.0000001, 0.25, 1.5, 0, 0.25, 1.0000001, 1.5, 0.25, 0, 1.5, 0.25, 0.5, 0, 0.25, 0, 0.5, 0.25)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_20o5n"]
+points = PackedVector3Array(1.5, 1.5, 0.75, 1.5, 1.0000001, 0.75, 1.0000001, 1.5, 0.75, 1.5, 1.5, 0.25, 1.5, 1.0000001, 0.25, 1.0000001, 1.5, 0.25)
+
+[sub_resource type="Curve3D" id="Curve3D_k6gku"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1.5, -1.5, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_c47gd"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.5, -1.5, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nveqg"]
+size = Vector3(4, 4, 12)
+
+[node name="LockedIris" type="Node3D" unique_id=2011431275]
+script = ExtResource("1_nveqg")
+speed = 12.0
+
+[node name="FuncGodotMap" type="Node3D" parent="." unique_id=697555256]
+script = ExtResource("2_ppghj")
+local_map_file = "uid://pk2cx8t7fs51"
+map_settings = ExtResource("3_kjqbd")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap" unique_id=1635080785]
+collision_mask = 0
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=423271046]
+mesh = SubResource("ArrayMesh_pnjx2")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1154047569]
+shape = SubResource("ConvexPolygonShape3D_pm0m1")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1737537255]
+shape = SubResource("ConvexPolygonShape3D_tkpqt")
+
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=836418706]
+shape = SubResource("ConvexPolygonShape3D_uvpb6")
+
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=348487248]
+shape = SubResource("ConvexPolygonShape3D_w6rjy")
+
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=48597485]
+shape = SubResource("ConvexPolygonShape3D_0s15t")
+
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1642997283]
+shape = SubResource("ConvexPolygonShape3D_p56hj")
+
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1213714509]
+shape = SubResource("ConvexPolygonShape3D_tpg04")
+
+[node name="entity_0_brush_7_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1802976032]
+shape = SubResource("ConvexPolygonShape3D_ixbab")
+
+[node name="Hatch1" type="Path3D" parent="." unique_id=1984032725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+curve = SubResource("Curve3D_20xp4")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Hatch1" unique_id=364380761]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Hatch1/PathFollow3D" unique_id=1598960729]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Hatch1" unique_id=99217362]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="Hatch1/AnimatableBody3D" unique_id=57833894]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+mesh = SubResource("ArrayMesh_s73rt")
+skeleton = NodePath("../../../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="Hatch1/AnimatableBody3D" unique_id=1580959786]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_pi0jf")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="Hatch1/AnimatableBody3D" unique_id=710554787]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_20o5n")
+
+[node name="Hatch2" type="Path3D" parent="." unique_id=2058989218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+curve = SubResource("Curve3D_k6gku")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Hatch2" unique_id=441687678]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Hatch2/PathFollow3D" unique_id=2116176734]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Hatch2" unique_id=1596424855]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="Hatch2/AnimatableBody3D" unique_id=1804339095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+mesh = SubResource("ArrayMesh_s73rt")
+skeleton = NodePath("../../../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="Hatch2/AnimatableBody3D" unique_id=716804116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_pi0jf")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="Hatch2/AnimatableBody3D" unique_id=1899959961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_20o5n")
+
+[node name="Hatch3" type="Path3D" parent="." unique_id=1187172700]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 2, 3.5, 0)
+curve = SubResource("Curve3D_c47gd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Hatch3" unique_id=2025761788]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Hatch3/PathFollow3D" unique_id=1165608180]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Hatch3" unique_id=1462292659]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="Hatch3/AnimatableBody3D" unique_id=558689049]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+mesh = SubResource("ArrayMesh_s73rt")
+skeleton = NodePath("../../../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="Hatch3/AnimatableBody3D" unique_id=698570570]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_pi0jf")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="Hatch3/AnimatableBody3D" unique_id=97165390]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_20o5n")
+
+[node name="Hatch4" type="Path3D" parent="." unique_id=1045648387]
+transform = Transform3D(1.3113416e-07, -1, 0, 1, 1.3113416e-07, 0, 0, 0, 1, 3.5, 2, 0)
+curve = SubResource("Curve3D_c47gd")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Hatch4" unique_id=1775921249]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Hatch4/PathFollow3D" unique_id=1627962198]
+remote_path = NodePath("../../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Hatch4" unique_id=2016608858]
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="Hatch4/AnimatableBody3D" unique_id=45625484]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+mesh = SubResource("ArrayMesh_s73rt")
+skeleton = NodePath("../../../FuncGodotMap/entity_0_worldspawn")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="Hatch4/AnimatableBody3D" unique_id=1729454597]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_pi0jf")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="Hatch4/AnimatableBody3D" unique_id=2071969893]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.5, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_20o5n")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1261050687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1857153646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+shape = SubResource("BoxShape3D_nveqg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

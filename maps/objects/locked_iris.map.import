@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b5plgusi1j4hf"
+path="res://.godot/imported/locked_iris.map-713e7902ebac58a66efe711e91c1f110.tres"
+
+[deps]
+
+source_file="res://maps/objects/locked_iris.map"
+dest_files=["res://.godot/imported/locked_iris.map-713e7902ebac58a66efe711e91c1f110.tres"]
+
+[params]
+

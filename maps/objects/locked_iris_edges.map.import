@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://pk2cx8t7fs51"
+path="res://.godot/imported/locked_iris_edges.map-baa9c9df521a413beb24bd410d95d675.tres"
+
+[deps]
+
+source_file="res://maps/objects/locked_iris_edges.map"
+dest_files=["res://.godot/imported/locked_iris_edges.map-baa9c9df521a413beb24bd410d95d675.tres"]
+
+[params]
+

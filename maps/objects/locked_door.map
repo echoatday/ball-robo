@@ -9,11 +9,70 @@
 "_tb_textures" "textures/librequake/lq_conc;textures/librequake/lq_dev;textures/librequake/lq_flesh;textures/librequake/lq_greek;textures/librequake/lq_health_ammo;textures/librequake/lq_legacy;textures/librequake/lq_liquidsky;textures/librequake/lq_metal;textures/librequake/lq_palette;textures/librequake/lq_props;textures/librequake/lq_tech;textures/librequake/lq_tech/src;textures/librequake/lq_terra;textures/librequake/lq_utility;textures/librequake/lq_wood"
 // brush 0
 {
-( 0 0 0 ) ( 0 1 0 ) ( 0 0 1 ) librequake/lq_tech/fdoor02 [ 0 1 0 0 ] [ 0 0 -1 16 ] 90 1 1
-( 0 0 0 ) ( 0 0 1 ) ( 1 0 0 ) librequake/lq_tech/doortrak1 [ 1 0 -0 0 ] [ 0 -0 -1 0 ] 0 -1 1
-( 0 0 0 ) ( 1 0 0 ) ( 0 1 0 ) librequake/lq_tech/doortrak1 [ -1 0 0 0 ] [ -0 -1 -0 0 ] 0 1 1
-( 32 128 128 ) ( 32 129 128 ) ( 33 128 128 ) librequake/lq_tech/doortrak1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 -1 1
-( 32 128 128 ) ( 33 128 128 ) ( 32 128 129 ) librequake/lq_tech/doortrak1 [ -1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
-( 32 128 128 ) ( 32 128 129 ) ( 32 129 128 ) librequake/lq_tech/fdoor02 [ 0 1 0 0 ] [ 0 0 -1 16 ] 270 1 1
+( 0 0 32 ) ( 0 0 0 ) ( 0 32 0 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+( 0 0 32 ) ( 32 0 32 ) ( 32 0 0 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 0 0 ) ( 32 32 0 ) ( 0 32 0 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 40 8 ) ( 32 40 8 ) ( 32 8 40 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 0.5 0.5
+( 32 0 32 ) ( 32 32 0 ) ( 32 0 0 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+}
+// brush 1
+{
+( 0 32 128 ) ( 0 0 128 ) ( 0 0 96 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+( 32 0 128 ) ( 32 0 96 ) ( 0 0 96 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 0 32 128 ) ( 32 32 128 ) ( 32 0 128 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 8 88 ) ( 32 8 88 ) ( 32 40 120 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 0.5 0.5
+( 32 32 128 ) ( 32 0 96 ) ( 32 0 128 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+}
+// brush 2
+{
+( 0 96 0 ) ( 0 128 0 ) ( 0 128 32 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+( 0 120 40 ) ( 32 120 40 ) ( 32 88 8 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 0.5 0.5
+( 0 96 0 ) ( 32 96 0 ) ( 32 128 0 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 128 0 ) ( 32 128 32 ) ( 0 128 32 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 96 0 ) ( 32 128 32 ) ( 32 128 0 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+}
+// brush 3
+{
+( 0 128 96 ) ( 0 128 128 ) ( 0 96 128 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+( 0 88 120 ) ( 32 88 120 ) ( 32 120 88 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 0.5 0.5
+( 32 128 128 ) ( 32 96 128 ) ( 0 96 128 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 128 96 ) ( 32 128 96 ) ( 32 128 128 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 128 96 ) ( 32 96 128 ) ( 32 128 128 ) librequake/lq_tech/aqf075 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 2 2
+}
+// brush 4
+{
+( 0 112 112 ) ( 0 96 128 ) ( 0 32 128 ) librequake/lq_tech/aqpipe13 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 -1
+( 32 24 104 ) ( 0 24 104 ) ( 0 40 120 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 16 112 ) ( 32 112 112 ) ( 0 112 112 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 0.5 0.5
+( 0 96 128 ) ( 32 96 128 ) ( 32 32 128 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 104 104 ) ( 32 104 104 ) ( 32 88 120 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 96 128 ) ( 32 112 112 ) ( 32 16 112 ) librequake/lq_tech/aqpipe13 [ 0 1 0 0 ] [ 0 0 -1 32 ] 0 1 -1
+}
+// brush 5
+{
+( 0 16 16 ) ( 0 32 0 ) ( 0 96 0 ) librequake/lq_tech/aqpipe13 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 0 24 24 ) ( 32 24 24 ) ( 32 40 8 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 32 0 ) ( 32 32 0 ) ( 32 96 0 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 112 16 ) ( 32 16 16 ) ( 0 16 16 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 0.5 0.5
+( 32 104 24 ) ( 0 104 24 ) ( 0 88 8 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 32 0 ) ( 32 16 16 ) ( 32 112 16 ) librequake/lq_tech/aqpipe13 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+}
+// brush 6
+{
+( 0 16 112 ) ( 0 0 96 ) ( 0 0 32 ) librequake/lq_tech/aqpipe13 [ 0 -4.371139006309477e-08 -0.999999999999999 0 ] [ 0 -0.999999999999999 4.371139006309477e-08 0 ] 90 1 1
+( 0 0 96 ) ( 32 0 96 ) ( 32 0 32 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 24 24 ) ( 0 24 24 ) ( 0 8 40 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 24 104 ) ( 32 24 104 ) ( 32 8 88 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 16 16 ) ( 32 16 112 ) ( 0 16 112 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 0.5 0.5
+( 32 0 96 ) ( 32 16 112 ) ( 32 16 16 ) librequake/lq_tech/aqpipe13 [ 0 -4.371139006309477e-08 -0.999999999999999 0 ] [ 0 -0.999999999999999 4.371139006309477e-08 0 ] 90 1 1
+}
+// brush 7
+{
+( 0 112 16 ) ( 0 128 32 ) ( 0 128 96 ) librequake/lq_tech/aqpipe13 [ 0 -4.371139006309477e-08 0.999999999999999 0 ] [ 0 0.999999999999999 4.371139006309477e-08 0 ] -90 1 1
+( 32 112 112 ) ( 32 112 16 ) ( 0 112 16 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 0.5 0.5
+( 0 104 24 ) ( 32 104 24 ) ( 32 120 40 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 104 104 ) ( 0 104 104 ) ( 0 120 88 ) librequake/lq_tech/aqpipe13 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 0 128 32 ) ( 32 128 32 ) ( 32 128 96 ) librequake/lq_conc/conc1_1 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 128 32 ) ( 32 112 16 ) ( 32 112 112 ) librequake/lq_tech/aqpipe13 [ 0 -4.371139006309477e-08 -0.999999999999999 0 ] [ 0 -0.999999999999999 4.371139006309477e-08 0 ] 90 1 -1
 }
 }

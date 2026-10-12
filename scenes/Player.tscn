@@ -1192,9 +1192,10 @@ transform = Transform3D(0.5, 0, 0, 0, -1.0927847e-08, 0.5, 0, -0.25, -2.1855694e
 mesh = SubResource("CylinderMesh_afj6a")
 skeleton = NodePath("../speedometer_direction")
 
-[node name="speedometer_direction" type="Node3D" parent="Cockpit/Sphere/UI" unique_id=1035738732]
+[node name="speedometer_direction" type="Node3D" parent="Cockpit/Sphere/UI" unique_id=1035738732 node_paths=PackedStringArray("speedometer_base")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.062, -0.013, -0.073684625)
 script = ExtResource("30_afj6a")
+speedometer_base = NodePath("../speedometer_direction_base")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cockpit/Sphere/UI/speedometer_direction" unique_id=734862088]
 transform = Transform3D(0.3, 0, 0, 0, -4.371139e-08, -0.3, 0, 1, -1.3113417e-08, 0, 0, -0.005)

@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if path1.progress_ratio < 1 and Globals.doors_blastfurnace:
+	if path1.progress_ratio < 1 and Globals.unlock_hatch:
 		path1.progress += speed * delta
-	if path2.progress_ratio < 1 and Globals.doors_blastfurnace:
+	if path2.progress_ratio < 1 and Globals.unlock_hatch:
 		path2.progress += speed * delta

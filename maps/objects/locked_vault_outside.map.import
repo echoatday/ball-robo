@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://bm8libat00aeg"
+path="res://.godot/imported/locked_vault_outside.map-8f59b756af504f2bb5be9ea895b8ac5f.tres"
+
+[deps]
+
+source_file="res://maps/objects/locked_vault_outside.map"
+dest_files=["res://.godot/imported/locked_vault_outside.map-8f59b756af504f2bb5be9ea895b8ac5f.tres"]
+
+[params]
+

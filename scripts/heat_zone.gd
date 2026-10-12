@@ -38,19 +38,31 @@ func _on_body_entered(body: Node3D) -> void:
 			var opposite_door := "Door"
 			match int(current.door_rotation):
 				NORTH:
-					current.spawn_room = this_room - 10
+					if StationMap.rooms[this_room - 10] is PackedScene:
+						current.spawn_room = this_room - 10
+					else:
+						current.spawn_room = this_room + 30
 					direction = Vector3(1,0,0)
 					opposite_door += "South"
 				SOUTH:
-					current.spawn_room = this_room + 10
+					if StationMap.rooms[this_room + 10] is PackedScene:
+						current.spawn_room = this_room + 10
+					else:
+						current.spawn_room = this_room - 30
 					direction = Vector3(-1,0,0)
 					opposite_door += "North"
 				WEST:
-					current.spawn_room = this_room - 1
+					if StationMap.rooms[this_room - 1] is PackedScene:
+						current.spawn_room = this_room - 1
+					else:
+						current.spawn_room = this_room + 2
 					direction = Vector3(0,0,-1)
 					opposite_door += "East"
 				EAST:
-					current.spawn_room = this_room + 1
+					if StationMap.rooms[this_room + 1] is PackedScene:
+						current.spawn_room = this_room + 1
+					else:
+						current.spawn_room = this_room - 2
 					direction = Vector3(0,0,1)
 					opposite_door += "West"
 			

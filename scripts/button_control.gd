@@ -6,7 +6,7 @@ const y_pos_pressed := 0.0
 @export var button: Node3D
 @export var pickup_trigger: Node3D
 
-@export_enum("doors_rawmaterials", "doors_blastfurnace") var target_item: int
+@export_enum("unlock_door", "unlock_hatch", "unlock_sheet", "unlock_iris", "unlock_vault") var target_item: int
 @export var is_on_cieling: bool
 
 var collected_state := false
@@ -15,9 +15,15 @@ var collected_state := false
 func _ready() -> void:
 	match(target_item):
 		0:
-			collected_state = Globals.doors_rawmaterials
+			collected_state = Globals.unlock_door
 		1:
-			collected_state = Globals.doors_blastfurnace
+			collected_state = Globals.unlock_hatch
+		2:
+			collected_state = Globals.unlock_sheet
+		3:
+			collected_state = Globals.unlock_iris
+		4:
+			collected_state = Globals.unlock_vault
 	
 	if collected_state:
 		button.position.y = 0
@@ -34,14 +40,20 @@ func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 	if is_on_cieling:
 		speed_check = 6
 	else:
-		speed_check = 10
+		speed_check = 24
 		player_velocity_y = -player_velocity_y
-	if player_velocity_y > speed_check:
+	if player_velocity_y > speed_check or body.state_downboosting:
 		match(target_item):
 			0:
-				Globals.doors_rawmaterials = true
+				Globals.unlock_door = true
 			1:
-				Globals.doors_blastfurnace = true
+				Globals.unlock_hatch = true
+			2:
+				Globals.unlock_sheet = true
+			3:
+				Globals.unlock_iris = true
+			4:
+				Globals.unlock_vault = true
 		Globals.save_game()
 		button.position.y = 0
 		pickup_trigger.position.y = -0.2

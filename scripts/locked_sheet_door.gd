@@ -12,5 +12,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if path.progress_ratio < 0.96 and Globals.doors_coolingsystem:
+	if path.progress_ratio < 0.96 and Globals.unlock_sheet:
 		path.progress += speed * delta
