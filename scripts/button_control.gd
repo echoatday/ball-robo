@@ -6,7 +6,7 @@ const y_pos_pressed := 0.0
 @export var button: Node3D
 @export var pickup_trigger: Node3D
 
-@export_enum("unlock_door", "unlock_hatch", "unlock_sheet", "unlock_iris", "unlock_vault") var target_item: int
+@export_enum("unlock_door", "unlock_hatch", "unlock_sheet", "unlock_iris", "unlock_vault", "unlock_roll", "unlock_jump", "unlock_walljump", "unlock_lateralboost", "unlock_downboost", "unlock_bounce", "unlock_grapple", "unlock_spin", "unlock_waterproofing", "unlock_energy_1", "unlock_energy_2", "unlock_heat") var target_item: int
 @export var is_on_cieling: bool
 
 var collected_state := false
