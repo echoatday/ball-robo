@@ -621,6 +621,7 @@ omni_attenuation = 0.0
 
 [node name="RobotOutside0003" type="MeshInstance3D" parent="." unique_id=507653771]
 transform = Transform3D(0.49872607, 0.035669394, 5.8059356e-11, -0.035657898, 0.49856535, -0.012692841, -0.00090549194, 0.0126605015, 0.49983886, 0, 0.9070313, 0)
+visible = false
 mesh = SubResource("ArrayMesh_1l0n3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="RobotOutside0003" unique_id=1046861584]
