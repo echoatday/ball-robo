@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cho4hq8f5nwhp"
+path="res://.godot/imported/pipenetwork_straight_gap.map-7a0ec873d77f5843a4b5ec05e12fe5d3.tres"
+
+[deps]
+
+source_file="res://maps/pipenetwork_straight_gap.map"
+dest_files=["res://.godot/imported/pipenetwork_straight_gap.map-7a0ec873d77f5843a4b5ec05e12fe5d3.tres"]
+
+[params]
+

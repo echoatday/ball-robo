@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://d3k12ugtja1dd"
+path="res://.godot/imported/pipenetwork_tcorridor.map-f71b8edaa5de687cc7430b4b74a4779a.tres"
+
+[deps]
+
+source_file="res://maps/pipenetwork_tcorridor.map"
+dest_files=["res://.godot/imported/pipenetwork_tcorridor.map-f71b8edaa5de687cc7430b4b74a4779a.tres"]
+
+[params]
+
