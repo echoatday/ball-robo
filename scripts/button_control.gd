@@ -24,6 +24,30 @@ func _ready() -> void:
 			collected_state = Globals.unlock_iris
 		4:
 			collected_state = Globals.unlock_vault
+		5:
+			collected_state = Globals.unlock_roll
+		6:
+			collected_state = Globals.unlock_jump
+		7:
+			collected_state = Globals.unlock_walljump
+		8:
+			collected_state = Globals.unlock_lateralboost
+		9:
+			collected_state = Globals.unlock_downboost
+		10:
+			collected_state = Globals.unlock_bounce
+		11:
+			collected_state = Globals.unlock_grapple
+		12:
+			collected_state = Globals.unlock_spin
+		13:
+			collected_state = Globals.unlock_waterproofing
+		14:
+			collected_state = Globals.unlock_energy_1
+		15:
+			collected_state = Globals.unlock_energy_2
+		16:
+			collected_state = Globals.unlock_heat
 	
 	if collected_state:
 		button.position.y = 0
@@ -54,6 +78,30 @@ func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 				Globals.unlock_iris = true
 			4:
 				Globals.unlock_vault = true
+			5:
+				Globals.unlock_roll = true
+			6:
+				Globals.unlock_jump = true
+			7:
+				Globals.unlock_walljump = true
+			8:
+				Globals.unlock_lateralboost = true
+			9:
+				Globals.unlock_downboost = true
+			10:
+				Globals.unlock_bounce = true
+			11:
+				Globals.unlock_grapple = true
+			12:
+				Globals.unlock_spin = true
+			13:
+				Globals.unlock_waterproofing = true
+			14:
+				Globals.unlock_energy_1 = true
+			15:
+				Globals.unlock_energy_2 = true
+			16:
+				Globals.unlock_heat = true
 		Globals.save_game()
 		button.position.y = 0
 		pickup_trigger.position.y = -0.2

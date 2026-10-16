@@ -47,6 +47,7 @@
 [ext_resource type="Material" uid="uid://jsir3fpy6xey" path="res://textures/librequake/lq_tech/comp1_2.tres" id="39_alnpr"]
 [ext_resource type="Material" uid="uid://k48rnyyl2ls0" path="res://textures/librequake/lq_tech/floor5_3.tres" id="40_rh3pt"]
 [ext_resource type="PackedScene" uid="uid://cqf3fq38cac7k" path="res://scenes/LiquidLavaShallow.tscn" id="45_ixtq1"]
+[ext_resource type="PackedScene" uid="uid://gexycccskxam" path="res://scenes/ItemPickup.tscn" id="48_rh3pt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_alnpr"]
 _surfaces = [{
@@ -1632,7 +1633,7 @@ points = PackedVector3Array(-9, -7, -13.000001, -9, -12, -13.000001, -12, -7, -1
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ccmro"]
 points = PackedVector3Array(-158.00003, 8, 84, -158, 8, 84.00001, -157.99998, 7.999999, 84, -138, 4.4312724e-06, 76, -157.99998, 7.9999995, 84, -157.99998, 7.999999, 84, -158.00002, 8.000001, 84.00001, -138, 7.5, 76.00001, -138, 7.5000005, 76, -137.99998, 0, 76, -157.99998, 8, 83.999985, -157.99998, 8.000001, 83.99998, -143.99998, 0, 70, -143.99998, 0, 70.00003, -158, 8.000001, 83.99999, -138, 0, 76.00001, -144, 0, 70.00001, -157.99998, 8.000002, 84.00001, -164.5, 7.9999995, 64.49999, -164.50002, 8, 64.500015, -164.50002, 8.000002, 64.49999, -144, 0, 70.00003, -164.50002, 8.000002, 64.50003, -164.50002, 8.000001, 64.5, -154, 9, 66.499985, -154.00003, 9, 66.49999, -154.00003, 9, 66.500015, -138, 7.5, 76, -154, 8.999999, 66.49999, -154, 9.000001, 66.50001, -154, 9, 66.50001, -154.00002, 9.000001, 66.500015, -154.00002, 9, 66.50001, -164.5, 7.9999995, 64.500015, -164.50002, 8.000004, 64.50001, -154.00002, 8.999999, 66.49998, -164.49998, 8, 64.5, -138, 7.5000005, 56.000004, -138, 7.5, 56, -138, 0, 55.999996, -138, 0, 56, -138, 7.4999995, 56, -138, -2.1913768e-06, 56.000004, -154, 9, 66.50001, -138, 7.4999995, 56, -143.99998, 0, 61.99998, -144, 0, 62, -143.99998, 0, 62.000008, -138.00002, 0, 56, -164.5, 8.000001, 64.49998, -158.00002, 8.000002, 55.999996, -158, 8, 56, -158.00002, 7.9999995, 56, -158.00003, 8.000001, 55.999992, -158.00002, 8.000001, 56, -158, 8.000001, 56, -158.00006, 8.000001, 56.000027, -158, 8, 55.999996, -157.99998, 7.999999, 56.000004, -157.99998, 8.000005, 56)
 
-[sub_resource type="Curve3D" id="Curve3D_c3ntd"]
+[sub_resource type="Curve3D" id="Curve3D_joijf"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -1640,7 +1641,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_ixtq1"]
+[sub_resource type="Curve3D" id="Curve3D_4hddf"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -2830,7 +2831,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 20, 57)
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("39_1b8b0")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2, 2, 100)
-curve = SubResource("Curve3D_c3ntd")
+curve = SubResource("Curve3D_joijf")
 
 [node name="GrappleTarget2" parent="." unique_id=758206699 instance=ExtResource("13_uttj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 4, 14)
@@ -2858,7 +2859,7 @@ transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 6, -84, 10, 56)
 
 [node name="MovingPiston2" parent="." unique_id=1884188118 instance=ExtResource("39_1b8b0")]
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -74.585785, 11, 41.414215)
-curve = SubResource("Curve3D_ixtq1")
+curve = SubResource("Curve3D_4hddf")
 start_pos = 1.0
 
 [node name="GrappleTarget9" parent="." unique_id=339935364 instance=ExtResource("13_uttj6")]
@@ -2866,3 +2867,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5, 16, -30)
 
 [node name="GrappleTarget10" parent="." unique_id=1261847731 instance=ExtResource("13_uttj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -111, 40, -3)
+
+[node name="Pickup" parent="." unique_id=2011625114 instance=ExtResource("48_rh3pt")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -105, 32.5, 4)
+target_item = 8
+ruin_model = 2

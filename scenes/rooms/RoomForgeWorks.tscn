@@ -60,6 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xlbhb7f5o31" path="res://scenes/LockedVault.tscn" id="60_oo51k"]
 [ext_resource type="PackedScene" uid="uid://c20l17ix0767f" path="res://scenes/LiquidLava.tscn" id="61_pjbs1"]
 [ext_resource type="PackedScene" uid="uid://dv7pb3b2bph2w" path="res://scenes/LockedIris.tscn" id="61_x6nch"]
+[ext_resource type="PackedScene" uid="uid://gexycccskxam" path="res://scenes/ItemPickup.tscn" id="62_0368e"]
 [ext_resource type="PackedScene" uid="uid://kqd0jxf22hsx" path="res://scenes/glass.tscn" id="62_qbchq"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0368e"]
@@ -2393,34 +2394,10 @@ points = PackedVector3Array(17, 14, 42, 17, 13.5, 42, -2, 14, 42, -2, 13.5, 42, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hu26k"]
 points = PackedVector3Array(17, 13.5, 42, 17, 9, 42, 7, 13.5, 42, 7, 9, 42, 17, 13.5, 39, 17, 9, 39, 7, 13.5, 39, 7, 9, 39)
 
-[sub_resource type="Curve3D" id="Curve3D_oo51k"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
-[sub_resource type="Curve3D" id="Curve3D_x6nch"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
-[sub_resource type="Curve3D" id="Curve3D_0368e"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
 [sub_resource type="Curve3D" id="Curve3D_tgke1"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -2444,7 +2421,7 @@ point_count = 2
 [sub_resource type="Curve3D" id="Curve3D_7y3jm"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -2722,6 +2699,30 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_faea5"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_kkmfx"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_fe4yl"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_xm1wc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
@@ -4595,17 +4596,17 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 8, -11, -8)
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 29, -2, -8)
-curve = SubResource("Curve3D_oo51k")
+curve = SubResource("Curve3D_tgke1")
 speed = 12.0
 
 [node name="MovingPiston2" parent="." unique_id=636670650 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 11, -2, -8)
-curve = SubResource("Curve3D_x6nch")
+curve = SubResource("Curve3D_lilhr")
 speed = 12.0
 
 [node name="MovingPiston3" parent="." unique_id=2120335876 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 21, -2, -8)
-curve = SubResource("Curve3D_0368e")
+curve = SubResource("Curve3D_3hq77")
 speed = 12.0
 start_pos = 1.0
 
@@ -4634,7 +4635,7 @@ transform = Transform3D(-4.371139e-08, 0, 0.75, 0, 1, 0, -1, 0, -3.278354e-08, 4
 
 [node name="LockedSheetDoor" parent="." unique_id=1984032725 instance=ExtResource("30_4pl8x")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.5, -10, -34)
-curve = SubResource("Curve3D_tgke1")
+curve = SubResource("Curve3D_7y3jm")
 
 [node name="LiquidCoolant2" parent="." unique_id=1660359285 instance=ExtResource("18_aj8iy")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 23, -8.1, -52)
@@ -4648,105 +4649,105 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 
 
 [node name="MovingPiston4" parent="." unique_id=1047866747 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -21.746769, 4, -58.25323)
-curve = SubResource("Curve3D_lilhr")
+curve = SubResource("Curve3D_b4toh")
 speed = 6.0
 
 [node name="MovingPiston5" parent="." unique_id=7495133 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -24.575195, 3.9999995, -55.424805)
-curve = SubResource("Curve3D_3hq77")
+curve = SubResource("Curve3D_7sw63")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston6" parent="." unique_id=1547602399 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -27.403622, 3.9999995, -52.59638)
-curve = SubResource("Curve3D_7y3jm")
+curve = SubResource("Curve3D_dmjn2")
 speed = 6.0
 
 [node name="MovingPiston7" parent="." unique_id=659999207 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -30.232048, 3.9999995, -49.767952)
-curve = SubResource("Curve3D_b4toh")
+curve = SubResource("Curve3D_gigqi")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston8" parent="." unique_id=659594428 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -18.918339, 4, -61.08166)
-curve = SubResource("Curve3D_7sw63")
+curve = SubResource("Curve3D_brtiu")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston9" parent="." unique_id=816777818 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -18.918343, 4, -55.424805)
-curve = SubResource("Curve3D_dmjn2")
+curve = SubResource("Curve3D_lskvl")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston10" parent="." unique_id=1259065519 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -21.746769, 3.9999995, -52.59638)
-curve = SubResource("Curve3D_gigqi")
+curve = SubResource("Curve3D_8x2ae")
 speed = 6.0
 
 [node name="MovingPiston11" parent="." unique_id=1907596084 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -24.575195, 3.9999995, -49.767952)
-curve = SubResource("Curve3D_brtiu")
+curve = SubResource("Curve3D_inxb4")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston12" parent="." unique_id=289111822 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -27.403622, 3.9999995, -46.939526)
-curve = SubResource("Curve3D_lskvl")
+curve = SubResource("Curve3D_3bsx3")
 speed = 6.0
 
 [node name="MovingPiston13" parent="." unique_id=1805057408 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -16.089912, 4, -58.253235)
-curve = SubResource("Curve3D_8x2ae")
+curve = SubResource("Curve3D_1gkc0")
 speed = 6.0
 
 [node name="MovingPiston14" parent="." unique_id=1663742118 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -16.089916, 4, -52.59638)
-curve = SubResource("Curve3D_inxb4")
+curve = SubResource("Curve3D_o0ung")
 speed = 6.0
 
 [node name="MovingPiston15" parent="." unique_id=1351926755 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -18.918343, 3.9999995, -49.767952)
-curve = SubResource("Curve3D_3bsx3")
+curve = SubResource("Curve3D_ht3li")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston16" parent="." unique_id=1271973787 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -21.746769, 3.9999995, -46.939526)
-curve = SubResource("Curve3D_1gkc0")
+curve = SubResource("Curve3D_ib0dc")
 speed = 6.0
 
 [node name="MovingPiston17" parent="." unique_id=1767564323 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -24.575195, 3.9999995, -44.1111)
-curve = SubResource("Curve3D_o0ung")
+curve = SubResource("Curve3D_3gusx")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston20" parent="." unique_id=1827213197 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -16.089916, 3.9999995, -46.939526)
-curve = SubResource("Curve3D_ht3li")
+curve = SubResource("Curve3D_as3lw")
 speed = 6.0
 
 [node name="MovingPiston21" parent="." unique_id=1966459445 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -18.918343, 3.9999995, -44.1111)
-curve = SubResource("Curve3D_ib0dc")
+curve = SubResource("Curve3D_nx33p")
 speed = 6.0
 start_pos = 1.0
 
 [node name="MovingPiston22" parent="." unique_id=1419719838 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -21.746769, 3.9999995, -41.282673)
-curve = SubResource("Curve3D_3gusx")
+curve = SubResource("Curve3D_r5m7r")
 speed = 6.0
 
 [node name="MovingPiston26" parent="." unique_id=1015330450 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -16.089914, 3.9999995, -41.282673)
-curve = SubResource("Curve3D_as3lw")
+curve = SubResource("Curve3D_vh61n")
 speed = 6.0
 
 [node name="MovingPiston27" parent="." unique_id=1591665685 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, -18.91834, 3.9999995, -38.454247)
-curve = SubResource("Curve3D_nx33p")
+curve = SubResource("Curve3D_yx0w4")
 speed = 6.0
 start_pos = 1.0
 
@@ -4769,13 +4770,13 @@ transform = Transform3D(-1.75, 0, 1.509958e-07, 0, 1, 0, -2.6424266e-07, 0, -1, 
 
 [node name="MovingPiston18" parent="." unique_id=1552388271 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20, -11, -4)
-curve = SubResource("Curve3D_r5m7r")
+curve = SubResource("Curve3D_8f4ky")
 speed = 12.0
 start_pos = 1.0
 
 [node name="MovingPiston19" parent="." unique_id=600325528 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -11, -20)
-curve = SubResource("Curve3D_vh61n")
+curve = SubResource("Curve3D_no7y0")
 speed = 12.0
 start_pos = 1.0
 
@@ -4790,12 +4791,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30,
 
 [node name="MovingPiston23" parent="." unique_id=2143142673 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -43.5, 11, 20)
-curve = SubResource("Curve3D_yx0w4")
+curve = SubResource("Curve3D_m4l1l")
 speed = 12.0
 
 [node name="MovingPiston24" parent="." unique_id=1717894250 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -59.5, 11, 20)
-curve = SubResource("Curve3D_8f4ky")
+curve = SubResource("Curve3D_p6bny")
 speed = 12.0
 start_pos = 1.0
 
@@ -4837,7 +4838,7 @@ transform = Transform3D(-2.8212997e-07, 0, -1, 0, 1, 0, 1, 0, -2.8212997e-07, -5
 
 [node name="MovingPiston25" parent="." unique_id=1410083173 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -58.5, 8, 48)
-curve = SubResource("Curve3D_no7y0")
+curve = SubResource("Curve3D_rxkp8")
 
 [node name="Glass6" parent="." unique_id=751582616 instance=ExtResource("62_qbchq")]
 transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 1, 14, 7.5, -33.5)
@@ -4850,47 +4851,47 @@ transform = Transform3D(13, 0, 0, 0, 1, 0, 0, 0, 13, 46, 12.75, 46)
 
 [node name="MovingPiston28" parent="." unique_id=1453093836 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 51, 8, 26)
-curve = SubResource("Curve3D_m4l1l")
+curve = SubResource("Curve3D_byofe")
 speed = 12.0
 start_pos = 1.0
 
 [node name="MovingPiston29" parent="." unique_id=2133666173 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 51, 8, 22)
-curve = SubResource("Curve3D_p6bny")
+curve = SubResource("Curve3D_nvpa2")
 speed = 12.0
 start_pos = 0.99
 
 [node name="MovingPiston30" parent="." unique_id=937410767 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 51, 8, 18)
-curve = SubResource("Curve3D_rxkp8")
+curve = SubResource("Curve3D_38241")
 speed = 12.0
 
 [node name="MovingPiston31" parent="." unique_id=1702541806 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 51, 8, 14)
-curve = SubResource("Curve3D_byofe")
+curve = SubResource("Curve3D_ner8n")
 speed = 12.0
 
 [node name="MovingPiston32" parent="." unique_id=1391107521 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 51, 8, 10)
-curve = SubResource("Curve3D_nvpa2")
+curve = SubResource("Curve3D_wp5fd")
 speed = 12.0
 start_pos = 0.99
 
 [node name="MovingPiston33" parent="." unique_id=988010209 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 51, 8, 6)
-curve = SubResource("Curve3D_38241")
+curve = SubResource("Curve3D_obqpo")
 speed = 12.0
 start_pos = 1.0
 
 [node name="MovingPiston34" parent="." unique_id=562043339 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42, 7, 12)
-curve = SubResource("Curve3D_ner8n")
+curve = SubResource("Curve3D_jmxr5")
 speed = 12.0
 start_pos = 1.0
 
 [node name="MovingPiston35" parent="." unique_id=1554723705 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42, 13, 12)
-curve = SubResource("Curve3D_wp5fd")
+curve = SubResource("Curve3D_3g1r4")
 speed = 12.0
 
 [node name="LiquidLava4" parent="." unique_id=1739950647 instance=ExtResource("56_sch3p")]
@@ -4911,29 +4912,29 @@ transform = Transform3D(14, 0, 0, 0, 1, 0, 0, 0, 15, -47, -6, -45)
 
 [node name="MovingPiston36" parent="." unique_id=616985059 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -48, -11, -41)
-curve = SubResource("Curve3D_obqpo")
+curve = SubResource("Curve3D_qfmy8")
 speed = 10.0
 
 [node name="MovingPiston38" parent="." unique_id=910933308 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -54, -4, -41)
-curve = SubResource("Curve3D_jmxr5")
+curve = SubResource("Curve3D_84fr7")
 speed = 10.0
 start_pos = 1.0
 
 [node name="MovingPiston37" parent="." unique_id=1341743323 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.75, 0, 0, 0, -3.278354e-08, -0.875, 0, 0.75, -3.8247464e-08, -43, 21, 41)
-curve = SubResource("Curve3D_3g1r4")
+curve = SubResource("Curve3D_faea5")
 speed = 8.0
 
 [node name="MovingPiston39" parent="." unique_id=530261671 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.75, 0, 0, 0, -3.278354e-08, -0.875, 0, 0.75, -3.8247464e-08, -34, 21, 41)
-curve = SubResource("Curve3D_qfmy8")
+curve = SubResource("Curve3D_kkmfx")
 speed = 8.0
 start_pos = 1.0
 
 [node name="MovingPiston40" parent="." unique_id=1778805658 instance=ExtResource("21_ku0ci")]
 transform = Transform3D(0.75, 0, 0, 0, -3.278354e-08, -0.875, 0, 0.75, -3.8247464e-08, -15, 21, 41)
-curve = SubResource("Curve3D_84fr7")
+curve = SubResource("Curve3D_fe4yl")
 speed = 12.0
 
 [node name="ConveyerBelt17" parent="." unique_id=193369892 instance=ExtResource("57_a52l6")]
@@ -4941,7 +4942,12 @@ transform = Transform3D(0.571, 0, 0, 0, 1, 0, 0, 0, 1, 9, 13, 54)
 
 [node name="LockedDoor2" parent="." unique_id=1661314041 instance=ExtResource("60_oo51k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, -6, 1)
-curve = SubResource("Curve3D_faea5")
+curve = SubResource("Curve3D_xm1wc")
 
 [node name="LockedIris" parent="." unique_id=1942694839 instance=ExtResource("61_x6nch")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -32, 7, -8)
+
+[node name="Pickup" parent="." unique_id=2011625114 instance=ExtResource("62_0368e")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -20, -6, -28)
+target_item = 7
+ruin_model = 1

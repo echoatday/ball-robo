@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ceu1g4t5m1r7u"
+path="res://.godot/imported/robot_outside_yamcha0001.obj-0a7328be748e6384c08edf9f5dabfccb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/robot_outside_yamcha0001.obj-0a7328be748e6384c08edf9f5dabfccb.mesh"]
+
+source_file="res://models/robot_outside_yamcha0001.obj"
+dest_files=["res://.godot/imported/robot_outside_yamcha0001.obj-0a7328be748e6384c08edf9f5dabfccb.mesh", "res://.godot/imported/robot_outside_yamcha0001.obj-0a7328be748e6384c08edf9f5dabfccb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -28,6 +28,7 @@
 [ext_resource type="Material" uid="uid://dq7usw3coj1xm" path="res://textures/librequake/lq_tech/t_flat02.tres" id="22_kijxj"]
 [ext_resource type="Material" uid="uid://gmy7c7u78hyj" path="res://textures/librequake/lq_tech/t_wall6c.tres" id="23_cqw4j"]
 [ext_resource type="Material" uid="uid://de4nobppqfur8" path="res://textures/librequake/lq_tech/plat_top4.tres" id="24_psdpi"]
+[ext_resource type="PackedScene" uid="uid://gexycccskxam" path="res://scenes/ItemPickup.tscn" id="29_cqw4j"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kijxj"]
 _surfaces = [{
@@ -2484,15 +2485,19 @@ transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 25, 56, -10.5, 11)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=221134739]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1, 16, -14)
-light_cull_mask = 4294967293
+light_cull_mask = 4294967289
 spot_range = 35.0
 spot_attenuation = -1.0
 spot_angle = 40.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1282953620]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -43, 8, 45)
-light_cull_mask = 4294967293
+light_cull_mask = 4294967289
 spot_range = 30.0
 spot_attenuation = -1.0
 spot_angle = 35.0
 spot_angle_attenuation = 1.464086
+
+[node name="Pickup" parent="." unique_id=2011625114 instance=ExtResource("29_cqw4j")]
+transform = Transform3D(0.7070323, -0.014499373, 0.7070324, 0.010252604, 0.99989486, 0.010252605, -0.7071067, 0, 0.70710665, 4.605688, -15, -41)
+target_item = 14

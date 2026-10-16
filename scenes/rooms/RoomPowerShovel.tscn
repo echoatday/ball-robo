@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://1l2a6wh85vhi" path="res://scenes/RotatorMedium.tscn" id="31_icvin"]
 [ext_resource type="PackedScene" uid="uid://cqf3fq38cac7k" path="res://scenes/LiquidLavaShallow.tscn" id="36_0ym3h"]
 [ext_resource type="PackedScene" uid="uid://nf0jiglt354b" path="res://scenes/LiquidGas.tscn" id="36_hvtj3"]
+[ext_resource type="PackedScene" uid="uid://gexycccskxam" path="res://scenes/ItemPickup.tscn" id="36_xwu56"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_413he"]
 _surfaces = [{
@@ -2337,3 +2338,7 @@ transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 23, -7, 73)
 
 [node name="LiquidGas" parent="." unique_id=691101047 instance=ExtResource("36_hvtj3")]
 transform = Transform3D(95, 0, 0, 0, 1, 0, 0, 0, 66, 37, -33, 0)
+
+[node name="Pickup" parent="." unique_id=2011625114 instance=ExtResource("36_xwu56")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15.156458, 28, 3.94099)
+target_item = 9

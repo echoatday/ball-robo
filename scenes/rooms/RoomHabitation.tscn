@@ -75,6 +75,7 @@
 [ext_resource type="Material" uid="uid://c5o37jvjiaf30" path="res://textures/librequake/lq_tech/rw33b_2.tres" id="63_0vrcf"]
 [ext_resource type="PackedScene" uid="uid://d1dayeiv365ny" path="res://scenes/LiquidWastewater.tscn" id="73_aa2eu"]
 [ext_resource type="PackedScene" uid="uid://b4xlbhb7f5o31" path="res://scenes/LockedVault.tscn" id="75_0vrcf"]
+[ext_resource type="PackedScene" uid="uid://gexycccskxam" path="res://scenes/ItemPickup.tscn" id="76_rryw6"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rryw6"]
 _surfaces = [{
@@ -3487,14 +3488,6 @@ points = PackedVector3Array(-66.5, 27.500002, 35, -66.75, 27.500002, 35, -66.5, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ajfoh"]
 points = PackedVector3Array(-64, 32, 37, -64, 23, 37, -66, 32, 37, -66, 23, 37, -64, 32, 36, -64, 23, 36, -66, 32, 36, -66, 23, 36)
 
-[sub_resource type="Curve3D" id="Curve3D_rryw6"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
 [sub_resource type="Curve3D" id="Curve3D_tjvqd"]
 resource_local_to_scene = true
 _data = {
@@ -3504,6 +3497,14 @@ _data = {
 point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_x8gqj"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_kwhgk"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
@@ -6254,7 +6255,7 @@ transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 55, -17, -2.5, -23)
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("37_523xk")]
 transform = Transform3D(1.9106855e-15, -1, -4.371139e-08, -4.371139e-08, -4.371139e-08, 1, -1, 0, -4.371139e-08, 6, -8, -70)
-curve = SubResource("Curve3D_rryw6")
+curve = SubResource("Curve3D_tjvqd")
 speed = 2.0
 
 [node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("40_sa1e0")]
@@ -6307,8 +6308,12 @@ transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 4, -41, 14.2, 54)
 
 [node name="MovingPiston2" parent="." unique_id=532805801 instance=ExtResource("37_523xk")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -64, 15, 44)
-curve = SubResource("Curve3D_tjvqd")
+curve = SubResource("Curve3D_x8gqj")
 
 [node name="LockedDoor2" parent="." unique_id=1984032725 instance=ExtResource("75_0vrcf")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 24.5, -61.5)
-curve = SubResource("Curve3D_x8gqj")
+curve = SubResource("Curve3D_kwhgk")
+
+[node name="Pickup" parent="." unique_id=2011625114 instance=ExtResource("76_rryw6")]
+transform = Transform3D(-0.8660253, 0, -0.5000001, 0, 1, 0, 0.5000001, 0, -0.8660253, -45, 1, 13)
+target_item = 11
