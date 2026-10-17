@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://c4a6ou442krg6" path="res://textures/librequake/lq_tech/aqpipe13.tres" id="7_1lkg4"]
 [ext_resource type="Texture2D" uid="uid://b7qgv8wivc3hb" path="res://textures/librequake/lq_tech/fddoor01c.png" id="8_jpf53"]
 [ext_resource type="Texture2D" uid="uid://bvjy34ex46h5r" path="res://textures/librequake/lq_tech/aqf075.png" id="9_yykph"]
+[ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="10_uqhl0"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pnjx2"]
 _surfaces = [{
@@ -167,9 +168,12 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_nveqg"]
 size = Vector3(4, 4, 12)
 
-[node name="LockedIris" type="Node3D" unique_id=2011431275]
+[node name="LockedIris" type="Node3D" unique_id=2011431275 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 script = ExtResource("1_nveqg")
 speed = 12.0
+ui_text = NodePath("UI/door_text")
+ui_all = NodePath("UI")
+raycast = NodePath("UI/TargetingRayCast")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=697555256]
 script = ExtResource("2_ppghj")
@@ -318,6 +322,27 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1857153646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 shape = SubResource("BoxShape3D_nveqg")
+
+[node name="UI" type="Node3D" parent="." unique_id=641435233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0.5)
+
+[node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=2059354128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+
+[node name="door_text" type="Label3D" parent="UI" unique_id=676140808]
+transform = Transform3D(-0.00090000004, 0, -1.3589622e-10, 0, 0.00090000004, 0, 1.3589622e-10, 0, -0.00090000004, 0.0018000603, 0, -2.7179245e-10)
+layers = 2
+pixel_size = 0.02
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "ooo"
+font = ExtResource("10_uqhl0")
+font_size = 250
+outline_size = 0
+autowrap_trim_flags = 0
+justification_flags = 131
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

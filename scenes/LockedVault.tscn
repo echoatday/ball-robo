@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_4vcc7"]
 [ext_resource type="Material" uid="uid://dq7usw3coj1xm" path="res://textures/librequake/lq_tech/t_flat02.tres" id="4_ea0dq"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_ea0dq"]
+[ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="7_a2gta"]
 
 [sub_resource type="Curve3D" id="Curve3D_r37dj"]
 resource_local_to_scene = true
@@ -111,10 +112,13 @@ points = PackedVector3Array(0.5, 2, 0, 0.5, 0, 0, -0.5, 2, 0, -0.5, 0, 0, 0.5, 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
 size = Vector3(12, 4, 4)
 
-[node name="LockedVault" type="Path3D" unique_id=1984032725]
+[node name="LockedVault" type="Path3D" unique_id=1984032725 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 curve = SubResource("Curve3D_r37dj")
 script = ExtResource("1_lfl6s")
 speed = 8.0
+ui_text = NodePath("UI/door_text")
+ui_all = NodePath("UI")
+raycast = NodePath("UI/TargetingRayCast")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=364380761]
 rotation_mode = 0
@@ -209,6 +213,27 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1419372281]
 shape = SubResource("BoxShape3D_iy5dr")
+
+[node name="UI" type="Node3D" parent="." unique_id=1182628157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=1155214126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+
+[node name="door_text" type="Label3D" parent="UI" unique_id=1862860939]
+transform = Transform3D(-0.00090000004, 0, -1.3589622e-10, 0, 0.00090000004, 0, 1.3589622e-10, 0, -0.00090000004, 0.0018000603, 0, -2.7179245e-10)
+layers = 2
+pixel_size = 0.02
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "ooo"
+font = ExtResource("7_a2gta")
+font_size = 250
+outline_size = 0
+autowrap_trim_flags = 0
+justification_flags = 131
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

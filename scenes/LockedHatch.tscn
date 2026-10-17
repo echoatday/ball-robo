@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dbw1wap05jpig" path="res://scripts/locked_hatch.gd" id="1_phcsc"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_lej4k"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_0hk3j"]
+[ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="7_o2xax"]
 [ext_resource type="Material" uid="uid://ntril8d376sc" path="res://textures/librequake/lq_tech/fddoor01.tres" id="7_phcsc"]
 [ext_resource type="Material" uid="uid://df568nmv8t1qk" path="res://textures/librequake/lq_tech/doortrak1.tres" id="8_252cl"]
 
@@ -48,8 +49,11 @@ _data = {
 }
 point_count = 3
 
-[node name="LockedHatch" type="Node3D" unique_id=2011431275]
+[node name="LockedHatch" type="Node3D" unique_id=2011431275 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 script = ExtResource("1_phcsc")
+ui_text = NodePath("UI/door_text")
+ui_all = NodePath("UI")
+raycast = NodePath("UI/TargetingRayCast")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=697555256]
 visible = false
@@ -106,3 +110,24 @@ shape = SubResource("ConvexPolygonShape3D_0hk3j")
 [node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="Hatch2/AnimatableBody3D" unique_id=10041400]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0.5)
 shape = SubResource("ConvexPolygonShape3D_huiye")
+
+[node name="UI" type="Node3D" parent="." unique_id=894716763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.5)
+
+[node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=967341233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+
+[node name="door_text" type="Label3D" parent="UI" unique_id=1996588920]
+transform = Transform3D(-0.00090000004, 0, -1.3589622e-10, 0, 0.00090000004, 0, 1.3589622e-10, 0, -0.00090000004, 0.0018000603, 0, -2.7179245e-10)
+layers = 2
+pixel_size = 0.02
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "ooo"
+font = ExtResource("7_o2xax")
+font_size = 250
+outline_size = 0
+autowrap_trim_flags = 0
+justification_flags = 131

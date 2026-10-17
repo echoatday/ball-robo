@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1hvll2wr007w" path="res://scripts/locked_sheet_door.gd" id="1_0cif3"]
 [ext_resource type="Material" uid="uid://fwttlilg048d" path="res://textures/librequake/lq_tech/t_metalsheetb.tres" id="2_0cif3"]
+[ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="5_1m6ip"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_al2cu"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_ifko6"]
 
@@ -31,9 +32,12 @@ _surfaces = [{
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iyoii"]
 points = PackedVector3Array(12, 8, 1, 12, 0, 1, 0, 8, 1, 0, 0, 1, 12, 8, 0, 12, 0, 0, 0, 8, 0, 0, 0, 0)
 
-[node name="LockedSheetDoor" type="Path3D" unique_id=1984032725]
+[node name="LockedSheetDoor" type="Path3D" unique_id=1984032725 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 curve = SubResource("Curve3D_1m6ip")
 script = ExtResource("1_0cif3")
+ui_text = NodePath("UI/door_text")
+ui_all = NodePath("UI")
+raycast = NodePath("UI/TargetingRayCast")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=364380761]
 rotation_mode = 0
@@ -59,3 +63,24 @@ map_settings = ExtResource("6_ifko6")
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="AnimatableBody3D/FuncGodotMap" unique_id=1447828980]
 collision_mask = 0
+
+[node name="UI" type="Node3D" parent="." unique_id=459433774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0.5)
+
+[node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=1332670076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+
+[node name="door_text" type="Label3D" parent="UI" unique_id=1676724817]
+transform = Transform3D(-0.00090000004, 0, -1.3589622e-10, 0, 0.00090000004, 0, 1.3589622e-10, 0, -0.00090000004, 0.0018000603, 0, -2.7179245e-10)
+layers = 2
+pixel_size = 0.02
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "ooo"
+font = ExtResource("5_1m6ip")
+font_size = 250
+outline_size = 0
+autowrap_trim_flags = 0
+justification_flags = 131
