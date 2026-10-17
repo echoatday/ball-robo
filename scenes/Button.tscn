@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_v48ca"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://textures/default_texture.png" id="7_cbeap"]
 [ext_resource type="Material" uid="uid://bk1gtwrva8vno" path="res://textures/librequake/lq_tech/plat_top3.tres" id="8_5dw0w"]
+[ext_resource type="Texture2D" uid="uid://cx68yuj58hhgm" path="res://textures/cockpit/targeting_underline.png" id="9_4sxsm"]
+[ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="10_v48ca"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cbk1h"]
 _surfaces = [{
@@ -110,8 +112,12 @@ points = PackedVector3Array(1, 1, 1, 1, 0, 1, -1, 1, 1, -1, 0, 1, 1, 1, -1, 1, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
 size = Vector3(1.8, 2.2, 1.8)
 
-[node name="Button" type="Node3D" unique_id=2011625114 node_paths=PackedStringArray("button", "pickup_trigger")]
+[node name="Button" type="Node3D" unique_id=2011625114 node_paths=PackedStringArray("ui_text", "ui_all", "ui_element", "raycast", "button", "pickup_trigger")]
 script = ExtResource("1_1hvhs")
+ui_text = NodePath("UI/targeting_line/item_text")
+ui_all = NodePath("UI")
+ui_element = NodePath("UI/targeting_line")
+raycast = NodePath("UI/TargetingRayCast")
 button = NodePath("button")
 pickup_trigger = NodePath("PickupTrigger")
 
@@ -172,5 +178,45 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupTrigger" unique_id=1143513946]
 shape = SubResource("BoxShape3D_iy5dr")
+
+[node name="UI" type="Node3D" parent="." unique_id=471755212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=1822898903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+
+[node name="targeting_line" type="Sprite3D" parent="UI" unique_id=368639225]
+transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, 0, 0, 0)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.44705883, 1, 0.99607843, 1)
+pixel_size = 0.0001
+alpha_cut = 1
+render_priority = 1
+texture = ExtResource("9_4sxsm")
+
+[node name="item_text" type="Label3D" parent="UI/targeting_line" unique_id=478569492]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, -0.002, 0, 0)
+layers = 2
+pixel_size = 0.02
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "ooo"
+font = ExtResource("10_v48ca")
+font_size = 250
+outline_size = 0
+horizontal_alignment = 0
+autowrap_trim_flags = 0
+justification_flags = 131
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1147902891]
+transform = Transform3D(0.98975027, -0.14280905, 0, 0.14280905, 0.98975027, 0, 0, 0, 1, 0, 3, 0)
+light_energy = 8.0
+light_indirect_energy = 0.0
+light_cull_mask = 4294967289
+omni_range = 6.0
+omni_attenuation = 0.0
 
 [connection signal="body_entered" from="PickupTrigger" to="." method="_on_pickup_trigger_body_entered"]

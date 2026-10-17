@@ -1,18 +1,9 @@
 extends Node3D
 
-var unlock_roll := true
-var unlock_jump := true
-var unlock_walljump := true
-var unlock_lateralboost := true
-var unlock_downboost := true
-var unlock_bounce := true
-var unlock_grapple := true
-var unlock_spin := true
-var unlock_waterproofing := true
-
-var unlock_energy_1 := true
-var unlock_energy_2 := true
-var unlock_heat := true
+@export var ui_text: Node3D
+@export var ui_all: Node3D
+@export var ui_element: Node3D
+@export var raycast: RayCast3D
 
 @export_enum("unlock_door", "unlock_hatch", "unlock_sheet", "unlock_iris", "unlock_vault", "unlock_roll", "unlock_jump", "unlock_walljump", "unlock_lateralboost", "unlock_downboost", "unlock_bounce", "unlock_grapple", "unlock_spin", "unlock_waterproofing", "unlock_energy_1", "unlock_energy_2", "unlock_heat") var target_item: int
 @export_enum("sitting", "yamcha", "kneeling") var ruin_model: int
@@ -23,38 +14,55 @@ var collected_state := false
 func _ready() -> void:
 	match(target_item):
 		0:
+			ui_text.text = "security_1"
 			collected_state = Globals.unlock_door
 		1:
+			ui_text.text = "security_2"
 			collected_state = Globals.unlock_hatch
 		2:
+			ui_text.text = "security_3"
 			collected_state = Globals.unlock_sheet
 		3:
+			ui_text.text = "security_4"
 			collected_state = Globals.unlock_iris
 		4:
+			ui_text.text = "security_5"
 			collected_state = Globals.unlock_vault
 		5:
+			ui_text.text = "roll"
 			collected_state = Globals.unlock_roll
 		6:
+			ui_text.text = "jump_floor"
 			collected_state = Globals.unlock_jump
 		7:
+			ui_text.text = "jump_wall"
 			collected_state = Globals.unlock_walljump
 		8:
+			ui_text.text = "boost_lateral"
 			collected_state = Globals.unlock_lateralboost
 		9:
+			ui_text.text = "boost_down"
 			collected_state = Globals.unlock_downboost
 		10:
+			ui_text.text = "bounce"
 			collected_state = Globals.unlock_bounce
 		11:
+			ui_text.text = "grapple"
 			collected_state = Globals.unlock_grapple
 		12:
+			ui_text.text = "spin"
 			collected_state = Globals.unlock_spin
 		13:
+			ui_text.text = "swim"
 			collected_state = Globals.unlock_waterproofing
 		14:
+			ui_text.text = "battery"
 			collected_state = Globals.unlock_energy_1
 		15:
+			ui_text.text = "unlock_energy_2"
 			collected_state = Globals.unlock_energy_2
 		16:
+			ui_text.text = "insulation"
 			collected_state = Globals.unlock_heat
 	
 	match(ruin_model):
@@ -63,18 +71,21 @@ func _ready() -> void:
 			$RobotOutside0002.visible = false
 			$RobotOutside0003.visible = false
 			if collected_state:
+				ui_element.visible = false
 				$RobotOutside0001/OmniLight3D.visible = false
 		1:
 			$RobotOutside0001.visible = false
 			$RobotOutside0002.visible = true
 			$RobotOutside0003.visible = false
 			if collected_state:
+				ui_element.visible = false
 				$RobotOutside0002/OmniLight3D.visible = false
 		2:
 			$RobotOutside0001.visible = false
 			$RobotOutside0002.visible = false
 			$RobotOutside0003.visible = true
 			if collected_state:
+				ui_element.visible = false
 				$RobotOutside0003/RobotArm0003.visible = false
 				$RobotOutside0003/OmniLight3D.visible = false
 			elif target_item != 11:
@@ -83,7 +94,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if not collected_state:
+		ui_all.look_at(Globals.player.global_position)
+		var distance_to_player = ui_all.global_position.distance_to(Globals.player.global_position)
+		if raycast.is_colliding() and raycast.get_collider() == Globals.player:
+			ui_element.position.z = -distance_to_player + 0.11
+			ui_element.position.y = -Globals.player.reticle.position.y/randi_range(16,22) + 0.01 + (-0.0001 * distance_to_player)
+			ui_element.position.x = Globals.player.reticle.position.x/randi_range(14,22) - 0.01 - (-0.0001 * distance_to_player)
+		else:
+			ui_element.position = Vector3.ZERO
 
 
 func _on_pickup_trigger_body_entered(body: Node3D) -> void:
@@ -128,4 +147,5 @@ func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 		$RobotOutside0002/OmniLight3D.visible = false
 		$RobotOutside0003/OmniLight3D.visible = false
 		$RobotOutside0003/RobotArm0003.visible = false
+		ui_element.visible = false
 		Globals.save_game()

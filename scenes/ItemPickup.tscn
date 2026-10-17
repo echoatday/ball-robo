@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bi58igcm0ffnj" path="res://textures/librequake/lq_tech/rw33_4b_l.png" id="5_fewta"]
 [ext_resource type="Texture2D" uid="uid://cst741yootd0w" path="res://textures/librequake/lq_tech/rw37_trim1.png" id="6_eqftb"]
 [ext_resource type="Material" uid="uid://b511asbqw76p6" path="res://textures/librequake/lq_utility/black.tres" id="7_24n0n"]
+[ext_resource type="Texture2D" uid="uid://cx68yuj58hhgm" path="res://textures/cockpit/targeting_underline.png" id="8_w08pq"]
+[ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_fewta"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
 size = Vector3(8, 4, 8)
@@ -581,8 +583,12 @@ shadow_mesh = SubResource("ArrayMesh_p3504")
 [sub_resource type="BoxShape3D" id="BoxShape3D_pnher"]
 size = Vector3(3, 2.5, 3)
 
-[node name="Pickup" type="Node3D" unique_id=2011625114]
+[node name="Pickup" type="Node3D" unique_id=2011625114 node_paths=PackedStringArray("ui_text", "ui_all", "ui_element", "raycast")]
 script = ExtResource("1_6bkuq")
+ui_text = NodePath("UI/targeting_line/speedometer_text")
+ui_all = NodePath("UI")
+ui_element = NodePath("UI/targeting_line")
+raycast = NodePath("UI/TargetingRayCast")
 
 [node name="PickupTrigger" type="Area3D" parent="." unique_id=101435833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -642,5 +648,37 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1434859171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("BoxShape3D_pnher")
+
+[node name="UI" type="Node3D" parent="." unique_id=1304968393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=1869231117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+
+[node name="targeting_line" type="Sprite3D" parent="UI" unique_id=468300426]
+transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, 0, 0, 0)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.44705883, 1, 0.99607843, 1)
+pixel_size = 0.0001
+alpha_cut = 1
+render_priority = 1
+texture = ExtResource("8_w08pq")
+
+[node name="speedometer_text" type="Label3D" parent="UI/targeting_line" unique_id=1409547863]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, -0.002, 0, 0)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "ooo"
+font = ExtResource("9_fewta")
+font_size = 250
+outline_size = 0
+horizontal_alignment = 0
+autowrap_trim_flags = 0
+justification_flags = 131
 
 [connection signal="body_entered" from="PickupTrigger" to="." method="_on_pickup_trigger_body_entered"]

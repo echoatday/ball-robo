@@ -3,6 +3,11 @@ extends Node3D
 const y_pos_unpressed := 0.75
 const y_pos_pressed := 0.0
 
+@export var ui_text: Node3D
+@export var ui_all: Node3D
+@export var ui_element: Node3D
+@export var raycast: RayCast3D
+
 @export var button: Node3D
 @export var pickup_trigger: Node3D
 
@@ -15,41 +20,60 @@ var collected_state := false
 func _ready() -> void:
 	match(target_item):
 		0:
+			ui_text.text = "security_1"
 			collected_state = Globals.unlock_door
 		1:
+			ui_text.text = "security_2"
 			collected_state = Globals.unlock_hatch
 		2:
+			ui_text.text = "security_3"
 			collected_state = Globals.unlock_sheet
 		3:
+			ui_text.text = "security_4"
 			collected_state = Globals.unlock_iris
 		4:
+			ui_text.text = "security_5"
 			collected_state = Globals.unlock_vault
 		5:
+			ui_text.text = "roll"
 			collected_state = Globals.unlock_roll
 		6:
+			ui_text.text = "jump_floor"
 			collected_state = Globals.unlock_jump
 		7:
+			ui_text.text = "jump_wall"
 			collected_state = Globals.unlock_walljump
 		8:
+			ui_text.text = "boost_lateral"
 			collected_state = Globals.unlock_lateralboost
 		9:
+			ui_text.text = "boost_down"
 			collected_state = Globals.unlock_downboost
 		10:
+			ui_text.text = "bounce"
 			collected_state = Globals.unlock_bounce
 		11:
+			ui_text.text = "grapple"
 			collected_state = Globals.unlock_grapple
 		12:
+			ui_text.text = "spin"
 			collected_state = Globals.unlock_spin
 		13:
+			ui_text.text = "swim"
 			collected_state = Globals.unlock_waterproofing
 		14:
+			ui_text.text = "battery"
 			collected_state = Globals.unlock_energy_1
 		15:
+			ui_text.text = "unlock_energy_2"
 			collected_state = Globals.unlock_energy_2
 		16:
+			ui_text.text = "insulation"
 			collected_state = Globals.unlock_heat
 	
 	if collected_state:
+		ui_element.visible = false
+		$OmniLight3D.visible = false
 		button.position.y = 0
 		pickup_trigger.position.y = -0.2
 	else:
@@ -57,6 +81,16 @@ func _ready() -> void:
 		pickup_trigger.position.y = 1
 		
 
+func _process(delta: float) -> void:
+	if not collected_state:
+		ui_all.look_at(Globals.player.global_position)
+		var distance_to_player = ui_all.global_position.distance_to(Globals.player.global_position)
+		if raycast.is_colliding() and raycast.get_collider() == Globals.player:
+			ui_element.position.z = -distance_to_player + 0.11
+			ui_element.position.y = -Globals.player.reticle.position.y/randi_range(16,22) + (-0.0001 * distance_to_player)
+			ui_element.position.x = Globals.player.reticle.position.x/randi_range(14,22) - 0.02 - (-0.0001 * distance_to_player)
+		else:
+			ui_element.position = Vector3.ZERO
 
 func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 	var speed_check
@@ -103,5 +137,7 @@ func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 			16:
 				Globals.unlock_heat = true
 		Globals.save_game()
+		ui_element.visible = false
+		$OmniLight3D.visible = false
 		button.position.y = 0
 		pickup_trigger.position.y = -0.2
