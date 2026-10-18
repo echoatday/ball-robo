@@ -6,12 +6,16 @@ extends Path3D
 @export var ui_text: Node3D
 @export var ui_all: Node3D
 @export var raycast: RayCast3D
+@export var ui_x_position := 6.0
+@export var ui_y_position := 4.0
 
 @onready var path = $PathFollow3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	path.progress_ratio = start_pos
+	ui_all.position.x = ui_x_position
+	ui_all.position.y = ui_y_position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
