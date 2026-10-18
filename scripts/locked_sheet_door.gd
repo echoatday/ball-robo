@@ -1,7 +1,7 @@
 extends Path3D
 
 @export var speed = 4.0
-@export var start_pos = 0
+@export var start_pos = 0.0
 
 @export var ui_text: Node3D
 @export var ui_all: Node3D
@@ -10,6 +10,8 @@ extends Path3D
 @export var ui_y_position := 4.0
 
 @onready var path = $PathFollow3D
+
+var opening := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,8 +22,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if path.progress_ratio < 0.96 and Globals.unlock_sheet:
+	if opening and path.progress_ratio < 0.96:
 		path.progress += speed * delta
+	elif not opening and path.progress_ratio > 0.05 + start_pos:
+		path.progress -= speed * delta
+	elif not opening:
+		path.progress_ratio = start_pos
 	
 	ui_all.look_at(Globals.player.global_position)
 	var distance_to_player = ui_all.global_position.distance_to(Globals.player.global_position)
@@ -32,7 +38,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		ui_text.position = Vector3.ZERO
 	
-	if Globals.unlock_door:
+	if opening:
 		ui_text.text = "⚬"
+	elif Globals.unlock_sheet:
+		ui_text.text = "○"
 	else:
 		ui_text.text = "×"
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if Globals.unlock_sheet:
+		opening = true
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	opening = false

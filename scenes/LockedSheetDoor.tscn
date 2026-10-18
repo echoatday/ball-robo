@@ -32,6 +32,9 @@ _surfaces = [{
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iyoii"]
 points = PackedVector3Array(12, 8, 1, 12, 0, 1, 0, 8, 1, 0, 0, 1, 12, 8, 0, 12, 0, 0, 0, 8, 0, 0, 0, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1m6ip"]
+size = Vector3(12, 8, 12)
+
 [node name="LockedSheetDoor" type="Path3D" unique_id=1984032725 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 curve = SubResource("Curve3D_1m6ip")
 script = ExtResource("1_0cif3")
@@ -84,3 +87,15 @@ font_size = 250
 outline_size = 0
 autowrap_trim_flags = 0
 justification_flags = 131
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2001750826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 0)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=91420402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+shape = SubResource("BoxShape3D_1m6ip")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
