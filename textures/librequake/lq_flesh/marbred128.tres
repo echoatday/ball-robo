@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cok6bbm8w8qfe"]
+
+[ext_resource type="Texture2D" uid="uid://cac8ivyge13yk" path="res://textures/librequake/lq_flesh/marbred128.png" id="1_ne5i4"]
+
+[resource]
+albedo_texture = ExtResource("1_ne5i4")
+metallic_specular = 0.0
+texture_filter = 2

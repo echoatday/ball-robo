@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bgsmihj52e88d"]
+
+[ext_resource type="Texture2D" uid="uid://vxk8718dsdit" path="res://textures/librequake/lq_dev/dot_blue_b.png" id="1_fjnfn"]
+
+[resource]
+transparency = 1
+albedo_color = Color(0.55195, 0.511, 0.7, 1)
+albedo_texture = ExtResource("1_fjnfn")
+metallic_specular = 0.0
+uv1_scale = Vector3(60, 60, 60)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+uv1_world_triplanar = true
+texture_filter = 2
+stencil_flags = 2

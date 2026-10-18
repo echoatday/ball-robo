@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ch5ocnaw2muy7"
+path="res://.godot/imported/screen_brain.map-eab9652eccd3d5051b41aa45b28ecff1.tres"
+
+[deps]
+
+source_file="res://maps/objects/screen_brain.map"
+dest_files=["res://.godot/imported/screen_brain.map-eab9652eccd3d5051b41aa45b28ecff1.tres"]
+
+[params]
+

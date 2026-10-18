@@ -54,6 +54,7 @@ size = Vector3(3, 3, 12)
 
 [node name="LockedHatch" type="Node3D" unique_id=2011431275 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 script = ExtResource("1_phcsc")
+speed = 6.0
 ui_text = NodePath("UI/door_text")
 ui_all = NodePath("UI")
 raycast = NodePath("UI/TargetingRayCast")

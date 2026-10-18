@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cywh4646ala06"]
+
+[ext_resource type="Texture2D" uid="uid://ust7pup3hxg7" path="res://textures/librequake/lq_flesh/bone1_1.png" id="1_ppm3b"]
+
+[resource]
+albedo_color = Color(0.95, 0.85499996, 0.93416667, 1)
+albedo_texture = ExtResource("1_ppm3b")
+metallic_specular = 0.0
+texture_filter = 2

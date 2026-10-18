@@ -38,6 +38,7 @@ size = Vector3(12, 8, 12)
 [node name="LockedSheetDoor" type="Path3D" unique_id=1984032725 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 curve = SubResource("Curve3D_1m6ip")
 script = ExtResource("1_0cif3")
+speed = 8.0
 ui_text = NodePath("UI/door_text")
 ui_all = NodePath("UI")
 raycast = NodePath("UI/TargetingRayCast")
