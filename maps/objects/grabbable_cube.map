@@ -1,0 +1,17 @@
+// Game: FuncGodot
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+// brush 0
+{
+( 0 -16 -16 ) ( 0 -12 -16 ) ( -16 -12 0 ) librequake/lq_tech/plus_0basebtn2_fbr [ 1 0 0 0 ] [ 0 -1 0 8 ] 0 1 1.5
+( -16 -12 0 ) ( 0 -12 16 ) ( 0 -16 16 ) librequake/lq_tech/plus_0basebtn2_fbr [ 1 0 0 0 ] [ 0 -1 0 8 ] 0 1 1.5
+( 0 -12 16 ) ( 16 -12 0 ) ( 0 -12 -16 ) librequake/lq_tech/plus_0basebtn2_fbr [ 0.7071067657322369 0 -0.7071067966408573 8 ] [ -0.7071067966408573 0 -0.7071067657322369 8 ] 45 1.5 1.5
+( 0 12 -16 ) ( 16 12 0 ) ( 0 12 16 ) librequake/lq_tech/plus_0basebtn2_fbr [ 0.7071067657322369 0 -0.7071067966408573 8 ] [ -0.7071067966408573 0 -0.7071067657322369 8 ] 45 1.5 1.5
+( 16 -16 0 ) ( 16 -12 0 ) ( 0 -12 -16 ) librequake/lq_tech/plus_0basebtn2_fbr [ 1 0 0 0 ] [ 0 -1 0 8 ] 0 1 1.5
+( 0 -12 16 ) ( 16 -12 0 ) ( 16 -16 0 ) librequake/lq_tech/plus_0basebtn2_fbr [ 1 0 0 0 ] [ 0 -1 0 8 ] 0 1 1.5
+}
+}

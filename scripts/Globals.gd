@@ -3,6 +3,8 @@ extends Node
 var player: CharacterBody3D
 @onready var world = get_tree().current_scene
 
+var holding_item := 0
+
 var current_checkpoint: int
 var rolled_state := false
 var pipenetwork_state := false

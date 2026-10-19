@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cc3ga28heikmy"
+path="res://.godot/imported/clawgrab_cube.map-3e7bfff061a1d86e03d891c8a4c319df.tres"
+
+[deps]
+
+source_file="res://maps/objects/clawgrab_cube.map"
+dest_files=["res://.godot/imported/clawgrab_cube.map-3e7bfff061a1d86e03d891c8a4c319df.tres"]
+
+[params]
+

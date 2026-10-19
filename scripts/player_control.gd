@@ -196,7 +196,9 @@ func _physics_process(delta: float) -> void:
 		grapple_ready = false
 	elif not state_dead:
 		if grapple_cast.get_collider(0).owner.target_visible == true:
-			if grapple_cast.get_collider(0).owner.lever:
+			if "lever" in grapple_cast.get_collider(0).owner:
+				grappling_lever = true
+			elif "pickup_type" in grapple_cast.get_collider(0).owner:
 				grappling_lever = true
 			grapple_ready = true
 			can_grapple = true
@@ -257,6 +259,7 @@ func _physics_process(delta: float) -> void:
 		state_boosting = false
 	
 	if state_dead:
+		Globals.holding_item = 0
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -342,9 +345,13 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += 2
 		
 		if Input.is_action_just_pressed("fire") and grapple_ready and Globals.unlock_grapple:
+			if Globals.holding_item != 0:
+				Globals.holding_item = 0
 			grapple_hook_position = grapple_cast.get_collider(0).global_position
 			energy_checkout += energy_cost.small
 			if grappling_lever:
+				if "pickup_type" in grapple_cast.get_collider(0).owner:
+					Globals.holding_item = grapple_cast.get_collider(0).owner.pickup_type
 				lever_timer.start()
 				Globals.pipenetwork_state = not Globals.pipenetwork_state
 			state_grappling = true

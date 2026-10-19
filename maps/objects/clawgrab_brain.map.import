@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://c3x5mgx84gm78"
+path="res://.godot/imported/clawgrab_brain.map-e971ef8acd5d1334500f427145e91838.tres"
+
+[deps]
+
+source_file="res://maps/objects/clawgrab_brain.map"
+dest_files=["res://.godot/imported/clawgrab_brain.map-e971ef8acd5d1334500f427145e91838.tres"]
+
+[params]
+

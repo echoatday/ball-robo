@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://d2ae5ke21kunq"
+path="res://.godot/imported/grabbable_brain.map-038d0801003f98dfbfb8211a06f9903f.tres"
+
+[deps]
+
+source_file="res://maps/objects/grabbable_brain.map"
+dest_files=["res://.godot/imported/grabbable_brain.map-038d0801003f98dfbfb8211a06f9903f.tres"]
+
+[params]
+

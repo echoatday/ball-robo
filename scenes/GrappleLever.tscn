@@ -170,5 +170,5 @@ texture = ExtResource("10_b15xf")
 
 [node name="TargetingRayCast" type="RayCast3D" parent="Looker" unique_id=1932373802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-target_position = Vector3(0, 0, -15)
+target_position = Vector3(0, 0, -100)
 collision_mask = 3

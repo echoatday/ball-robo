@@ -52,13 +52,21 @@ func _arm_movement():
 	if owner.state_grappling:
 		$ClawMesh.visible = true
 		$ClawFist.visible = false
+		$ClawGrabCube.visible = false
+		$ClawGrabBrain.visible = false
 		frequency = 3
 		cable_material.uv1_offset.y += 0.02
 		curve.set_point_position(3,to_local(owner.grapple_hook_position)*0.8)
 		curve.set_point_position(2,Vector3(2.0,-2.0,-1.0))
 	else:
 		$ClawMesh.visible = false
-		$ClawFist.visible = true
+		match Globals.holding_item:
+			0:
+				$ClawFist.visible = true
+			1: 
+				$ClawGrabCube.visible = true
+			2:
+				$ClawGrabBrain.visible = true
 		frequency = 3
 		cable_material.uv1_offset.y = 0
 		curve.set_point_position(3,point_3_base_position)
@@ -68,6 +76,8 @@ func _arm_movement():
 	if not Globals.unlock_grapple:
 		$ClawMesh.visible = false
 		$ClawFist.visible = false
+		$ClawGrabCube.visible = false
+		$ClawGrabBrain.visible = false
 
 func _on_curve_changed() -> void:
 	if Globals.unlock_grapple:
