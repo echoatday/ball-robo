@@ -30,6 +30,7 @@ extends CharacterBody3D
 @export var disable_movement_timer: Timer
 @export var regrab_timer: Timer
 @export var coyote_timer: Timer
+@export var lever_timer: Timer
 
 const SPEED = 8
 const ACCEL = 1.1
@@ -55,6 +56,7 @@ var can_jump := true
 var can_grapple := true
 var can_spin := true
 var target_visible := false
+var grappling_lever := false
 var current_speed = SPEED
 var current_accel = ACCEL
 var spin_velocity := Vector3.ZERO
@@ -173,19 +175,29 @@ func _physics_process(delta: float) -> void:
 	var cable_material = grapple_cable.get_child(0).material
 	if Input.is_action_pressed("fire") and state_grappling:
 		var grapple_velocity = ((grapple_hook_position - position) - grapple_direction) * 1.3
-		velocity = velocity.move_toward(grapple_velocity, current_accel*1.5)
-		if grapple_velocity.length() < SPEED:
-			state_grappling = false
+		if not grappling_lever:
+			velocity = velocity.move_toward(grapple_velocity, current_accel*1.5)
+			if grapple_velocity.length() < SPEED / 2:
+				state_grappling = false
+			else:
+				cable_material.set_albedo(Color(maxf(0.7-(grapple_velocity.length()*0.01),0.4),0.4,0.4))
 		else:
-			cable_material.set_albedo(Color(maxf(0.7-(grapple_velocity.length()*0.01),0.4),0.4,0.4))
+			if lever_timer.is_stopped():
+				state_grappling = false
+				grappling_lever = false
+			else:
+				cable_material.set_albedo(Color(maxf(0.4-(lever_timer.time_left*0.1),0.4),0.4,0.4))
 	else:
 		cable_material.set_albedo(Color(0.4,0.4,0.4))
 		state_grappling = false
+		grappling_lever = false
 
 	if not grapple_cast.is_colliding():
 		grapple_ready = false
 	elif not state_dead:
 		if grapple_cast.get_collider(0).owner.target_visible == true:
+			if grapple_cast.get_collider(0).owner.lever:
+				grappling_lever = true
 			grapple_ready = true
 			can_grapple = true
 	
@@ -332,6 +344,9 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("fire") and grapple_ready and Globals.unlock_grapple:
 			grapple_hook_position = grapple_cast.get_collider(0).global_position
 			energy_checkout += energy_cost.small
+			if grappling_lever:
+				lever_timer.start()
+				Globals.pipenetwork_state = not Globals.pipenetwork_state
 			state_grappling = true
 	else:
 		if Input.is_action_just_pressed("boost") and not is_on_floor() and can_boost and Globals.unlock_downboost:

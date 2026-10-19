@@ -5,6 +5,7 @@ var player: CharacterBody3D
 
 var current_checkpoint: int
 var rolled_state := false
+var pipenetwork_state := false
 
 var unlock_door := false
 var unlock_hatch := false
@@ -30,6 +31,7 @@ func save_game():
 	var save_dict = {
 		"current_checkpoint" : current_checkpoint,
 		"rolled_state" : rolled_state,
+		"pipenetwork_state" : pipenetwork_state,
 		
 		"unlock_door" : unlock_door,
 		"unlock_hatch" : unlock_hatch,
@@ -64,6 +66,7 @@ func load_game():
 	
 	current_checkpoint = json.data["current_checkpoint"]
 	rolled_state = json.data["rolled_state"]
+	pipenetwork_state = json.data["pipenetwork_state"]
 	
 	unlock_door = json.data["unlock_door"]
 	unlock_hatch = json.data["unlock_hatch"]

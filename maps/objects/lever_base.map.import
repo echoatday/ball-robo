@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://d3w1cdjont5uu"
+path="res://.godot/imported/lever_base.map-ed04590b99ce25238c6f8159260968c3.tres"
+
+[deps]
+
+source_file="res://maps/objects/lever_base.map"
+dest_files=["res://.godot/imported/lever_base.map-ed04590b99ce25238c6f8159260968c3.tres"]
+
+[params]
+

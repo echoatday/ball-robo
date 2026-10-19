@@ -1,0 +1,30 @@
+// Game: FuncGodot
+// Format: Valve
+// entity 0
+{
+"mapversion" "220"
+"wad" ""
+"classname" "worldspawn"
+// brush 0
+{
+( 0 -96 512 ) ( 0 -96 511 ) ( 0 -95 512 ) librequake/lq_tech/tech14-1 [ 0 1 0 0 ] [ 0 0 -1 64 ] 0 0.5 0.5
+( -96 -32 512 ) ( -95 -32 512 ) ( -96 -32 511 ) librequake/lq_tech/rw33_4b_l [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 96 32 -32 ) ( 97 32 -32 ) ( 96 33 -32 ) librequake/lq_tech/rw33_4b_l [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( -96 -96 32 ) ( -96 -95 32 ) ( -95 -96 32 ) librequake/lq_tech/rw33_4b_l [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 96 32 256 ) ( 96 32 255 ) ( 97 32 256 ) librequake/lq_tech/rw33_4b_l [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 16 32 256 ) ( 16 33 256 ) ( 16 32 255 ) librequake/lq_tech/tech14-1 [ 0 1 0 0 ] [ 0 0 -1 64 ] 270 0.5 0.5
+}
+// brush 1
+{
+( 16 16 24 ) ( 16 24 -8 ) ( 16 24 8 ) librequake/lq_tech/t_tech03 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 -8 -8 ) ( 16 -16 -24 ) ( 16 -24 -8 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 0 1 16 ] 153.61218 1 1
+( 32 -8 8 ) ( 16 -24 8 ) ( 16 -16 24 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 0 -1 16 ] 270 1 1
+( 32 8 -8 ) ( 16 24 -8 ) ( 16 16 -24 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 0 1 16 ] 206.38782 1 1
+( 32 8 8 ) ( 16 16 24 ) ( 16 24 8 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 0 -1 16 ] 90 1 1
+( 32 -8 8 ) ( 16 -24 -8 ) ( 16 -24 8 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 8 -8 ) ( 16 -16 -24 ) ( 32 -8 -8 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
+( 32 8 8 ) ( 16 -16 24 ) ( 16 16 24 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 -1 0 0 ] 270 1 1
+( 32 8 8 ) ( 16 24 -8 ) ( 32 8 -8 ) librequake/lq_tech/t_tech03 [ 1 0 0 0 ] [ 0 0 -1 0 ] 0 1 1
+( 32 8 8 ) ( 32 -8 -8 ) ( 32 -8 8 ) librequake/lq_tech/tech04_1 [ 0 1 0 8 ] [ 0 0 -1 8 ] 0 1 1
+}
+}
