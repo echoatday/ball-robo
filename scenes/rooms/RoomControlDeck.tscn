@@ -85,7 +85,7 @@
 [ext_resource type="PackedScene" uid="uid://dv7pb3b2bph2w" path="res://scenes/LockedIris.tscn" id="77_25aj2"]
 [ext_resource type="PackedScene" uid="uid://depyk1lvhf45q" path="res://scenes/LockedHatch.tscn" id="79_x1i4d"]
 [ext_resource type="PackedScene" uid="uid://b4xlbhb7f5o31" path="res://scenes/LockedVault.tscn" id="83_o4fn4"]
-[ext_resource type="PackedScene" uid="uid://binx7qwi5hlre" path="res://scenes/GrabbableBrain.tscn" id="87_ksa1y"]
+[ext_resource type="PackedScene" uid="uid://binx7qwi5hlre" path="res://scenes/GrabbableItem.tscn" id="87_ksa1y"]
 [ext_resource type="PackedScene" uid="uid://bu555kq0vdioo" path="res://scenes/ScreenBrain.tscn" id="88_ae46g"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ae46g"]
@@ -3034,7 +3034,7 @@ points = PackedVector3Array(-21, -11.999999, 36, -23, -13, 36, -23, -12, 36, -21
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tce4n"]
 points = PackedVector3Array(-24, -12, 36, -23.999998, -13.000001, 36, -26.000002, -11.999999, 36, -24, -12, 32, -23.999998, -13.000001, 32, -26.000002, -11.999999, 32)
 
-[sub_resource type="Curve3D" id="Curve3D_mfhpt"]
+[sub_resource type="Curve3D" id="Curve3D_ksa1y"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -3042,7 +3042,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_ycy3h"]
+[sub_resource type="Curve3D" id="Curve3D_ae46g"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
@@ -3050,7 +3050,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_6umhd"]
+[sub_resource type="Curve3D" id="Curve3D_e1jo4"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
@@ -3058,7 +3058,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_pjxu3"]
+[sub_resource type="Curve3D" id="Curve3D_we4pc"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
@@ -3066,7 +3066,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_7ia4x"]
+[sub_resource type="Curve3D" id="Curve3D_ups0f"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
@@ -3074,7 +3074,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_pv750"]
+[sub_resource type="Curve3D" id="Curve3D_u58fl"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
@@ -3082,7 +3082,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_ihwcy"]
+[sub_resource type="Curve3D" id="Curve3D_bkim3"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
@@ -3090,7 +3090,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_q7wlm"]
+[sub_resource type="Curve3D" id="Curve3D_ywntq"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
@@ -5310,12 +5310,12 @@ level_id = 54
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("33_p2e1e")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 36, -11.5, -18)
-curve = SubResource("Curve3D_mfhpt")
+curve = SubResource("Curve3D_ksa1y")
 speed = 3.0
 
 [node name="LockedDoor2" parent="." unique_id=1984032725 instance=ExtResource("39_dexlu")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 40, -10, -20.5)
-curve = SubResource("Curve3D_ycy3h")
+curve = SubResource("Curve3D_ae46g")
 
 [node name="BumperSmall" parent="." unique_id=375125877 instance=ExtResource("42_m8x8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -11, -2.5)
@@ -5360,7 +5360,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, -0.99999994, 0, 0.999
 
 [node name="LockedSheetDoor" parent="." unique_id=1512645659 instance=ExtResource("62_33ipc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, -17.5, -8)
-curve = SubResource("Curve3D_6umhd")
+curve = SubResource("Curve3D_e1jo4")
 start_pos = 0.7
 ui_x_position = 1.0
 ui_y_position = 6.5
@@ -5371,7 +5371,7 @@ speed = 12
 
 [node name="LockedSheetDoor2" parent="." unique_id=1761536092 instance=ExtResource("62_33ipc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28, -11, 8)
-curve = SubResource("Curve3D_pjxu3")
+curve = SubResource("Curve3D_we4pc")
 start_pos = 0.1
 
 [node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("65_qredg")]
@@ -5423,7 +5423,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -14.75, 32)
 
 [node name="LockedDoor3" parent="." unique_id=1502471218 instance=ExtResource("39_dexlu")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37, -10, -34)
-curve = SubResource("Curve3D_7ia4x")
+curve = SubResource("Curve3D_ups0f")
 
 [node name="LockedIris" parent="." unique_id=2011431275 instance=ExtResource("77_25aj2")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, -16, 36)
@@ -5436,14 +5436,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, -11, -57.5)
 
 [node name="LockedVault" parent="." unique_id=1044142453 instance=ExtResource("83_o4fn4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, -16, 34)
-curve = SubResource("Curve3D_pv750")
+curve = SubResource("Curve3D_u58fl")
 
 [node name="LockedIris3" parent="." unique_id=507665291 instance=ExtResource("77_25aj2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23, -16.5, 32)
 
 [node name="LockedSheetDoor3" parent="." unique_id=390712746 instance=ExtResource("62_33ipc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30, -20.5, 31)
-curve = SubResource("Curve3D_ihwcy")
+curve = SubResource("Curve3D_bkim3")
 start_pos = 0.5
 ui_x_position = 3.0
 ui_y_position = 6.0
@@ -5453,7 +5453,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -37,
 
 [node name="LockedDoor4" parent="." unique_id=1409374775 instance=ExtResource("39_dexlu")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -44, -16, 32)
-curve = SubResource("Curve3D_q7wlm")
+curve = SubResource("Curve3D_ywntq")
 
 [node name="BumperPlatform4" parent="." unique_id=925520059 instance=ExtResource("68_nor6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, -22.75, 34)
@@ -5461,5 +5461,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, -22.75, 34)
 [node name="ScreenBrain" parent="." unique_id=1904919150 instance=ExtResource("88_ae46g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76, -21.05, 29)
 
-[node name="GrabbableBrain" parent="." unique_id=436841322 instance=ExtResource("87_ksa1y")]
+[node name="GrabbableItem" parent="." unique_id=436841322 instance=ExtResource("87_ksa1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77, -20.5, 34)
+pickup_location = 2
+
+[node name="GrabbableItem2" parent="." unique_id=1375040928 instance=ExtResource("87_ksa1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.75, -21, 38)
+pickup_type = 1
+pickup_location = 1

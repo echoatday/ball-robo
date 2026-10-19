@@ -3,7 +3,11 @@ extends Node
 var player: CharacterBody3D
 @onready var world = get_tree().current_scene
 
+# nothing, cube, brain
 var holding_item := 0
+# cube_rm, cube_cd, brain_home
+var item_locations := [1, 0, 2]
+var self_destruct := false
 
 var current_checkpoint: int
 var rolled_state := false

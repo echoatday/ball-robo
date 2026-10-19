@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://binx7qwi5hlre"]
 
-[ext_resource type="Script" uid="uid://c4c53pr4kp13k" path="res://scripts/grabbable.gd" id="1_57xkq"]
-[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_633vl"]
-[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_mm0jh"]
-[ext_resource type="Material" uid="uid://cmrt25k0ddm56" path="res://textures/librequake/lq_flesh/flesh_gut2.tres" id="4_joxqc"]
-[ext_resource type="Material" uid="uid://cywh4646ala06" path="res://textures/librequake/lq_flesh/bone1_1.tres" id="5_fxcbw"]
-[ext_resource type="Texture2D" uid="uid://bjdmynb6icrqu" path="res://textures/cockpit/targeting_box.png" id="9_5fku3"]
+[ext_resource type="Script" uid="uid://c4c53pr4kp13k" path="res://scripts/grabbable.gd" id="1_kkv3v"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_rdj2h"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_g6isr"]
+[ext_resource type="Material" uid="uid://cmrt25k0ddm56" path="res://textures/librequake/lq_flesh/flesh_gut2.tres" id="4_6idfd"]
+[ext_resource type="Material" uid="uid://cywh4646ala06" path="res://textures/librequake/lq_flesh/bone1_1.tres" id="5_o7ris"]
+[ext_resource type="Material" uid="uid://dfnmq15qhnr7q" path="res://textures/librequake/lq_tech/plus_0basebtn2_fbr.tres" id="6_ukaiy"]
+[ext_resource type="Texture2D" uid="uid://bjdmynb6icrqu" path="res://textures/cockpit/targeting_box.png" id="7_rq2fn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_se7hj"]
 _surfaces = [{
@@ -14,7 +15,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 117,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8ADAAPABAAEQASABMAFAAVABYAFAAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAIQAjACQAJQAmACcAJQAnACgAKQAqACsALAAtAC4ALwAwADEAMgAzADQANQA2ADcANQA3ADgAOQA6ADsAOQA7ADwAPQA+AD8APQA/AEAAQQBCAEMAQQBDAEQARQBGAEcASABJAEoASABKAEsATABNAE4ATABOAE8AUABRAFIAUABSAFMAVABVAFYA"),
-"material": ExtResource("4_joxqc"),
+"material": ExtResource("4_6idfd"),
 "name": "librequake/lq_flesh/flesh_gut2",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -26,7 +27,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 30,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsACQALAAwACQAMAA0ACQANAA4ADwAQABEAEgATABQAFQAWABcA"),
-"material": ExtResource("5_fxcbw"),
+"material": ExtResource("5_o7ris"),
 "name": "librequake/lq_flesh/bone1_1",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -43,8 +44,26 @@ points = PackedVector3Array(-0.0982143, -0.35714287, 0.5, 0.1800595, -0.1607143,
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_acaqg"]
 points = PackedVector3Array(-0.22916669, -0.49999988, 4.8605403e-07, -0.22916672, -0.35714287, 0.50000006, -0.22916669, -0.5, 9.721077e-08, -0.22916667, -0.5, -8.471389e-08, -0.22916667, -0.5, 0, -0.36011907, -0.35714287, 0.50000006, -0.22916666, -0.5, 0, -0.22916666, -0.50000006, 8.100899e-08, -0.22916673, -0.5, 0, -0.22916666, -0.50000006, 3.4718134e-08, -0.22916676, -0.5, 0, -0.22916661, -0.5, 0, -0.22916667, -0.5, 0, -0.22916667, -0.5, -8.805042e-08, -0.22916664, -0.49999997, -6.9436254e-08, -0.09821429, -0.35714287, -8.1454445e-08, -0.22916663, -0.5, -8.805042e-08, -0.22916661, -0.49999997, -1.6201795e-07, -0.22916666, -0.49999994, -8.4713896e-08, -0.6220238, -0.35714287, 0, -0.22916664, -0.5, 0, -0.22916663, -0.5, 0, -0.22916661, -0.49999994, 0, -0.36011907, -0.35714287, -0.50000006, -0.22916667, -0.35714287, -0.50000006, -0.22916664, -0.49999988, 0)
 
-[node name="GrabbableBrain" type="Node3D" unique_id=2044146846 node_paths=PackedStringArray("raycast", "looker", "targeting_box", "collider")]
-script = ExtResource("1_57xkq")
+[sub_resource type="ArrayMesh" id="ArrayMesh_fxcbw"]
+_surfaces = [{
+"aabb": AABB(-0.375, -0.5, -0.5, 0.75, 1, 1),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAAAAAAAAgL8AAAAAAACAvwAAgD8AAAAAAACAPwAAgL8AAIA/AACAvwAAAAAAAAAAAAAAABVB6jwVQeo8+K14PxVB6jz4rXg/+K14PxVB6jz4rXg/FUHqPBVB6jwVQeo8+K14P/iteD/4rXg/+K14PxVB6jwAAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAA"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": ExtResource("6_ukaiy"),
+"name": "librequake/lq_tech/plus_0basebtn2_fbr",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AADAvgAAAL8AAAAAAADAPgAAAL8AAAAAAADAPgAAAAAAAAC/AADAvgAAAAAAAAC/AADAvgAAAD8AAAAAAADAvgAAAAAAAAC/AADAPgAAAAAAAAC/AADAPgAAAD8AAAAAAADAvgAAAD8AAAAAAADAvgAAAAAAAAA/AADAvgAAAL8AAAAAAADAvgAAAAAAAAC/AADAPgAAAD8AAAAAAADAPgAAAAAAAAC/AADAPgAAAL8AAAAAAADAPgAAAAAAAAA/AADAvgAAAAAAAAA/AADAPgAAAAAAAAA/AADAPgAAAL8AAAAAAADAvgAAAL8AAAAAAADAvgAAAAAAAAA/AADAvgAAAD8AAAAAAADAPgAAAD8AAAAAAADAPgAAAAAAAAA//78AAP9//z//vwAA/3//P/+/AAD/f/8//78AAP9//z//v////3//v/+/////f/+//7////9//7//v////3//vwAA/3//f/+fAAD/f/9//58AAP9//3//nwAA/3//f/+f////f/9//1////9//3//X////3//f/9f////f/9//1//f/8//3//P/9//z//f/8//3//P/9//z//f/8//3//P/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_se7hj"]
+points = PackedVector3Array(0.375, 0, 0.5, -0.375, 0, 0.5, 0.375, 0.5, 0, -0.375, 0.5, 0, 0.375, -0.5, 0, -0.375, -0.5, 0, 0.375, 0, -0.5, -0.375, 0, -0.5)
+
+[node name="GrabbableItem" type="Node3D" unique_id=2044146846 node_paths=PackedStringArray("raycast", "looker", "targeting_box", "collider")]
+script = ExtResource("1_kkv3v")
 pickup_type = 2
 raycast = NodePath("Looker/TargetingRayCast")
 looker = NodePath("Looker")
@@ -52,9 +71,10 @@ targeting_box = NodePath("Looker/targeting_box")
 collider = NodePath("FuncGodotMap/entity_0_worldspawn")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=2031537046]
-script = ExtResource("2_633vl")
+visible = false
+script = ExtResource("2_rdj2h")
 local_map_file = "uid://d2ae5ke21kunq"
-map_settings = ExtResource("3_mm0jh")
+map_settings = ExtResource("3_g6isr")
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap" unique_id=1012218786]
 collision_layer = 256
@@ -72,6 +92,21 @@ shape = SubResource("ConvexPolygonShape3D_mm0jh")
 [node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn" unique_id=1534603145]
 shape = SubResource("ConvexPolygonShape3D_acaqg")
 
+[node name="FuncGodotMap2" type="Node3D" parent="." unique_id=107089104]
+visible = false
+script = ExtResource("2_rdj2h")
+local_map_file = "uid://bhyjasdg44nbe"
+map_settings = ExtResource("3_g6isr")
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap2" unique_id=1755173228]
+collision_mask = 0
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap2/entity_0_worldspawn" unique_id=1957556712]
+mesh = SubResource("ArrayMesh_fxcbw")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap2/entity_0_worldspawn" unique_id=1821272159]
+shape = SubResource("ConvexPolygonShape3D_se7hj")
+
 [node name="Looker" type="Node3D" parent="." unique_id=2022227332]
 
 [node name="targeting_box" type="Sprite3D" parent="Looker" unique_id=658214292]
@@ -82,7 +117,7 @@ modulate = Color(0.44705883, 1, 0.99607843, 1)
 pixel_size = 0.0001
 alpha_cut = 1
 render_priority = 1
-texture = ExtResource("9_5fku3")
+texture = ExtResource("7_rq2fn")
 
 [node name="TargetingRayCast" type="RayCast3D" parent="Looker" unique_id=1932373802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

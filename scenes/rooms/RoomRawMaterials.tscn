@@ -69,7 +69,7 @@
 [ext_resource type="PackedScene" uid="uid://7g7g7horxyql" path="res://scenes/BumperSmall.tscn" id="63_wa8no"]
 [ext_resource type="PackedScene" uid="uid://7lt2mtpgunn3" path="res://scenes/GrappleTarget.tscn" id="64_r8da4"]
 [ext_resource type="PackedScene" uid="uid://gexycccskxam" path="res://scenes/ItemPickup.tscn" id="66_gqhlu"]
-[ext_resource type="PackedScene" uid="uid://dla7kp6ceapqd" path="res://scenes/GrabbableBox.tscn" id="70_gadux"]
+[ext_resource type="PackedScene" uid="uid://binx7qwi5hlre" path="res://scenes/GrabbableItem.tscn" id="70_gadux"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_43ml5"]
 _surfaces = [{
@@ -6841,5 +6841,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, -16, 0)
 transform = Transform3D(0.3536499, 0, 0.93537784, 0, 1, 0, -0.93537784, 0, 0.3536499, 40, -38, -45.39172)
 target_item = 6
 
-[node name="GrabbableBox" parent="." unique_id=1845137765 instance=ExtResource("70_gadux")]
+[node name="GrabbableItem" parent="." unique_id=1755297406 instance=ExtResource("70_gadux")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20, -15.5, 43.5)
+pickup_type = 1

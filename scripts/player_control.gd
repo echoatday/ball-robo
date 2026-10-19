@@ -260,6 +260,7 @@ func _physics_process(delta: float) -> void:
 	
 	if state_dead:
 		Globals.holding_item = 0
+		Globals.item_locations = [1, 0, 2]
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -345,15 +346,16 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += 2
 		
 		if Input.is_action_just_pressed("fire") and grapple_ready and Globals.unlock_grapple:
-			if Globals.holding_item != 0:
-				Globals.holding_item = 0
 			grapple_hook_position = grapple_cast.get_collider(0).global_position
 			energy_checkout += energy_cost.small
 			if grappling_lever:
-				if "pickup_type" in grapple_cast.get_collider(0).owner:
-					Globals.holding_item = grapple_cast.get_collider(0).owner.pickup_type
 				lever_timer.start()
-				Globals.pipenetwork_state = not Globals.pipenetwork_state
+				if "pickup_type" in grapple_cast.get_collider(0).owner:
+					var pickup_target = grapple_cast.get_collider(0).owner
+					Globals.item_locations[pickup_target.pickup_location] = Globals.holding_item
+					Globals.holding_item = pickup_target.pickup_type
+				elif "lever" in grapple_cast.get_collider(0).owner:
+					Globals.pipenetwork_state = not Globals.pipenetwork_state
 			state_grappling = true
 	else:
 		if Input.is_action_just_pressed("boost") and not is_on_floor() and can_boost and Globals.unlock_downboost:

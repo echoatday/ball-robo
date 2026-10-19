@@ -1,6 +1,7 @@
 extends Node3D
 
 @export_enum("nothing", "cube", "brain") var pickup_type: int
+@export_enum("cube_rm", "cube_cd", "brain_home") var pickup_location: int
 
 @export var raycast: RayCast3D
 @export var looker: Node3D
@@ -11,12 +12,17 @@ var target_visible := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	if Globals.holding_item == pickup_type:
-		collider.set_collision_layer_value(9,false)
-		self.visible = false
-	else:
-		collider.set_collision_layer_value(9,true)
-		self.visible = true
+	pickup_type = Globals.item_locations[pickup_location]
+	match pickup_type:
+		0:
+			$FuncGodotMap.visible = false
+			$FuncGodotMap2.visible = false
+		1:
+			$FuncGodotMap.visible = false
+			$FuncGodotMap.visible = true
+		2:
+			$FuncGodotMap.visible = true
+			$FuncGodotMap2.visible = false
 	
 	looker.look_at(Globals.player.global_position)
 	var distance_to_player = global_position.distance_to(Globals.player.global_position)
