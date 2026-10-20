@@ -2890,7 +2890,7 @@ omni_range = 100.0
 omni_attenuation = 0.0
 
 [node name="DoorNorth" type="Node3D" parent="." unique_id=369027586]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 68, -28, 10)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 68, -28, 8)
 script = ExtResource("10_gyn5x")
 
 [node name="DoorSouth" type="Node3D" parent="." unique_id=1859670522]
@@ -3057,9 +3057,6 @@ fan_on = false
 transform = Transform3D(-3.278354e-08, 0, -1, 0, 1, 0, 0.75, 0, -4.371139e-08, -12.4, -12, -6)
 speed = -6
 fan_on = false
-
-[node name="Glass3" parent="." unique_id=215244829 instance=ExtResource("36_w2u3s")]
-transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 1, 60, -28, 21)
 
 [node name="Glass4" parent="." unique_id=310190222 instance=ExtResource("36_w2u3s")]
 transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, 2, -19.5, 25)
