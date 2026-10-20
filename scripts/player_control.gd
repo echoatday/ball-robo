@@ -177,7 +177,7 @@ func _physics_process(delta: float) -> void:
 		var grapple_velocity = ((grapple_hook_position - position) - grapple_direction) * 1.3
 		if not grappling_lever:
 			velocity = velocity.move_toward(grapple_velocity, current_accel*1.5)
-			if grapple_velocity.length() < SPEED / 2:
+			if grapple_velocity.length() < SPEED * 0.8:
 				state_grappling = false
 			else:
 				cable_material.set_albedo(Color(maxf(0.7-(grapple_velocity.length()*0.01),0.4),0.4,0.4))
