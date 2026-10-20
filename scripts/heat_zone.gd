@@ -23,9 +23,10 @@ func _physics_process(_delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	body.heat_level += heat_level
-	body.fog_counter = 0
-	body.fog_color = fog_color
-	body.ambient_color = ambient_light_color
+	if not Globals.self_destruct:
+		body.fog_counter = 0
+		body.fog_color = fog_color
+		body.ambient_color = ambient_light_color
 	
 	self.primary_room = true
 	for child in world.get_children():

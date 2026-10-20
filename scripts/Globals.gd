@@ -64,6 +64,9 @@ func save_game():
 	save_file.store_line(json_string)
 
 func load_game():
+	self_destruct = false
+	item_locations = [1, 0, 2]
+	holding_item = 0
 	if not FileAccess.file_exists("res://saves/savegame.json"):
 		return # Error! We don't have a save to load.
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.READ)

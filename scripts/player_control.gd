@@ -259,8 +259,7 @@ func _physics_process(delta: float) -> void:
 		state_boosting = false
 	
 	if state_dead:
-		Globals.holding_item = 0
-		Globals.item_locations = [1, 0, 2]
+		camera.camera_environment.set_ambient_light_color(Color(0.5,0.5,0.5))
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -356,6 +355,12 @@ func _physics_process(delta: float) -> void:
 						var pickup_target = grapple_cast.get_collider(0).owner
 						Globals.item_locations[pickup_target.pickup_location] = Globals.holding_item
 						Globals.holding_item = pickup_target.pickup_type
+						if Globals.holding_item == 2:
+							# brain get
+							Globals.self_destruct = true
+							fog_counter = 100
+							ambient_color = Color(0.7, 0.1, 0.1)
+							fog_color = Color(0.4, 0.1, 0.1)
 					elif "lever" in grapple_cast.get_collider(0).owner and Globals.holding_item == 0:
 						Globals.pipenetwork_state = not Globals.pipenetwork_state
 	else:
