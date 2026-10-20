@@ -346,17 +346,18 @@ func _physics_process(delta: float) -> void:
 			energy_checkout += 2
 		
 		if Input.is_action_just_pressed("fire") and grapple_ready and Globals.unlock_grapple:
-			grapple_hook_position = grapple_cast.get_collider(0).global_position
-			energy_checkout += energy_cost.small
-			if grappling_lever:
-				lever_timer.start()
-				if "pickup_type" in grapple_cast.get_collider(0).owner:
-					var pickup_target = grapple_cast.get_collider(0).owner
-					Globals.item_locations[pickup_target.pickup_location] = Globals.holding_item
-					Globals.holding_item = pickup_target.pickup_type
-				elif "lever" in grapple_cast.get_collider(0).owner:
-					Globals.pipenetwork_state = not Globals.pipenetwork_state
-			state_grappling = true
+			if Globals.holding_item == 0 or "pickup_type" in grapple_cast.get_collider(0).owner:
+				grapple_hook_position = grapple_cast.get_collider(0).global_position
+				energy_checkout += energy_cost.small
+				state_grappling = true
+				if grappling_lever:
+					lever_timer.start()
+					if "pickup_type" in grapple_cast.get_collider(0).owner:
+						var pickup_target = grapple_cast.get_collider(0).owner
+						Globals.item_locations[pickup_target.pickup_location] = Globals.holding_item
+						Globals.holding_item = pickup_target.pickup_type
+					elif "lever" in grapple_cast.get_collider(0).owner and Globals.holding_item == 0:
+						Globals.pipenetwork_state = not Globals.pipenetwork_state
 	else:
 		if Input.is_action_just_pressed("boost") and not is_on_floor() and can_boost and Globals.unlock_downboost:
 			if velocity.y > -12:

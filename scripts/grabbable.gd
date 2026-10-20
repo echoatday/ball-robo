@@ -19,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 			$FuncGodotMap2.visible = false
 		1:
 			$FuncGodotMap.visible = false
-			$FuncGodotMap.visible = true
+			$FuncGodotMap2.visible = true
 		2:
 			$FuncGodotMap.visible = true
 			$FuncGodotMap2.visible = false
