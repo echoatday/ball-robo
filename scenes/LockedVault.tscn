@@ -110,7 +110,7 @@ points = PackedVector3Array(0.5, 2.4999998, 0.5, -0.5, 2.4999998, 0.5, 0.5, 1.50
 points = PackedVector3Array(0.5, 2, 0, 0.5, 0, 0, -0.5, 2, 0, -0.5, 0, 0, 0.5, 2, -1, 0.5, 0, -1, -0.5, 2, -1, -0.5, 0, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
-size = Vector3(12, 4, 4)
+size = Vector3(12, 6, 6)
 
 [node name="LockedVault" type="Path3D" unique_id=1984032725 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 curve = SubResource("Curve3D_r37dj")
@@ -161,7 +161,7 @@ map_settings = ExtResource("5_ea0dq")
 collision_mask = 0
 
 [node name="Timer" type="Timer" parent="." unique_id=1210285512]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [node name="Outside1" type="Node3D" parent="." unique_id=749546318]

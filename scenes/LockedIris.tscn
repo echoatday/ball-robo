@@ -166,7 +166,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nveqg"]
-size = Vector3(4, 4, 12)
+size = Vector3(6, 6, 12)
 
 [node name="LockedIris" type="Node3D" unique_id=2011431275 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 script = ExtResource("1_nveqg")

@@ -33,7 +33,7 @@ _surfaces = [{
 points = PackedVector3Array(12, 8, 1, 12, 0, 1, 0, 8, 1, 0, 0, 1, 12, 8, 0, 12, 0, 0, 0, 8, 0, 0, 0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1m6ip"]
-size = Vector3(12, 8, 12)
+size = Vector3(14, 10, 12)
 
 [node name="LockedSheetDoor" type="Path3D" unique_id=1984032725 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 curve = SubResource("Curve3D_1m6ip")

@@ -50,7 +50,7 @@ _data = {
 point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o2xax"]
-size = Vector3(3, 3, 12)
+size = Vector3(5, 5, 12)
 
 [node name="LockedHatch" type="Node3D" unique_id=2011431275 node_paths=PackedStringArray("ui_text", "ui_all", "raycast")]
 script = ExtResource("1_phcsc")
