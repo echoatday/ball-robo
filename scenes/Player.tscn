@@ -76,6 +76,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ckbbdoduwk4s7" path="res://models/ico_27.obj" id="54_lpg20"]
 [ext_resource type="ArrayMesh" uid="uid://cbys2qif2ylcv" path="res://models/ico_28.obj" id="55_o3ob6"]
 [ext_resource type="ArrayMesh" uid="uid://cmi665mpq8ml0" path="res://models/ico_29.obj" id="56_rkg80"]
+[ext_resource type="Script" uid="uid://dwbnja8y72is5" path="res://scripts/selfdestruct_text.gd" id="56_yoxdq"]
 [ext_resource type="ArrayMesh" uid="uid://byfogeqi8tevt" path="res://models/ico_30.obj" id="57_6odom"]
 [ext_resource type="ArrayMesh" uid="uid://d13d15j3nhvk4" path="res://models/ico_31.obj" id="58_u18r6"]
 [ext_resource type="ArrayMesh" uid="uid://c1m65031fhn56" path="res://models/ico_32.obj" id="59_b2wya"]
@@ -1282,6 +1283,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="Sphere" type="Node3D" parent="Cockpit" unique_id=1770536803 node_paths=PackedStringArray("icosphere", "screen", "walk_sphere", "arms")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 top_level = true
 script = ExtResource("14_y10qh")
 icosphere = NodePath("Icosphere")
@@ -1304,6 +1306,7 @@ target_position = Vector3(0, 0, 30)
 collision_mask = 0
 
 [node name="GrappleCast" type="ShapeCast3D" parent="Cockpit/Sphere/UI/Reticle" unique_id=1167853482]
+transform = Transform3D(0.77, 0, 0, 0, 0.77, 0, 0, 0, 0.77, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_7s8xn")
 target_position = Vector3(0, 0, 0)
 margin = 0.04
@@ -1482,6 +1485,23 @@ font_size = 200
 outline_size = 0
 horizontal_alignment = 2
 script = ExtResource("85_2viqe")
+
+[node name="selfdestruct_text" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=1339516714 node_paths=PackedStringArray("spotlight")]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, -0.027, -0.085)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "00.0"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+script = ExtResource("56_yoxdq")
+spotlight = NodePath("../../SpotLight3D")
+
+[node name="TimerSelfDestruct" type="Timer" parent="Cockpit/Sphere/UI/selfdestruct_text" unique_id=1321605170]
+wait_time = 300.0
+one_shot = true
 
 [node name="DeadText" type="Label3D" parent="Cockpit/Sphere" unique_id=904329377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0010524634, -0.06356848)

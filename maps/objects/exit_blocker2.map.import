@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b5km3ij52ggxk"
+path="res://.godot/imported/exit_blocker2.map-7da8c4370ce3a6af930cb29095664d88.tres"
+
+[deps]
+
+source_file="res://maps/objects/exit_blocker2.map"
+dest_files=["res://.godot/imported/exit_blocker2.map-7da8c4370ce3a6af930cb29095664d88.tres"]
+
+[params]
+

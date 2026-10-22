@@ -73,7 +73,7 @@ func _arm_movement():
 		curve.set_point_position(2,point_2_base_position)
 		#curve.set_point_position(1,point_1_base_position)
 	
-	if not Globals.unlock_grapple:
+	if not Globals.unlock_grapple or owner.state_dead:
 		$ClawMesh.visible = false
 		$ClawFist.visible = false
 		$ClawGrabCube.visible = false
