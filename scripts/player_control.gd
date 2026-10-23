@@ -16,6 +16,7 @@ extends CharacterBody3D
 @export var box_display: Node3D
 @export var dead_text: Node3D
 @export var pilot_cast: Node3D
+@export var level_text: Node3D
 @export_category("Grappling")
 @export var grapple_cable: Node3D
 @export var grapple_cast: Node3D

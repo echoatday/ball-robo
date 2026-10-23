@@ -28,6 +28,7 @@ func _on_body_entered(body: Node3D) -> void:
 		body.ambient_color = ambient_light_color
 	
 	body.heat_level += heat_level
+	body.level_text.current_level = this_room
 	
 	self.primary_room = true
 	for child in world.get_children():

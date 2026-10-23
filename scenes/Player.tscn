@@ -18,7 +18,6 @@
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_8bc5l"]
 [ext_resource type="Texture2D" uid="uid://lh7qdckq08wh" path="res://textures/cockpit/crosshair_pilot_click.png" id="9_aybtq"]
 [ext_resource type="ArrayMesh" uid="uid://n7qc4c0howw5" path="res://models/array.obj" id="9_la8f2"]
-[ext_resource type="ArrayMesh" uid="uid://cyssvlnmv4blm" path="res://models/screen.obj" id="9_oanc2"]
 [ext_resource type="ArrayMesh" uid="uid://c4x51s0fho678" path="res://models/screen_small.obj" id="10_41lfj"]
 [ext_resource type="Material" uid="uid://bpxi0l621ahdn" path="res://materials/cable.tres" id="10_lnno2"]
 [ext_resource type="Texture2D" uid="uid://be21ma1s6wyya" path="res://textures/cockpit/gauge_background.png" id="11_kvw7q"]
@@ -43,6 +42,7 @@
 [ext_resource type="Script" uid="uid://cw2ia7rtko5j2" path="res://scripts/array_control.gd" id="21_we1n3"]
 [ext_resource type="Script" uid="uid://cyemo5t6i4olp" path="res://scripts/ui_halo.gd" id="22_07ay5"]
 [ext_resource type="ArrayMesh" uid="uid://cr5dabkwyh50g" path="res://models/icosphere_wire.obj" id="23_ku51j"]
+[ext_resource type="Material" uid="uid://b511asbqw76p6" path="res://textures/librequake/lq_utility/black.tres" id="24_difmb"]
 [ext_resource type="ArrayMesh" uid="uid://c12tbi0h080hb" path="res://models/ico_01.obj" id="25_la8f2"]
 [ext_resource type="Texture2D" uid="uid://bcethlll2ri8o" path="res://textures/cockpit/crosshair_pilot_dummy_2.png" id="28_xmxrx"]
 [ext_resource type="Material" uid="uid://cmtsqrhbc5xq0" path="res://materials/window_frame.tres" id="28_yrgn6"]
@@ -78,6 +78,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cmi665mpq8ml0" path="res://models/ico_29.obj" id="56_rkg80"]
 [ext_resource type="Script" uid="uid://dwbnja8y72is5" path="res://scripts/selfdestruct_text.gd" id="56_yoxdq"]
 [ext_resource type="ArrayMesh" uid="uid://byfogeqi8tevt" path="res://models/ico_30.obj" id="57_6odom"]
+[ext_resource type="Script" uid="uid://b45pdc18xx50k" path="res://scripts/level_text.gd" id="57_difmb"]
 [ext_resource type="ArrayMesh" uid="uid://d13d15j3nhvk4" path="res://models/ico_31.obj" id="58_u18r6"]
 [ext_resource type="ArrayMesh" uid="uid://c1m65031fhn56" path="res://models/ico_32.obj" id="59_b2wya"]
 [ext_resource type="ArrayMesh" uid="uid://ufo0qxubvf81" path="res://models/ico_33.obj" id="60_wfakw"]
@@ -659,7 +660,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AACAPgAAAAAAAAC/AABAPwAAAAAAAAC/AABAPwAAgD8AAAC/AACAPgAAgD8AAAC/AAAAPwAAAAAAAAC+AABAPwAAAAAAAAC/AACAPgAAAAAAAAC/AAAAPwAAgD8AAAC+AACAPgAAgD8AAAC/AABAPwAAgD8AAAC/AAAAPwAAAAAAAAC+AACAPgAAAAAAAAC/AACAPgAAgD8AAAC/AAAAPwAAgD8AAAC+AAAAPwAAgD8AAAC+AABAPwAAgD8AAAC/AABAPwAAAAAAAAC/AAAAPwAAAAAAAAC+AACAvgAAkD8AAEA/AACAvgAAAAAAAKA+AACAPgAAAAAAAKA+AACAPgAAkD8AAEA/AAAAAAAAgL4AABA/AACAPgAAAAAAAKA+AACAvgAAAAAAAKA+AAAAAAAAYD8AAIA/AACAPgAAkD8AAEA/AACAPgAAAAAAAKA+AAAAAAAAgL4AABA/AAAAAAAAYD8AAIA/AAAAAAAAgL4AABA/AACAvgAAAAAAAKA+AACAvgAAkD8AAEA/AACAvgAAkD8AAEA/AACAPgAAkD8AAEA/AAAAAAAAYD8AAIA/AAAAvwAAwL4AAMC+AAAgvgAAAL4AAMC+AAA4vwAAQD8AADi/AADAvgAAgD8AABi/AAA4vwAAQD8AADi/AAAgvgAAAL4AAMC+AABYvwAAgD8AAIC+AAA4vwAAQD8AADi/AADAvgAAgD8AABi/AAAAvwAAwL4AAMC+AAA4vwAAQD8AADi/AABYvwAAgD8AAIC+AADAvgAAAL4AAAC9AAAgvgAAAL4AAMC+AAAAvwAAwL4AAMC+AABYvwAAgD8AAIC+AADAvgAAAL4AAAC9AAAAvwAAwL4AAMC+AADAvgAAAL4AAAC9AADAvgAAgD8AABi/AAAgvgAAAL4AAMC+AADAvgAAAL4AAAC9AABYvwAAgD8AAIC+AADAvgAAgD8AABi//////////z//////////P/////////8//////////z//fwAA/3//P/9/AAD/f/8//38AAP9//z//f////3//v/9/////f/+//3////9//78yM/9//3//vzIz/3//f/+/MjP/f/9//78yM/9//3//v8zM/3//f/8/zMz/f/9//z/MzP9//3//P8zM/3//f/8/otv//////z+i2///////P6Lb//////8/otv//////z//vwAA/3//P/+/AAD/f/8//78AAP9//z//v9Ft/3//P/+/0W3/f/8//7/Rbf9//z//v9Ft/3//P/8/0W3//wAA/z/Rbf//AAD/P9Ft//8AAP8/0W3//wAA/3//v/9/AAD/f/+//38AAP9//7//fwAAGejlEP+//z8Z6OUQ/7//Pxno5RD/v/8/jfbmI/+//z+N9uYj/7//P4325iP/v/8/Nzwy4/+//z83PDLj/7//Pzc8MuP/v/8/qRboXP///x+pFuhc////H6kW6Fz///8f0anaRAAA/x/RqdpEAAD/H9Gp2kQAAP8f7zv8agAA/x/vO/xqAAD/H+87/GoAAP8frMCClf8//z+swIKV/z//P6zAgpX/P/8/8qlEnf8//z/yqUSd/z//P/KpRJ3/P/8/")
 }]
 
-[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "stuck_area_shape", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light", "estop_button", "estop_button_body", "disable_movement_timer", "regrab_timer", "coyote_timer", "lever_timer")]
+[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "stuck_area_shape", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "level_text", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light", "estop_button", "estop_button_body", "disable_movement_timer", "regrab_timer", "coyote_timer", "lever_timer")]
 collision_layer = 2
 collision_mask = 37
 floor_constant_speed = true
@@ -681,6 +682,7 @@ dummy_reticle2 = NodePath("Cockpit/Sphere/UI/dummy_reticle_pilot_2")
 box_display = NodePath("Cockpit/Sphere/UI/Reticle/box")
 dead_text = NodePath("Cockpit/Sphere/DeadText")
 pilot_cast = NodePath("Cockpit/Seat/camera_gimbal/camera/PilotCast")
+level_text = NodePath("Cockpit/Sphere/UI/level_text")
 grapple_cable = NodePath("Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/cable_controller")
 grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
 spin_cast = NodePath("Cockpit/Sphere/UI/Reticle/SpinCast")
@@ -924,16 +926,18 @@ texture = ExtResource("11_kvw7q")
 [node name="screen_l" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=219682308]
 transform = Transform3D(0.0025980757, -0.0014999998, 0, 0.0014999997, 0.002598076, 0, 0, 0, 0.0029999996, -0.026026044, -0.016613409, -0.00079107285)
 layers = 2
-mesh = ExtResource("9_oanc2")
+mesh = ExtResource("10_41lfj")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("5_3wou3")
+surface_material_override/1 = ExtResource("24_difmb")
 
 [node name="screen_r" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1049038661]
 transform = Transform3D(-0.0025980757, 0.0014999998, -2.622683e-10, 0.0014999997, 0.002598076, 0, 2.27131e-10, -1.3113415e-10, -0.0029999996, 0.026, -0.017, -0.001)
 layers = 2
-mesh = ExtResource("9_oanc2")
+mesh = ExtResource("10_41lfj")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("5_3wou3")
+surface_material_override/1 = ExtResource("24_difmb")
 
 [node name="screen_u" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1962627126]
 transform = Transform3D(-6.1817246e-11, -6.1817246e-11, -0.002, -0.0019363365, 0.00050060026, 4.437663e-11, 0.00050060026, 0.0019363365, -7.532235e-11, 0, 0.017225083, -0.011876981)
@@ -941,6 +945,7 @@ layers = 2
 mesh = ExtResource("10_41lfj")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("5_3wou3")
+surface_material_override/1 = ExtResource("24_difmb")
 
 [node name="array" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=999686786 node_paths=PackedStringArray("lights", "bright_lights")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, -0.025474988, -0.03727204)
@@ -1502,6 +1507,20 @@ spotlight = NodePath("../../SpotLight3D")
 [node name="TimerSelfDestruct" type="Timer" parent="Cockpit/Sphere/UI/selfdestruct_text" unique_id=1321605170]
 wait_time = 300.0
 one_shot = true
+
+[node name="level_text" type="Label3D" parent="Cockpit/Sphere/UI" unique_id=1429863020]
+transform = Transform3D(0.0008485284, 0, 0.0008485284, 0, 0.0012000004, 0, -0.0008485284, 0, 0.0008485284, -0.12, 0.034, -0.037)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "Waste
+Management"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+horizontal_alignment = 0
+script = ExtResource("57_difmb")
 
 [node name="DeadText" type="Label3D" parent="Cockpit/Sphere" unique_id=904329377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0010524634, -0.06356848)
