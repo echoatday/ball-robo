@@ -940,7 +940,7 @@ surface_material_override/0 = ExtResource("5_3wou3")
 surface_material_override/1 = ExtResource("24_difmb")
 
 [node name="screen_u" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1962627126]
-transform = Transform3D(-6.1817246e-11, -6.1817246e-11, -0.002, -0.0019363365, 0.00050060026, 4.437663e-11, 0.00050060026, 0.0019363365, -7.532235e-11, 0, 0.017225083, -0.011876981)
+transform = Transform3D(-5.9164805e-11, 1.1726466e-10, -0.003, -0.001968354, -0.0005315665, 6.656495e-11, 0.00035437773, -0.0029525307, -1.3113416e-10, -1.4721045e-10, 0.019290742, -0.007460648)
 layers = 2
 mesh = ExtResource("10_41lfj")
 skeleton = NodePath("../../..")
