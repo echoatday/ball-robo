@@ -43,6 +43,7 @@
 [ext_resource type="Script" uid="uid://cyemo5t6i4olp" path="res://scripts/ui_halo.gd" id="22_07ay5"]
 [ext_resource type="ArrayMesh" uid="uid://cr5dabkwyh50g" path="res://models/icosphere_wire.obj" id="23_ku51j"]
 [ext_resource type="Material" uid="uid://b511asbqw76p6" path="res://textures/librequake/lq_utility/black.tres" id="24_difmb"]
+[ext_resource type="Texture2D" uid="uid://c73b8mld1ehw5" path="res://textures/menus/map_grid.png" id="25_aefqw"]
 [ext_resource type="ArrayMesh" uid="uid://c12tbi0h080hb" path="res://models/ico_01.obj" id="25_la8f2"]
 [ext_resource type="Texture2D" uid="uid://bcethlll2ri8o" path="res://textures/cockpit/crosshair_pilot_dummy_2.png" id="28_xmxrx"]
 [ext_resource type="Material" uid="uid://cmtsqrhbc5xq0" path="res://materials/window_frame.tres" id="28_yrgn6"]
@@ -939,8 +940,21 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("5_3wou3")
 surface_material_override/1 = ExtResource("24_difmb")
 
+[node name="dummy_reticle_pilot_2" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r" unique_id=1055211530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, -0.0204945, -1.7402909)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.44705883, 1, 0.99607843, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("25_aefqw")
+
 [node name="screen_u" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1962627126]
-transform = Transform3D(-5.9164805e-11, 1.1726466e-10, -0.003, -0.001968354, -0.0005315665, 6.656495e-11, 0.00035437773, -0.0029525307, -1.3113416e-10, -1.4721045e-10, 0.019290742, -0.007460648)
+transform = Transform3D(-5.9164805e-11, 1.1726466e-10, -0.003, -0.001968354, -0.0005315665, 6.656495e-11, 0.00035437773, -0.0029525307, -1.3113416e-10, -7.515233e-11, 0.018964099, -0.009274953)
 layers = 2
 mesh = ExtResource("10_41lfj")
 skeleton = NodePath("../../..")
