@@ -45,10 +45,14 @@
 [ext_resource type="Material" uid="uid://b511asbqw76p6" path="res://textures/librequake/lq_utility/black.tres" id="24_difmb"]
 [ext_resource type="Texture2D" uid="uid://c73b8mld1ehw5" path="res://textures/menus/map_grid.png" id="25_aefqw"]
 [ext_resource type="ArrayMesh" uid="uid://c12tbi0h080hb" path="res://models/ico_01.obj" id="25_la8f2"]
+[ext_resource type="Texture2D" uid="uid://c67ru37x1vuxd" path="res://textures/menus/map_box_empty.png" id="26_w2coj"]
+[ext_resource type="Script" uid="uid://crj0indfu8vms" path="res://scripts/tick_control.gd" id="27_6osir"]
+[ext_resource type="Texture2D" uid="uid://npk020q0kumj" path="res://textures/menus/map_box_ticked.png" id="28_fo62r"]
 [ext_resource type="Texture2D" uid="uid://bcethlll2ri8o" path="res://textures/cockpit/crosshair_pilot_dummy_2.png" id="28_xmxrx"]
 [ext_resource type="Material" uid="uid://cmtsqrhbc5xq0" path="res://materials/window_frame.tres" id="28_yrgn6"]
 [ext_resource type="Script" uid="uid://daehwm2v4a3jr" path="res://scripts/ui_speedometer.gd" id="29_84ti5"]
 [ext_resource type="ArrayMesh" uid="uid://bpxkmhrul5vxt" path="res://models/ico_02.obj" id="29_mpjcu"]
+[ext_resource type="Texture2D" uid="uid://d12jx1p8q0ueo" path="res://textures/menus/map_selection.png" id="29_oc1r7"]
 [ext_resource type="ArrayMesh" uid="uid://cirf0xta2g0n1" path="res://models/ico_03.obj" id="30_368kq"]
 [ext_resource type="Script" uid="uid://cmfgpgquxfj4c" path="res://scripts/speedometer_direction_control.gd" id="30_afj6a"]
 [ext_resource type="ArrayMesh" uid="uid://g77ban81cjjj" path="res://models/ico_04.obj" id="31_ddaiu"]
@@ -661,7 +665,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AACAPgAAAAAAAAC/AABAPwAAAAAAAAC/AABAPwAAgD8AAAC/AACAPgAAgD8AAAC/AAAAPwAAAAAAAAC+AABAPwAAAAAAAAC/AACAPgAAAAAAAAC/AAAAPwAAgD8AAAC+AACAPgAAgD8AAAC/AABAPwAAgD8AAAC/AAAAPwAAAAAAAAC+AACAPgAAAAAAAAC/AACAPgAAgD8AAAC/AAAAPwAAgD8AAAC+AAAAPwAAgD8AAAC+AABAPwAAgD8AAAC/AABAPwAAAAAAAAC/AAAAPwAAAAAAAAC+AACAvgAAkD8AAEA/AACAvgAAAAAAAKA+AACAPgAAAAAAAKA+AACAPgAAkD8AAEA/AAAAAAAAgL4AABA/AACAPgAAAAAAAKA+AACAvgAAAAAAAKA+AAAAAAAAYD8AAIA/AACAPgAAkD8AAEA/AACAPgAAAAAAAKA+AAAAAAAAgL4AABA/AAAAAAAAYD8AAIA/AAAAAAAAgL4AABA/AACAvgAAAAAAAKA+AACAvgAAkD8AAEA/AACAvgAAkD8AAEA/AACAPgAAkD8AAEA/AAAAAAAAYD8AAIA/AAAAvwAAwL4AAMC+AAAgvgAAAL4AAMC+AAA4vwAAQD8AADi/AADAvgAAgD8AABi/AAA4vwAAQD8AADi/AAAgvgAAAL4AAMC+AABYvwAAgD8AAIC+AAA4vwAAQD8AADi/AADAvgAAgD8AABi/AAAAvwAAwL4AAMC+AAA4vwAAQD8AADi/AABYvwAAgD8AAIC+AADAvgAAAL4AAAC9AAAgvgAAAL4AAMC+AAAAvwAAwL4AAMC+AABYvwAAgD8AAIC+AADAvgAAAL4AAAC9AAAAvwAAwL4AAMC+AADAvgAAAL4AAAC9AADAvgAAgD8AABi/AAAgvgAAAL4AAMC+AADAvgAAAL4AAAC9AABYvwAAgD8AAIC+AADAvgAAgD8AABi//////////z//////////P/////////8//////////z//fwAA/3//P/9/AAD/f/8//38AAP9//z//f////3//v/9/////f/+//3////9//78yM/9//3//vzIz/3//f/+/MjP/f/9//78yM/9//3//v8zM/3//f/8/zMz/f/9//z/MzP9//3//P8zM/3//f/8/otv//////z+i2///////P6Lb//////8/otv//////z//vwAA/3//P/+/AAD/f/8//78AAP9//z//v9Ft/3//P/+/0W3/f/8//7/Rbf9//z//v9Ft/3//P/8/0W3//wAA/z/Rbf//AAD/P9Ft//8AAP8/0W3//wAA/3//v/9/AAD/f/+//38AAP9//7//fwAAGejlEP+//z8Z6OUQ/7//Pxno5RD/v/8/jfbmI/+//z+N9uYj/7//P4325iP/v/8/Nzwy4/+//z83PDLj/7//Pzc8MuP/v/8/qRboXP///x+pFuhc////H6kW6Fz///8f0anaRAAA/x/RqdpEAAD/H9Gp2kQAAP8f7zv8agAA/x/vO/xqAAD/H+87/GoAAP8frMCClf8//z+swIKV/z//P6zAgpX/P/8/8qlEnf8//z/yqUSd/z//P/KpRJ3/P/8/")
 }]
 
-[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "stuck_area_shape", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "level_text", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light", "estop_button", "estop_button_body", "disable_movement_timer", "regrab_timer", "coyote_timer", "lever_timer")]
+[node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "stuck_area_shape", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light", "estop_button", "estop_button_body", "disable_movement_timer", "regrab_timer", "coyote_timer", "lever_timer")]
 collision_layer = 2
 collision_mask = 37
 floor_constant_speed = true
@@ -683,7 +687,6 @@ dummy_reticle2 = NodePath("Cockpit/Sphere/UI/dummy_reticle_pilot_2")
 box_display = NodePath("Cockpit/Sphere/UI/Reticle/box")
 dead_text = NodePath("Cockpit/Sphere/DeadText")
 pilot_cast = NodePath("Cockpit/Seat/camera_gimbal/camera/PilotCast")
-level_text = NodePath("Cockpit/Sphere/UI/level_text")
 grapple_cable = NodePath("Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/cable_controller")
 grapple_cast = NodePath("Cockpit/Sphere/UI/Reticle/GrappleCast")
 spin_cast = NodePath("Cockpit/Sphere/UI/Reticle/SpinCast")
@@ -940,18 +943,486 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("5_3wou3")
 surface_material_override/1 = ExtResource("24_difmb")
 
-[node name="dummy_reticle_pilot_2" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r" unique_id=1055211530]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, -0.0204945, -1.7402909)
+[node name="map_grid" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r" unique_id=1055211530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0.03, -1.85)
 layers = 2
 cast_shadow = 0
-modulate = Color(0.44705883, 1, 0.99607843, 1)
-pixel_size = 0.045
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.044
 axis = 0
 double_sided = false
 alpha_cut = 1
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("25_aefqw")
+
+[node name="tick_24" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1718731282]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 2.712, 2.0457728)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_24" unique_id=2045806552]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_24" unique_id=1497573946]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_25" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1967388722]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 2.712, 0.58077294)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_25" unique_id=1283057326]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_25" unique_id=1196643875]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_26" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=177924454]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 2.712, -0.86422706)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_26" unique_id=1511802242]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_26" unique_id=525457622]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_34" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1485545089]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 1.22, 2.0457728)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_34" unique_id=1748187926]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_34" unique_id=891760126]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_35" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1604687464]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 1.22, 0.58077294)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_35" unique_id=673046677]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_35" unique_id=1359778634]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_36" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=519666718]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 1.22, -0.86422706)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_36" unique_id=1101525567]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_36" unique_id=1030599655]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_44" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1708805755]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -0.26406598, 2.0457728)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_44" unique_id=994478622]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_44" unique_id=57779457]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_45" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=300727915]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -0.26406598, 0.58077294)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_45" unique_id=1438387701]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_45" unique_id=480739167]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_46" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=211849676]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -0.26406598, -0.86422706)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_46" unique_id=465640807]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_46" unique_id=1099331238]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_54" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1645507454]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -1.75, 2.0457728)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_54" unique_id=1898049638]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_54" unique_id=2030115839]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_55" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1019335244]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -1.75, 0.58077294)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_55" unique_id=1622705001]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_55" unique_id=308751961]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
+
+[node name="tick_56" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=2021442961]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -1.75, -0.86422706)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+script = ExtResource("27_6osir")
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+
+[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_56" unique_id=1122897200]
+transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "RM"
+font = ExtResource("9_8bc5l")
+font_size = 250
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="selection" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_56" unique_id=732446754]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.001, -0.57, 0.52)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("29_oc1r7")
 
 [node name="screen_u" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1962627126]
 transform = Transform3D(-5.9164805e-11, 1.1726466e-10, -0.003, -0.001968354, -0.0005315665, 6.656495e-11, 0.00035437773, -0.0029525307, -1.3113416e-10, -7.515233e-11, 0.018964099, -0.009274953)

@@ -16,7 +16,6 @@ extends CharacterBody3D
 @export var box_display: Node3D
 @export var dead_text: Node3D
 @export var pilot_cast: Node3D
-@export var level_text: Node3D
 @export_category("Grappling")
 @export var grapple_cable: Node3D
 @export var grapple_cast: Node3D
@@ -42,6 +41,7 @@ const MARGIN = 160
 const GRAPPLE_SPEED = 20
 const GRAPPLE_LIMIT = 0.85
 
+var current_level := 0
 var state_looking := true
 var state_rolling := false
 var state_grappling := false
@@ -281,8 +281,10 @@ func _physics_process(delta: float) -> void:
 			reticle.rotation_degrees = Vector3(0,-180,0)
 			stuck_area_shape.shape.radius = 0
 			state_dead = false
-			if Globals.unlock_energy_1:
+			if Globals.unlock_energy_1 and Globals.unlock_energy_2:
 				max_energy = 500
+			elif Globals.unlock_energy_1 or Globals.unlock_energy_2:
+				max_energy = 400
 			else:
 				max_energy = 300
 			heat = 0

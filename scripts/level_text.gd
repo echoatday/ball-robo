@@ -1,10 +1,8 @@
 extends Label3D
 
-var current_level: int
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	match current_level:
+	match owner.current_level:
 		24:
 			text = "Moonlit\nCave"
 		25:
