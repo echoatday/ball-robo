@@ -970,7 +970,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_24" unique_id=2045806552]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_24" unique_id=2045806552]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1009,7 +1009,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_25" unique_id=1283057326]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_25" unique_id=1283057326]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1048,7 +1048,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_26" unique_id=1511802242]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_26" unique_id=1511802242]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1087,7 +1087,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_34" unique_id=1748187926]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_34" unique_id=1748187926]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1126,7 +1126,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_35" unique_id=673046677]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_35" unique_id=673046677]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1165,7 +1165,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_36" unique_id=1101525567]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_36" unique_id=1101525567]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1204,7 +1204,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_44" unique_id=994478622]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_44" unique_id=994478622]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1243,7 +1243,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_45" unique_id=1438387701]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_45" unique_id=1438387701]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1282,7 +1282,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_46" unique_id=465640807]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_46" unique_id=465640807]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1321,7 +1321,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_54" unique_id=1898049638]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_54" unique_id=1898049638]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1360,7 +1360,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_55" unique_id=1622705001]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_55" unique_id=1622705001]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015
@@ -1399,7 +1399,7 @@ texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
 box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
 
-[node name="ui_speedometer" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_56" unique_id=1122897200]
+[node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_56" unique_id=1122897200]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
 layers = 2
 pixel_size = 0.015

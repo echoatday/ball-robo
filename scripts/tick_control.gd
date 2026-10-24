@@ -37,7 +37,7 @@ func _ready() -> void:
 			display_text = "FW"
 		56:
 			display_text = "EB"
-	$ui_speedometer.text = display_text
+	$map_initials.text = display_text
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
