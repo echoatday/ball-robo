@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 			if Globals.map_h:
 				visible = true
 			else:
-				visible = true
+				visible = false
 		45:
 			if Globals.map_bf:
 				visible = true
