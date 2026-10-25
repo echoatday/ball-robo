@@ -4590,6 +4590,7 @@ heat_severity = -7
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("59_hi24y")]
 transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, -56, -1.25, 1)
 level_id = 55
+target_item = 27
 
 [node name="ConveyerBelt" parent="." unique_id=579438279 instance=ExtResource("57_a52l6")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 8, -11, -8)

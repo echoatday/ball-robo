@@ -1545,7 +1545,7 @@ points = PackedVector3Array(-36, 5, -34, -36, 4.5, -34, -38, 5, -34, -38, 4.5, -
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kc5qo"]
 points = PackedVector3Array(-36, 5, -40.999996, -36, 4.5, -40.999996, -38, 5, -39.999996, -38, 4.5, -39.999996, -36, 5, -42, -36, 4.5, -42, -38, 5, -42, -38, 4.5, -42)
 
-[sub_resource type="Curve3D" id="Curve3D_hixar"]
+[sub_resource type="Curve3D" id="Curve3D_l2xse"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -2875,6 +2875,7 @@ script = ExtResource("49_475yq")
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("53_ej7oh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 2.75, -27)
 level_id = 26
+target_item = 19
 
 [node name="RotatingTunnel" parent="." unique_id=1028812783 instance=ExtResource("12_76qj1")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -16, 0, 38)
@@ -2984,4 +2985,4 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -54.
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("38_l2xse")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -46, -12, 32)
-curve = SubResource("Curve3D_hixar")
+curve = SubResource("Curve3D_l2xse")

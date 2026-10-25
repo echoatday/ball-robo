@@ -3402,7 +3402,7 @@ points = PackedVector3Array(-30, -30.5, 57, -30, -31, 57, -31, -30.5, 57, -31, -
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c1qtr"]
 points = PackedVector3Array(-26, -29, 57, -26, -29.5, 57, -26.5, -29, 57, -26.5, -29.5, 57, -26, -29, 53, -26, -29.5, 53, -26.5, -29, 53, -26.5, -29.5, 53)
 
-[sub_resource type="Curve3D" id="Curve3D_61r2c"]
+[sub_resource type="Curve3D" id="Curve3D_38ko2"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
@@ -3410,7 +3410,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_stew2"]
+[sub_resource type="Curve3D" id="Curve3D_61r2c"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0),
@@ -6166,6 +6166,7 @@ constant = true
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("33_ilpmt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -29, -16)
 level_id = 36
+target_item = 22
 
 [node name="BigFan4" parent="." unique_id=63960948 instance=ExtResource("13_f0ds5")]
 transform = Transform3D(1.0000001, 4.3711392e-08, 0, -4.3711392e-08, 1.0000001, 0, 0, 0, 1, 78, -35, 28)
@@ -6188,11 +6189,11 @@ transform = Transform3D(9, 0, 0, 0, 2, 0, 0, 0, 1, 56, -24, -7)
 
 [node name="LockedSheetDoor" parent="." unique_id=1984032725 instance=ExtResource("56_0kite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, -14, -19.5)
-curve = SubResource("Curve3D_61r2c")
+curve = SubResource("Curve3D_38ko2")
 
 [node name="LockedSheetDoor2" parent="." unique_id=340486989 instance=ExtResource("56_0kite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -14, -31.5)
-curve = SubResource("Curve3D_stew2")
+curve = SubResource("Curve3D_61r2c")
 
 [node name="RotatingTunnel" parent="." unique_id=1028812783 instance=ExtResource("57_0hm2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 0, -38)

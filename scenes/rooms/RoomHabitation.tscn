@@ -3491,7 +3491,7 @@ points = PackedVector3Array(-66, 29, 36, -66, 28, 36, -67, 29, 36, -67, 28, 36, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uhbdi"]
 points = PackedVector3Array(-66, 30, 37, -66, 23, 37, -67, 30, 37, -67, 23, 37, -66, 30, 36, -66, 23, 36, -67, 30, 36, -67, 23, 36)
 
-[sub_resource type="Curve3D" id="Curve3D_s86i8"]
+[sub_resource type="Curve3D" id="Curve3D_rryw6"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -3499,7 +3499,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_jeht8"]
+[sub_resource type="Curve3D" id="Curve3D_tjvqd"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -3507,7 +3507,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_ymkaw"]
+[sub_resource type="Curve3D" id="Curve3D_x8gqj"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0),
@@ -6255,13 +6255,14 @@ script = ExtResource("10_pddhd")
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("11_4y3um")]
 transform = Transform3D(0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.7071067, -32, 0.75, -34)
 level_id = 44
+target_item = 23
 
 [node name="LiquidCoolant" parent="." unique_id=691101047 instance=ExtResource("26_8e45w")]
 transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 55, -17, -2.5, -23)
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("37_523xk")]
 transform = Transform3D(1.9106855e-15, -1, -4.371139e-08, -4.371139e-08, -4.371139e-08, 1, -1, 0, -4.371139e-08, 6, -8, -70)
-curve = SubResource("Curve3D_s86i8")
+curve = SubResource("Curve3D_rryw6")
 speed = 2.0
 
 [node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("40_sa1e0")]
@@ -6314,11 +6315,11 @@ transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 4, -41, 14.2, 54)
 
 [node name="MovingPiston2" parent="." unique_id=532805801 instance=ExtResource("37_523xk")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -64, 15, 44)
-curve = SubResource("Curve3D_jeht8")
+curve = SubResource("Curve3D_tjvqd")
 
 [node name="LockedDoor2" parent="." unique_id=1984032725 instance=ExtResource("75_0vrcf")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 24.5, -61.5)
-curve = SubResource("Curve3D_ymkaw")
+curve = SubResource("Curve3D_x8gqj")
 
 [node name="Pickup" parent="." unique_id=2011625114 instance=ExtResource("76_rryw6")]
 transform = Transform3D(-0.8660253, 0, -0.5000001, 0, 1, 0, 0.5000001, 0, -0.8660253, -45, 1, 13)

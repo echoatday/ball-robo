@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 		35:
 			text = "Raw\nMaterials"
 		36:
-			text = "Waste\nDisposal"
+			text = "Waste\nManagement"
 		44:
 			text = "Habitation"
 		45:

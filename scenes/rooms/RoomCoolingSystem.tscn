@@ -7085,6 +7085,7 @@ script = ExtResource("55_oc3hl")
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("59_23e4i")]
 transform = Transform3D(-0.9999999, 0, 2.3643437e-07, 0, 1, 0, -2.3643437e-07, 0, -0.9999999, 30.75, -9.25, -9.75)
 level_id = 46
+target_item = 25
 
 [node name="LockedHatch" parent="." unique_id=2011431275 instance=ExtResource("24_ri2v2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.5, -10, -56)

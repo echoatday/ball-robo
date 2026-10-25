@@ -6777,6 +6777,7 @@ curve = SubResource("Curve3D_le6oo")
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("40_pquwl")]
 transform = Transform3D(-0.7071066, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, -0.7071066, 5.75, -17.25, -25.75)
 level_id = 35
+target_item = 21
 
 [node name="Button" parent="." unique_id=2011625114 instance=ExtResource("41_16npu")]
 transform = Transform3D(-1, 2.6226832e-07, 0, -2.6226832e-07, -1, 0, 0, 0, 1, -23, -21.5, 7)

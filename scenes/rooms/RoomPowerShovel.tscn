@@ -2290,6 +2290,7 @@ script = ExtResource("10_x32a6")
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("11_0pe54")]
 transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 7, 8.75, 0)
 level_id = 25
+target_item = 18
 
 [node name="RotatorBuckets" parent="." unique_id=1098896848 instance=ExtResource("10_sp486")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 41, 0, 36)

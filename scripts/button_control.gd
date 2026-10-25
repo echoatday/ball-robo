@@ -11,7 +11,14 @@ const y_pos_pressed := 0.0
 @export var button: Node3D
 @export var pickup_trigger: Node3D
 
-@export_enum("unlock_door", "unlock_hatch", "unlock_sheet", "unlock_iris", "unlock_vault", "unlock_roll", "unlock_jump", "unlock_walljump", "unlock_lateralboost", "unlock_downboost", "unlock_bounce", "unlock_grapple", "unlock_spin", "unlock_waterproofing", "unlock_energy_1", "unlock_energy_2", "unlock_heat") var target_item: int
+@export_enum(
+	"unlock_door", "unlock_hatch", "unlock_sheet", "unlock_iris", "unlock_vault", 
+	"unlock_roll", "unlock_jump", "unlock_walljump", "unlock_lateralboost", "unlock_downboost", 
+	"unlock_bounce", "unlock_grapple", "unlock_spin", 
+	"unlock_waterproofing", "unlock_energy_1", "unlock_energy_2", "unlock_heat", 
+	"map_mc", "map_ps", "map_pn", "map_oh", "map_rm", "map_wm", 
+	"map_h", "map_bf", "map_cs", "map_cd", "map_fw", "map_eb"
+	) var target_item: int
 @export var is_on_cieling: bool
 
 var collected_state := false
@@ -70,6 +77,42 @@ func _ready() -> void:
 		16:
 			ui_text.text = "insulation"
 			collected_state = Globals.unlock_heat
+		17:
+			ui_text.text = "map_mc"
+			collected_state = Globals.map_mc
+		18:
+			ui_text.text = "map_ps"
+			collected_state = Globals.map_ps
+		19:
+			ui_text.text = "map_pn"
+			collected_state = Globals.map_pn
+		20:
+			ui_text.text = "map_oh"
+			collected_state = Globals.map_oh
+		21:
+			ui_text.text = "map_rm"
+			collected_state = Globals.map_rm
+		22:
+			ui_text.text = "map_wm"
+			collected_state = Globals.map_wm
+		23:
+			ui_text.text = "map_h"
+			collected_state = Globals.map_h
+		24:
+			ui_text.text = "map_bf"
+			collected_state = Globals.map_bf
+		25:
+			ui_text.text = "map_cs"
+			collected_state = Globals.map_cs
+		26:
+			ui_text.text = "map_cd"
+			collected_state = Globals.map_cd
+		27:
+			ui_text.text = "map_fw"
+			collected_state = Globals.map_fw
+		28:
+			ui_text.text = "map_eb"
+			collected_state = Globals.map_eb
 	
 	if collected_state:
 		ui_element.visible = false
@@ -136,6 +179,31 @@ func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 				Globals.unlock_energy_2 = true
 			16:
 				Globals.unlock_heat = true
+			17:
+				Globals.map_mc = true
+			18:
+				Globals.map_ps = true
+			19:
+				Globals.map_pn = true
+			20:
+				Globals.map_oh = true
+			21:
+				Globals.map_rm = true
+			22:
+				Globals.map_wm = true
+			23:
+				Globals.map_h = true
+			24:
+				Globals.map_bf = true
+			25:
+				Globals.map_cs = true
+			26:
+				Globals.map_cd = true
+			27:
+				Globals.map_fw = true
+			28:
+				Globals.map_eb = true
+		
 		Globals.save_game()
 		ui_element.visible = false
 		$OmniLight3D.visible = false

@@ -2570,6 +2570,7 @@ script = ExtResource("10_ir4g4")
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("11_frtjw")]
 transform = Transform3D(-0.99999994, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, -0.99999994, -55, 1.75, -6)
 level_id = 24
+target_item = 17
 
 [node name="LiquidGas" parent="." unique_id=691101047 instance=ExtResource("12_j2xpa")]
 transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 43, 1, -8, 7)

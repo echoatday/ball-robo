@@ -29,6 +29,19 @@ var unlock_grapple := true
 var unlock_spin := true
 var unlock_waterproofing := true
 
+var map_mc := false
+var map_ps := false
+var map_pn := false
+var map_oh := false
+var map_rm := false
+var map_wm := false
+var map_h := false
+var map_bf := false
+var map_cs := false
+var map_cd := false
+var map_fw := false
+var map_eb := false
+
 var unlock_energy_1 := true
 var unlock_energy_2 := true
 var unlock_heat := true
@@ -57,7 +70,20 @@ func save_game():
 		
 		"unlock_energy_1" : unlock_energy_1,
 		"unlock_energy_2" : unlock_energy_2,
-		"unlock_heat" : unlock_heat
+		"unlock_heat" : unlock_heat,
+		
+		"map_mc" : map_mc,
+		"map_ps" : map_ps,
+		"map_pn" : map_pn,
+		"map_oh" : map_oh,
+		"map_rm" : map_rm,
+		"map_wm" : map_wm,
+		"map_h" : map_h,
+		"map_bf" : map_bf,
+		"map_cs" : map_cs,
+		"map_cd" : map_cd,
+		"map_fw" : map_fw,
+		"map_eb" : map_eb
 	}
 	var json_string = JSON.stringify(save_dict)
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.WRITE)
@@ -96,6 +122,19 @@ func load_game():
 	unlock_energy_2 = json.data["unlock_energy_2"]
 	unlock_heat = json.data["unlock_heat"]
 	unlock_waterproofing = json.data["unlock_waterproofing"]
+	
+	map_mc = json.data["map_mc"]
+	map_ps = json.data["map_ps"]
+	map_pn = json.data["map_pn"]
+	map_oh = json.data["map_oh"]
+	map_rm = json.data["map_rm"]
+	map_wm = json.data["map_wm"]
+	map_h = json.data["map_h"]
+	map_bf = json.data["map_bf"]
+	map_cs = json.data["map_cs"]
+	map_cd = json.data["map_cd"]
+	map_fw = json.data["map_fw"]
+	map_eb = json.data["map_eb"]
 	
 	player.state_rolling = rolled_state
 	

@@ -11,6 +11,8 @@
 [ext_resource type="Material" uid="uid://cb00kc210bwme" path="res://textures/librequake/lq_tech/t_flat05.tres" id="8_gw15g"]
 [ext_resource type="Material" uid="uid://lnwrx2rrmy25" path="res://textures/librequake/lq_tech/t_flat01.tres" id="9_iq6ni"]
 [ext_resource type="Material" uid="uid://cwrolxcq0nxpv" path="res://textures/librequake/lq_tech/tek_grate.tres" id="10_l20tj"]
+[ext_resource type="Texture2D" uid="uid://cx68yuj58hhgm" path="res://textures/cockpit/targeting_underline.png" id="12_iqh1s"]
+[ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="13_aggwk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jpwdf"]
 _surfaces = [{
@@ -316,8 +318,12 @@ points = PackedVector3Array(-2, 0, 1, -2, 0.5, 1, -4, 0, 1, -2, 0, -1, -2, 0.5, 
 height = 4.0
 radius = 0.2
 
-[node name="SaveStation" type="Node3D" unique_id=195611970 node_paths=PackedStringArray("save_trigger")]
+[node name="SaveStation" type="Node3D" unique_id=195611970 node_paths=PackedStringArray("ui_text", "ui_all", "ui_element", "raycast", "save_trigger")]
 script = ExtResource("1_jpwdf")
+ui_text = NodePath("UI/targeting_line/speedometer_text")
+ui_all = NodePath("UI")
+ui_element = NodePath("UI/targeting_line")
+raycast = NodePath("UI/TargetingRayCast")
 save_trigger = NodePath("SaveTrigger")
 
 [node name="FuncGodotMap" type="Node3D" parent="." unique_id=73169720]
@@ -553,6 +559,46 @@ omni_attenuation = -3.0
 [node name="Timer" type="Timer" parent="." unique_id=2104697721]
 one_shot = true
 autostart = true
+
+[node name="UI" type="Node3D" parent="." unique_id=2080655817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=1190286434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.35)
+target_position = Vector3(0, 0, -100)
+collision_mask = 3
+
+[node name="targeting_line" type="Sprite3D" parent="UI" unique_id=859107287]
+transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, 0, 0, 0)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.44705883, 1, 0.99607843, 1)
+pixel_size = 0.0001
+alpha_cut = 1
+render_priority = 1
+texture = ExtResource("12_iqh1s")
+
+[node name="speedometer_text" type="Label3D" parent="UI/targeting_line" unique_id=545881412]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, -0.002, 0, 0)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "ooo"
+font = ExtResource("13_aggwk")
+font_size = 250
+outline_size = 0
+horizontal_alignment = 0
+autowrap_trim_flags = 0
+justification_flags = 131
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1629099684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 12.0
+light_indirect_energy = 0.0
+light_cull_mask = 4294967289
+omni_range = 6.0
+omni_attenuation = 0.0
 
 [connection signal="body_entered" from="SaveTrigger" to="." method="_on_save_trigger_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

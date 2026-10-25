@@ -53,6 +53,7 @@
 [ext_resource type="Script" uid="uid://daehwm2v4a3jr" path="res://scripts/ui_speedometer.gd" id="29_84ti5"]
 [ext_resource type="ArrayMesh" uid="uid://bpxkmhrul5vxt" path="res://models/ico_02.obj" id="29_mpjcu"]
 [ext_resource type="Texture2D" uid="uid://d12jx1p8q0ueo" path="res://textures/menus/map_selection.png" id="29_oc1r7"]
+[ext_resource type="Texture2D" uid="uid://ch5m0x10pwosy" path="res://textures/menus/map_box_empty_inv.png" id="29_pd6lf"]
 [ext_resource type="ArrayMesh" uid="uid://cirf0xta2g0n1" path="res://models/ico_03.obj" id="30_368kq"]
 [ext_resource type="Script" uid="uid://cmfgpgquxfj4c" path="res://scripts/speedometer_direction_control.gd" id="30_afj6a"]
 [ext_resource type="ArrayMesh" uid="uid://g77ban81cjjj" path="res://models/ico_04.obj" id="31_ddaiu"]
@@ -968,7 +969,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_24" unique_id=2045806552]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -995,6 +996,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_24" unique_id=1015857122]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_24" unique_id=1691766784]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_25" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1967388722]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 2.712, 0.58077294)
 layers = 2
@@ -1007,7 +1033,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_25" unique_id=1283057326]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1034,6 +1060,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_25" unique_id=1478298364]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_25" unique_id=280462066]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_26" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=177924454]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 2.712, -0.86422706)
 layers = 2
@@ -1046,7 +1097,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_26" unique_id=1511802242]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1073,6 +1124,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_26" unique_id=726144905]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_26" unique_id=1444278249]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_34" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1485545089]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 1.22, 2.0457728)
 layers = 2
@@ -1085,7 +1161,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_34" unique_id=1748187926]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1112,6 +1188,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_34" unique_id=1349058798]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_34" unique_id=1962206991]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_35" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1604687464]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 1.22, 0.58077294)
 layers = 2
@@ -1124,7 +1225,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_35" unique_id=673046677]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1151,6 +1252,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_35" unique_id=818870552]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_35" unique_id=295603883]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_36" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=519666718]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, 1.22, -0.86422706)
 layers = 2
@@ -1163,7 +1289,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_36" unique_id=1101525567]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1190,6 +1316,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_36" unique_id=782398450]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_36" unique_id=1719288994]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_44" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1708805755]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -0.26406598, 2.0457728)
 layers = 2
@@ -1202,7 +1353,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_44" unique_id=994478622]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1229,6 +1380,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_44" unique_id=1182631434]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_44" unique_id=1760302524]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_45" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=300727915]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -0.26406598, 0.58077294)
 layers = 2
@@ -1241,7 +1417,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_45" unique_id=1438387701]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1268,6 +1444,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_45" unique_id=1111454672]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_45" unique_id=629830014]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_46" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=211849676]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -0.26406598, -0.86422706)
 layers = 2
@@ -1280,7 +1481,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_46" unique_id=465640807]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1307,6 +1508,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_46" unique_id=1170414112]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_46" unique_id=1756095774]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_54" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1645507454]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -1.75, 2.0457728)
 layers = 2
@@ -1319,7 +1545,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_54" unique_id=1898049638]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1346,6 +1572,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_54" unique_id=1041212238]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_54" unique_id=2080735519]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_55" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=1019335244]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -1.75, 0.58077294)
 layers = 2
@@ -1358,7 +1609,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_55" unique_id=1622705001]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1385,6 +1636,31 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
 
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_55" unique_id=428397341]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_55" unique_id=252357624]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
 [node name="tick_56" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid" unique_id=2021442961]
 transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0, -1.75, -0.86422706)
 layers = 2
@@ -1397,7 +1673,7 @@ texture_filter = 0
 render_priority = 1
 texture = ExtResource("26_w2coj")
 script = ExtResource("27_6osir")
-box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r")])
+box_texture = Array[Texture]([ExtResource("26_w2coj"), ExtResource("28_fo62r"), ExtResource("29_pd6lf")])
 
 [node name="map_initials" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_56" unique_id=1122897200]
 transform = Transform3D(1.9106853e-16, -4.371139e-09, 0.1, -0.1, -4.371139e-09, -2.646978e-23, 4.371139e-09, -0.1, -4.371139e-09, 0, -0.55, 0.7)
@@ -1423,6 +1699,31 @@ alpha_cut = 1
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("29_oc1r7")
+
+[node name="button_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_56" unique_id=71276721]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.010000001, -0.6410604, -0.12465231)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
+
+[node name="map_tick" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_r/map_grid/tick_56" unique_id=2053113066]
+transform = Transform3D(1, 3.3094043e-15, 0, 1.4465866e-22, -4.371139e-08, -1, -3.3094043e-15, 1, -4.371139e-08, 0.01, -0.32, -0.12)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("26_w2coj")
 
 [node name="screen_u" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1962627126]
 transform = Transform3D(-5.9164805e-11, 1.1726466e-10, -0.003, -0.001968354, -0.0005315665, 6.656495e-11, 0.00035437773, -0.0029525307, -1.3113416e-10, -7.515233e-11, 0.018964099, -0.009274953)

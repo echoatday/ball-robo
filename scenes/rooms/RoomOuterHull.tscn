@@ -1636,7 +1636,7 @@ points = PackedVector3Array(-158.00003, 8, 84, -158, 8, 84.00001, -157.99998, 7.
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p4wvo"]
 points = PackedVector3Array(-96.00001, 32.5, 4.0000043, -96.00001, 32, 4.0000043, -104.00001, 32.5, -3.9999964, -104.00001, 32, -3.9999964, -94.00001, 32.5, 2.0000079, -94.00001, 32, 2.0000079, -102.00001, 32.5, -5.999993, -102.00001, 32, -5.999993)
 
-[sub_resource type="Curve3D" id="Curve3D_kcujn"]
+[sub_resource type="Curve3D" id="Curve3D_rh3pt"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -1644,7 +1644,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve3D" id="Curve3D_ntccn"]
+[sub_resource type="Curve3D" id="Curve3D_joijf"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -2827,6 +2827,7 @@ script = ExtResource("10_e5ro4")
 [node name="SaveStation" parent="." unique_id=195611970 instance=ExtResource("11_gttrd")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 35, -11.25, 89)
 level_id = 34
+target_item = 20
 
 [node name="LiquidGasDeep" parent="." unique_id=691101047 instance=ExtResource("21_thgkh")]
 transform = Transform3D(140, 0, 0, 0, 1, 0, 0, 0, 90, -32, -58, 14)
@@ -2837,7 +2838,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53, 20, 57)
 
 [node name="MovingPiston" parent="." unique_id=850175750 instance=ExtResource("39_1b8b0")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2, 2, 100)
-curve = SubResource("Curve3D_kcujn")
+curve = SubResource("Curve3D_rh3pt")
 
 [node name="GrappleTarget2" parent="." unique_id=758206699 instance=ExtResource("13_uttj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 4, 14)
@@ -2865,7 +2866,7 @@ transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 6, -84, 10, 56)
 
 [node name="MovingPiston2" parent="." unique_id=1884188118 instance=ExtResource("39_1b8b0")]
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -74.585785, 11, 41.414215)
-curve = SubResource("Curve3D_ntccn")
+curve = SubResource("Curve3D_joijf")
 start_pos = 1.0
 
 [node name="GrappleTarget9" parent="." unique_id=339935364 instance=ExtResource("13_uttj6")]
