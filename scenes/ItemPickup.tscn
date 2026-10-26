@@ -656,7 +656,7 @@ shape = SubResource("BoxShape3D_pnher")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="TargetingRayCast" type="RayCast3D" parent="UI" unique_id=1869231117]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
 target_position = Vector3(0, 0, -100)
 collision_mask = 3
 

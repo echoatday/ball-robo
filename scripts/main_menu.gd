@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 			$options_menu.visible = true
 			$quit_menu.visible = true
 			
+			$game_section.visible = true
+			$memory_section.visible = false
 			$quit_section.visible = false
 		MEMORY:
 			$game_menu.visible = true
@@ -20,6 +22,8 @@ func _process(delta: float) -> void:
 			$options_menu.visible = true
 			$quit_menu.visible = true
 			
+			$game_section.visible = false
+			$memory_section.visible = true
 			$quit_section.visible = false
 		OPTIONS:
 			$game_menu.visible = true
@@ -27,6 +31,8 @@ func _process(delta: float) -> void:
 			$options_menu.visible = false
 			$quit_menu.visible = true
 			
+			$game_section.visible = false
+			$memory_section.visible = false
 			$quit_section.visible = false
 		QUIT:
 			$game_menu.visible = true
@@ -34,4 +40,6 @@ func _process(delta: float) -> void:
 			$options_menu.visible = true
 			$quit_menu.visible = false
 			
+			$game_section.visible = false
+			$memory_section.visible = false
 			$quit_section.visible = true

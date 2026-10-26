@@ -130,8 +130,8 @@ func _process(delta: float) -> void:
 		var distance_to_player = ui_all.global_position.distance_to(Globals.player.global_position)
 		if raycast.is_colliding() and raycast.get_collider() == Globals.player:
 			ui_element.position.z = -distance_to_player + 0.11
-			ui_element.position.y = -Globals.player.reticle.position.y/randi_range(16,22) + (-0.0001 * distance_to_player)
-			ui_element.position.x = Globals.player.reticle.position.x/randi_range(14,22) - 0.02 - (-0.0001 * distance_to_player)
+			ui_element.position.y = -Globals.player.reticle.position.y/randi_range(16,22) + 0.01 + (-0.0001 * distance_to_player)
+			ui_element.position.x = Globals.player.reticle.position.x/randi_range(14,22) - 0.01 - (-0.0001 * distance_to_player)
 		else:
 			ui_element.position = Vector3.ZERO
 

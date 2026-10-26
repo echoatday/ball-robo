@@ -2843,7 +2843,7 @@ shape = SubResource("ConvexPolygonShape3D_kc5qo")
 
 [node name="HeatZone" parent="." unique_id=1752538793 instance=ExtResource("48_g8mhu")]
 transform = Transform3D(120, 0, 0, 0, 200, 0, 0, 0, 120, 0, 0, 0.177)
-heat_level = 1
+heat_level = 0
 fog_color = Color(0.43, 0.33683336, 0.15050001, 1)
 ambient_light_color = Color(0.9, 0.825, 0.71999997, 1)
 
@@ -2954,7 +2954,7 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -24, -2.5, 2)
 
 [node name="Pickup" parent="." unique_id=2011625114 instance=ExtResource("28_pawnu")]
 transform = Transform3D(0.86602545, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, 0.86602545, -46, -10, -54)
-target_item = 13
+target_item = 16
 ruin_model = 1
 
 [node name="LiquidWastewater" parent="." unique_id=691101047 instance=ExtResource("29_ivl6j")]

@@ -261,6 +261,8 @@ func _physics_process(delta: float) -> void:
 	
 	if state_dead:
 		camera.camera_environment.set_ambient_light_color(Color(0.5,0.5,0.5))
+		camera.camera_environment.set_fog_light_color(Color(0.2,0.2,0.2))
+		
 		heat = max_heat
 		energy = 0
 		velocity = Vector3.ZERO
@@ -404,9 +406,9 @@ func _physics_process(delta: float) -> void:
 			velocity = (velocity.bounce(collision.get_normal()) * 0.95)
 	else:
 		if not state_rolling:
-			if is_on_floor() and not sliding:
+			if is_on_floor() and not sliding and Globals.unlock_jump:
 				coyote_timer.start()
-			elif is_on_wall() and not sliding:
+			elif is_on_wall() and not sliding and Globals.unlock_walljump:
 				coyote_timer.start()
 				current_wall_normal = get_wall_normal()
 		move_and_slide()
