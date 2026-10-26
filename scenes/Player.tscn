@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://cae3i4c7dag3k" path="res://textures/menus/main_selected.png" id="30_pslnn"]
 [ext_resource type="Texture2D" uid="uid://dehqml6sa4x1l" path="res://textures/menus/quit_deselected.png" id="30_q1583"]
 [ext_resource type="ArrayMesh" uid="uid://g77ban81cjjj" path="res://models/ico_04.obj" id="31_ddaiu"]
+[ext_resource type="Texture2D" uid="uid://confwnjk632yd" path="res://textures/menus/game_border.png" id="31_fyhfp"]
 [ext_resource type="Script" uid="uid://dmq51dbn84xlr" path="res://scripts/submenu_button.gd" id="31_pslnn"]
 [ext_resource type="ArrayMesh" uid="uid://lloeoeoso4f8" path="res://models/ico_05.obj" id="32_k38qi"]
 [ext_resource type="Texture2D" uid="uid://e641yimebu10" path="res://textures/menus/quit_selected.png" id="32_pslnn"]
@@ -1195,9 +1196,8 @@ texture = ExtResource("27_c7mby")
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999905, 0)
 script = ExtResource("30_1qwah")
 
-[node name="memory_border" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/game_section" unique_id=816814802]
-transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, -0.099999905, 0)
-visible = false
+[node name="game_border" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/game_section" unique_id=816814802]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.02, -0.1, 0)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -1207,7 +1207,7 @@ double_sided = false
 alpha_cut = 1
 texture_filter = 0
 render_priority = 1
-texture = ExtResource("34_2wche")
+texture = ExtResource("31_fyhfp")
 script = ExtResource("35_4h4y1")
 
 [node name="default_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/game_section" unique_id=2084972293]
@@ -1226,14 +1226,14 @@ script = ExtResource("31_pslnn")
 box_texture = Array[Texture]([ExtResource("33_1sgi5"), ExtResource("35_fyhfp")])
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/game_section/default_button" unique_id=1005890147]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.02)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.12, 0.02)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
-text = "New Default"
+text = "New_Default"
 font = ExtResource("9_8bc5l")
-font_size = 225
+font_size = 200
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
@@ -1263,14 +1263,14 @@ box_texture = Array[Texture]([ExtResource("33_1sgi5"), ExtResource("35_fyhfp")])
 button_type = 1
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/game_section/random_button" unique_id=250621793]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.02)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.02)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
-text = "New Random"
+text = "New_Random"
 font = ExtResource("9_8bc5l")
-font_size = 225
+font_size = 200
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
@@ -1319,14 +1319,14 @@ box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
 button_type = 2
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/save_button" unique_id=883155304]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.06)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.06)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "Save"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
@@ -1356,14 +1356,14 @@ box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
 button_type = 3
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/load_button" unique_id=1450028905]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.09)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.09)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "Load"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
@@ -1405,14 +1405,14 @@ render_priority = 1
 texture = ExtResource("39_itksh")
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/save_slot_1" unique_id=1175697076]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.18, 1.95)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15692598, 1.95)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "text"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
@@ -1455,14 +1455,14 @@ render_priority = 1
 texture = ExtResource("39_itksh")
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/save_slot_2" unique_id=2034387819]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.18, 1.95)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15692598, 1.95)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "text"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
@@ -1505,14 +1505,14 @@ render_priority = 1
 texture = ExtResource("39_itksh")
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/save_slot_3" unique_id=832074106]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.18, 1.95)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15692598, 1.95)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "text"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
@@ -1555,14 +1555,14 @@ render_priority = 1
 texture = ExtResource("39_itksh")
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/save_slot_4" unique_id=1972521199]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.18, 1.95)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.13312045, 1.95)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "text"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
@@ -1605,14 +1605,14 @@ render_priority = 1
 texture = ExtResource("39_itksh")
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/save_slot_5" unique_id=241723093]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.18, 1.95)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.13312045, 1.95)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "text"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
@@ -1655,14 +1655,14 @@ render_priority = 1
 texture = ExtResource("39_itksh")
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/memory_section/save_slot_6" unique_id=2047455714]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.18, 1.95)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.13312045, 1.95)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "text"
 font = ExtResource("9_8bc5l")
-font_size = 250
+font_size = 200
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 2
@@ -1698,14 +1698,14 @@ box_texture = Array[Texture]([ExtResource("30_q1583"), ExtResource("32_pslnn")])
 button_type = 4
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/quit_section/quit_button" unique_id=726871719]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.25, 0.05)
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.2, 0.08)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 text = "Quit"
 font = ExtResource("9_8bc5l")
-font_size = 300
+font_size = 250
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
