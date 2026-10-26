@@ -25,7 +25,7 @@ extends Node3D
 var collected_state := false
 
 func _ready() -> void:
-	match(target_item):
+	match(Globals.item_locations[target_item]):
 		0:
 			ui_text.text = "security_1"
 			collected_state = Globals.unlock_door
@@ -131,7 +131,7 @@ func _process(delta: float) -> void:
 
 func _on_save_trigger_body_entered(body: Node3D) -> void:
 	if not collected_state:
-		match(target_item):
+		match(Globals.item_locations[target_item]):
 			0:
 				Globals.unlock_door = true
 			1:

@@ -19,7 +19,7 @@ var collected_state := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	match(target_item):
+	match(Globals.item_locations[target_item]):
 		0:
 			ui_text.text = "security_1"
 			collected_state = Globals.unlock_door
@@ -66,7 +66,7 @@ func _ready() -> void:
 			ui_text.text = "battery"
 			collected_state = Globals.unlock_energy_1
 		15:
-			ui_text.text = "unlock_energy_2"
+			ui_text.text = "battery"
 			collected_state = Globals.unlock_energy_2
 		16:
 			ui_text.text = "insulation"
@@ -131,7 +131,7 @@ func _ready() -> void:
 				ui_element.visible = false
 				$RobotOutside0003/RobotArm0003.visible = false
 				$RobotOutside0003/OmniLight3D.visible = false
-			elif target_item != 11:
+			elif Globals.item_locations[target_item] != 11:
 				$RobotOutside0003/RobotArm0003.visible = false
 
 
@@ -150,7 +150,7 @@ func _process(delta: float) -> void:
 
 func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 	if not collected_state:
-		match(target_item):
+		match(Globals.item_locations[target_item]):
 			0:
 				Globals.unlock_door = true
 			1:

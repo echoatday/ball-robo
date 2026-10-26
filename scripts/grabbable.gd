@@ -12,7 +12,7 @@ var target_visible := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	pickup_type = Globals.item_locations[pickup_location]
+	pickup_type = Globals.pickup_locations[pickup_location]
 	match pickup_type:
 		0:
 			$FuncGodotMap.visible = false

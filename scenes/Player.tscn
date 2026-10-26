@@ -1175,6 +1175,7 @@ texture = ExtResource("27_c7mby")
 
 [node name="quit_section" type="Node3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border" unique_id=1413147704]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+visible = false
 script = ExtResource("30_1qwah")
 
 [node name="quit_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/quit_section" unique_id=998889400]

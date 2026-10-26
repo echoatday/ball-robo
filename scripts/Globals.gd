@@ -6,12 +6,14 @@ var player: CharacterBody3D
 # nothing, cube, brain
 var holding_item := 0
 # cube_rm, cube_cd, brain_home
-var item_locations := [1, 0, 2]
+var pickup_locations := [1, 0, 2]
 var self_destruct := false
 
 var current_checkpoint: int
 var rolled_state := false
 var pipenetwork_state := false
+
+var item_locations: Array[int] = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]
 
 var unlock_door := false
 var unlock_hatch := false
@@ -48,6 +50,7 @@ var unlock_heat := true
 
 func save_game():
 	var save_dict = {
+		"item_locations" : item_locations,
 		"current_checkpoint" : current_checkpoint,
 		"rolled_state" : rolled_state,
 		"pipenetwork_state" : pipenetwork_state,
@@ -98,6 +101,8 @@ func load_game():
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.READ)
 	var json = JSON.new()
 	var parse_result = json.parse(save_file.get_as_text())
+	
+	item_locations.assign(json.data["item_locations"])
 	
 	current_checkpoint = json.data["current_checkpoint"]
 	rolled_state = json.data["rolled_state"]
