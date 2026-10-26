@@ -9,4 +9,7 @@ func _physics_process(_delta: float) -> void:
 		shake_timer.start()
 	
 	if not shake_timer.is_stopped():
-		position = position + Vector3(randf_range(-0.0004,0.0004),randf_range(-0.0004,0.0004),randf_range(-0.0004,0.0004))
+		if owner.state_looking:
+			position = position + Vector3(randf_range(-0.0004,0.0004),randf_range(-0.0004,0.0004),randf_range(-0.0004,0.0004))
+		else:
+			position = position + Vector3(randf_range(-0.0001,0.0001),randf_range(-0.0001,0.0001),randf_range(-0.0001,0.0001))
