@@ -1,6 +1,6 @@
 extends Sprite3D
 
-enum {GAME, MEMORY, OPTIONS, QUIT}
+enum {GAME, MEMORY, OPTION, QUIT}
 
 var current_menu := 0
 
@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 			
 			$game_section.visible = true
 			$memory_section.visible = false
+			$option_section.visible = false
 			$quit_section.visible = false
 		MEMORY:
 			$game_menu.visible = true
@@ -24,8 +25,9 @@ func _process(delta: float) -> void:
 			
 			$game_section.visible = false
 			$memory_section.visible = true
+			$option_section.visible = false
 			$quit_section.visible = false
-		OPTIONS:
+		OPTION:
 			$game_menu.visible = true
 			$memory_menu.visible = true
 			$options_menu.visible = false
@@ -33,6 +35,7 @@ func _process(delta: float) -> void:
 			
 			$game_section.visible = false
 			$memory_section.visible = false
+			$option_section.visible = true
 			$quit_section.visible = false
 		QUIT:
 			$game_menu.visible = true
@@ -42,4 +45,5 @@ func _process(delta: float) -> void:
 			
 			$game_section.visible = false
 			$memory_section.visible = false
+			$option_section.visible = false
 			$quit_section.visible = true

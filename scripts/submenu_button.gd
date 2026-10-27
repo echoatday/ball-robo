@@ -4,7 +4,12 @@ extends Sprite3D
 @onready var collision := $button_body
 @onready var selected := false
 
-@export_enum("default_game","random_game","save","load","quit") var button_type: int
+@export_enum("default_game","random_game","save","load","quit",
+"forward","back","left","right","fire","roll","boost","jump",
+"look","look_up","look_down","look_left","look_right",
+"balance_0","balance_1","balance_2","balance_3","balance_4","balance_5",
+"master_0","master_1","master_2","master_3","master_4","master_5",
+"resolution_0","resolution_1","resolution_2","resolution_3") var button_type: int
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
