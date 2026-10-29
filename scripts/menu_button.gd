@@ -1,6 +1,6 @@
 extends Sprite3D
 
-@export_enum("game","memory","options","quit") var this_menu: int
+@export_enum("game","memory","options","quit","control") var this_menu: int
 @onready var selected := false
 
 

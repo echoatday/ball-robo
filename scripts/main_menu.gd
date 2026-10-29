@@ -1,6 +1,6 @@
 extends Sprite3D
 
-enum {GAME, MEMORY, OPTION, QUIT}
+enum {GAME, MEMORY, OPTION, QUIT, CONTROL}
 
 var current_menu := 0
 
@@ -12,38 +12,58 @@ func _process(delta: float) -> void:
 			$memory_menu.visible = true
 			$options_menu.visible = true
 			$quit_menu.visible = true
+			$control_menu.visible = true
 			
 			$game_section.visible = true
 			$memory_section.visible = false
 			$option_section.visible = false
 			$quit_section.visible = false
+			$control_section.visible = false
 		MEMORY:
 			$game_menu.visible = true
 			$memory_menu.visible = false
 			$options_menu.visible = true
 			$quit_menu.visible = true
+			$control_menu.visible = true
 			
 			$game_section.visible = false
 			$memory_section.visible = true
 			$option_section.visible = false
 			$quit_section.visible = false
+			$control_section.visible = false
 		OPTION:
 			$game_menu.visible = true
 			$memory_menu.visible = true
 			$options_menu.visible = false
 			$quit_menu.visible = true
+			$control_menu.visible = true
 			
 			$game_section.visible = false
 			$memory_section.visible = false
 			$option_section.visible = true
 			$quit_section.visible = false
+			$control_section.visible = false
+		CONTROL:
+			$game_menu.visible = true
+			$memory_menu.visible = true
+			$options_menu.visible = true
+			$quit_menu.visible = true
+			$control_menu.visible = false
+			
+			$game_section.visible = false
+			$memory_section.visible = false
+			$option_section.visible = false
+			$quit_section.visible = false
+			$control_section.visible = true
 		QUIT:
 			$game_menu.visible = true
 			$memory_menu.visible = true
 			$options_menu.visible = true
 			$quit_menu.visible = false
+			$control_menu.visible = true
 			
 			$game_section.visible = false
 			$memory_section.visible = false
 			$option_section.visible = false
 			$quit_section.visible = true
+			$control_section.visible = false
