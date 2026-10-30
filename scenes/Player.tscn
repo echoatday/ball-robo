@@ -97,15 +97,13 @@
 [ext_resource type="Texture2D" uid="uid://b8mo3amm5mb8h" path="res://textures/menus/options_slider.png" id="45_lpjdr"]
 [ext_resource type="ArrayMesh" uid="uid://b7ytxix288aiu" path="res://models/ico_19.obj" id="46_4xyod"]
 [ext_resource type="Texture2D" uid="uid://bcxqjxtrmj3ol" path="res://textures/menus/options_slider_deselected.png" id="46_16erx"]
-[ext_resource type="Texture2D" uid="uid://cp8al3qmyjnt3" path="res://textures/menus/resolution_deselected.png" id="47_16erx"]
 [ext_resource type="ArrayMesh" uid="uid://vi40051p833t" path="res://models/ico_20.obj" id="47_31g06"]
+[ext_resource type="Texture2D" uid="uid://cop32tdpx01ma" path="res://textures/menus/main_fps_deselected.png" id="47_swmfq"]
+[ext_resource type="Texture2D" uid="uid://b6kf02r6i2scx" path="res://textures/menus/main_fps_selected.png" id="48_qeklt"]
 [ext_resource type="ArrayMesh" uid="uid://dkyrsujrofd35" path="res://models/ico_21.obj" id="48_qicil"]
-[ext_resource type="Texture2D" uid="uid://vxekpqsewqta" path="res://textures/menus/resolution_selected.png" id="48_xt8w5"]
-[ext_resource type="Texture2D" uid="uid://c2o04gveu0evh" path="res://textures/menus/windowed_deselected.png" id="49_2yprt"]
 [ext_resource type="Texture2D" uid="uid://ceivkm5bnre2j" path="res://textures/menus/control_border.png" id="49_swmfq"]
 [ext_resource type="ArrayMesh" uid="uid://coptjybngte86" path="res://models/ico_22.obj" id="49_vkfo6"]
 [ext_resource type="ArrayMesh" uid="uid://bvxtrcsatgre4" path="res://models/ico_23.obj" id="50_j5prq"]
-[ext_resource type="Texture2D" uid="uid://odaqwh6kxki4" path="res://textures/menus/windowed_selected.png" id="50_swmfq"]
 [ext_resource type="ArrayMesh" uid="uid://cpy382nakj0a" path="res://models/ico_24.obj" id="51_mah4s"]
 [ext_resource type="ArrayMesh" uid="uid://om815wrjkgfa" path="res://models/ico_25.obj" id="52_acem0"]
 [ext_resource type="ArrayMesh" uid="uid://dif4e8uvoythq" path="res://models/ico_26.obj" id="53_nuybu"]
@@ -202,12 +200,6 @@ size = Vector3(0.1, 0.5, 3.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6jhj"]
 size = Vector3(0.1, 0.5, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xt8w5"]
-size = Vector3(0.1, 0.9, 0.2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2yprt"]
-size = Vector3(0.1, 0.9, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pslnn"]
 size = Vector3(0.1, 1.3, 3.3)
@@ -1819,7 +1811,7 @@ render_priority = 1
 texture = ExtResource("45_lpjdr")
 script = ExtResource("31_pslnn")
 box_texture = Array[Texture]([ExtResource("46_16erx"), ExtResource("45_lpjdr")])
-button_type = 21
+button_type = 18
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/inside_slider" unique_id=839525835]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.06)
@@ -1855,7 +1847,7 @@ render_priority = 1
 texture = ExtResource("45_lpjdr")
 script = ExtResource("31_pslnn")
 box_texture = Array[Texture]([ExtResource("46_16erx"), ExtResource("45_lpjdr")])
-button_type = 27
+button_type = 19
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/outside_slider" unique_id=784461736]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.06)
@@ -1891,7 +1883,7 @@ render_priority = 1
 texture = ExtResource("45_lpjdr")
 script = ExtResource("31_pslnn")
 box_texture = Array[Texture]([ExtResource("46_16erx"), ExtResource("45_lpjdr")])
-button_type = 27
+button_type = 20
 
 [node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/music_slider" unique_id=1437517730]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.06)
@@ -1913,8 +1905,8 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
 shape = SubResource("BoxShape3D_g6jhj")
 
-[node name="resolution_small" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1928603201]
-transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, -1.65, -1.5)
+[node name="fps30_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1975400699]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0.775)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -1924,33 +1916,367 @@ double_sided = false
 alpha_cut = 1
 texture_filter = 0
 render_priority = 1
-texture = ExtResource("47_16erx")
+texture = ExtResource("47_swmfq")
 script = ExtResource("31_pslnn")
-box_texture = Array[Texture]([ExtResource("47_16erx"), ExtResource("48_xt8w5")])
+box_texture = Array[Texture]([ExtResource("47_swmfq"), ExtResource("48_qeklt")])
+button_type = 21
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps30_button" unique_id=2143968367]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.045)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "30"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps30_button" unique_id=956311181]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps30_button/button_body" unique_id=148363813]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_g6jhj")
+
+[node name="fps60_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=606096981]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, -0.05)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("47_swmfq")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("47_swmfq"), ExtResource("48_qeklt")])
+button_type = 22
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps60_button" unique_id=1802976032]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.05)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "60"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps60_button" unique_id=1440801299]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps60_button/button_body" unique_id=470120247]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_g6jhj")
+
+[node name="fps120_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1548337907]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, -0.875)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("47_swmfq")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("47_swmfq"), ExtResource("48_qeklt")])
+button_type = 23
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps120_button" unique_id=1501933837]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.065)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "120"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps120_button" unique_id=303364390]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps120_button/button_body" unique_id=11383985]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_g6jhj")
+
+[node name="fps144_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1600770156]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, -1.7)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("47_swmfq")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("47_swmfq"), ExtResource("48_qeklt")])
+button_type = 24
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps144_button" unique_id=1470953226]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.075)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "144"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps144_button" unique_id=712445795]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps144_button/button_body" unique_id=698990093]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_g6jhj")
+
+[node name="fps240_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=300546456]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, -2.525)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("47_swmfq")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("47_swmfq"), ExtResource("48_qeklt")])
+button_type = 25
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps240_button" unique_id=1706352043]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.15, 0.085)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "240"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps240_button" unique_id=1436255189]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps240_button/button_body" unique_id=36794615]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_g6jhj")
+
+[node name="480_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=742196247]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 1.2192201e-09, -0.64091027, 0.55)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("25_h22a3")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
+button_type = 26
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/480_button" unique_id=48006269]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.06)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "480p"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/480_button" unique_id=855422772]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/480_button/button_body" unique_id=1311744096]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_nl87q")
+
+[node name="720_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1618197962]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 1.2192201e-09, -0.64091027, -0.872)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("25_h22a3")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
+button_type = 27
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/720_button" unique_id=815175805]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.06)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "720p"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/720_button" unique_id=401035893]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/720_button/button_body" unique_id=715368333]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_nl87q")
+
+[node name="900_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=10746632]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 1.2192201e-09, -0.64091027, -2.295)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("25_h22a3")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
+button_type = 28
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/900_button" unique_id=1469911287]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.06)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "900p"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/900_button" unique_id=1170433989]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/900_button/button_body" unique_id=948922375]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_nl87q")
+
+[node name="1080_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=197550704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0859102, 0.55)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("25_h22a3")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
+button_type = 29
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/1080_button" unique_id=1371494359]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.06)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "1080p"
+font = ExtResource("9_8bc5l")
+font_size = 200
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/1080_button" unique_id=352164272]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/1080_button/button_body" unique_id=1259506851]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_nl87q")
+
+[node name="1440_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1660597927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0859102, -0.872)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("25_h22a3")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
 button_type = 30
 
-[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_small" unique_id=1947011907]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.06)
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/1440_button" unique_id=1105094740]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.06)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "1080p"
 font = ExtResource("9_8bc5l")
 font_size = 200
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
 
-[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_small" unique_id=942374852]
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/1440_button" unique_id=735023465]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_small/button_body" unique_id=519045302]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/1440_button/button_body" unique_id=1863459915]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_xt8w5")
+shape = SubResource("BoxShape3D_nl87q")
 
-[node name="resolution_medium" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1536057798]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.65, -1.85)
+[node name="native_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1615433442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0859102, -2.295)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -1960,33 +2286,34 @@ double_sided = false
 alpha_cut = 1
 texture_filter = 0
 render_priority = 1
-texture = ExtResource("47_16erx")
+texture = ExtResource("25_h22a3")
 script = ExtResource("31_pslnn")
-box_texture = Array[Texture]([ExtResource("47_16erx"), ExtResource("48_xt8w5")])
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
 button_type = 31
 
-[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_medium" unique_id=1810705234]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.06)
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/native_button" unique_id=833161968]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.1, 0.06)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "native"
 font = ExtResource("9_8bc5l")
 font_size = 200
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
 
-[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_medium" unique_id=624648740]
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/native_button" unique_id=1201409446]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_medium/button_body" unique_id=122596639]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/native_button/button_body" unique_id=506633824]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_xt8w5")
+shape = SubResource("BoxShape3D_nl87q")
 
-[node name="resolution_big" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1980578424]
-transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, -1.65, -2.2)
+[node name="windowed_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=893924588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, -1.8, 0.55)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -1996,33 +2323,34 @@ double_sided = false
 alpha_cut = 1
 texture_filter = 0
 render_priority = 1
-texture = ExtResource("47_16erx")
+texture = ExtResource("25_h22a3")
 script = ExtResource("31_pslnn")
-box_texture = Array[Texture]([ExtResource("47_16erx"), ExtResource("48_xt8w5")])
-button_type = 30
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
+button_type = 32
 
-[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_big" unique_id=1820242968]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.06)
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/windowed_button" unique_id=677990375]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.05, 0.055)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "windowed"
 font = ExtResource("9_8bc5l")
-font_size = 200
+font_size = 150
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
 
-[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_big" unique_id=499599369]
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/windowed_button" unique_id=563532035]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_big/button_body" unique_id=95318829]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/windowed_button/button_body" unique_id=1697122445]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_xt8w5")
+shape = SubResource("BoxShape3D_nl87q")
 
-[node name="resolution_window" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1844688431]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.65, -2.6)
+[node name="borderless_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1999801552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, -1.8, -0.872)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -2032,30 +2360,68 @@ double_sided = false
 alpha_cut = 1
 texture_filter = 0
 render_priority = 1
-texture = ExtResource("49_2yprt")
+texture = ExtResource("25_h22a3")
 script = ExtResource("31_pslnn")
-box_texture = Array[Texture]([ExtResource("49_2yprt"), ExtResource("50_swmfq")])
-button_type = 31
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
+button_type = 33
 
-[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_window" unique_id=1672017264]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.11, 0.06)
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/borderless_button" unique_id=7296388]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.05, 0.07)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "borderless"
 font = ExtResource("9_8bc5l")
-font_size = 200
+font_size = 150
 outline_size = 0
 vertical_alignment = 2
 line_spacing = -200.0
 
-[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_window" unique_id=1501285874]
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/borderless_button" unique_id=865531916]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/resolution_window/button_body" unique_id=1492991095]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/borderless_button/button_body" unique_id=964598006]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_2yprt")
+shape = SubResource("BoxShape3D_nl87q")
+
+[node name="fullscreen_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=701251888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, -1.8, -2.295)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.045
+axis = 0
+double_sided = false
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("25_h22a3")
+script = ExtResource("31_pslnn")
+box_texture = Array[Texture]([ExtResource("25_h22a3"), ExtResource("30_pslnn")])
+button_type = 34
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fullscreen_button" unique_id=1697631987]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0.1, -0.05, 0.09)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "fullscreen"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fullscreen_button" unique_id=1081128571]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fullscreen_button/button_body" unique_id=1578359032]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
+shape = SubResource("BoxShape3D_nl87q")
 
 [node name="control_section" type="Node3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border" unique_id=1911329758]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999905, 0)
