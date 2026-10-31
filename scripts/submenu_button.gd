@@ -3,12 +3,13 @@ extends Sprite3D
 @export var box_texture: Array[Texture]
 @onready var collision := $button_body
 @onready var selected := false
+@onready var clicked := false
 
 @export_enum("default_game","random_game","save","load","quit",
 "forward","back","left","right","fire","roll","boost","jump",
 "look","look_up","look_down","look_left","look_right",
 "sfx_in","sfx_out","music","fps30","fps60","fps120","fps144","fps240",
-"480p","720p","900p","1080p","1440p","native","windowed","borderless","fullscreen") var button_type: int
+"r25","r50","r67","r85","r100","r150","windowed","borderless","fullscreen") var button_type: int
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +19,7 @@ func _process(delta: float) -> void:
 		$button_text.modulate = Color(0, 0, 0)
 		$button_text.outline_size = 12
 		if Input.is_action_just_pressed("fire"):
+			clicked = true
 			match(button_type):
 				0:
 					var default_file = FileAccess.open("res://saves/newgame.json", FileAccess.READ)
@@ -44,3 +46,6 @@ func _process(delta: float) -> void:
 		$button_text.modulate = Color(0.478, 0.804, 0.804)
 		$button_text.outline_size = 0
 		texture = box_texture[0]
+	
+	if clicked and Input.is_action_just_released("fire"):
+		clicked = false

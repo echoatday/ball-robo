@@ -416,11 +416,9 @@ func _physics_process(delta: float) -> void:
 
 # Aiming system
 func aim() -> void:
-	
 	var cursor_location = get_viewport().get_mouse_position()
 	var screen_center_hori = get_viewport().size.x/2
 	var screen_center_verti = get_viewport().size.y/2
-	
 	var ui_edge_x = get_viewport().size.x/1
 	var ui_edge_y = get_viewport().size.y/1
 	
