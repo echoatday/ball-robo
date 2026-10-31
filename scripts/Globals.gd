@@ -150,3 +150,53 @@ func load_game():
 			world.remove_child(child)
 	world.add_child(instance)
 	return(instance_checkpoint_transform)
+
+
+var input_forward
+var input_back
+var input_left
+var input_right
+var input_jump
+var input_boost
+var input_roll
+var input_fire
+var input_look
+var input_interact
+var input_lookup
+var input_lookdown
+var input_lookleft
+var input_lookright
+var volume_inside := 10
+var volume_outside := 10
+var volume_music := 10
+var max_framerate := 60
+var resolution_scale := 1.0
+var windowed_mode := 3
+
+
+func save_options():
+	var save_dict = {
+		"input_forward" : input_forward,
+		"input_back" : input_back,
+		"input_left" : input_left,
+		"input_right" : input_right,
+		"input_jump" : input_jump,
+		"input_boost" : input_boost,
+		"input_roll" : input_roll,
+		"input_fire" : input_fire,
+		"input_look" : input_look,
+		"input_interact" : input_interact,
+		"input_lookup" : input_lookup,
+		"input_lookdown" : input_lookdown,
+		"input_lookleft" : input_lookleft,
+		"input_lookright" : input_lookright,
+		"volume_inside" : volume_inside,
+		"volume_outside" : volume_outside,
+		"volume_music" : volume_music,
+		"max_framerate" : max_framerate,
+		"resolution_scale" : resolution_scale,
+		"windowed_mode" : windowed_mode
+	}
+	var json_string = JSON.stringify(save_dict)
+	var save_file = FileAccess.open("res://saves/options.json", FileAccess.WRITE)
+	save_file.store_line(json_string)
