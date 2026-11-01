@@ -166,13 +166,13 @@ var input_lookup
 var input_lookdown
 var input_lookleft
 var input_lookright
+var mouse_sensitivity := 5
 var volume_inside := 10
 var volume_outside := 10
 var volume_music := 10
 var max_framerate := 60
 var resolution_scale := 1.0
 var windowed_mode := 3
-
 
 func save_options():
 	var save_dict = {
@@ -185,6 +185,7 @@ func save_options():
 		"input_roll" : input_roll,
 		"input_fire" : input_fire,
 		"input_look" : input_look,
+		"mouse_sensitivity" : mouse_sensitivity,
 		"input_interact" : input_interact,
 		"input_lookup" : input_lookup,
 		"input_lookdown" : input_lookdown,
@@ -200,3 +201,36 @@ func save_options():
 	var json_string = JSON.stringify(save_dict)
 	var save_file = FileAccess.open("res://saves/options.json", FileAccess.WRITE)
 	save_file.store_line(json_string)
+
+func load_options():
+	if not FileAccess.file_exists("res://saves/options.json"):
+		return
+	var options_file = FileAccess.open("res://saves/options.json", FileAccess.READ)
+	var json = JSON.new()
+	var parse_result = json.parse(options_file.get_as_text())
+	
+	input_forward = json.data["input_forward"]
+	input_back = json.data["input_back"]
+	input_left = json.data["input_left"]
+	input_right = json.data["input_right"]
+	input_jump = json.data["input_jump"]
+	input_boost = json.data["input_boost"]
+	input_roll = json.data["input_roll"]
+	input_fire = json.data["input_fire"]
+	input_look = json.data["input_look"]
+	input_interact = json.data["input_interact"]
+	input_lookup = json.data["input_lookup"]
+	input_lookdown = json.data["input_lookdown"]
+	input_lookleft = json.data["input_lookleft"]
+	input_lookright = json.data["input_lookright"]
+	mouse_sensitivity = json.data["mouse_sensitivity"]
+	volume_inside = json.data["volume_inside"]
+	volume_outside = json.data["volume_outside"]
+	volume_music = json.data["volume_music"]
+	max_framerate = json.data["max_framerate"]
+	resolution_scale = json.data["resolution_scale"]
+	windowed_mode = json.data["windowed_mode"]
+	
+	Engine.max_fps = max_framerate
+	get_viewport().scaling_3d_scale = resolution_scale
+	DisplayServer.window_set_mode(windowed_mode)

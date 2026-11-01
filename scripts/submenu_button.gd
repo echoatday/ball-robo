@@ -2,8 +2,8 @@ extends Sprite3D
 
 @export var box_texture: Array[Texture]
 @onready var collision := $button_body
-@onready var selected := false
-@onready var clicked := false
+var selected := false
+var clicked := false
 
 @export_enum("default_game","random_game","save","load","quit",
 "forward","back","left","right","fire","roll","boost","jump",
