@@ -31,6 +31,8 @@ extends CharacterBody3D
 @export var regrab_timer: Timer
 @export var coyote_timer: Timer
 @export var lever_timer: Timer
+@export_category("Reference")
+@export var email_reference: Node3D
 
 const SPEED = 8
 const ACCEL = 1.1

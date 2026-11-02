@@ -91,6 +91,7 @@ func save_game():
 	var json_string = JSON.stringify(save_dict)
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.WRITE)
 	save_file.store_line(json_string)
+	email_display()
 
 func load_game():
 	self_destruct = false
@@ -256,3 +257,77 @@ func load_options():
 	InputMap.action_add_event("lookleft",input_lookleft)
 	InputMap.action_erase_events("lookright")
 	InputMap.action_add_event("lookright",input_lookright)
+
+func email_display():
+	if unlock_jump:
+		player.email_reference.emails[0].visible = true
+		player.email_reference.emails[0].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[0].visible = false
+		player.email_reference.emails[0].collision.set_collision_layer_value(4,false)
+	if unlock_roll:
+		player.email_reference.emails[1].visible = true
+		player.email_reference.emails[1].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[1].visible = false
+		player.email_reference.emails[1].collision.set_collision_layer_value(4,false)
+	if unlock_bounce:
+		player.email_reference.emails[2].visible = true
+		player.email_reference.emails[2].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[2].visible = false
+		player.email_reference.emails[2].collision.set_collision_layer_value(4,false)
+	if unlock_walljump:
+		player.email_reference.emails[3].visible = true
+		player.email_reference.emails[3].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[3].visible = false
+		player.email_reference.emails[3].collision.set_collision_layer_value(4,false)
+	if unlock_heat:
+		player.email_reference.emails[4].visible = true
+		player.email_reference.emails[4].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[4].visible = false
+		player.email_reference.emails[4].collision.set_collision_layer_value(4,false)
+	if unlock_grapple:
+		player.email_reference.emails[5].visible = true
+		player.email_reference.emails[5].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[5].visible = false
+		player.email_reference.emails[5].collision.set_collision_layer_value(4,false)
+	if unlock_waterproofing:
+		player.email_reference.emails[6].visible = true
+		player.email_reference.emails[6].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[6].visible = false
+		player.email_reference.emails[6].collision.set_collision_layer_value(4,false)
+	if unlock_lateralboost:
+		player.email_reference.emails[7].visible = true
+		player.email_reference.emails[7].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[7].visible = false
+		player.email_reference.emails[7].collision.set_collision_layer_value(4,false)
+	if unlock_downboost:
+		player.email_reference.emails[8].visible = true
+		player.email_reference.emails[8].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[8].visible = false
+		player.email_reference.emails[8].collision.set_collision_layer_value(4,false)
+	if unlock_spin:
+		player.email_reference.emails[9].visible = true
+		player.email_reference.emails[9].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[9].visible = false
+		player.email_reference.emails[9].collision.set_collision_layer_value(4,false)
+	if unlock_energy_1:
+		player.email_reference.emails[10].visible = true
+		player.email_reference.emails[10].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[10].visible = false
+		player.email_reference.emails[10].collision.set_collision_layer_value(4,false)
+	if unlock_energy_2:
+		player.email_reference.emails[11].visible = true
+		player.email_reference.emails[11].collision.set_collision_layer_value(4,true)
+	else:
+		player.email_reference.emails[11].visible = false
+		player.email_reference.emails[11].collision.set_collision_layer_value(4,false)
