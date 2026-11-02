@@ -152,20 +152,19 @@ func load_game():
 	return(instance_checkpoint_transform)
 
 
-var input_forward
-var input_back
-var input_left
-var input_right
-var input_jump
-var input_boost
-var input_roll
-var input_fire
-var input_look
-var input_interact
-var input_lookup
-var input_lookdown
-var input_lookleft
-var input_lookright
+var input_forward: InputEvent = str_to_var("InputEventKey: keycode=87 (W), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_back: InputEvent = str_to_var("InputEventKey: keycode=83 (S), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_left: InputEvent = str_to_var("InputEventKey: keycode=65 (A), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_right: InputEvent = str_to_var("InputEventKey: keycode=68 (D), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_jump: InputEvent = str_to_var("InputEventKey: keycode=32 (Space), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_boost: InputEvent = str_to_var("InputEventKey: keycode=4194325 (Shift), mods=none, physical=false, location=left, pressed=true, echo=false")
+var input_roll: InputEvent = str_to_var("InputEventKey: keycode=82 (R), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_fire: InputEvent = str_to_var("InputEventMouseButton: button_index=1, mods=none, pressed=true, canceled=false, position=((598.0, 336.0)), button_mask=1, double_click=false")
+var input_look: InputEvent = str_to_var("InputEventMouseButton: button_index=2, mods=none, pressed=true, canceled=false, position=((598.0, 336.0)), button_mask=2, double_click=false")
+var input_lookup: InputEvent = str_to_var("InputEventKey: keycode=4194320 (Up), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_lookdown: InputEvent = str_to_var("InputEventKey: keycode=4194322 (Down), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_lookleft: InputEvent = str_to_var("InputEventKey: keycode=4194319 (Left), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
+var input_lookright: InputEvent = str_to_var("InputEventKey: keycode=4194321 (Right), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
 var mouse_sensitivity := 5
 var volume_inside := 10
 var volume_outside := 10
@@ -186,7 +185,6 @@ func save_options():
 		"input_fire" : input_fire,
 		"input_look" : input_look,
 		"mouse_sensitivity" : mouse_sensitivity,
-		"input_interact" : input_interact,
 		"input_lookup" : input_lookup,
 		"input_lookdown" : input_lookdown,
 		"input_lookleft" : input_lookleft,
@@ -209,20 +207,19 @@ func load_options():
 	var json = JSON.new()
 	var parse_result = json.parse(options_file.get_as_text())
 	
-	input_forward = json.data["input_forward"]
-	input_back = json.data["input_back"]
-	input_left = json.data["input_left"]
-	input_right = json.data["input_right"]
-	input_jump = json.data["input_jump"]
-	input_boost = json.data["input_boost"]
-	input_roll = json.data["input_roll"]
-	input_fire = json.data["input_fire"]
-	input_look = json.data["input_look"]
-	input_interact = json.data["input_interact"]
-	input_lookup = json.data["input_lookup"]
-	input_lookdown = json.data["input_lookdown"]
-	input_lookleft = json.data["input_lookleft"]
-	input_lookright = json.data["input_lookright"]
+	input_forward = str_to_var(json.data["input_forward"])
+	input_back = str_to_var(json.data["input_back"])
+	input_left = str_to_var(json.data["input_left"])
+	input_right = str_to_var(json.data["input_right"])
+	input_jump = str_to_var(json.data["input_jump"])
+	input_boost = str_to_var(json.data["input_boost"])
+	input_roll = str_to_var(json.data["input_roll"])
+	input_fire = str_to_var(json.data["input_fire"])
+	input_look = str_to_var(json.data["input_look"])
+	input_lookup = str_to_var(json.data["input_lookup"])
+	input_lookdown = str_to_var(json.data["input_lookdown"])
+	input_lookleft = str_to_var(json.data["input_lookleft"])
+	input_lookright = str_to_var(json.data["input_lookright"])
 	mouse_sensitivity = json.data["mouse_sensitivity"]
 	volume_inside = json.data["volume_inside"]
 	volume_outside = json.data["volume_outside"]

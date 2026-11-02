@@ -2,6 +2,7 @@ extends Sprite3D
 
 @export var box_texture: Array[Texture]
 @onready var collision := $button_body
+@onready var label := $button_text
 var selected := false
 var clicked := false
 
