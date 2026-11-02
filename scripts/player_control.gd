@@ -432,7 +432,7 @@ func aim() -> void:
 		camera_gimbal.rotation = Vector3.ZERO
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) #<-- final version
-		var speed := 9
+		var speed = int(Globals.mouse_sensitivity * 10)
 		if Input.is_action_pressed("lookup"):
 			up_aim_amount += speed
 		elif up_aim_amount > 0:
@@ -453,12 +453,13 @@ func aim() -> void:
 		elif left_aim_amount < 0:
 			left_aim_amount += speed
 		
-		up_aim_amount = clamp(up_aim_amount, -120, 120)
-		left_aim_amount = clamp(left_aim_amount, -240, 240)
+		left_aim_amount = clamp(left_aim_amount, -get_viewport().size.x/2, get_viewport().size.x/2)
+		up_aim_amount = clamp(up_aim_amount, -get_viewport().size.y/2, get_viewport().size.y/2)
 		cursor_location.x -= left_aim_amount
 		cursor_location.y -= up_aim_amount
-		cursor_location.x = clamp(cursor_location.x, screen_center_hori-ui_edge_x, screen_center_hori+ui_edge_x)
-		cursor_location.y = clamp(cursor_location.y, screen_center_verti-ui_edge_y, screen_center_verti+ui_edge_y)
+		cursor_location.x = clamp(cursor_location.x, 50.0, get_viewport().size.x-50.0)
+		cursor_location.y = clamp(cursor_location.y, 50.0, get_viewport().size.y-50.0)
+		print(cursor_location)
 		pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
 		#reticle handling
 		reticle.global_position = camera.project_position(cursor_location,0.2)
@@ -466,7 +467,7 @@ func aim() -> void:
 		reticle.look_at(camera.global_position)
 		reticle.rotation.z = 0
 	else:
-		var speed = 3
+		var speed = clampi(Globals.mouse_sensitivity * 2,1,10)
 		if Input.is_action_pressed("lookup"):
 			up_aim_amount += speed
 		elif up_aim_amount > 0:
@@ -501,6 +502,8 @@ func aim() -> void:
 	
 	# Mouse turning control
 	if Input.is_action_just_pressed("look") and not state_dead:
+		up_aim_amount = 0
+		left_aim_amount = 0
 		if abs(pilot_cast.global_rotation.x - spin_cast.global_rotation.x) < 0.25 and abs(pilot_cast.global_rotation.y - spin_cast.global_rotation.y) < 0.25:
 			state_looking = not state_looking
 	if state_looking and not state_grappling:

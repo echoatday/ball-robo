@@ -116,7 +116,7 @@ lookright={
 3d_physics/layer_1="world"
 3d_physics/layer_2="player"
 3d_physics/layer_3="heat_zones"
-3d_physics/layer_4="moving_objects"
+3d_physics/layer_4="menu_items"
 3d_physics/layer_9="grapple_targets"
 
 [physics]

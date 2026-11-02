@@ -1,7 +1,9 @@
 extends Sprite3D
 
 @export var rebind_buttons: Array[Node3D]
+@export var sensitivity_slider: Node3D
 var current_button: Node3D
+@onready var collision := $sensitivity_slider_body
 var selected = false
 
 # Called when the node enters the scene tree for the first time.
@@ -16,12 +18,25 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_released("fire"):
+	sensitivity_slider.position.z = -Globals.mouse_sensitivity + 0.5
+	if owner.pilot_cast.get_collider() == collision:
+		sensitivity_slider.selected = true
+		var cast_point = get_parent().to_local(owner.pilot_cast.get_collision_point())
+		cast_point.x -= 0.1
+		cast_point.z = snappedf(cast_point.z, 0.2)
+		sensitivity_slider.position.z = cast_point.z
+		if Input.is_action_just_released("fire"):
+			Globals.mouse_sensitivity = snappedf(-cast_point.z + 0.5, 0.1)
+			Globals.save_options()
+	elif Input.is_action_just_released("fire"):
 		for button in rebind_buttons:
 			if owner.pilot_cast.get_collider() == button.collision:
 				current_button = button
 				button.selected = true
 				selected = true
+	else:
+		sensitivity_slider.selected = false
+		
 
 func _unhandled_input(event):
 	if selected and event is not InputEventMouseMotion:
@@ -50,6 +65,15 @@ func change_button_text(action_name):
 	if label_button is InputEventKey:
 		label_code = label_button.as_text_keycode()
 		current_button.label.text = label_code.erase(2,100)
+		match(label_code):
+			"Up":
+				current_button.label.text = "↑"
+			"Down":
+				current_button.label.text = "↓"
+			"Left":
+				current_button.label.text = "←"
+			"Right":
+				current_button.label.text = "→"
 	elif label_button is InputEventMouseButton:
 		label_code = str(label_button.button_index)
 		current_button.label.text = "M" + label_code

@@ -165,7 +165,7 @@ var input_lookup: InputEvent = str_to_var("InputEventKey: keycode=4194320 (Up), 
 var input_lookdown: InputEvent = str_to_var("InputEventKey: keycode=4194322 (Down), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
 var input_lookleft: InputEvent = str_to_var("InputEventKey: keycode=4194319 (Left), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
 var input_lookright: InputEvent = str_to_var("InputEventKey: keycode=4194321 (Right), mods=none, physical=false, location=unspecified, pressed=true, echo=false")
-var mouse_sensitivity := 5
+var mouse_sensitivity := 1.0
 var volume_inside := 10
 var volume_outside := 10
 var volume_music := 10
