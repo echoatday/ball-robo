@@ -6,8 +6,10 @@ var selected = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().create_timer(0.2).timeout
 	for button in rebind_buttons:
 		current_button = button
+		print(current_button)
 		var action_name = button.name.split("_")[0]
 		change_button_text(action_name)
 

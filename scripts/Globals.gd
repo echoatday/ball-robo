@@ -175,20 +175,20 @@ var windowed_mode := 3
 
 func save_options():
 	var save_dict = {
-		"input_forward" : input_forward,
-		"input_back" : input_back,
-		"input_left" : input_left,
-		"input_right" : input_right,
-		"input_jump" : input_jump,
-		"input_boost" : input_boost,
-		"input_roll" : input_roll,
-		"input_fire" : input_fire,
-		"input_look" : input_look,
+		"input_forward" : var_to_str(input_forward),
+		"input_back" : var_to_str(input_back),
+		"input_left" : var_to_str(input_left),
+		"input_right" : var_to_str(input_right),
+		"input_jump" : var_to_str(input_jump),
+		"input_boost" : var_to_str(input_boost),
+		"input_roll" : var_to_str(input_roll),
+		"input_fire" : var_to_str(input_fire),
+		"input_look" : var_to_str(input_look),
+		"input_lookup" : var_to_str(input_lookup),
+		"input_lookdown" : var_to_str(input_lookdown),
+		"input_lookleft" : var_to_str(input_lookleft),
+		"input_lookright" : var_to_str(input_lookright),
 		"mouse_sensitivity" : mouse_sensitivity,
-		"input_lookup" : input_lookup,
-		"input_lookdown" : input_lookdown,
-		"input_lookleft" : input_lookleft,
-		"input_lookright" : input_lookright,
 		"volume_inside" : volume_inside,
 		"volume_outside" : volume_outside,
 		"volume_music" : volume_music,
@@ -206,7 +206,6 @@ func load_options():
 	var options_file = FileAccess.open("res://saves/options.json", FileAccess.READ)
 	var json = JSON.new()
 	var parse_result = json.parse(options_file.get_as_text())
-	
 	input_forward = str_to_var(json.data["input_forward"])
 	input_back = str_to_var(json.data["input_back"])
 	input_left = str_to_var(json.data["input_left"])
@@ -231,3 +230,29 @@ func load_options():
 	Engine.max_fps = max_framerate
 	get_viewport().scaling_3d_scale = resolution_scale
 	DisplayServer.window_set_mode(windowed_mode)
+	InputMap.action_erase_events("forward")
+	InputMap.action_add_event("forward",input_forward)
+	InputMap.action_erase_events("back")
+	InputMap.action_add_event("back",input_back)
+	InputMap.action_erase_events("left")
+	InputMap.action_add_event("left",input_left)
+	InputMap.action_erase_events("right")
+	InputMap.action_add_event("right",input_right)
+	InputMap.action_erase_events("jump")
+	InputMap.action_add_event("jump",input_jump)
+	InputMap.action_erase_events("boost")
+	InputMap.action_add_event("boost",input_boost)
+	InputMap.action_erase_events("roll")
+	InputMap.action_add_event("roll",input_roll)
+	InputMap.action_erase_events("fire")
+	InputMap.action_add_event("fire",input_fire)
+	InputMap.action_erase_events("look")
+	InputMap.action_add_event("look",input_look)
+	InputMap.action_erase_events("lookup")
+	InputMap.action_add_event("lookup",input_lookup)
+	InputMap.action_erase_events("lookdown")
+	InputMap.action_add_event("lookdown",input_lookdown)
+	InputMap.action_erase_events("lookleft")
+	InputMap.action_add_event("lookleft",input_lookleft)
+	InputMap.action_erase_events("lookright")
+	InputMap.action_add_event("lookright",input_lookright)
