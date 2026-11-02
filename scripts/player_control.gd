@@ -414,6 +414,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 				
 
+var up_aim_amount := 0
+var left_aim_amount := 0
+
 # Aiming system
 func aim() -> void:
 	var cursor_location = get_viewport().get_mouse_position()
@@ -429,6 +432,31 @@ func aim() -> void:
 		camera_gimbal.rotation = Vector3.ZERO
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) #<-- final version
+		var speed := 9
+		if Input.is_action_pressed("lookup"):
+			up_aim_amount += speed
+		elif up_aim_amount > 0:
+			up_aim_amount -= speed
+		
+		if Input.is_action_pressed("lookdown"):
+			up_aim_amount -= speed
+		elif up_aim_amount < 0:
+			up_aim_amount += speed
+		
+		if Input.is_action_pressed("lookleft"):
+			left_aim_amount += speed
+		elif left_aim_amount > 0:
+			left_aim_amount -= speed
+		
+		if Input.is_action_pressed("lookright"):
+			left_aim_amount -= speed
+		elif left_aim_amount < 0:
+			left_aim_amount += speed
+		
+		up_aim_amount = clamp(up_aim_amount, -120, 120)
+		left_aim_amount = clamp(left_aim_amount, -240, 240)
+		cursor_location.x -= left_aim_amount
+		cursor_location.y -= up_aim_amount
 		cursor_location.x = clamp(cursor_location.x, screen_center_hori-ui_edge_x, screen_center_hori+ui_edge_x)
 		cursor_location.y = clamp(cursor_location.y, screen_center_verti-ui_edge_y, screen_center_verti+ui_edge_y)
 		pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
@@ -438,6 +466,32 @@ func aim() -> void:
 		reticle.look_at(camera.global_position)
 		reticle.rotation.z = 0
 	else:
+		var speed = 3
+		if Input.is_action_pressed("lookup"):
+			up_aim_amount += speed
+		elif up_aim_amount > 0:
+			up_aim_amount -= speed
+		
+		if Input.is_action_pressed("lookdown"):
+			up_aim_amount -= speed
+		elif up_aim_amount < 0:
+			up_aim_amount += speed
+		
+		if Input.is_action_pressed("lookleft"):
+			left_aim_amount += speed
+		elif left_aim_amount > 0:
+			left_aim_amount -= speed
+		
+		if Input.is_action_pressed("lookright"):
+			left_aim_amount -= speed
+		elif left_aim_amount < 0:
+			left_aim_amount += speed
+		
+		up_aim_amount = clamp(up_aim_amount, -speed*6, speed*6)
+		left_aim_amount = clamp(left_aim_amount, -speed*6, speed*6)
+		camera_gimbal.rotate_y(left_aim_amount * 0.002)
+		camera.rotate_x(up_aim_amount * 0.002)
+		
 		dummy_reticle.visible = false
 		dummy_reticle2.visible = false
 		state_grappling = false
