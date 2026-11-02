@@ -358,7 +358,8 @@ func _physics_process(delta: float) -> void:
 					lever_timer.start()
 					if "pickup_type" in grapple_cast.get_collider(0).owner:
 						var pickup_target = grapple_cast.get_collider(0).owner
-						Globals.item_locations[pickup_target.pickup_location] = Globals.holding_item
+						print(Globals.pickup_locations[pickup_target.pickup_location])
+						Globals.pickup_locations[pickup_target.pickup_location] = Globals.holding_item
 						Globals.holding_item = pickup_target.pickup_type
 						if Globals.holding_item == 2:
 							# brain get
@@ -459,7 +460,6 @@ func aim() -> void:
 		cursor_location.y -= up_aim_amount
 		cursor_location.x = clamp(cursor_location.x, 50.0, get_viewport().size.x-50.0)
 		cursor_location.y = clamp(cursor_location.y, 50.0, get_viewport().size.y-50.0)
-		print(cursor_location)
 		pilot_rig.look_at(camera.project_position((cursor_location/9)+Vector2(get_viewport().size/2.25),10))
 		#reticle handling
 		reticle.global_position = camera.project_position(cursor_location,0.2)

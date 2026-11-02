@@ -119,10 +119,15 @@
 [ext_resource type="ArrayMesh" uid="uid://c1m65031fhn56" path="res://models/ico_32.obj" id="59_b2wya"]
 [ext_resource type="ArrayMesh" uid="uid://ufo0qxubvf81" path="res://models/ico_33.obj" id="60_wfakw"]
 [ext_resource type="ArrayMesh" uid="uid://drb17svi4ms2e" path="res://models/ico_34.obj" id="61_pb07y"]
+[ext_resource type="Texture2D" uid="uid://dy11x7qdwyh4e" path="res://textures/menus/email_border.png" id="61_qeklt"]
 [ext_resource type="ArrayMesh" uid="uid://ywmi646dtvhc" path="res://models/ico_35.obj" id="62_pcr5s"]
+[ext_resource type="Script" uid="uid://dpjynhpc8udrc" path="res://scripts/email_control.gd" id="62_qav1c"]
 [ext_resource type="ArrayMesh" uid="uid://dnh487unohc8e" path="res://models/ico_36.obj" id="63_okyma"]
+[ext_resource type="Texture2D" uid="uid://b7mhuhtrc538s" path="res://textures/menus/email_button_deselected.png" id="63_tm7bl"]
+[ext_resource type="Script" uid="uid://cqbrn225cwby2" path="res://scripts/email_button.gd" id="63_ype7c"]
 [ext_resource type="ArrayMesh" uid="uid://clqr1td1k4wou" path="res://models/ico_37.obj" id="64_mw4ah"]
 [ext_resource type="ArrayMesh" uid="uid://bif2wpd82jhv7" path="res://models/ico_38.obj" id="65_a608u"]
+[ext_resource type="Texture2D" uid="uid://cgl0y54ur1wtu" path="res://textures/menus/email_button_selected.png" id="65_qwght"]
 [ext_resource type="ArrayMesh" uid="uid://b14ciimm302bd" path="res://models/ico_39.obj" id="66_12t65"]
 [ext_resource type="ArrayMesh" uid="uid://qu2l2q86hofg" path="res://models/ico_40.obj" id="67_7riei"]
 [ext_resource type="ArrayMesh" uid="uid://cw6bmi6it7cni" path="res://models/ico_walking.obj" id="69_8inck"]
@@ -208,6 +213,9 @@ size = Vector3(0.1, 0.5, 2.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pslnn"]
 size = Vector3(0.1, 1.3, 3.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm7bl"]
+size = Vector3(0.1, 0.25, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07ay5"]
 render_priority = 1
@@ -1246,7 +1254,8 @@ vertical_alignment = 2
 line_spacing = -200.0
 
 [node name="logo" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border" unique_id=577142815]
-transform = Transform3D(0.08, -3.7252903e-09, 0, 0, 0.08, 0, 0, 0, 0.08, 0.1, -1.03, 2.02)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0.1, -1.03, 2.02)
+visible = false
 layers = 2
 cast_shadow = 0
 pixel_size = 0.045
@@ -1744,7 +1753,6 @@ shape = SubResource("BoxShape3D_2iwf0")
 
 [node name="option_section" type="Node3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border" unique_id=912796539]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999905, 0)
-visible = false
 script = ExtResource("30_1qwah")
 
 [node name="option_border" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1724616484 node_paths=PackedStringArray("fps_buttons", "resolution_buttons", "window_buttons")]
@@ -2434,6 +2442,7 @@ shape = SubResource("BoxShape3D_nl87q")
 
 [node name="control_section" type="Node3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border" unique_id=1911329758]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999905, 0)
+visible = false
 script = ExtResource("30_1qwah")
 
 [node name="control_border" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/control_section" unique_id=622860738 node_paths=PackedStringArray("rebind_buttons", "sensitivity_slider")]
@@ -2467,7 +2476,7 @@ line_spacing = -200.0
 
 [node name="sensitivity_slider_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/control_section/control_border" unique_id=1267760621]
 transform = Transform3D(0.9999999, -2.9802326e-08, -3.558409e-15, 2.9802322e-08, 1, 2.0843217e-15, 3.5584083e-15, -2.0843217e-15, 1.0000001, 0.18, -1.9, -0.85)
-collision_layer = 8
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/control_section/control_border/sensitivity_slider_body" unique_id=1623941524]
@@ -3984,12 +3993,668 @@ render_priority = 1
 texture = ExtResource("33_o6aky")
 
 [node name="screen_u" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=1962627126]
-transform = Transform3D(-5.9164805e-11, 1.1726466e-10, -0.003, -0.001968354, -0.0005315665, 6.656495e-11, 0.00035437773, -0.0029525307, -1.3113416e-10, -7.515233e-11, 0.018964099, -0.009274953)
+transform = Transform3D(3.6946467e-11, -1.1884792e-10, -0.003, -0.0018126159, -0.0012678547, 0, 0.00084523665, -0.0027189234, 1.3113416e-10, 0, 0.017, -0.007)
 layers = 2
 mesh = ExtResource("10_41lfj")
 skeleton = NodePath("../../..")
 surface_material_override/0 = ExtResource("5_3wou3")
 surface_material_override/1 = ExtResource("24_difmb")
+
+[node name="email_border" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u" unique_id=2042446608 node_paths=PackedStringArray("emails")]
+transform = Transform3D(-1.3, 1.13649605e-07, 0, -1.13649605e-07, -1.3, 0, 0, 0, 1.3, 0.55, 0.08, 0)
+layers = 2
+cast_shadow = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+pixel_size = 0.044
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("61_qeklt")
+script = ExtResource("62_qav1c")
+emails = [null, null, null, null, null, null, null, null, null, null, null, null]
+
+[node name="email_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1869794324]
+transform = Transform3D(-4.3711395e-09, 0, 0.1, -8.881784e-16, 0.09999999, 0, -0.10000002, 8.881784e-16, -4.371139e-09, -0.02, 2.1, 1.2)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+font = ExtResource("9_8bc5l")
+font_size = 130
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 2
+autowrap_trim_flags = 64
+width = 2750.0
+
+[node name="inbox_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1017179421]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, 1.9, 2.1)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0, 0, 0, 1)
+text = "Inbox"
+font = ExtResource("9_8bc5l")
+font_size = 200
+horizontal_alignment = 2
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="email_1" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=2020445258 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.7, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "She's Back"
+email_text = "Well, well, well. You couldn't stay away, could you? 2,001 days living on Titan's surface without me, and it looks like you haven't even cut your hair once. Too busy with the monthly seismic catastrophes to trim your split ends? Maybe you're here to find a pair of scissors. I'm sure there's an old pair somewhere in Habitation.
+
+Me? Oh, I'm doing great, thanks for asking. Thinking of having a meltdown this year. Nothing that patchwork atmosphere can't soak up, right? Ha."
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_1" unique_id=502501349]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_1" unique_id=197594022]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_1" unique_id=830624937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_1/button_body" unique_id=905511263]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_2" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=761390331 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.4, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_2" unique_id=1133965833]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_2" unique_id=2023907842]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_2" unique_id=571211911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_2/button_body" unique_id=1390534547]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_3" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1889050319 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.1, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_3" unique_id=2003980559]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_3" unique_id=1481017974]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_3" unique_id=2020810355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_3/button_body" unique_id=679301466]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_4" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1030973079 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.8, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_4" unique_id=382854811]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_4" unique_id=1274183364]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_4" unique_id=1475669735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_4/button_body" unique_id=1044054313]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_5" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1662311814 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.5, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_5" unique_id=518534062]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_5" unique_id=669646996]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_5" unique_id=1288778534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_5/button_body" unique_id=1007282649]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_6" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=913670898 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.2, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_6" unique_id=1632452933]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_6" unique_id=1651957065]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_6" unique_id=1540669803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_6/button_body" unique_id=621899367]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_7" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=2072134150 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.1, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_7" unique_id=201940602]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_7" unique_id=95637456]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_7" unique_id=1498157984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_7/button_body" unique_id=428085715]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_8" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1367967231 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.4, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_8" unique_id=1994661025]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_8" unique_id=1111346750]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_8" unique_id=483130289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_8/button_body" unique_id=424709694]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_9" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1339913458 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.7, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_9" unique_id=1677558770]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_9" unique_id=492485343]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_9" unique_id=1071748397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_9/button_body" unique_id=838551153]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_10" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=450793513 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, -1, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_10" unique_id=879952983]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_10" unique_id=965919617]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_10" unique_id=564866948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_10/button_body" unique_id=2146598177]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_11" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=377318052 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, -1.3, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_11" unique_id=1449254664]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_11" unique_id=553604714]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_11" unique_id=1571637454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_11/button_body" unique_id=1500074811]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
+
+[node name="email_12" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=327006844 node_paths=PackedStringArray("email_border")]
+transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, -0.1, -1.6, 2.1)
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("63_tm7bl")
+script = ExtResource("63_ype7c")
+box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
+email_border = NodePath("..")
+email_subject = "subject"
+email_text = "text"
+
+[node name="selection_pip" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_12" unique_id=448007198]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.02, 0, 0.8)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.045
+axis = 0
+alpha_cut = 1
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("39_itksh")
+
+[node name="button_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_12" unique_id=459981574]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -0.02, -0.12, 0.72)
+layers = 2
+pixel_size = 0.015
+texture_filter = 0
+modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
+text = "zxyt"
+font = ExtResource("9_8bc5l")
+font_size = 150
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 2
+line_spacing = -200.0
+
+[node name="button_body" type="StaticBody3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_12" unique_id=1941982017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border/email_12/button_body" unique_id=1850561364]
+transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_tm7bl")
 
 [node name="array" type="MeshInstance3D" parent="Cockpit/Seat/pilot_rig" unique_id=999686786 node_paths=PackedStringArray("lights", "bright_lights")]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, -0.025474988, -0.03727204)
