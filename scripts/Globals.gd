@@ -91,6 +91,12 @@ func save_game():
 	var json_string = JSON.stringify(save_dict)
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.WRITE)
 	save_file.store_line(json_string)
+	if unlock_energy_1 and unlock_energy_2:
+		player.max_energy = 500
+	elif Globals.unlock_energy_1 or Globals.unlock_energy_2:
+		player.max_energy = 400
+	else:
+		player.max_energy = 300
 	email_display()
 
 func load_game():
@@ -319,13 +325,13 @@ func email_display():
 	else:
 		player.email_reference.emails[9].visible = false
 		player.email_reference.emails[9].collision.set_collision_layer_value(4,false)
-	if unlock_energy_1:
+	if unlock_vault:
 		player.email_reference.emails[10].visible = true
 		player.email_reference.emails[10].collision.set_collision_layer_value(4,true)
 	else:
 		player.email_reference.emails[10].visible = false
 		player.email_reference.emails[10].collision.set_collision_layer_value(4,false)
-	if unlock_energy_2:
+	if unlock_iris:
 		player.email_reference.emails[11].visible = true
 		player.email_reference.emails[11].collision.set_collision_layer_value(4,true)
 	else:

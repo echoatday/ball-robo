@@ -285,12 +285,6 @@ func _physics_process(delta: float) -> void:
 			reticle.rotation_degrees = Vector3(0,-180,0)
 			stuck_area_shape.shape.radius = 0
 			state_dead = false
-			if Globals.unlock_energy_1 and Globals.unlock_energy_2:
-				max_energy = 500
-			elif Globals.unlock_energy_1 or Globals.unlock_energy_2:
-				max_energy = 400
-			else:
-				max_energy = 300
 			heat = 0
 			energy = max_energy
 			can_grapple = true

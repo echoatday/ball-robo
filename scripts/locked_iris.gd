@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 	
 	if opening:
 		ui_text.text = "⚬"
-	elif Globals.unlock_door:
+	elif Globals.unlock_iris:
 		ui_text.text = "○"
 	else:
 		ui_text.text = "×"
