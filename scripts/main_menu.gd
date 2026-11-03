@@ -5,7 +5,7 @@ enum {GAME, MEMORY, OPTION, QUIT, CONTROL}
 var current_menu := 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match(current_menu):
 		GAME:
 			$game_menu.visible = false

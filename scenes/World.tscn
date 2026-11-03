@@ -2,6 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c82iey1rryacy" path="res://scenes/Player.tscn" id="1_dow2d"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" unique_id=1502763437]
+[node name="Node3D" type="Node3D" unique_id=840908749]
 
 [node name="Player" parent="." unique_id=1268744149 instance=ExtResource("1_dow2d")]

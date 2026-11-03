@@ -26,21 +26,21 @@ func _update_multimesh(length):
 		var curve_distance = distance_interval * i
 		var curve_position = curve.sample_baked(curve_distance,true)
 		
-		var basis = Basis()
+		var my_basis = Basis()
 		
 		var up = curve.sample_baked_up_vector(curve_distance,true)
 		var forward = curve_position.direction_to(curve.sample_baked(curve_distance+0.1,true))
 		
-		basis.y = up
-		basis.x = forward.cross(up).normalized()
-		basis.z = -forward
+		my_basis.y = up
+		my_basis.x = forward.cross(up).normalized()
+		my_basis.z = -forward
 		
-		var transform = Transform3D(basis, curve_position)
+		var my_transform = Transform3D(my_basis, curve_position)
 		var size = clampf((curve_position.z-20) * -0.04,1,4)
 		if i%frequency == 0 and i < 12:
-			outer_arm.set_instance_transform(i,transform.scaled_local(Vector3(size,size,1)))
+			outer_arm.set_instance_transform(i,my_transform.scaled_local(Vector3(size,size,1)))
 		else:
-			inner_arm.set_instance_transform(i,transform.scaled_local(Vector3(size,size,1)))
+			inner_arm.set_instance_transform(i,my_transform.scaled_local(Vector3(size,size,1)))
 
 func _arm_movement():
 	var point_3_base_position = Vector3(0.5,-3.0,-6.0)

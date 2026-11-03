@@ -15,7 +15,7 @@ func _ready() -> void:
 	var current_room = StationMap.rooms[current_index].instantiate()
 	current_item = current_room.get_node("Pickup").target_item
 	current_map = current_room.get_node("SaveStation").target_item
-	if current_room.get_node("Button") != null:
+	if current_room.has_node("Button"):
 		current_button = current_room.get_node("Button").target_item
 		$button_tick.visible = true
 	
@@ -49,7 +49,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match(current_index):
 		24:
 			if Globals.map_mc:

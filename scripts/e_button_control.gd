@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if owner.state_dead:
 		mesh.top_radius = 0.3
 		mesh.bottom_radius = 0.45

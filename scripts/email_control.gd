@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if selected_email != 0:
 		$email_text.text = get_node("email_" + str(selected_email)).email_text
 	else:

@@ -118,7 +118,7 @@ func _ready() -> void:
 				ui_element.visible = false
 				$OmniLight3D2.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not collected_state:
 		ui_all.look_at(Globals.player.global_position)
 		var distance_to_player = ui_all.global_position.distance_to(Globals.player.global_position)

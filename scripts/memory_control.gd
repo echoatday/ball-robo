@@ -24,7 +24,6 @@ func save_to_slot() -> void:
 			slot_file = FileAccess.open("res://saves/slot_6.json", FileAccess.WRITE)
 	
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.READ)
-	var json = JSON.new()
 	var parse_result = save_file.get_as_text()
 	slot_file.store_line(parse_result)
 
@@ -44,7 +43,6 @@ func load_from_slot() -> void:
 		6: 
 			slot_file = FileAccess.open("res://saves/slot_6.json", FileAccess.READ)
 	
-	var json = JSON.new()
 	var parse_result = slot_file.get_as_text()
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.WRITE)
 	save_file.store_line(parse_result)

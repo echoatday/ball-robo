@@ -1,7 +1,7 @@
 extends Label3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match owner.current_level:
 		24:
 			text = "Moonlit\nCave"

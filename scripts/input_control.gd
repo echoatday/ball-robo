@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	sensitivity_slider.position.z = -Globals.mouse_sensitivity + 0.5
 	if owner.pilot_cast.get_collider() == collision:
 		sensitivity_slider.selected = true

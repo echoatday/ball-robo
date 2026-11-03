@@ -6,11 +6,10 @@ extends Node3D
 @onready var old_rotation = Globals.player.camera.global_rotation_degrees
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var new_position = Globals.player.camera.global_position
 	var pos_difference = old_position - new_position
 	var new_rotation = Globals.player.camera.global_rotation_degrees
-	var rot_difference = old_rotation - new_rotation
 	
 	sky_material.uv1_offset += Vector3(pos_difference.z,pos_difference.x,pos_difference.y) * -0.1
 	

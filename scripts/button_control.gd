@@ -124,7 +124,7 @@ func _ready() -> void:
 		pickup_trigger.position.y = 1
 		
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not collected_state:
 		ui_all.look_at(Globals.player.global_position)
 		var distance_to_player = ui_all.global_position.distance_to(Globals.player.global_position)

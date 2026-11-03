@@ -59,10 +59,12 @@ func _physics_process(_delta: float) -> void:
 		else:
 			icosphere.set_rotation(Vector3(max(-0.26,owner.velocity.y*0.006-0.26),0,0))
 	else:
-		if owner.is_on_floor():
-			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.01*owner.velocity.length())
-		else:
-			icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.005*owner.velocity.length())
+		var this_rotation = Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized()
+		if not this_rotation.is_zero_approx():
+			if owner.is_on_floor():
+				icosphere.global_rotate(Vector3(owner.velocity.z, 0, -owner.velocity.x).normalized(), 0.01*owner.velocity.length())
+			else:
+					icosphere.global_rotate(this_rotation, 0.005*owner.velocity.length())
 
 func reset_screen():
 	for current_screen in screen:

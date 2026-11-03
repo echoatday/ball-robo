@@ -136,7 +136,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not collected_state:
 		ui_all.look_at(Globals.player.global_position)
 		var distance_to_player = ui_all.global_position.distance_to(Globals.player.global_position)
@@ -148,7 +148,7 @@ func _process(delta: float) -> void:
 			ui_element.position = Vector3.ZERO
 
 
-func _on_pickup_trigger_body_entered(body: Node3D) -> void:
+func _on_pickup_trigger_body_entered(_body: Node3D) -> void:
 	if not collected_state:
 		match(Globals.item_locations[target_item]):
 			0:

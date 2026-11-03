@@ -4,7 +4,7 @@ extends Sprite3D
 @onready var pilot_cast = owner.pilot_cast
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not owner.state_looking:
 		visible = true
 		if Input.is_action_pressed("fire"):

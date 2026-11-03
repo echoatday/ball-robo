@@ -76,8 +76,8 @@ func _on_body_entered(body: Node3D) -> void:
 				
 				current.spawn_position = owner.global_position
 				current.spawn_position +=  current.position - entry_door.position
-				instance.global_position = current.spawn_position
 				world.add_child(instance)
+				instance.global_position = current.spawn_position
 
 
 func _on_body_exited(body: Node3D) -> void:

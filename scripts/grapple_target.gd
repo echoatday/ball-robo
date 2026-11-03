@@ -14,7 +14,7 @@ func _physics_process(_delta: float) -> void:
 	var distance_to_player = global_position.distance_to(Globals.player.global_position)
 	
 	if model_open and model_closed and Globals.unlock_grapple:
-		if Globals.player.grapple_cast.get_collider(0) == collider or Globals.player.state_grappling:
+		if Globals.player.grapple_cast.is_colliding() and Globals.player.grapple_cast.get_collider(0) == collider or Globals.player.state_grappling:
 			model_open.visible = true
 			model_closed.visible = false
 		else:

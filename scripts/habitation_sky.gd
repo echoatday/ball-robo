@@ -7,7 +7,7 @@ extends Node3D
 @onready var base_color = Color(1.7,1.9,1.9)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var new_position = Globals.player.camera.global_position
 	var pos_difference = old_position - new_position
 	var new_rotation = Globals.player.camera.global_rotation_degrees

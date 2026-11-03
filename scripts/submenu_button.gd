@@ -14,7 +14,7 @@ var clicked := false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if owner.pilot_cast.get_collider() == $button_body:
 		texture = box_texture[1]
 		$button_text.modulate = Color(0, 0, 0)
@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 			match(button_type):
 				0:
 					var default_file = FileAccess.open("res://saves/newgame.json", FileAccess.READ)
-					var json = JSON.new()
 					var parse_result = default_file.get_as_text()
 					var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.WRITE)
 					save_file.store_line(parse_result)

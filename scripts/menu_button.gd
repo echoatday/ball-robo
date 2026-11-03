@@ -5,7 +5,7 @@ extends Sprite3D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if owner.pilot_cast.get_collider() == $button_body:
 		self.visible = false
 		if Input.is_action_just_pressed("fire"):

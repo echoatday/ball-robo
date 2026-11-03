@@ -5,7 +5,7 @@ extends MeshInstance3D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# glow = can move, glow_bright = pressing button
 	# light2,4,6,8 = movement
 	# light5 = roll

@@ -419,8 +419,8 @@ func aim() -> void:
 	var cursor_location = get_viewport().get_mouse_position()
 	var screen_center_hori = get_viewport().size.x/2
 	var screen_center_verti = get_viewport().size.y/2
-	var ui_edge_x = get_viewport().size.x/1
-	var ui_edge_y = get_viewport().size.y/1
+	#var ui_edge_x = get_viewport().size.x/1
+	#var ui_edge_y = get_viewport().size.y/1
 	
 	if state_looking:
 		dummy_reticle.visible = true
@@ -517,7 +517,7 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * 0.002)
 
 
-func _on_stuck_area_body_entered(body: Node3D) -> void:
+func _on_stuck_area_body_entered(_body: Node3D) -> void:
 	if Globals.unlock_roll and not state_rolling:
 		state_rolling = true
 		heat += 20

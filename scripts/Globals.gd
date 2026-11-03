@@ -107,7 +107,7 @@ func load_game():
 		return # Error! We don't have a save to load.
 	var save_file = FileAccess.open("res://saves/savegame.json", FileAccess.READ)
 	var json = JSON.new()
-	var parse_result = json.parse(save_file.get_as_text())
+	var _parse_result = json.parse(save_file.get_as_text())
 	
 	item_locations.assign(json.data["item_locations"])
 	
@@ -212,7 +212,7 @@ func load_options():
 		return
 	var options_file = FileAccess.open("res://saves/options.json", FileAccess.READ)
 	var json = JSON.new()
-	var parse_result = json.parse(options_file.get_as_text())
+	var _parse_result = json.parse(options_file.get_as_text())
 	input_forward = str_to_var(json.data["input_forward"])
 	input_back = str_to_var(json.data["input_back"])
 	input_left = str_to_var(json.data["input_left"])

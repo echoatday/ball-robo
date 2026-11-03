@@ -82,7 +82,7 @@ func _process(_delta: float) -> void:
 				Globals.save_options()
 		Engine.max_fps = Globals.max_framerate
 		
-		var current_resolution_scale = get_viewport().scaling_3d_scale
+		#var current_resolution_scale = get_viewport().scaling_3d_scale
 		for i in resolution_buttons.size():
 			var button = resolution_buttons[i]
 			if button.clicked:
