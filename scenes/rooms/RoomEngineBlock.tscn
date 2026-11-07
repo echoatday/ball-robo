@@ -2876,7 +2876,7 @@ shape = SubResource("ConvexPolygonShape3D_cpbo6")
 shape = SubResource("ConvexPolygonShape3D_040pg")
 
 [node name="HeatZone" parent="." unique_id=1752538793 instance=ExtResource("9_62yp8")]
-transform = Transform3D(143, 0, 0, 0, 200, 0, 0, 0, 128, -8, 0, 7.177)
+transform = Transform3D(143, 0, 0, 0, 200, 0, 0, 0, 125, -8, 0, 9.177)
 heat_level = 1
 fog_color = Color(0.3019608, 0.18039216, 0.21176471, 1)
 ambient_light_color = Color(0.9, 0.765, 0.9, 1)

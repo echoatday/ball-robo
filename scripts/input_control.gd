@@ -77,8 +77,7 @@ func change_button_text(action_name):
 		label_code = str(label_button.button_index)
 		current_button.label.text = "M" + label_code
 	elif label_button is InputEventJoypadButton:
-		label_code = label_button.button_index
-		match(label_code):
+		match(label_button.button_index):
 			0:
 				current_button.label.text = "✕"
 			1:
@@ -112,8 +111,7 @@ func change_button_text(action_name):
 			_:
 				current_button.label.text = "j?"
 	elif label_button is InputEventJoypadMotion:
-		label_code = label_button.axis
-		match(label_code):
+		match(label_button.axis):
 			JOY_AXIS_LEFT_X:
 				current_button.label.text = "LX"
 			JOY_AXIS_LEFT_Y:

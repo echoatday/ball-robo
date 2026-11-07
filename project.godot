@@ -120,8 +120,8 @@ lookright={
 
 [physics]
 
-common/physics_jitter_fix=2.0
 3d/default_gravity=15.0
+common/physics_interpolation=true
 
 [rendering]
 

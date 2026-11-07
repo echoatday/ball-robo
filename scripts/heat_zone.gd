@@ -33,7 +33,7 @@ func _on_body_entered(body: Node3D) -> void:
 	self.primary_room = true
 	for child in world.get_children():
 		if "primary_room" in child.get_child(1) and not child.get_child(1).primary_room:
-			world.remove_child(child)
+			world.remove_child.call_deferred(child)
 	
 	for current in door:
 		if is_instance_valid(current):
@@ -76,7 +76,7 @@ func _on_body_entered(body: Node3D) -> void:
 				
 				current.spawn_position = owner.global_position
 				current.spawn_position +=  current.position - entry_door.position
-				world.add_child(instance)
+				world.add_child.call_deferred(instance)
 				instance.global_position = current.spawn_position
 
 
