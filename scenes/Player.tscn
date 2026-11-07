@@ -801,10 +801,13 @@ render_priority = 1
 texture = ExtResource("2_2hk6f")
 
 [node name="camera_gimbal" type="Node3D" parent="Cockpit/Seat" unique_id=2131133268]
+physics_interpolation_mode = 1
 
 [node name="camera" type="Camera3D" parent="Cockpit/Seat/camera_gimbal" unique_id=318843731 node_paths=PackedStringArray("subviewport")]
+physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00010433793)
 current = true
+far = 1000.0
 script = ExtResource("3_84ti5")
 fovx = 160.0
 lens = 1

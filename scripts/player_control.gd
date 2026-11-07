@@ -108,6 +108,16 @@ func _process(_delta: float) -> void:
 		camera.camera_environment.set_fog_light_color(fog_color)
 		camera.camera_environment.set_ambient_light_color(ambient_color)
 		fog_counter += 1
+	
+	# all my camera movement taken out of physics_process
+	#camera_gimbal.position = seat.global_position
+	
+	if state_looking:
+		camera.rotation = Vector3.ZERO # Camera Movement
+		camera_gimbal.rotation = Vector3.ZERO # Camera Movement
+	else:
+		camera_gimbal.rotate_y(left_aim_amount * 0.002) # Camera Movement
+		camera.rotate_x(up_aim_amount * 0.002) # Camera Movement
 
 func _physics_process(delta: float) -> void:
 	
@@ -425,8 +435,7 @@ func aim() -> void:
 	if state_looking:
 		dummy_reticle.visible = true
 		dummy_reticle2.visible = true
-		camera.rotation = Vector3.ZERO
-		camera_gimbal.rotation = Vector3.ZERO
+		
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN) #<-- final version
 		var speed = int(Globals.mouse_sensitivity * 10)
@@ -486,8 +495,6 @@ func aim() -> void:
 		
 		up_aim_amount = clamp(up_aim_amount, -speed*6, speed*6)
 		left_aim_amount = clamp(left_aim_amount, -speed*6, speed*6)
-		camera_gimbal.rotate_y(left_aim_amount * 0.002)
-		camera.rotate_x(up_aim_amount * 0.002)
 		
 		dummy_reticle.visible = false
 		dummy_reticle2.visible = false
