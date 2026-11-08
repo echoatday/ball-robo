@@ -15,7 +15,7 @@ func _ready() -> void:
 	if not this_room:
 		this_room = $"../SaveStation".level_id
 
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Globals.player.state_dead:
 		await get_tree().create_timer(1.0).timeout
 		owner.queue_free()
@@ -32,10 +32,12 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	self.primary_room = true
 	for child in world.get_children():
+		await get_tree().process_frame
 		if "primary_room" in child.get_child(1) and not child.get_child(1).primary_room:
-			world.remove_child.call_deferred(child)
+			child.queue_free()
 	
 	for current in door:
+		await get_tree().process_frame
 		if is_instance_valid(current):
 			var direction := Vector3.ZERO
 			var opposite_door := "Door"

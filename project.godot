@@ -121,7 +121,6 @@ lookright={
 [physics]
 
 3d/default_gravity=15.0
-common/physics_interpolation=true
 
 [rendering]
 

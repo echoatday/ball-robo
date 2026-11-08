@@ -2794,7 +2794,7 @@ shape = SubResource("ConvexPolygonShape3D_y5q7n")
 shape = SubResource("ConvexPolygonShape3D_p4wvo")
 
 [node name="HeatZone" parent="." unique_id=1752538793 instance=ExtResource("9_thgkh")]
-transform = Transform3D(287, 0, 0, 0, 200, 0, 0, 0, 210, -20, 0, 6.177)
+transform = Transform3D(287, 0, 0, 0, 300, 0, 0, 0, 210, -20, 0, 6.177)
 heat_level = 0
 fog_color = Color(0.112500004, 0.112500004, 0.15, 1)
 ambient_light_color = Color(0.71990216, 0.81732947, 0.9003357, 1)
@@ -2830,7 +2830,7 @@ level_id = 34
 target_item = 20
 
 [node name="LiquidGasDeep" parent="." unique_id=691101047 instance=ExtResource("21_thgkh")]
-transform = Transform3D(140, 0, 0, 0, 1, 0, 0, 0, 90, -32, -58, 14)
+transform = Transform3D(140, 0, 0, 0, 1, 0, 0, 0, 90, -23, -58, 14)
 energy_severity = 0
 
 [node name="GrappleTarget" parent="." unique_id=2044146846 instance=ExtResource("13_uttj6")]

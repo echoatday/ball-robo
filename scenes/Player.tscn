@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://hdyusj28ul3r" path="res://scripts/player_control.gd" id="1_mm6ix"]
 [ext_resource type="Texture2D" uid="uid://ck0w2kijammg0" path="res://textures/cockpit/crosshair_pilot_dummy.png" id="2_2hk6f"]
-[ext_resource type="PackedScene" uid="uid://bnctbjvpcp7t8" path="res://scenes/Skybox.tscn" id="2_24r77"]
 [ext_resource type="Texture2D" uid="uid://sc86g302rh14" path="res://textures/cockpit/crosshair_pilot.png" id="2_ax5xn"]
 [ext_resource type="Material" uid="uid://bukw7cscdnlfw" path="res://materials/unit_metal_small.tres" id="3_2hk6f"]
 [ext_resource type="Texture2D" uid="uid://bieubrjs7s7po" path="res://textures/cockpit/crosshair_ball.png" id="3_7tb5x"]
@@ -726,6 +725,7 @@ _surfaces = [{
 }]
 
 [node name="Player" type="CharacterBody3D" unique_id=218428464 node_paths=PackedStringArray("camera", "camera_gimbal", "cockpit", "collider", "stuck_area_shape", "sphere", "bounce_sphere", "entire_ui", "reticle", "reticle_pilot", "dummy_reticle", "dummy_reticle2", "box_display", "dead_text", "pilot_cast", "grapple_cable", "grapple_cast", "spin_cast", "pilot_rig", "seat", "cockpit_light", "estop_button", "estop_button_body", "disable_movement_timer", "regrab_timer", "coyote_timer", "lever_timer", "email_reference")]
+physics_interpolation_mode = 1
 collision_layer = 2
 collision_mask = 37
 floor_constant_speed = true
@@ -761,10 +761,6 @@ coyote_timer = NodePath("CoyoteTimer")
 lever_timer = NodePath("Cockpit/Sphere/Icosphere/Screens/ico_walking/gun/LeverTimer")
 email_reference = NodePath("Cockpit/Seat/pilot_rig/screen_u/email_border")
 
-[node name="Skybox" parent="." unique_id=1898085006 instance=ExtResource("2_24r77")]
-transform = Transform3D(50, 0, 0, 0, 60, 0, 0, 0, 50, 0, 0, 0)
-visible = false
-
 [node name="PlayerCollision3D" type="CollisionShape3D" parent="." unique_id=475040309]
 shape = SubResource("SphereShape3D_v0m4j")
 
@@ -775,6 +771,7 @@ shape = SubResource("SphereShape3D_iy5dr")
 debug_color = Color(0.90043795, 0.27938697, 0.36739096, 0.41960785)
 
 [node name="Cockpit" type="Node3D" parent="." unique_id=266975798]
+physics_interpolation_mode = 1
 
 [node name="CockpitLight" type="OmniLight3D" parent="Cockpit" unique_id=215092960]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.02)
@@ -807,7 +804,7 @@ physics_interpolation_mode = 1
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00010433793)
 current = true
-far = 1000.0
+far = 500.0
 script = ExtResource("3_84ti5")
 fovx = 160.0
 lens = 1

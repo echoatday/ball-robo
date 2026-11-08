@@ -154,7 +154,8 @@ func load_game():
 	var instance_checkpoint_transform = instance.find_child("SaveStation").transform
 	for child in world.get_children():
 		if child != player:
-			world.remove_child(child)
+			child.queue_free()
+	await get_tree().process_frame
 	world.add_child(instance)
 	return(instance_checkpoint_transform)
 

@@ -110,7 +110,8 @@ func _process(_delta: float) -> void:
 		fog_counter += 1
 	
 	# all my camera movement taken out of physics_process
-	#camera_gimbal.position = seat.global_position
+	#cockpit.basis = basis
+	#cockpit.position = position
 	
 	if state_looking:
 		camera.rotation = Vector3.ZERO # Camera Movement
@@ -287,7 +288,7 @@ func _physics_process(delta: float) -> void:
 		dead_text.visible = true
 		if Input.is_action_just_pressed("fire") and pilot_cast.get_collider() == estop_button_body:
 			sphere.reset_screen()
-			global_transform = Globals.load_game()
+			global_transform = await Globals.load_game()
 			seat.rotation = Vector3.ZERO
 			sphere.rotation_degrees = global_rotation_degrees
 			reticle.position = Vector3(0,0,-0.2)
