@@ -79,6 +79,7 @@ func _on_body_entered(body: Node3D) -> void:
 				current.spawn_position = owner.global_position
 				current.spawn_position +=  current.position - entry_door.position
 				world.add_child.call_deferred(instance)
+				await get_tree().node_added
 				instance.global_position = current.spawn_position
 
 
