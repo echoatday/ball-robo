@@ -159,6 +159,13 @@
 [ext_resource type="Texture2D" uid="uid://bgibomcua8fel" path="res://textures/librequake/lq_tech/plus_0basebtn2_fbr.png" id="111_wy8pi"]
 [ext_resource type="Script" uid="uid://lsxrcytm5wem" path="res://scripts/player_audio.gd" id="158_qwght"]
 [ext_resource type="AudioStream" uid="uid://bgrkdl54dwqaj" path="res://audio/menuhover.ogg" id="159_5trrr"]
+[ext_resource type="AudioStream" uid="uid://ds215ugs7bj17" path="res://audio/menuclick.ogg" id="160_5trrr"]
+[ext_resource type="AudioStream" uid="uid://dfvcg56e2v5ow" path="res://audio/buttonup.ogg" id="161_e4is1"]
+[ext_resource type="AudioStream" uid="uid://c838accqvxcx1" path="res://audio/buttondown.ogg" id="162_m46cm"]
+[ext_resource type="AudioStream" uid="uid://b1ptr3ksg60ea" path="res://audio/deaddrone.ogg" id="163_m46cm"]
+[ext_resource type="AudioStream" uid="uid://b11loa1gu7qo6" path="res://audio/walk.ogg" id="164_rabc0"]
+[ext_resource type="AudioStream" uid="uid://ccn41juiiqsjk" path="res://audio/thrust.ogg" id="165_j7ddg"]
+[ext_resource type="AudioStream" uid="uid://dm52tvgoy880v" path="res://audio/jump.ogg" id="166_hoa85"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v0m4j"]
 radius = 0.9
@@ -5619,6 +5626,47 @@ script = ExtResource("158_qwght")
 [node name="MenuHover" type="AudioStreamPlayer" parent="Audio" unique_id=1721663204]
 stream = ExtResource("159_5trrr")
 mix_target = 2
+bus = &"SFX_In"
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="Audio" unique_id=2088031332]
+stream = ExtResource("160_5trrr")
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="ButtonUp" type="AudioStreamPlayer" parent="Audio" unique_id=1228240586]
+stream = ExtResource("161_e4is1")
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="ButtonDown" type="AudioStreamPlayer" parent="Audio" unique_id=1805358842]
+stream = ExtResource("162_m46cm")
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="DeadDrone" type="AudioStreamPlayer" parent="Audio" unique_id=1952149147]
+stream = ExtResource("163_m46cm")
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
+
+[node name="Walk" type="AudioStreamPlayer" parent="Audio" unique_id=1149371550]
+stream = ExtResource("164_rabc0")
+pitch_scale = 1.15
+mix_target = 2
+bus = &"SFX_Out"
+parameters/looping = true
+
+[node name="Thrust" type="AudioStreamPlayer" parent="Audio" unique_id=1114917668]
+stream = ExtResource("165_j7ddg")
+volume_db = 2.0
+mix_target = 2
+bus = &"SFX_Out"
+
+[node name="Jump" type="AudioStreamPlayer" parent="Audio" unique_id=1233735255]
+stream = ExtResource("166_hoa85")
+volume_db = 4.0
+mix_target = 2
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="StuckArea" to="." method="_on_stuck_area_body_entered"]
 [connection signal="visibility_changed" from="Cockpit/Seat/pilot_rig/screen_l/main_border/game_section" to="Cockpit/Seat/pilot_rig/screen_l/main_border/game_section" method="_on_visibility_changed"]

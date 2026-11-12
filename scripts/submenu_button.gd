@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 					get_parent().get_node("memory_border").load_from_slot()
 					owner.state_dead = true
 				4:
+					await get_tree().create_timer(0.2).timeout
 					get_tree().quit()
 	elif selected:
 		texture = box_texture[1]
