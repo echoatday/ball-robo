@@ -77,6 +77,9 @@ func _process(delta: float) -> void:
 			elif not owner.state_rolling and Globals.unlock_lateralboost:
 				$Boost.play()
 		
+		if Input.is_action_just_released("fire") and owner.state_rolling and Globals.unlock_spin:
+			$Boost.play()
+		
 		if Input.is_action_just_pressed("fire") and owner.grapple_ready and Globals.unlock_grapple:
 			$GrappleStart.play()
 			$GrapplePull.play()
