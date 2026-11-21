@@ -159,20 +159,31 @@
 [ext_resource type="Texture2D" uid="uid://bgibomcua8fel" path="res://textures/librequake/lq_tech/plus_0basebtn2_fbr.png" id="111_wy8pi"]
 [ext_resource type="Script" uid="uid://lsxrcytm5wem" path="res://scripts/player_audio.gd" id="158_qwght"]
 [ext_resource type="AudioStream" uid="uid://bgrkdl54dwqaj" path="res://audio/menuhover.ogg" id="159_5trrr"]
+[ext_resource type="AudioStream" uid="uid://xhodnxma4cxu" path="res://audio/Error.ogg" id="159_7ed2n"]
+[ext_resource type="AudioStream" uid="uid://bf4tjjjnt08e1" path="res://audio/Light.ogg" id="159_78153"]
+[ext_resource type="AudioStream" uid="uid://5775d3e2h02q" path="res://audio/LookStart.ogg" id="159_g0rh5"]
 [ext_resource type="AudioStream" uid="uid://ds215ugs7bj17" path="res://audio/menuclick.ogg" id="160_5trrr"]
+[ext_resource type="AudioStream" uid="uid://802vcja0lawg" path="res://audio/LookStop.ogg" id="160_7ed2n"]
 [ext_resource type="AudioStream" uid="uid://dfvcg56e2v5ow" path="res://audio/buttonup.ogg" id="161_e4is1"]
 [ext_resource type="AudioStream" uid="uid://c838accqvxcx1" path="res://audio/buttondown.ogg" id="162_m46cm"]
 [ext_resource type="AudioStream" uid="uid://b1ptr3ksg60ea" path="res://audio/deaddrone.ogg" id="163_m46cm"]
+[ext_resource type="AudioStream" uid="uid://btqmyf2fu3eoy" path="res://audio/cockpitring.ogg" id="164_ayaxy"]
 [ext_resource type="AudioStream" uid="uid://b11loa1gu7qo6" path="res://audio/walk.ogg" id="164_rabc0"]
+[ext_resource type="AudioStream" uid="uid://d1thwe004cih7" path="res://audio/alivedrone.ogg" id="164_vc327"]
+[ext_resource type="AudioStream" uid="uid://cqsqr5huuipfg" path="res://audio/rollscreen.ogg" id="165_fgvl0"]
 [ext_resource type="AudioStream" uid="uid://ccn41juiiqsjk" path="res://audio/thrust.ogg" id="165_j7ddg"]
 [ext_resource type="AudioStream" uid="uid://dm52tvgoy880v" path="res://audio/jump.ogg" id="166_hoa85"]
+[ext_resource type="AudioStream" uid="uid://1sm2yvpr4gx7" path="res://audio/toonmove.ogg" id="166_vdw3n"]
 [ext_resource type="AudioStream" uid="uid://imimq4dcjprv" path="res://audio/bounce.ogg" id="167_068sr"]
 [ext_resource type="AudioStream" uid="uid://8680gadeps73" path="res://audio/wallscrape.ogg" id="167_j7ddg"]
 [ext_resource type="AudioStream" uid="uid://b17cta3b36r7g" path="res://audio/boost.ogg" id="167_p18ga"]
+[ext_resource type="AudioStream" uid="uid://ssmomg0a7ux0" path="res://audio/toonmachine1.ogg" id="167_pygm2"]
+[ext_resource type="AudioStream" uid="uid://cwrgi38rrqico" path="res://audio/toonmachine2.ogg" id="168_pygm2"]
 [ext_resource type="AudioStream" uid="uid://vjtg6rcc4087" path="res://audio/grapple_start.ogg" id="168_sw3g4"]
 [ext_resource type="AudioStream" uid="uid://budphods7icpg" path="res://audio/rollscrape.ogg" id="169_7g5yk"]
 [ext_resource type="AudioStream" uid="uid://bf5gcvcn8yvda" path="res://audio/grapple_end.ogg" id="169_068sr"]
 [ext_resource type="AudioStream" uid="uid://de3e0wu1an4y" path="res://audio/grapple_pull.ogg" id="170_7g5yk"]
+[ext_resource type="AudioStream" uid="uid://622xlaaddyrn" path="res://audio/walkturn.ogg" id="170_628te"]
 [ext_resource type="AudioStream" uid="uid://di1bf6vbe0ndj" path="res://audio/rollstart.ogg" id="173_rfy5u"]
 [ext_resource type="AudioStream" uid="uid://dbcamkwami7yq" path="res://audio/rollstop.ogg" id="174_p18ga"]
 
@@ -5629,16 +5640,42 @@ process_callback = 0
 wait_time = 0.2
 one_shot = true
 
-[node name="Audio" type="Node3D" parent="." unique_id=865265654]
+[node name="Audio" type="Node3D" parent="." unique_id=865265654 node_paths=PackedStringArray("ring", "array")]
 script = ExtResource("158_qwght")
+ring = NodePath("../Cockpit/Seat/pilot_rig/ring")
+array = NodePath("../Cockpit/Seat/pilot_rig/array")
+
+[node name="Light" type="AudioStreamPlayer" parent="Audio" unique_id=1480864272]
+stream = ExtResource("159_78153")
+volume_db = 4.0
+pitch_scale = 2.0
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="Error" type="AudioStreamPlayer" parent="Audio" unique_id=1730108262]
+stream = ExtResource("159_7ed2n")
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="LookStart" type="AudioStreamPlayer" parent="Audio" unique_id=1402754373]
+stream = ExtResource("159_g0rh5")
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="LookStop" type="AudioStreamPlayer" parent="Audio" unique_id=424895037]
+stream = ExtResource("160_7ed2n")
+mix_target = 2
+bus = &"SFX_In"
 
 [node name="MenuHover" type="AudioStreamPlayer" parent="Audio" unique_id=1721663204]
 stream = ExtResource("159_5trrr")
+volume_db = -2.0
 mix_target = 2
 bus = &"SFX_In"
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="Audio" unique_id=2088031332]
 stream = ExtResource("160_5trrr")
+volume_db = -6.0
 mix_target = 2
 bus = &"SFX_In"
 
@@ -5654,12 +5691,60 @@ bus = &"SFX_In"
 
 [node name="DeadDrone" type="AudioStreamPlayer" parent="Audio" unique_id=1952149147]
 stream = ExtResource("163_m46cm")
+volume_db = -6.0
 mix_target = 2
 bus = &"SFX_In"
 parameters/looping = true
 
+[node name="AliveDrone" type="AudioStreamPlayer" parent="Audio" unique_id=906510476]
+stream = ExtResource("164_vc327")
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
+
+[node name="RingMove" type="AudioStreamPlayer" parent="Audio" unique_id=1552297308]
+stream = ExtResource("164_ayaxy")
+volume_db = -16.0
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
+
+[node name="RollScreen" type="AudioStreamPlayer" parent="Audio" unique_id=2019510798]
+stream = ExtResource("165_fgvl0")
+volume_db = 2.0
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
+
+[node name="ToonMove" type="AudioStreamPlayer" parent="Audio" unique_id=1007757972]
+stream = ExtResource("166_vdw3n")
+volume_db = 2.0
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
+
+[node name="ToonMachine1" type="AudioStreamPlayer" parent="Audio" unique_id=198099263]
+stream = ExtResource("167_pygm2")
+pitch_scale = 0.6
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="ToonMachine2" type="AudioStreamPlayer" parent="Audio" unique_id=975230786]
+stream = ExtResource("168_pygm2")
+pitch_scale = 0.5
+mix_target = 2
+bus = &"SFX_In"
+
 [node name="Walk" type="AudioStreamPlayer" parent="Audio" unique_id=1149371550]
 stream = ExtResource("164_rabc0")
+volume_db = 2.0
+pitch_scale = 1.15
+mix_target = 2
+bus = &"SFX_Out"
+parameters/looping = true
+
+[node name="WalkTurn" type="AudioStreamPlayer" parent="Audio" unique_id=1081704923]
+stream = ExtResource("170_628te")
 volume_db = 2.0
 pitch_scale = 1.15
 mix_target = 2
@@ -5699,7 +5784,7 @@ parameters/looping = true
 
 [node name="RollScrape" type="AudioStreamPlayer" parent="Audio" unique_id=1199167982]
 stream = ExtResource("169_7g5yk")
-volume_db = 4.0
+volume_db = 6.0
 mix_target = 2
 bus = &"SFX_Out"
 parameters/looping = true

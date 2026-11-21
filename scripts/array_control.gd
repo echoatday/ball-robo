@@ -3,6 +3,9 @@ extends MeshInstance3D
 @export var lights: Array[Sprite3D]
 @export var bright_lights: Array[Sprite3D]
 
+var play_sound := false
+var sound_index := -1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -19,6 +22,8 @@ func _process(_delta: float) -> void:
 	# light15 = energy upgrade
 	
 	# sorry about this...
+	play_sound = false
+	sound_index = -1
 	
 	if owner.state_dead:
 		for l in lights:
@@ -63,7 +68,7 @@ func _process(_delta: float) -> void:
 		# boost lights
 		if not owner.regrab_timer.is_stopped(): 
 			pass
-		elif Globals.unlock_downboost and owner.state_rolling and owner.can_boost:
+		elif Globals.unlock_downboost and owner.state_rolling and not owner.is_on_floor():
 			lights[8].visible = true
 			lights[6].visible = false
 		elif Globals.unlock_downboost and not owner.state_rolling and owner.can_boost:
@@ -98,31 +103,55 @@ func _process(_delta: float) -> void:
 		
 			
 	if Input.is_action_just_pressed("forward"):
+		play_sound = true
+		sound_index = 1
 		bright_lights[1].visible = true
 	if Input.is_action_just_pressed("left"):
+		play_sound = true
+		sound_index = 3
 		bright_lights[3].visible = true
 	if Input.is_action_just_pressed("right"):
+		play_sound = true
+		sound_index = 5
 		bright_lights[5].visible = true
 	if Input.is_action_just_pressed("back"):
+		play_sound = true
+		sound_index = 7
 		bright_lights[7].visible = true
 	if Input.is_action_just_pressed("roll"):
+		play_sound = true
+		sound_index = 4
 		bright_lights[4].visible = true
 	if not owner.state_rolling:
 		if Input.is_action_just_pressed("jump"):
 			if owner.disable_movement_timer.is_stopped():
+				play_sound = true
+				sound_index = 9
 				bright_lights[9].visible = true
 			else: 
+				play_sound = true
+				sound_index = 11
 				bright_lights[11].visible = true
 		if Input.is_action_just_pressed("boost"):
+			play_sound = true
+			sound_index = 6
 			bright_lights[6].visible = true
 		if Input.is_action_just_pressed("fire") and owner.state_looking:
+			play_sound = true
+			sound_index = 2
 			bright_lights[2].visible = true
 	else:
 		if Input.is_action_just_pressed("jump"):
+			play_sound = true
+			sound_index = 10
 			bright_lights[10].visible = true
 		if Input.is_action_just_pressed("boost"):
+			play_sound = true
+			sound_index = 8
 			bright_lights[8].visible = true
 		if Input.is_action_just_pressed("fire") and owner.state_looking:
+			play_sound = true
+			sound_index = 0
 			bright_lights[0].visible = true
 	
 	if Input.is_action_just_released("forward"):
