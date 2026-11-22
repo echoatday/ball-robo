@@ -63,6 +63,7 @@ func _process(delta: float) -> void:
 		
 		if not owner.is_on_floor() and $WalkTurn.playing:
 			$WalkTurn.stop()
+			$WalkInsideTurn.stop()
 		
 		
 		if owner.state_looking:
@@ -73,11 +74,13 @@ func _process(delta: float) -> void:
 					$ToonMove.play()
 				if not owner.state_rolling and owner.is_on_floor() and not $WalkTurn.playing and not $Walk.playing:
 					$WalkTurn.play()
+					$WalkInsideTurn.play()
 			else:
 				if $ToonMove.playing:
 					$ToonMove.stop()
 				if $WalkTurn.playing:
 					$WalkTurn.stop()
+					$WalkInsideTurn.stop()
 		elif $ToonMove.playing or $WalkTurn.playing:
 			$ToonMove.stop()
 			$WalkTurn.stop()
@@ -96,9 +99,12 @@ func _process(delta: float) -> void:
 			if owner.is_on_floor() and Input.get_vector("left", "right", "forward", "back") != Vector2.ZERO:
 				if not $Walk.playing:
 					$Walk.play()
+					$WalkInside.play()
 					$WalkTurn.stop()
+					$WalkInsideTurn.stop()
 			else:
 				$Walk.stop()
+				$WalkInside.stop()
 			
 			if owner.is_on_wall() and Globals.unlock_walljump and not owner.velocity.is_zero_approx():
 				$WallScrape.pitch_scale = clampf(owner.velocity.length() / 10, 0.9, 1.1)
@@ -135,6 +141,7 @@ func _process(delta: float) -> void:
 			
 			if $Walk.playing:
 				$Walk.stop()
+				$WalkInside.stop()
 			
 			if $WallScrape.playing:
 				$WallScrape.stop()

@@ -162,8 +162,10 @@
 [ext_resource type="AudioStream" uid="uid://xhodnxma4cxu" path="res://audio/Error.ogg" id="159_7ed2n"]
 [ext_resource type="AudioStream" uid="uid://bf4tjjjnt08e1" path="res://audio/Light.ogg" id="159_78153"]
 [ext_resource type="AudioStream" uid="uid://5775d3e2h02q" path="res://audio/LookStart.ogg" id="159_g0rh5"]
+[ext_resource type="AudioStream" uid="uid://ddfio4kq7ikip" path="res://audio/walkinside.ogg" id="159_vilmv"]
 [ext_resource type="AudioStream" uid="uid://ds215ugs7bj17" path="res://audio/menuclick.ogg" id="160_5trrr"]
 [ext_resource type="AudioStream" uid="uid://802vcja0lawg" path="res://audio/LookStop.ogg" id="160_7ed2n"]
+[ext_resource type="AudioStream" uid="uid://buwlot157hal4" path="res://audio/walkinsideturn.ogg" id="160_sx7q6"]
 [ext_resource type="AudioStream" uid="uid://dfvcg56e2v5ow" path="res://audio/buttonup.ogg" id="161_e4is1"]
 [ext_resource type="AudioStream" uid="uid://c838accqvxcx1" path="res://audio/buttondown.ogg" id="162_m46cm"]
 [ext_resource type="AudioStream" uid="uid://b1ptr3ksg60ea" path="res://audio/deaddrone.ogg" id="163_m46cm"]
@@ -5644,6 +5646,22 @@ one_shot = true
 script = ExtResource("158_qwght")
 ring = NodePath("../Cockpit/Seat/pilot_rig/ring")
 array = NodePath("../Cockpit/Seat/pilot_rig/array")
+
+[node name="WalkInside" type="AudioStreamPlayer" parent="Audio" unique_id=982340788]
+stream = ExtResource("159_vilmv")
+volume_db = -4.0
+pitch_scale = 1.15
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
+
+[node name="WalkInsideTurn" type="AudioStreamPlayer" parent="Audio" unique_id=1031601331]
+stream = ExtResource("160_sx7q6")
+volume_db = -4.0
+pitch_scale = 1.15
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
 
 [node name="Light" type="AudioStreamPlayer" parent="Audio" unique_id=1480864272]
 stream = ExtResource("159_78153")
