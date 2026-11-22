@@ -61,6 +61,9 @@ func _process(delta: float) -> void:
 			if $RingMove.playing:
 				$RingMove.stop()
 		
+		if not owner.is_on_floor() and $WalkTurn.playing:
+			$WalkTurn.stop()
+		
 		
 		if owner.state_looking:
 			var look_speed = Vector2(owner.reticle.position.x*100,owner.reticle.position.y*100)
