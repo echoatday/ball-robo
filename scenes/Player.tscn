@@ -5647,7 +5647,6 @@ array = NodePath("../Cockpit/Seat/pilot_rig/array")
 
 [node name="Light" type="AudioStreamPlayer" parent="Audio" unique_id=1480864272]
 stream = ExtResource("159_78153")
-volume_db = 4.0
 pitch_scale = 2.0
 mix_target = 2
 bus = &"SFX_In"
@@ -5737,7 +5736,7 @@ bus = &"SFX_In"
 
 [node name="Walk" type="AudioStreamPlayer" parent="Audio" unique_id=1149371550]
 stream = ExtResource("164_rabc0")
-volume_db = 2.0
+volume_db = 4.0
 pitch_scale = 1.15
 mix_target = 2
 bus = &"SFX_Out"
@@ -5745,7 +5744,7 @@ parameters/looping = true
 
 [node name="WalkTurn" type="AudioStreamPlayer" parent="Audio" unique_id=1081704923]
 stream = ExtResource("170_628te")
-volume_db = 2.0
+volume_db = 4.0
 pitch_scale = 1.15
 mix_target = 2
 bus = &"SFX_Out"
