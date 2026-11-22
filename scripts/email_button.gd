@@ -10,7 +10,7 @@ extends Sprite3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if email_subject.length() > 12:
+	if email_subject.length() > 16:
 		$button_text.text = email_subject.erase(10,100) + ".."
 	else:
 		$button_text.text = email_subject
