@@ -5,6 +5,7 @@ extends Node3D
 
 var hover_collider = null
 var looking_check := false
+var bouncing_check := false
 var light_start := false
 
 func _process(delta: float) -> void:
@@ -68,7 +69,7 @@ func _process(delta: float) -> void:
 		
 		if owner.state_looking:
 			var look_speed = Vector2(owner.reticle.position.x*100,owner.reticle.position.y*100)
-			if look_speed.length() > 0.5:
+			if look_speed.length() > 2:
 				$ToonMove.pitch_scale = look_speed.length() / 20
 				if not $ToonMove.playing:
 					$ToonMove.play()
@@ -84,11 +85,13 @@ func _process(delta: float) -> void:
 		elif $ToonMove.playing or $WalkTurn.playing:
 			$ToonMove.stop()
 			$WalkTurn.stop()
+			$WalkInsideTurn.stop()
 		
 		if not owner.state_rolling:
 			if Input.is_action_just_pressed("roll"):
 				$RollStart.play()
 				$GrappleEnd.play()
+				$CableEnd.play()
 			
 			if $RollScrape.playing:
 				$RollScrape.stop()
@@ -119,6 +122,15 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_pressed("roll"):
 				$RollStop.play()
 				$GrappleStart.play()
+				$CableStart.play()
+			
+			if bouncing_check != owner.state_bouncing:
+				if bouncing_check:
+					$BounceInside.pitch_scale = 0.75
+				else:
+					$BounceInside.pitch_scale = 1.0
+				bouncing_check = owner.state_bouncing
+				$BounceInside.play()
 			
 			if (owner.is_on_floor() or owner.is_on_wall()) and not owner.velocity.is_zero_approx():
 				$RollScrape.pitch_scale = owner.velocity.length() / 10
@@ -149,11 +161,19 @@ func _process(delta: float) -> void:
 			if owner.state_bouncing and owner.test_move(owner.global_transform, owner.velocity * delta):
 				$Bounce.play()
 		
-		if not owner.regrab_timer.is_stopped() and (Input.is_action_pressed("jump") or Input.is_action_pressed("boost")):
-			if not $Thrust.playing:
-				$Thrust.play()
-		elif not owner.regrab_timer.is_stopped():
+		if Input.is_action_just_pressed("jump") and not owner.regrab_timer.is_stopped():
+			$Thrust.play()
+			$ThrustInside.play()
+			$JumpInside.pitch_scale = 0.3 + (owner.velocity.length() * 0.01)
+			$JumpInside.play()
+		elif Input.is_action_just_pressed("boost") and not owner.regrab_timer.is_stopped():
+			$Thrust.play()
+			$ThrustInside.play()
+			$JumpInside.pitch_scale = 0.3 + (owner.velocity.length() * 0.01)
+			$JumpInside.play()
+		elif not owner.regrab_timer.is_stopped() and not Input.is_action_pressed("jump") and not Input.is_action_pressed("boost"):
 			$Thrust.stop()
+			$ThrustInside.stop()
 		
 		if Input.is_action_just_pressed("boost"):
 			if owner.state_rolling and Globals.unlock_downboost:
@@ -166,10 +186,19 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("fire") and owner.grapple_ready and Globals.unlock_grapple:
 			$GrappleStart.play()
+			$CableStart.play()
 			$GrapplePull.play()
 		if not owner.state_grappling and $GrapplePull.playing:
 			$GrappleEnd.play()
+			$CableEnd.play()
 			$GrapplePull.stop()
+		
+		if owner.state_grappling:
+			$Cable.pitch_scale = 0.75 + owner.velocity.length() / 50
+			if not $Cable.playing:
+				$Cable.play()
+		else:
+			$Cable.stop()
 	else:
 		if $RingMove.playing:
 			$RingMove.stop()

@@ -235,7 +235,7 @@ func _physics_process(delta: float) -> void:
 		state_dead = true
 	
 	if energy < 0:
-		heat += -energy*4
+		heat += -energy*2
 	elif energy < max_energy:
 		energy += energy_recharge
 	

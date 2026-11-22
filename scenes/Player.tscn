@@ -160,11 +160,17 @@
 [ext_resource type="Script" uid="uid://lsxrcytm5wem" path="res://scripts/player_audio.gd" id="158_qwght"]
 [ext_resource type="AudioStream" uid="uid://bgrkdl54dwqaj" path="res://audio/menuhover.ogg" id="159_5trrr"]
 [ext_resource type="AudioStream" uid="uid://xhodnxma4cxu" path="res://audio/Error.ogg" id="159_7ed2n"]
+[ext_resource type="AudioStream" uid="uid://c8vuyvb20wwxa" path="res://audio/jumpinside.ogg" id="159_7x34y"]
 [ext_resource type="AudioStream" uid="uid://bf4tjjjnt08e1" path="res://audio/Light.ogg" id="159_78153"]
 [ext_resource type="AudioStream" uid="uid://5775d3e2h02q" path="res://audio/LookStart.ogg" id="159_g0rh5"]
+[ext_resource type="AudioStream" uid="uid://biykld46v5ua7" path="res://audio/cableend.ogg" id="159_o4421"]
+[ext_resource type="AudioStream" uid="uid://cll40woiywrfo" path="res://audio/bounceinside.ogg" id="159_ou0vc"]
+[ext_resource type="AudioStream" uid="uid://uj3ayv6j5vxb" path="res://audio/cable.ogg" id="159_tujmk"]
 [ext_resource type="AudioStream" uid="uid://ddfio4kq7ikip" path="res://audio/walkinside.ogg" id="159_vilmv"]
 [ext_resource type="AudioStream" uid="uid://ds215ugs7bj17" path="res://audio/menuclick.ogg" id="160_5trrr"]
 [ext_resource type="AudioStream" uid="uid://802vcja0lawg" path="res://audio/LookStop.ogg" id="160_7ed2n"]
+[ext_resource type="AudioStream" uid="uid://c32fgj5hc50oq" path="res://audio/cablestart.ogg" id="160_7rmil"]
+[ext_resource type="AudioStream" uid="uid://bochrsw03imqt" path="res://audio/thrustinside.ogg" id="160_86tsn"]
 [ext_resource type="AudioStream" uid="uid://buwlot157hal4" path="res://audio/walkinsideturn.ogg" id="160_sx7q6"]
 [ext_resource type="AudioStream" uid="uid://dfvcg56e2v5ow" path="res://audio/buttonup.ogg" id="161_e4is1"]
 [ext_resource type="AudioStream" uid="uid://c838accqvxcx1" path="res://audio/buttondown.ogg" id="162_m46cm"]
@@ -236,7 +242,10 @@ size = Vector3(0.1, 0.5, 1.4)
 size = Vector3(0.1, 0.5, 3.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6jhj"]
-size = Vector3(0.1, 0.2, 0.2)
+size = Vector3(0.1, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sx7q6"]
+size = Vector3(0.1, 0.5, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swmfq"]
 size = Vector3(0.1, 0.6, 2.5)
@@ -1988,7 +1997,7 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps30_button/button_body" unique_id=148363813]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_g6jhj")
+shape = SubResource("BoxShape3D_sx7q6")
 
 [node name="fps60_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=606096981]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.05)
@@ -2025,7 +2034,7 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps60_button/button_body" unique_id=470120247]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_g6jhj")
+shape = SubResource("BoxShape3D_sx7q6")
 
 [node name="fps120_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1548337907]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.875)
@@ -2062,7 +2071,7 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps120_button/button_body" unique_id=11383985]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_g6jhj")
+shape = SubResource("BoxShape3D_sx7q6")
 
 [node name="fps144_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=1600770156]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -1.7)
@@ -2099,7 +2108,7 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps144_button/button_body" unique_id=698990093]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_g6jhj")
+shape = SubResource("BoxShape3D_sx7q6")
 
 [node name="fps240_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=300546456]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -2.525)
@@ -2136,7 +2145,7 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section/fps240_button/button_body" unique_id=36794615]
 transform = Transform3D(1, 0, 0, -2.9802322e-08, 0.99999994, 0, 1.4901161e-08, 2.9802322e-08, 0.99999994, 0, 0.03, 0.05)
-shape = SubResource("BoxShape3D_g6jhj")
+shape = SubResource("BoxShape3D_sx7q6")
 
 [node name="r25_button" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_l/main_border/option_section" unique_id=742196247]
 transform = Transform3D(1, -2.9802322e-08, 0, 0, 1, 0, 0, 0, 1, 1.2192201e-09, -0.64091027, 0.55)
@@ -5646,6 +5655,45 @@ one_shot = true
 script = ExtResource("158_qwght")
 ring = NodePath("../Cockpit/Seat/pilot_rig/ring")
 array = NodePath("../Cockpit/Seat/pilot_rig/array")
+
+[node name="CableEnd" type="AudioStreamPlayer" parent="Audio" unique_id=190261275]
+stream = ExtResource("159_o4421")
+volume_db = 2.0
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="CableStart" type="AudioStreamPlayer" parent="Audio" unique_id=1551914693]
+stream = ExtResource("160_7rmil")
+volume_db = 2.0
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="Cable" type="AudioStreamPlayer" parent="Audio" unique_id=616467174]
+stream = ExtResource("159_tujmk")
+volume_db = -4.0
+mix_target = 2
+bus = &"SFX_In"
+parameters/looping = true
+
+[node name="BounceInside" type="AudioStreamPlayer" parent="Audio" unique_id=1954892793]
+stream = ExtResource("159_ou0vc")
+volume_db = 2.0
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="JumpInside" type="AudioStreamPlayer" parent="Audio" unique_id=1107445943]
+stream = ExtResource("159_7x34y")
+volume_db = -2.0
+pitch_scale = 0.5
+mix_target = 2
+bus = &"SFX_In"
+
+[node name="ThrustInside" type="AudioStreamPlayer" parent="Audio" unique_id=1861507847]
+stream = ExtResource("160_86tsn")
+volume_db = -4.0
+pitch_scale = 4.0
+mix_target = 2
+bus = &"SFX_In"
 
 [node name="WalkInside" type="AudioStreamPlayer" parent="Audio" unique_id=982340788]
 stream = ExtResource("159_vilmv")
