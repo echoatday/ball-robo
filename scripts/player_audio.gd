@@ -160,7 +160,7 @@ func _process(delta: float) -> void:
 			
 			if owner.state_bouncing and owner.test_move(owner.global_transform, owner.velocity * delta):
 				$Bounce.play()
-		
+		#--
 		if Input.is_action_just_pressed("jump") and not owner.regrab_timer.is_stopped():
 			$Thrust.play()
 			$ThrustInside.play()
@@ -184,21 +184,21 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_released("fire") and owner.state_rolling and Globals.unlock_spin:
 			$Boost.play()
 		
-		if Input.is_action_just_pressed("fire") and owner.grapple_ready and Globals.unlock_grapple:
-			$GrappleStart.play()
-			$CableStart.play()
-			$GrapplePull.play()
-		if not owner.state_grappling and $GrapplePull.playing:
-			$GrappleEnd.play()
-			$CableEnd.play()
-			$GrapplePull.stop()
-		
 		if owner.state_grappling:
 			$Cable.pitch_scale = 0.75 + owner.velocity.length() / 50
+			$GrapplePull.pitch_scale = 0.75 + owner.velocity.length() / 50
 			if not $Cable.playing:
+				$GrappleStart.play()
+				$CableStart.play()
+				$GrapplePull.play()
 				$Cable.play()
 		else:
-			$Cable.stop()
+			if $GrapplePull.playing:
+				$GrappleEnd.play()
+				$GrapplePull.stop()
+			if $Cable.playing:
+				$CableEnd.play()
+				$Cable.stop()
 	else:
 		if $RingMove.playing:
 			$RingMove.stop()

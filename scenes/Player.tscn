@@ -187,10 +187,10 @@
 [ext_resource type="AudioStream" uid="uid://b17cta3b36r7g" path="res://audio/boost.ogg" id="167_p18ga"]
 [ext_resource type="AudioStream" uid="uid://ssmomg0a7ux0" path="res://audio/toonmachine1.ogg" id="167_pygm2"]
 [ext_resource type="AudioStream" uid="uid://cwrgi38rrqico" path="res://audio/toonmachine2.ogg" id="168_pygm2"]
-[ext_resource type="AudioStream" uid="uid://vjtg6rcc4087" path="res://audio/grapple_start.ogg" id="168_sw3g4"]
+[ext_resource type="AudioStream" uid="uid://b54qtfcx15orl" path="res://audio/grapple_start.ogg" id="168_sw3g4"]
 [ext_resource type="AudioStream" uid="uid://budphods7icpg" path="res://audio/rollscrape.ogg" id="169_7g5yk"]
-[ext_resource type="AudioStream" uid="uid://bf5gcvcn8yvda" path="res://audio/grapple_end.ogg" id="169_068sr"]
-[ext_resource type="AudioStream" uid="uid://de3e0wu1an4y" path="res://audio/grapple_pull.ogg" id="170_7g5yk"]
+[ext_resource type="AudioStream" uid="uid://dmc1jct60s2xe" path="res://audio/grapple_end.ogg" id="169_068sr"]
+[ext_resource type="AudioStream" uid="uid://3vpyba1hn0jv" path="res://audio/grapple_pull.ogg" id="170_7g5yk"]
 [ext_resource type="AudioStream" uid="uid://622xlaaddyrn" path="res://audio/walkturn.ogg" id="170_628te"]
 [ext_resource type="AudioStream" uid="uid://di1bf6vbe0ndj" path="res://audio/rollstart.ogg" id="173_rfy5u"]
 [ext_resource type="AudioStream" uid="uid://dbcamkwami7yq" path="res://audio/rollstop.ogg" id="174_p18ga"]
@@ -4041,7 +4041,7 @@ surface_material_override/0 = ExtResource("5_3wou3")
 surface_material_override/1 = ExtResource("24_difmb")
 
 [node name="email_border" type="Sprite3D" parent="Cockpit/Seat/pilot_rig/screen_u" unique_id=2042446608 node_paths=PackedStringArray("emails")]
-transform = Transform3D(-1.3, 1.9629454e-07, 0, -1.9629454e-07, -1.3, 0, 0, 0, 1.3, 0.9, 0.1, 0)
+transform = Transform3D(-1.3, 1.9629454e-07, 0, -1.9629454e-07, -1.3, 0, 0, 0, 1.3, 0.95, 0.1, 0)
 layers = 2
 cast_shadow = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
@@ -5950,7 +5950,7 @@ bus = &"SFX_Out"
 
 [node name="GrapplePull" type="AudioStreamPlayer" parent="Audio" unique_id=1740007843]
 stream = ExtResource("170_7g5yk")
-volume_db = 4.0
+volume_db = 8.0
 mix_target = 2
 bus = &"SFX_Out"
 parameters/looping = true
