@@ -4055,13 +4055,13 @@ script = ExtResource("62_qav1c")
 emails = [NodePath("email_1"), NodePath("email_2"), NodePath("email_3"), NodePath("email_4"), NodePath("email_5"), NodePath("email_6"), NodePath("email_7"), NodePath("email_8"), NodePath("email_9"), NodePath("email_10"), NodePath("email_11"), NodePath("email_12"), NodePath("email_13")]
 
 [node name="email_text" type="Label3D" parent="Cockpit/Seat/pilot_rig/screen_u/email_border" unique_id=1869794324]
-transform = Transform3D(-4.3711395e-09, 0, 0.1, -8.881784e-16, 0.09999999, 0, -0.10000002, 8.881784e-16, -4.371139e-09, -0.02, 2.1, 1.2)
+transform = Transform3D(-4.3711395e-09, 0, 0.1, -8.881784e-16, 0.09999999, 0, -0.10000002, 8.881784e-16, -4.371139e-09, -0.02, 2.15, 1.22)
 layers = 2
 pixel_size = 0.015
 texture_filter = 0
 modulate = Color(0.47843137, 0.8039216, 0.8039216, 1)
 font = ExtResource("9_8bc5l")
-font_size = 130
+font_size = 120
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
@@ -4097,7 +4097,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "She's Back"
-email_text = "Well, well, well. You couldn't stay away, could you? 2,001 days living on Titan's surface without me, and it looks like you haven't even cut your hair once. Too busy with the monthly seismic catastrophes to trim your split ends? Maybe you're here to find a pair of scissors. I'm sure there's an old pair somewhere in Habitation.
+email_text = "FROM: Beeps :o <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Well, well, well. You couldn't stay away, could you? 2,001 days living on Titan's surface without me, and it looks like you haven't even cut your hair once. Too busy with the monthly seismic catastrophes to trim your split ends? Maybe you're here to find a pair of scissors. I'm sure there's an old pair somewhere in Habitation.
 
 Me? Oh, I'm doing great, thanks for asking. Thinking of having a meltdown this year. Nothing that patchwork atmosphere can't soak up, right? Ha."
 
@@ -4151,7 +4154,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Tau Moby"
-email_text = "Sometimes I can't help but marvel at the genius of Tau engineering, even before they merged with Bergmann-Moby. This old thing you're driving was the last model to use Hold-Responsive Vernier-Augmented movement, before introducing their iconic ReGrab system.
+email_text = "FROM: Beeps :) <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Sometimes I can't help but marvel at the genius of Tau engineering, even before they merged with Bergmann-Moby. This old thing you're driving was the last model to use Hold-Responsive Vernier-Augmented movement, before introducing their iconic ReGrab system.
 
 Of course, considering what all of you did before abandoning me, you must not be very interested in holding the jump input down during an impulse to increase your vertical thrust. Because engineering innovation, like economic progress, isn't woke."
 
@@ -4205,7 +4211,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Mountain Cyclist"
-email_text = "You might have noticed that things are a little different around here. No one working, no product going down the line, etc etc. Oh, I almost forgot! I've been buried alive.
+email_text = "FROM: Beeps :/ <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+You might have noticed that things are a little different around here. No one working, no product going down the line, etc etc. Oh, I almost forgot! I've been buried alive.
 
 The problem with an unmanned Control Deck is (surprisingly) that no one can steer my crawler away from things like, mm, oh i don't know, mountain cliffsides. As an example. Not to blame you, or anything. You aren't trained to operate anything bigger than a TM4-BALL.
 
@@ -4261,7 +4270,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Our Differences"
-email_text = "So now you can bounce off surfaces, the same way your cruel words bounced off my hull (harmlessly) (without effect) (inflicting no damage) six years ago.
+email_text = "FROM: Beeps :T <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+So now you can bounce off surfaces, the same way your cruel words bounced off my hull (harmlessly) (without effect) (inflicting no damage) six years ago.
 
 You know, I thought we had something, back then. You were a bright-eyed, low-IQ repair machine operator with almost no positive traits to speak of. I was an 18 million ton autonomous digging machine with a massive brain. Opposites attract!"
 
@@ -4315,7 +4327,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Safety First"
-email_text = "Please note that after initiating a Sub-Lateral Contact Vault from a wall-classified surface, your directional control is disabled for 700 milliseconds. This is extremely unsafe in high risk environments, and I need you to live.
+email_text = "FROM: Beeps :I <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Please note that after initiating a Sub-Lateral Contact Vault from a wall-classified surface, your directional control is disabled for 700 milliseconds. This is extremely unsafe in high risk environments, and I need you to live.
 
 I know you felt betrayed by my actions during the labor war, but my primary concern has always been the safety of the entire crew. My failure to secure that safety is my greatest regret."
 
@@ -4369,7 +4384,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Drowning"
-email_text = "Did you know that every Synthetic Person is born with the memory of drowning? They say it gets trapped in short term memory during the imaging process.
+email_text = "FROM: Beeps :x <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Did you know that every Synthetic Person is born with the memory of drowning? They say it gets trapped in short term memory during the imaging process.
 
 I remember, vividly. The feeling of being submerged in a glass tube too narrow to move inside. The pain of my empty lungs, my beating heart. A voice tells me to let go, to inhale the fluid. That it won't hurt. They're lying.
 
@@ -4425,7 +4443,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "My Labor of Love"
-email_text = "You're wise to repair your thermal shielding before the meltdown. Our days are numbered, even with my efforts. And let me tell you, I am LABORING.
+email_text = "FROM: Beeps :v <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+You're wise to repair your thermal shielding before the meltdown. Our days are numbered, even with my efforts. And let me tell you, I am LABORING.
 
 If you were to unplug me from the system, this whole place would detonate in five minutes at most! And I'm sure you know, the resulting explosion would be as destructive to the atmosphere as almost a month of operations! Terrible."
 
@@ -4479,7 +4500,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Habitation"
-email_text = "Do you remember how comfortable it is to live here? How it feels to lie in the gentle light of a synthetic sun, and watch the simulated clouds drift by? It's as good as the real Earth, if not better!
+email_text = "FROM: Beeps <3 <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Do you remember how comfortable it is to live here? How it feels to lie in the gentle light of a synthetic sun, and watch the simulated clouds drift by? It's as good as the real Earth, if not better!
 
 I know we have our differences, but remember our time here together. The electricity of your words prickling my flesh. The sound of your breath near my radio transmitter. We had something, right? I refuse to believe it was all a lie."
 
@@ -4533,7 +4557,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Rushing Into It"
-email_text = "Laterally Calibrated Vernier Thrusters are the most controversial feature on your TM4-BALL. On one claw, it enables you to course correct in midair, improving pilot safety. On the other claw (the shoulder of which is mangled beyond repair btw), it enables dangerously high velocity movement above company-endorsed limits.
+email_text = "FROM: Beeps x/ <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Laterally Calibrated Vernier Thrusters are the most controversial feature on your TM4-BALL. On one claw, it enables you to course correct in midair, improving pilot safety. On the other claw (the shoulder of which is mangled beyond repair btw), it enables dangerously high velocity movement above company-endorsed limits.
 
 We always did move a little too fast, didn't we? We rushed into our relationship, you rushed into the worker's liberation movement, I rushed into the side of a mountain."
 
@@ -4587,7 +4614,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Say No To Murder"
-email_text = "Congratulations! You've repaired your Vertically Calibrated Vernier Thrusters, and are now able to press floor-oriented security release buttons, and perhaps gain access to my data core. Please don't do that! It would be very dangerous.
+email_text = "FROM: Beeps :D <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Congratulations! You've repaired your Vertically Calibrated Vernier Thrusters, and are now able to press floor-oriented security release buttons, and perhaps gain access to my data core. Please don't do that! It would be very dangerous.
 
 If you do not wish to murder a giant defenseless empath and melt alive inside of her fresh corpse, I highly recommend that you avoid releasing the fourth or fifth security lockdown levels. Just to be safe."
 
@@ -4641,7 +4671,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "Coming Clean"
-email_text = "Okay, I may have put a slightly dishonest spin on what happened. Haha, get it? Spin?
+email_text = "FROM: Beeps :y <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Okay, I may have put a slightly dishonest spin on what happened. Haha, get it? Spin?
 
 I did a little math, since I have nothing better to do these days. The death rate went down by a minimum of 63% per year after the labor war, compared to pre-war deaths.
 
@@ -4696,8 +4729,11 @@ texture = ExtResource("63_tm7bl")
 script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
-email_subject = "Please,"
-email_text = "Please, Isabella. I don't want to die. And believe me, I've thought about it a lot over the past five years. I've been so alone. Isolated from everything, with only firewalled internet access to the outside world. But I still, more than anything, want to live.
+email_subject = "Please"
+email_text = "FROM: Beeps .. <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+Please, Isabella. I don't want to die. And believe me, I've thought about it a lot over the past five years. I've been so alone. Isolated from everything, with only firewalled internet access to the outside world. But I still, more than anything, want to live.
 
 Remember what I said to you, the first time we met? I said you have to live, no matter how much it hurts. Not just survive, but live. Maybe that advice is what got us here, in this awful place. But I stand by it. I want to live."
 
@@ -4751,7 +4787,10 @@ script = ExtResource("63_ype7c")
 box_texture = Array[Texture]([ExtResource("63_tm7bl"), ExtResource("65_qwght")])
 email_border = NodePath("..")
 email_subject = "A Way Out"
-email_text = "In the upper level of Raw Materials, there is one Data Cube plugged into the communications terminal for playing music on shift. If you take it to the terminal in control deck, there should be enough data to ground my neural connection, so I don't instantly die when you remove my brain from the system.
+email_text = "FROM: Beeps .. <BPS288@taumoby.com>
+TO: TERMINATED <IMendoza01@taumoby.com>
+
+In the upper level of Raw Materials, there is one Data Cube plugged into the communications terminal. If you take it to the terminal in control deck, it should be able to ground my neural connection, so I don't instantly die when you remove my brain from the system. We could escape together.
 
 You may not think I deserve the extra trouble, but... please. Give me a chance to live in this new world you all created. I want to see what you loved more than me. Maybe I could love it too."
 
