@@ -9,6 +9,8 @@
 [ext_resource type="Material" uid="uid://kl6iiscvje6y" path="res://textures/librequake/lq_tech/aqf074.tres" id="6_8smva"]
 [ext_resource type="Material" uid="uid://bc3pm15xm8hrq" path="res://textures/librequake/lq_tech/metalstrip_1.tres" id="8_g2gc3"]
 [ext_resource type="Material" uid="uid://bscvyj8c4bgxv" path="res://textures/librequake/lq_tech/doortrak2.tres" id="9_kwwsn"]
+[ext_resource type="AudioStream" uid="uid://b5oqf5jisnamb" path="res://audio/level_objects/piston.ogg" id="10_ih00t"]
+[ext_resource type="AudioStream" uid="uid://dbkjwidmu2vcs" path="res://audio/level_objects/pistonend.ogg" id="11_yu2ng"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g2gc3"]
 _surfaces = [{
@@ -178,3 +180,20 @@ shape = SubResource("ConvexPolygonShape3D_1dtlk")
 
 [node name="Timer" type="Timer" parent="." unique_id=326014359]
 one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=2018880074]
+stream = ExtResource("10_ih00t")
+volume_db = -6.0
+max_db = 0.0
+max_distance = 50.0
+panning_strength = 0.75
+bus = &"SFX_Out"
+
+[node name="SFX2" type="AudioStreamPlayer3D" parent="." unique_id=1408529651]
+stream = ExtResource("11_yu2ng")
+volume_db = -6.0
+max_db = 0.0
+pitch_scale = 0.7
+max_distance = 50.0
+panning_strength = 0.75
+bus = &"SFX_Out"

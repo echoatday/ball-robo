@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://dq7usw3coj1xm" path="res://textures/librequake/lq_tech/t_flat02.tres" id="4_ea0dq"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_ea0dq"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="7_a2gta"]
+[ext_resource type="AudioStream" uid="uid://bdpekhg30gpcc" path="res://audio/level_objects/openvault.ogg" id="8_4vcc7"]
 
 [sub_resource type="Curve3D" id="Curve3D_r37dj"]
 resource_local_to_scene = true
@@ -234,6 +235,14 @@ font_size = 250
 outline_size = 0
 autowrap_trim_flags = 0
 justification_flags = 131
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=250478247]
+stream = ExtResource("8_4vcc7")
+volume_db = 12.0
+unit_size = 20.0
+max_db = 4.0
+panning_strength = 0.75
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

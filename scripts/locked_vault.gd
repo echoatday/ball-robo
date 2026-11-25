@@ -53,9 +53,12 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
 	if Globals.unlock_vault:
+		$SFX.play()
 		$Timer.start()
 		opening = true
 
 
 func _on_area_3d_body_exited(_body: Node3D) -> void:
+	if Globals.unlock_vault:
+		$SFX.play()
 		opening = false

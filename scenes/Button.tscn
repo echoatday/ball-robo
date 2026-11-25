@@ -10,6 +10,8 @@
 [ext_resource type="Material" uid="uid://bk1gtwrva8vno" path="res://textures/librequake/lq_tech/plat_top3.tres" id="8_5dw0w"]
 [ext_resource type="Texture2D" uid="uid://cx68yuj58hhgm" path="res://textures/cockpit/targeting_underline.png" id="9_4sxsm"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="10_v48ca"]
+[ext_resource type="AudioStream" uid="uid://bwogye5qapmg6" path="res://audio/level_objects/button.ogg" id="11_v48ca"]
+[ext_resource type="AudioStream" uid="uid://jdmdk3fii74y" path="res://audio/toonmachine3.ogg" id="12_ut2l2"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cbk1h"]
 _surfaces = [{
@@ -218,5 +220,16 @@ light_indirect_energy = 0.0
 light_cull_mask = 4294967289
 omni_range = 6.0
 omni_attenuation = 0.0
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=2032249354]
+stream = ExtResource("11_v48ca")
+max_db = 5.0
+panning_strength = 0.75
+bus = &"SFX_Out"
+
+[node name="SFXin" type="AudioStreamPlayer" parent="." unique_id=1715994399]
+stream = ExtResource("12_ut2l2")
+mix_target = 2
+bus = &"SFX_In"
 
 [connection signal="body_entered" from="PickupTrigger" to="." method="_on_pickup_trigger_body_entered"]

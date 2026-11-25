@@ -14,19 +14,28 @@ var lifted := false
 func _ready() -> void:
 	if not constant:
 		timer.start(timer_length)
+	else:
+		$SFX.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	if active:
+		if $SFX.pitch_scale == 0.75:
+			$SFX.pitch_scale = 1.0
 		wind_visual.visible = true
 		wind_area_collision.set_disabled(false)
 		fan_blades.rotate_y(0.2)
 	else:
 		wind_visual.visible = false
 		if timer.get_time_left() > timer_length - 0.5 or timer.get_time_left() < 0.5:
+			if not $SFX.playing:
+				$SFX.pitch_scale = 0.75
+				$SFX.play()
 			wind_visual.visible = true
 			fan_blades.rotate_y(0.1)
+		elif $SFX.playing:
+			$SFX.stop()
 		wind_area_collision.set_disabled(true)
 	
 	wind_visual.get_active_material(0).uv1_offset += basis.y * 0.001

@@ -4,6 +4,7 @@ const power = 14
 
 
 func _on_top_area_body_entered(body: Node3D) -> void:
+	$SFX.play()
 	body.can_boost = true
 	body.can_spin = true
 	if body.velocity.y > -power:
@@ -13,6 +14,7 @@ func _on_top_area_body_entered(body: Node3D) -> void:
 
 
 func _on_bottom_area_body_entered(body: Node3D) -> void:
+	$SFX.play()
 	body.can_boost = true
 	body.can_spin = true
 	if body.velocity.y < power:

@@ -150,6 +150,8 @@ func _process(_delta: float) -> void:
 
 func _on_pickup_trigger_body_entered(_body: Node3D) -> void:
 	if not collected_state:
+		$SFX.play()
+		$SFXin.play()
 		match(Globals.item_locations[target_item]):
 			0:
 				Globals.unlock_door = true

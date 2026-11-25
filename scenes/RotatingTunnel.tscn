@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://cna0mme376ed8" path="res://textures/librequake/lq_tech/rw33b_flat.tres" id="6_pvvsn"]
 [ext_resource type="Material" uid="uid://crkiplncnbl6s" path="res://textures/librequake/lq_tech/rw33b_5.tres" id="7_yvjma"]
 [ext_resource type="Material" uid="uid://gt04q2sup77v" path="res://textures/librequake/lq_tech/aqmetl33.tres" id="8_ubu1g"]
+[ext_resource type="AudioStream" uid="uid://bn57duhi68qrw" path="res://audio/level_objects/rotator.ogg" id="10_0g553"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4hvtp"]
 _surfaces = [{
@@ -243,3 +244,13 @@ skeleton = NodePath("")
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="AnimatableGrate" unique_id=425085911]
 shape = SubResource("ConvexPolygonShape3D_2ea3u")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=624438237]
+stream = ExtResource("10_0g553")
+volume_db = 2.0
+max_db = 0.0
+autoplay = true
+max_distance = 50.0
+panning_strength = 0.75
+bus = &"SFX_Out"
+parameters/looping = true

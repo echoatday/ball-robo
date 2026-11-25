@@ -14,6 +14,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		_break_glass()
 
 func _break_glass() -> void:
+	$SFX.play()
 	$unbroken.visible = false
 	$broken.visible = true
 	$StaticBody3D/CollisionShape3D.set_deferred("disabled", true)

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b7qgv8wivc3hb" path="res://textures/librequake/lq_tech/fddoor01c.png" id="8_jpf53"]
 [ext_resource type="Texture2D" uid="uid://bvjy34ex46h5r" path="res://textures/librequake/lq_tech/aqf075.png" id="9_yykph"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="10_uqhl0"]
+[ext_resource type="AudioStream" uid="uid://b1cpohyh8s1qi" path="res://audio/level_objects/openiris.ogg" id="11_iwhhn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pnjx2"]
 _surfaces = [{
@@ -343,6 +344,15 @@ font_size = 250
 outline_size = 0
 autowrap_trim_flags = 0
 justification_flags = 131
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1124475011]
+stream = ExtResource("11_iwhhn")
+volume_db = 12.0
+unit_size = 20.0
+max_db = 6.0
+pitch_scale = 1.5
+panning_strength = 0.75
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

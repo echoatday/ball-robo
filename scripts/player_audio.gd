@@ -7,8 +7,19 @@ var hover_collider = null
 var looking_check := false
 var bouncing_check := false
 var light_start := false
+var held_item := Globals.holding_item
 
 func _process(delta: float) -> void:
+	if held_item != Globals.holding_item:
+		match Globals.holding_item:
+			1:
+				$GrabCube.play()
+				$ToonMachine3.play()
+			2:
+				$GrabBrain.play()
+				$ToonMachine3.play()
+		held_item = Globals.holding_item
+	
 	if array.play_sound:
 		if array.lights[array.sound_index].visible:
 			$Light.play()

@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://duxiee4ljvrh3" path="res://textures/librequake/lq_tech/t_tech02.tres" id="7_uw6xt"]
 [ext_resource type="Material" uid="uid://gmy7c7u78hyj" path="res://textures/librequake/lq_tech/t_wall6c.tres" id="9_cw5xb"]
 [ext_resource type="Material" uid="uid://b8sg6upkgrd8i" path="res://textures/librequake/lq_tech/t_trim1d.tres" id="9_m2sta"]
+[ext_resource type="AudioStream" uid="uid://b108bqc2oev3d" path="res://audio/level_objects/fan.ogg" id="11_dtgwx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mmt84"]
 _surfaces = [{
@@ -330,6 +331,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 mesh = SubResource("CylinderMesh_pnher")
 
 [node name="Timer" type="Timer" parent="." unique_id=479205634]
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=2103754918]
+stream = ExtResource("11_dtgwx")
+max_distance = 100.0
+panning_strength = 0.75
+bus = &"SFX_Out"
+parameters/looping = true
 
 [connection signal="body_entered" from="WindArea" to="." method="_on_wind_area_body_entered"]
 [connection signal="body_exited" from="WindArea" to="." method="_on_wind_area_body_exited"]

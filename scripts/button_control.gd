@@ -144,6 +144,8 @@ func _on_pickup_trigger_body_entered(body: Node3D) -> void:
 		speed_check = 24
 		player_velocity_y = -player_velocity_y
 	if player_velocity_y > speed_check or body.state_downboosting:
+		$SFX.play()
+		$SFXin.play()
 		match(Globals.item_locations[target_item]):
 			0:
 				Globals.unlock_door = true

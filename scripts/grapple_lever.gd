@@ -14,9 +14,13 @@ func _physics_process(_delta: float) -> void:
 	var distance_to_player = global_position.distance_to(Globals.player.global_position)
 	
 	if Globals.pipenetwork_state:
-		lever.rotation_degrees.x = 135
+		if lever.rotation_degrees.x == 45:
+			$SFX.play()
+			lever.rotation_degrees.x = 135
 	else:
-		lever.rotation_degrees.x = 45
+		if lever.rotation_degrees.x == 135:
+			$SFX.play()
+			lever.rotation_degrees.x = 45
 	
 	if raycast.is_colliding() and raycast.get_collider() == Globals.player:
 		targeting_box.position.z = -distance_to_player + 0.11

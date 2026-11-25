@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="7_o2xax"]
 [ext_resource type="Material" uid="uid://ntril8d376sc" path="res://textures/librequake/lq_tech/fddoor01.tres" id="7_phcsc"]
 [ext_resource type="Material" uid="uid://df568nmv8t1qk" path="res://textures/librequake/lq_tech/doortrak1.tres" id="8_252cl"]
+[ext_resource type="AudioStream" uid="uid://dcq18bw7g4qrp" path="res://audio/level_objects/openhatch.ogg" id="8_phcsc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lej4k"]
 _surfaces = [{
@@ -144,6 +145,14 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1813344230]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 shape = SubResource("BoxShape3D_o2xax")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1334815764]
+stream = ExtResource("8_phcsc")
+volume_db = 12.0
+unit_size = 20.0
+max_db = 6.0
+panning_strength = 0.75
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

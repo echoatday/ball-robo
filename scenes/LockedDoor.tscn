@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djpf1rego1s0u" path="res://textures/librequake/lq_tech/doortrak1.png" id="4_jeyh0"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_t0exp"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="6_xr2ep"]
+[ext_resource type="AudioStream" uid="uid://dm45bykltmh6o" path="res://audio/level_objects/opendoor.ogg" id="7_bsxro"]
 
 [sub_resource type="Curve3D" id="Curve3D_r37dj"]
 resource_local_to_scene = true
@@ -120,6 +121,14 @@ font_size = 250
 outline_size = 0
 autowrap_trim_flags = 0
 justification_flags = 131
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1306036793]
+stream = ExtResource("7_bsxro")
+volume_db = 12.0
+unit_size = 20.0
+max_db = 6.0
+panning_strength = 0.75
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

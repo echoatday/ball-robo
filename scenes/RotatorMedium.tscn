@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://jk0pgx5l6whe" path="res://textures/librequake/lq_tech/rw33b_4.tres" id="4_f0xx7"]
 [ext_resource type="Material" uid="uid://bc3pm15xm8hrq" path="res://textures/librequake/lq_tech/metalstrip_1.tres" id="5_5a55g"]
 [ext_resource type="Material" uid="uid://duxiee4ljvrh3" path="res://textures/librequake/lq_tech/t_tech02.tres" id="6_stxum"]
+[ext_resource type="AudioStream" uid="uid://bn57duhi68qrw" path="res://audio/level_objects/rotator.ogg" id="7_ik0qm"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8q8o3"]
 _surfaces = [{
@@ -204,3 +205,12 @@ shape = SubResource("ConvexPolygonShape3D_xk062")
 
 [node name="entity_0_brush_20_collision_shape" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1523684076]
 shape = SubResource("ConvexPolygonShape3D_domnp")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=594761787]
+stream = ExtResource("7_ik0qm")
+max_db = 0.0
+autoplay = true
+max_distance = 50.0
+panning_strength = 0.75
+bus = &"SFX_Out"
+parameters/looping = true

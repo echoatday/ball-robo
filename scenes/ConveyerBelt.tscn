@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cpxdx14yqfb12" path="res://textures/librequake/lq_tech/aqsupp01.png" id="2_ha3om"]
 [ext_resource type="Texture2D" uid="uid://dkpjcn8jm28e4" path="res://textures/librequake/lq_tech/aqtrim03.png" id="3_ha3om"]
 [ext_resource type="Texture2D" uid="uid://bmojxmglcr874" path="res://textures/librequake/lq_tech/aqrust10.png" id="4_nrfx1"]
+[ext_resource type="AudioStream" uid="uid://8680gadeps73" path="res://audio/wallscrape.ogg" id="5_nrfx1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrfx1"]
 resource_local_to_scene = true
@@ -77,3 +78,14 @@ skeleton = NodePath("")
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="." unique_id=432828280]
 shape = SubResource("ConvexPolygonShape3D_rrwlo")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1409970481]
+stream = ExtResource("5_nrfx1")
+volume_db = -4.0
+unit_size = 4.0
+max_db = 0.0
+pitch_scale = 16.0
+autoplay = true
+panning_strength = 0.75
+bus = &"SFX_Out"
+parameters/looping = true

@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://bhpx37d0y40ks" path="res://textures/librequake/lq_tech/rw33_5.tres" id="6_jli5l"]
 [ext_resource type="Material" uid="uid://c4a6ou442krg6" path="res://textures/librequake/lq_tech/aqpipe13.tres" id="7_16g1y"]
 [ext_resource type="Material" uid="uid://c8my4d21xiesb" path="res://textures/librequake/lq_tech/aqmetl30.tres" id="8_v1gyy"]
+[ext_resource type="AudioStream" uid="uid://bn57duhi68qrw" path="res://audio/level_objects/rotator.ogg" id="11_bcjxt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mtv7i"]
 _surfaces = [{
@@ -422,6 +423,18 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=281900187]
 shape = SubResource("CylinderShape3D_pnher")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=262561065]
+stream = ExtResource("11_bcjxt")
+volume_db = 8.0
+unit_size = 40.0
+max_db = 0.0
+pitch_scale = 0.7
+autoplay = true
+max_distance = 200.0
+panning_strength = 0.75
+bus = &"SFX_Out"
+parameters/looping = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

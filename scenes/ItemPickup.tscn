@@ -9,6 +9,8 @@
 [ext_resource type="Material" uid="uid://b511asbqw76p6" path="res://textures/librequake/lq_utility/black.tres" id="7_24n0n"]
 [ext_resource type="Texture2D" uid="uid://cx68yuj58hhgm" path="res://textures/cockpit/targeting_underline.png" id="8_w08pq"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="9_fewta"]
+[ext_resource type="AudioStream" uid="uid://bo5oiv6ubofjt" path="res://audio/level_objects/pickup.ogg" id="10_fewta"]
+[ext_resource type="AudioStream" uid="uid://jdmdk3fii74y" path="res://audio/toonmachine3.ogg" id="11_eqftb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iy5dr"]
 size = Vector3(8, 4, 8)
@@ -683,5 +685,16 @@ outline_size = 0
 horizontal_alignment = 0
 autowrap_trim_flags = 0
 justification_flags = 131
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1872198218]
+stream = ExtResource("10_fewta")
+max_db = 5.0
+panning_strength = 0.75
+bus = &"SFX_Out"
+
+[node name="SFXin" type="AudioStreamPlayer" parent="." unique_id=1655095559]
+stream = ExtResource("11_eqftb")
+mix_target = 2
+bus = &"SFX_In"
 
 [connection signal="body_entered" from="PickupTrigger" to="." method="_on_pickup_trigger_body_entered"]

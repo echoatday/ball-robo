@@ -11,6 +11,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$SFX.pitch_scale = clampf(0.8 + (speed * 0.01), 0.8, 1.2)
 	if not fan_on:
 		fan.queue_free()
 	if not grate_on:

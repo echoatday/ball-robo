@@ -15,11 +15,15 @@ func _physics_process(_delta: float) -> void:
 	
 	if model_open and model_closed and Globals.unlock_grapple:
 		if Globals.player.grapple_cast.is_colliding() and Globals.player.grapple_cast.get_collider(0) == collider or Globals.player.state_grappling:
-			model_open.visible = true
-			model_closed.visible = false
+			if not model_open.visible:
+				$SFX.play()
+				model_open.visible = true
+				model_closed.visible = false
 		else:
-			model_open.visible = false
-			model_closed.visible = true
+			if model_open.visible:
+				$SFX.play()
+				model_open.visible = false
+				model_closed.visible = true
 	
 	if raycast.is_colliding() and raycast.get_collider() == Globals.player:
 		targeting_box.position.z = -distance_to_player + 0.11

@@ -2,6 +2,7 @@ extends Node3D
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	$SFX.play()
 	body.velocity = -body.get_real_velocity()
 	if body.velocity.length() < 12:
 		body.velocity = body.velocity * 2

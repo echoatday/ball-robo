@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://gmy7c7u78hyj" path="res://textures/librequake/lq_tech/t_wall6c.tres" id="9_vyubs"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://textures/default_texture.png" id="10_lupwj"]
 [ext_resource type="Script" uid="uid://c8ojqikudi02n" path="res://scripts/ending_area.gd" id="10_v4sid"]
+[ext_resource type="AudioStream" uid="uid://b0j20ukic1irs" path="res://audio/level_objects/wind.ogg" id="11_kv6oh"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mmt84"]
 _surfaces = [{
@@ -344,6 +345,14 @@ script = ExtResource("10_v4sid")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndingArea" unique_id=988787176]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 shape = SubResource("CylinderShape3D_llwi4")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1339774421]
+stream = ExtResource("11_kv6oh")
+unit_size = 20.0
+autoplay = true
+panning_strength = 0.75
+bus = &"SFX_Out"
+parameters/looping = true
 
 [connection signal="body_entered" from="WindArea" to="." method="_on_wind_area_body_entered"]
 [connection signal="body_exited" from="WindArea" to="." method="_on_wind_area_body_exited"]

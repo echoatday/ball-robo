@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_ir64r"]
 [ext_resource type="Texture2D" uid="uid://jlwlxfidpcjn" path="res://textures/librequake/lq_conc/conc3_10.png" id="4_l4agw"]
 [ext_resource type="Material" uid="uid://bhpx37d0y40ks" path="res://textures/librequake/lq_tech/rw33_5.tres" id="5_oaikh"]
+[ext_resource type="AudioStream" uid="uid://f1gqrbo67r2m" path="res://audio/level_objects/bouncer.ogg" id="6_yrjmx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ps3k"]
 albedo_texture = ExtResource("4_l4agw")
@@ -71,6 +72,13 @@ shape = SubResource("CylinderShape3D_pnher")
 [node name="Timer" type="Timer" parent="." unique_id=1147641082]
 wait_time = 0.3
 one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=1848181989]
+stream = ExtResource("6_yrjmx")
+max_db = 5.0
+pitch_scale = 2.0
+panning_strength = 0.75
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

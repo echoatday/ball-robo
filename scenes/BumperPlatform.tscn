@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://ta0exkdorcp5" path="res://textures/librequake/lq_tech/t_wall05.tres" id="3_jw65h"]
 [ext_resource type="Material" uid="uid://b8sg6upkgrd8i" path="res://textures/librequake/lq_tech/t_trim1d.tres" id="4_xma4h"]
 [ext_resource type="Texture2D" uid="uid://cspay6y1x6uuw" path="res://textures/librequake/lq_conc/conc3_8.png" id="5_skef0"]
+[ext_resource type="AudioStream" uid="uid://f1gqrbo67r2m" path="res://audio/level_objects/bouncer.ogg" id="7_4xm02"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g4qd"]
 albedo_texture = ExtResource("5_skef0")
@@ -114,6 +115,13 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BottomArea" unique_id=1095760347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
 shape = SubResource("BoxShape3D_2ts4i")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=376763800]
+stream = ExtResource("7_4xm02")
+max_db = 5.0
+pitch_scale = 1.5
+panning_strength = 0.75
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="TopArea" to="." method="_on_top_area_body_entered"]
 [connection signal="body_entered" from="BottomArea" to="." method="_on_bottom_area_body_entered"]

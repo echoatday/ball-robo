@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://buqgbbnmpt47b" path="res://textures/librequake/lq_tech/rw33_4b_l.tres" id="7_p8spe"]
 [ext_resource type="Material" uid="uid://df568nmv8t1qk" path="res://textures/librequake/lq_tech/doortrak1.tres" id="8_p8spe"]
 [ext_resource type="Texture2D" uid="uid://bjdmynb6icrqu" path="res://textures/cockpit/targeting_box.png" id="9_2fijd"]
+[ext_resource type="AudioStream" uid="uid://c3vrsgyp12jla" path="res://audio/level_objects/target.ogg" id="11_xrngk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p8spe"]
 _surfaces = [{
@@ -335,3 +336,9 @@ pixel_size = 0.0001
 alpha_cut = 1
 render_priority = 1
 texture = ExtResource("9_2fijd")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=889327186]
+stream = ExtResource("11_xrngk")
+max_db = 5.0
+panning_strength = 0.75
+bus = &"SFX_Out"

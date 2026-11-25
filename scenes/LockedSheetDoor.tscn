@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://fwttlilg048d" path="res://textures/librequake/lq_tech/t_metalsheetb.tres" id="2_0cif3"]
 [ext_resource type="FontFile" uid="uid://6ufyqqecj6o1" path="res://ui/Share_Tech_Mono/ShareTechMono-Regular.ttf" id="5_1m6ip"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="5_al2cu"]
+[ext_resource type="AudioStream" uid="uid://tfv7fd6m1jhu" path="res://audio/level_objects/opensheet.ogg" id="6_4jvde"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="6_ifko6"]
 
 [sub_resource type="Curve3D" id="Curve3D_1m6ip"]
@@ -97,6 +98,14 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=91420402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 shape = SubResource("BoxShape3D_1m6ip")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=929009971]
+stream = ExtResource("6_4jvde")
+volume_db = 12.0
+unit_size = 20.0
+max_db = 6.0
+panning_strength = 0.75
+bus = &"SFX_Out"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
